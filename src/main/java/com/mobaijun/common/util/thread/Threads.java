@@ -1,7 +1,8 @@
-package com.mobaijun.common.thread;
+package com.mobaijun.common.util.thread;
 
 
-import lombok.extern.slf4j.Slf4j;
+import com.mobaijun.common.util.PrintUtils;
+import com.mobaijun.common.util.constant.ConstantThread;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -16,9 +17,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author MoBaiJun 2022/4/22 18:57
  */
-@Slf4j
 public class Threads {
-
     /**
      * sleep等待,单位为毫秒
      *
@@ -44,10 +43,10 @@ public class Threads {
         if (pool != null && !pool.isShutdown()) {
             pool.shutdown();
             try {
-                if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
+                if (!pool.awaitTermination(ConstantThread.TIME_OUT, TimeUnit.SECONDS)) {
                     pool.shutdownNow();
-                    if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
-                        log.info("Pool did not terminate");
+                    if (!pool.awaitTermination(ConstantThread.TIME_OUT, TimeUnit.SECONDS)) {
+                        PrintUtils.println("Pool did not terminate");
                     }
                 }
             } catch (InterruptedException ie) {
@@ -79,7 +78,7 @@ public class Threads {
             }
         }
         if (t != null) {
-            log.error(t.getMessage(), t);
+            PrintUtils.println(t.getMessage());
         }
     }
 }

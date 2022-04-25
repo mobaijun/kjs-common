@@ -1,8 +1,6 @@
 package com.mobaijun.common.exception;
 
 import com.mobaijun.common.util.http.HttpStatus;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -11,8 +9,6 @@ import lombok.Setter;
  *
  * @author MoBaiJun 2022/4/22 16:57
  */
-@Getter
-@Setter
 public class CustomException extends RuntimeException {
 
     /**

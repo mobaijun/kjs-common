@@ -36,7 +36,7 @@ public class PrintUtils {
         if (ObjectUtils.isEmpty(obj)) {
             return;
         }
-        System.out.print(obj);
+        System.out.println(obj);
     }
 
     /**

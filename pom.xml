@@ -53,7 +53,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <hutool-all.version>5.7.22</hutool-all.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
@@ -62,6 +62,10 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <influxdb.version>2.22</influxdb.version>
+        <sl4fj.version>2.0.0-alpha1</sl4fj.version>
+        <spring.version>5.3.18</spring.version>
+        <servlet.version>2.5</servlet.version>
     </properties>
 
     <dependencies>
@@ -98,15 +102,11 @@
             <version>${commons-lang3.version}</version>
         </dependency>
 
+        <!-- influxdb 依赖 不需要可以剔除 -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.0-alpha1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.18</version>
+            <groupId>org.influxdb</groupId>
+            <artifactId>influxdb-java</artifactId>
+            <version>${influxdb.version}</version>
         </dependency>
     </dependencies>
 

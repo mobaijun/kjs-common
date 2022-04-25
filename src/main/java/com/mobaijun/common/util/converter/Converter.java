@@ -1,6 +1,8 @@
-package com.mobaijun.common.util.text;
+package com.mobaijun.common.util.converter;
 
+import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.text.CharsetKit;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -11,13 +13,12 @@ import java.util.Set;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
- * ClassName: StrConvert
- * 类描述： 字符串转换器
+ * ClassName: Converter
+ * 类描述： 转换器
  *
- * @author MoBaiJun 2022/4/22 18:49
+ * @author MoBaiJun 2022/4/25 15:25
  */
-public class StrConvert {
-
+public class Converter {
     /**
      * 转换为字符串<br>
      * 如果给定的值为null，或者转换失败，返回默认值<br>
@@ -59,7 +60,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Character toChar(Object value, Character defaultValue) {
-        if (null == value) {
+        if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Character) {
@@ -92,7 +93,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Byte toByte(Object value, Byte defaultValue) {
-        if (value == null) {
+        if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Byte) {
@@ -134,7 +135,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Short toShort(Object value, Short defaultValue) {
-        if (value == null) {
+        if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Short) {
@@ -176,7 +177,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Number toNumber(Object value, Number defaultValue) {
-        if (value == null) {
+        if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Number) {
@@ -215,7 +216,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Integer toInt(Object value, Integer defaultValue) {
-        if (value == null) {
+        if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Integer) {
@@ -245,6 +246,26 @@ public class StrConvert {
      */
     public static Integer toInt(Object value) {
         return toInt(value, null);
+    }
+
+    /**
+     * 转换为Integer数组<br>
+     *
+     * @param str 被转换的值
+     * @return 结果
+     */
+    public static Integer[] toIntArray(String str) {
+        return toIntArray(",", str);
+    }
+
+    /**
+     * 转换为Long数组<br>
+     *
+     * @param str 被转换的值
+     * @return 结果
+     */
+    public static Long[] toLongArray(String str) {
+        return toLongArray(",", str);
     }
 
     /**
@@ -459,12 +480,17 @@ public class StrConvert {
         valueStr = valueStr.trim().toLowerCase();
         switch (valueStr) {
             case "true":
-            case "yes":
-            case "ok":
-            case "1":
                 return true;
             case "false":
+                return false;
+            case "yes":
+                return true;
+            case "ok":
+                return true;
             case "no":
+                return false;
+            case "1":
+                return true;
             case "0":
                 return false;
             default:
@@ -647,10 +673,14 @@ public class StrConvert {
      * @return 字符串
      */
     public static String str(Object obj, Charset charset) {
-        if (null == obj) {
+        if (ObjectUtils.isEmpty(obj)) {
             return null;
         }
 
+        return isObj(obj, charset);
+    }
+
+    private static String isObj(Object obj, Charset charset) {
         if (obj instanceof String) {
             return (String) obj;
         } else if (obj instanceof byte[] || obj instanceof Byte[]) {
@@ -727,8 +757,8 @@ public class StrConvert {
      * @param input String.
      * @return 全角字符串.
      */
-    public static String toSbc(String input) {
-        return toSbc(input, null);
+    public static String toSBC(String input) {
+        return toSBC(input, null);
     }
 
     /**
@@ -738,21 +768,46 @@ public class StrConvert {
      * @param notConvertSet 不替换的字符集合
      * @return 全角字符串.
      */
-    public static String toSbc(String input, Set<Character> notConvertSet) {
+    public static String toSBC(String input, Set<Character> notConvertSet) {
         char[] c = input.toCharArray();
-        for (int i = 0; i < c.length; i++) {
-            if (null != notConvertSet && notConvertSet.contains(c[i])) {
+        forToChar(c, notConvertSet);
+        return new String(c);
+    }
+
+    /**
+     * 全角转半角
+     *
+     * @param input String.
+     * @return 半角字符串
+     */
+    public static String toDBC(String input) {
+        return toDBC(input, null);
+    }
+
+    private static void forToChar(char[] chars, Set<Character> notConvertSet) {
+        for (int i = 0; i < chars.length; i++) {
+            if (null != notConvertSet && notConvertSet.contains(chars[i])) {
                 // 跳过不替换的字符
                 continue;
             }
-
-            if (c[i] == ' ') {
-                c[i] = '\u3000';
-            } else if (c[i] < '\177') {
-                c[i] = (char) (c[i] + 65248);
-
+            if (chars[i] == ' ') {
+                chars[i] = '\u3000';
+            } else if (chars[i] < '\177') {
+                chars[i] = (char) (chars[i] + 65248);
             }
         }
+    }
+
+    /**
+     * 替换全角为半角
+     *
+     * @param text          文本
+     * @param notConvertSet 不替换的字符集合
+     * @return 替换后的字符
+     */
+    public static String toDBC(String text, Set<Character> notConvertSet) {
+        char[] c = text.toCharArray();
+        forToChar(c, notConvertSet);
         return new String(c);
     }
 
@@ -765,9 +820,9 @@ public class StrConvert {
     public static String digitUppercase(double n) {
         String[] fraction = {"角", "分"};
         String[] digit = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
-        final String[][] unit = {{"元", "万", "亿"}, {"", "拾", "佰", "仟"}};
+        String[][] unit = {{"元", "万", "亿"}, {"", "拾", "佰", "仟"}};
 
-        final String head = n < 0 ? "负" : "";
+        String head = n < 0 ? "负" : "";
         n = Math.abs(n);
 
         String s = "";
