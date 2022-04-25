@@ -5,7 +5,7 @@ package com.mobaijun.common.util;
  * ClassName: ToolUtil
  * 类描述： 高频方法集合类
  *
- * @Author MoBaiJun 2022/4/22 18:59
+ * @author MoBaiJun 2022/4/22 18:59
  */
 public class ToolUtil {
 }

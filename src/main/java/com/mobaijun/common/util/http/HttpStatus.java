@@ -5,7 +5,7 @@ package com.mobaijun.common.util.http;
  * ClassName: HttpStatus
  * 类描述： Http状态码
  *
- * @Author MoBaiJun 2022/4/22 16:53
+ * @author MoBaiJun 2022/4/22 16:53
  */
 public class HttpStatus {
 

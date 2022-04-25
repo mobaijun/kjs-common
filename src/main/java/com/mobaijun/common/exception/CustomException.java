@@ -9,7 +9,7 @@ import lombok.Setter;
  * ClassName: CustomException
  * 类描述： 自定义异常信息
  *
- * @Author MoBaiJun 2022/4/22 16:57
+ * @author MoBaiJun 2022/4/22 16:57
  */
 @Getter
 @Setter

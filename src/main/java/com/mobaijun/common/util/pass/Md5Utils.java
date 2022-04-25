@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
  * ClassName: Md5Utils
  * 类描述： md5工具类
  *
- * @Author MoBaiJun 2022/4/22 18:55
+ * @author MoBaiJun 2022/4/22 18:55
  */
 public class Md5Utils {
 

@@ -1,4 +1,4 @@
-package com.mobaijun.common.core;
+package com.mobaijun.common.controller;
 
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.util.ObjectUtils;
@@ -9,7 +9,7 @@ import com.mobaijun.common.util.StringUtils;
  * ClassName: BaseController
  * 类描述： 通用数据处理
  *
- * @Author MoBaiJun 2022/4/22 16:54
+ * @author MoBaiJun 2022/4/22 16:54
  */
 public class BaseController {
 

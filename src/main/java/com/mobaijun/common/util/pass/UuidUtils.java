@@ -5,7 +5,7 @@ package com.mobaijun.common.util.pass;
  * ClassName: UuidUtils
  * 类描述： UUID工具类
  *
- * @Author MoBaiJun 2022/4/22 18:56
+ * @author MoBaiJun 2022/4/22 18:56
  */
 public class UuidUtils {
 }

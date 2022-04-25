@@ -5,7 +5,7 @@ package com.mobaijun.common.util.file;
  * ClassName: FileUtils
  * 类描述： 文件工具类
  *
- * @Author MoBaiJun 2022/4/22 17:06
+ * @author MoBaiJun 2022/4/22 17:06
  */
 public class FileUtils {
 }

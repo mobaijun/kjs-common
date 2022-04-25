@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
  * ClassName: CharsetKit
  * 类描述： 字符集工具类
  *
- * @Author MoBaiJun 2022/4/22 18:47
+ * @author MoBaiJun 2022/4/22 18:47
  */
 public class CharsetKit {
 

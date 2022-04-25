@@ -8,7 +8,7 @@ import lombok.Getter;
  * EnumName: BaseResultCode
  * 枚举描述： 返回状态码
  *
- * @Author MoBaiJun 2022/4/22 17:30
+ * @author MoBaiJun 2022/4/22 17:30
  */
 @Getter
 @AllArgsConstructor

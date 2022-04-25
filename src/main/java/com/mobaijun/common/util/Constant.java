@@ -5,7 +5,7 @@ package com.mobaijun.common.util;
  * ClassName: Constant
  * 类描述： 通用常量
  *
- * @Author MoBaiJun 2022/4/22 18:17
+ * @author MoBaiJun 2022/4/22 18:17
  */
 public class Constant {
 

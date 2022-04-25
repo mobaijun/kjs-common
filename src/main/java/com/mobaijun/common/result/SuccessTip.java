@@ -11,7 +11,7 @@ import java.io.Serializable;
  * ClassName: SuccessTip
  * 类描述： 成功提示
  *
- * @Author MoBaiJun 2022/4/22 17:25
+ * @author MoBaiJun 2022/4/22 17:25
  */
 @Getter
 @Setter

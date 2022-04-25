@@ -8,7 +8,7 @@ import lombok.Setter;
  * ClassName: Tip
  * 类描述： 返回给前台的提示（最终转化为json形式）
  *
- * @Author MoBaiJun 2022/4/22 17:22
+ * @author MoBaiJun 2022/4/22 17:22
  */
 @Getter
 @Setter

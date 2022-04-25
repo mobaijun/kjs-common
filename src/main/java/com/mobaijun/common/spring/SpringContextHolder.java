@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * ClassName: SpringContextHolder
  * 类描述： spring工具类 方便在非spring管理环境中获取bean
  *
- * @Author MoBaiJun 2022/4/22 18:12
+ * @author MoBaiJun 2022/4/22 18:12
  */
 @Component
 public class SpringContextHolder implements ApplicationContextAware, DisposableBean {

@@ -5,7 +5,7 @@ package com.mobaijun.common.util.sql;
  * ClassName: SqlUtils
  * 类描述： sql 工具类
  *
- * @Author MoBaiJun 2022/4/22 17:06
+ * @author MoBaiJun 2022/4/22 17:06
  */
 public class SqlUtils {
 }

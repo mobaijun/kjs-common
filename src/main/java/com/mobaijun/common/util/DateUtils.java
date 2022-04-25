@@ -5,7 +5,7 @@ package com.mobaijun.common.util;
  * ClassName: DateUtils
  * 类描述： 日期工具类
  *
- * @Author MoBaiJun 2022/4/22 18:51
+ * @author MoBaiJun 2022/4/22 18:51
  */
 public class DateUtils {
 

@@ -10,7 +10,7 @@ import java.util.Objects;
  * ClassName: MavenClear
  * 类描述： maven 清理工具类
  *
- * @Author MoBaiJun 2022/4/22 18:14
+ * @author MoBaiJun 2022/4/22 18:14
  */
 public class MavenUtils {
 

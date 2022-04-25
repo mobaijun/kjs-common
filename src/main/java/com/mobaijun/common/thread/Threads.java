@@ -1,5 +1,6 @@
 package com.mobaijun.common.thread;
 
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CancellationException;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  * ClassName: Threads
  * 类描述： 线程工具类
  *
- * @Author MoBaiJun 2022/4/22 18:57
+ * @author MoBaiJun 2022/4/22 18:57
  */
 @Slf4j
 public class Threads {

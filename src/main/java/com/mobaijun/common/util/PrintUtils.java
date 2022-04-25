@@ -5,14 +5,13 @@ import java.util.Map;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
- * Author: https://www.mobaijun.com
  * Date: 2022/2/25 17:37
  * ClassName:PrintUtil
  * 类描述： 打印工具类
  * https://blog.51cto.com/u_15080022/3462878
  * 解决【java: 非法字符: '\ufeff'】非法问题
  *
- * @author mobai
+ * @author mobaijun
  */
 public class PrintUtils {
 

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * ClassName: ErrorTip
  * 类描述： 异常提示
  *
- * @Author MoBaiJun 2022/4/22 17:24
+ * @author MoBaiJun 2022/4/22 17:24
  */
 @Getter
 @Setter

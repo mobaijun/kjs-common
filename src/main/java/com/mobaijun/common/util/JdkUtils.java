@@ -5,7 +5,7 @@ package com.mobaijun.common.util;
  * ClassName: JdkUtils
  * 类描述： Jdk 工具类
  *
- * @Author MoBaiJun 2022/4/22 18:32
+ * @author MoBaiJun 2022/4/22 18:32
  */
 public class JdkUtils {
 
