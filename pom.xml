@@ -62,10 +62,6 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
-        <influxdb.version>2.22</influxdb.version>
-        <sl4fj.version>2.0.0-alpha1</sl4fj.version>
-        <spring.version>5.3.18</spring.version>
-        <servlet.version>2.5</servlet.version>
     </properties>
 
     <dependencies>
@@ -100,13 +96,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
-        </dependency>
-
-        <!-- influxdb 依赖 不需要可以剔除 -->
-        <dependency>
-            <groupId>org.influxdb</groupId>
-            <artifactId>influxdb-java</artifactId>
-            <version>${influxdb.version}</version>
         </dependency>
     </dependencies>
 
