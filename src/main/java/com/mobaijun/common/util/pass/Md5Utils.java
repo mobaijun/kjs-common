@@ -13,6 +13,12 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Md5Utils {
 
+    /**
+     * MD5加密
+     *
+     * @param str 字符串
+     * @return String
+     */
     public static String sign(String str) {
         MessageDigest md5;
         String sgin = "";
@@ -29,6 +35,9 @@ public class Md5Utils {
 
     /**
      * 将字节数组转换为十六进制字符串
+     *
+     * @param byteArray byteArray
+     * @return String
      */
     public static String byteToStr(byte[] byteArray) {
         StringBuilder strDigest = new StringBuilder();
@@ -40,6 +49,9 @@ public class Md5Utils {
 
     /**
      * 将字节转换为十六进制字符串
+     *
+     * @param bytes bytes
+     * @return String
      */
     public static String byteToHexStr(byte bytes) {
         char[] digit = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};

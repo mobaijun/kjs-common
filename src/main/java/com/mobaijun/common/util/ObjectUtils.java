@@ -14,6 +14,7 @@ import java.util.Optional;
  * @author MoBaiJun 2022/4/22 16:17
  */
 public class ObjectUtils {
+
     /**
      * * 判断一个对象是否为空
      *
@@ -46,6 +47,9 @@ public class ObjectUtils {
 
     /**
      * 判断对象是否为 null
+     *
+     * @param obj obj
+     * @return true null false !null
      */
     public static boolean isEmpty(Object obj) {
         if (obj == null) {
@@ -71,6 +75,9 @@ public class ObjectUtils {
 
     /**
      * 判断对象数组是否为 null
+     *
+     * @param array array
+     * @return true：空 false：非空
      */
     public static boolean isEmpty(Object[] array) {
         return (array == null || array.length == 0);

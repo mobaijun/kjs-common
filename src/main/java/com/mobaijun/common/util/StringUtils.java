@@ -18,7 +18,9 @@ public class StringUtils {
     /**
      * 获取参数不为空值
      *
-     * @param value defaultValue 要判断的value
+     * @param value        要判断的value
+     * @param defaultValue 要判断的value
+     * @param <T>
      * @return value 返回值
      */
     public static <T> T isEmpty(T value, T defaultValue) {
@@ -49,7 +51,7 @@ public class StringUtils {
      * * 判断一个对象数组是否为空
      *
      * @param objects 要判断的对象数组
-     *                * @return true：为空 false：非空
+     * @return true：为空 false：非空
      */
     public static boolean isEmpty(Object[] objects) {
         return ObjectUtils.isNull(objects) || (objects.length == 0);
@@ -109,6 +111,9 @@ public class StringUtils {
 
     /**
      * 去空格
+     *
+     * @param str 要去除字符串
+     * @return 取出后结果
      */
     public static String trim(String str) {
         return (str == null ? "" : str.trim());
@@ -180,6 +185,9 @@ public class StringUtils {
 
     /**
      * 下划线转驼峰命名
+     *
+     * @param str 字符串
+     * @return 转换后字符串
      */
     public static String toUnderScoreCase(String str) {
         if (str == null) {
@@ -267,6 +275,11 @@ public class StringUtils {
 
     /**
      * 去除两符号间内容
+     *
+     * @param context context
+     * @param left    left
+     * @param right   right
+     * @return String
      */
     public static String clearBracket(String context, char left, char right) {
         int head = context.indexOf(left);
@@ -296,6 +309,9 @@ public class StringUtils {
 
     /**
      * 判断字符串数组是否为 null
+     *
+     * @param str str
+     * @return boolean
      */
     public static boolean notEmpty(String[] str) {
         for (String strIndex : str) {

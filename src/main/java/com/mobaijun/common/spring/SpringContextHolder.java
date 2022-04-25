@@ -19,7 +19,9 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     private static ApplicationContext applicationContext;
 
     /**
-     * 取得存储在静态变量中的ApplicationContext.
+     * 取得存储在静态变量中的ApplicationContext
+     *
+     * @return ApplicationContext
      */
     public static ApplicationContext getApplicationContext() {
         assertApplicationContext();
@@ -28,6 +30,9 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
     /**
      * 实现ApplicationContextAware接口, 注入Context到静态变量中.
+     *
+     * @param applicationContext applicationContext
+     * @throws BeansException BeansException
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -36,6 +41,10 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
     /**
      * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
+     *
+     * @param beanName beanName
+     * @param <T>      <T> T
+     * @return <T> T
      */
     public static <T> T getBean(String beanName) {
         assertApplicationContext();
@@ -44,6 +53,10 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
 
     /**
      * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
+     *
+     * @param requiredType requiredType
+     * @param <T>          T
+     * @return <T> T
      */
     public static <T> T getBean(Class<T> requiredType) {
         assertApplicationContext();

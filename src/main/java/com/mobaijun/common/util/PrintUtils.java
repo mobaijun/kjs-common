@@ -17,6 +17,8 @@ public class PrintUtils {
 
     /**
      * 不换行输出
+     *
+     * @param obj obj
      */
     public static void print(Object obj) {
         if (ObjectUtils.isEmpty(obj)) {
@@ -27,6 +29,8 @@ public class PrintUtils {
 
     /**
      * 换行打印输出
+     *
+     * @param obj obj
      */
     public static void println(Object obj) {
         if (ObjectUtils.isEmpty(obj)) {
@@ -37,6 +41,8 @@ public class PrintUtils {
 
     /**
      * 单列集合打印
+     *
+     * @param collection collection
      */
     public static void println(Collection<Object> collection) {
         if (CollectionUtils.isEmpty(collection)) {
@@ -54,6 +60,9 @@ public class PrintUtils {
 
     /**
      * 格式化输出
+     *
+     * @param format format
+     * @param obj    obj
      */
     public static void printf(String format, Object obj) {
         if (ObjectUtils.isEmpty(obj)) {
@@ -64,6 +73,8 @@ public class PrintUtils {
 
     /**
      * println String map key and value
+     *
+     * @param map map
      */
     public static void println(Map<String, String> map) {
         if (map.size() == 0) {
@@ -74,6 +85,8 @@ public class PrintUtils {
 
     /**
      * println String map values
+     *
+     * @param map map
      */
     public static void mapValue(Map<String, String> map) {
         if (map.size() == 0) {
@@ -84,6 +97,8 @@ public class PrintUtils {
 
     /**
      * println String map key
+     *
+     * @param map map
      */
     public static void mapKey(Map<String, String> map) {
         if (map.size() == 0) {

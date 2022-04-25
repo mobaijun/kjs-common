@@ -16,6 +16,9 @@ public class CollectionUtils {
 
     /**
      * 判断单列集合是否为 null
+     *
+     * @param collection collection
+     * @return boolean
      */
     public static <T> boolean isEmpty(Collection<T> collection) {
         return collection == null;
@@ -23,17 +26,22 @@ public class CollectionUtils {
 
     /**
      * 判断 map 是否为 null
+     *
+     * @param <K>  K
+     * @param <V>  V
+     * @param data data
+     * @return boolean
      */
     public static <K, V> boolean isEmpty(Map<K, V> data) {
         return data == null;
     }
 
-
     /**
-     * 判断list是否weinull
+     * 判断list是否为 null
      *
      * @param data 集合对象
      * @param <T>  泛型参数
+     * @return boolean
      */
     public static <T> boolean isNull(List<T> data) {
         return isEmpty(data);
@@ -44,6 +52,7 @@ public class CollectionUtils {
      *
      * @param data 集合对象
      * @param <T>  泛型参数
+     * @return boolean
      */
     public static <T> boolean isNull(Set<T> data) {
         return isEmpty(data);
@@ -53,6 +62,7 @@ public class CollectionUtils {
      * 判断 map 是否为 null
      *
      * @param data 集合对象
+     * @return boolean
      */
     public static <K, V> boolean isNull(Map<K, V> data) {
         return isEmpty(data);

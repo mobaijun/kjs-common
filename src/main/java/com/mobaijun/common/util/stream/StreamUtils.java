@@ -21,6 +21,9 @@ public class StreamUtils {
      * 映射
      *
      * @param data 不能为空
+     * @param fun  fun
+     * @param <T>  <T, R>
+     * @param <R>  <T, R>
      * @return data为空抛出异常IllegalArgumentException
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
@@ -31,8 +34,9 @@ public class StreamUtils {
     }
 
     /**
-     * 过滤
-     *
+     * @param data data
+     * @param pre  pre
+     * @param <T>  List<T>
      * @return data为空返回data
      */
     public static <T> List<T> filter(List<T> data, Predicate<T> pre) {
@@ -45,6 +49,9 @@ public class StreamUtils {
     /**
      * 排序
      *
+     * @param data       data
+     * @param comparator comparator
+     * @param <T>        <T> List<T>
      * @return data为空返回data
      */
     public static <T> List<T> sorted(List<T> data, Comparator<T> comparator) {
@@ -55,8 +62,8 @@ public class StreamUtils {
     }
 
     /**
-     * 去重
-     *
+     * @param data data
+     * @param <T>  <T> List<T>
      * @return data为空返回data
      */
     public static <T> List<T> distinct(List<T> data) {
@@ -84,12 +91,8 @@ public class StreamUtils {
     /**
      * 将list进行join操作
      *
-     * @return 返回join之后的字符串, data为空返回null
-     */
-    /**
-     * 将list进行join操作
-     * @param data
-     * @param join
+     * @param data data
+     * @param join join
      * @return 返回join之后的字符串, data为空返回null
      */
     public static String join(List<String> data, String join) {

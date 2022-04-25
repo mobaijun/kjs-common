@@ -15,6 +15,9 @@ public class BaseController {
 
     /**
      * 参数是否为空的校验
+     *
+     * @param object  对象
+     * @param message 消息
      */
     public void assertNotNull(Object object, String message) {
         if (ObjectUtils.isEmpty(object)) {
@@ -24,6 +27,9 @@ public class BaseController {
 
     /**
      * 参数是否为空的校验
+     *
+     * @param str     字符串
+     * @param message 消息
      */
     public void assertNotEmpty(String str, String message) {
         if (StringUtils.isEmpty(str)) {
@@ -33,6 +39,9 @@ public class BaseController {
 
     /**
      * 判断条件是否符合
+     *
+     * @param condition 判断条件
+     * @param message   消息
      */
     public void assertTrue(boolean condition, String message) {
         if (!condition) {
