@@ -1,7 +1,5 @@
 package com.mobaijun.common.exception;
 
-import com.mobaijun.common.util.http.HttpStatus;
-
 /**
  * Software：IntelliJ IDEA 2021.3.2
  * ClassName: CustomException
@@ -9,7 +7,7 @@ import com.mobaijun.common.util.http.HttpStatus;
  *
  * @author MoBaiJun 2022/4/22 16:57
  */
-public class CustomException extends RuntimeException {
+public class CustomException extends BaseException {
 
     /**
      * 状态码
@@ -27,6 +25,6 @@ public class CustomException extends RuntimeException {
 
     public CustomException(int code, String message) {
         this.message = message;
-        this.code = HttpStatus.ERROR;
+        this.code = code;
     }
 }
