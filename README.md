@@ -1,7 +1,7 @@
 # ksj-core
 包含打印，日期，字符串，http等工具类集合，集自己常用的工具类
 
-mvn clean install javadoc:jar source:jar deploy
+mvn clean deploy -DskipTests -P sonatype-release
 
 如需使用，引入如下依赖即可
 ```
