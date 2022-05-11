@@ -17,13 +17,12 @@ import java.io.OutputStream;
  */
 public class FileUtils {
 
-
-
     /**
      * 输出指定文件的byte数组
      *
      * @param filePath 文件路径
      * @param os       输出流
+     * @throws IOException IOException
      */
     public static void writeBytes(String filePath, OutputStream os) throws IOException {
         FileInputStream fis = null;

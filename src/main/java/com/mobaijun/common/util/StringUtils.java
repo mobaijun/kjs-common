@@ -20,7 +20,7 @@ public class StringUtils {
      *
      * @param value        要判断的value
      * @param defaultValue 要判断的value
-     * @param <T>
+     * @param <T> 未定义
      * @return value 返回值
      */
     public static <T> T isEmpty(T value, T defaultValue) {
@@ -244,7 +244,8 @@ public class StringUtils {
     }
 
     /**
-     * 将下划线大写方式命名的字符串转换为驼峰式。如果转换前的下划线大写方式命名的字符串为空，则返回空字符串。 例如：HELLO_WORLD->HelloWorld
+     * 将下划线大写方式命名的字符串转换为驼峰式。如果转换前的下划线大写方式命名的字符串为空，则返回空字符串。
+     * 例如：HELLO_WORLD--HelloWorld
      *
      * @param name 转换前的下划线大写方式命名的字符串
      * @return 转换后的驼峰式命名的字符串

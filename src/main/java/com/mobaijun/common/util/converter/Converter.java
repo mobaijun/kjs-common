@@ -269,10 +269,10 @@ public class Converter {
     }
 
     /**
-     * 转换为Integer数组<br>
+     * 转换为Integer数组
      *
      * @param split 分隔符
-     * @param split 被转换的值
+     * @param str   被转换的值
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
@@ -319,10 +319,10 @@ public class Converter {
     }
 
     /**
-     * 转换为String数组<br>
+     * 转换为String数组
      *
      * @param split 分隔符
-     * @param split 被转换的值
+     * @param str   被转换的值
      * @return 结果
      */
     public static String[] toStrArray(String split, String str) {
@@ -330,8 +330,8 @@ public class Converter {
     }
 
     /**
-     * 转换为long<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为long
+     * 如果给定的值为空，或者转换失败，返回默认值
      * 转换失败不会报错
      *
      * @param value        被转换的值
@@ -511,12 +511,13 @@ public class Converter {
     }
 
     /**
-     * 转换为Enum对象<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为Enum对象
+     * 如果给定的值为空，或者转换失败，返回默认值
      *
      * @param clazz        Enum的Class
      * @param value        值
      * @param defaultValue 默认值
+     * @param <E>          未定义
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value, E defaultValue) {

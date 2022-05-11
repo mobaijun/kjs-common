@@ -116,7 +116,7 @@
             <id>ossrh</id>
             <build>
                 <plugins>
-                    <!-- resources plugin，Maven 资源插件 -->
+                    <!--配置生成源码包-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -125,7 +125,7 @@
                             <execution>
                                 <id>attach-sources</id>
                                 <goals>
-                                    <goal>jar-no-fork</goal>
+                                    <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>

@@ -22,8 +22,8 @@ public class StreamUtils {
      *
      * @param data 不能为空
      * @param fun  fun
-     * @param <T>  <T, R>
-     * @param <R>  <T, R>
+     * @param <T>  未定义
+     * @param <R>  未定义
      * @return data为空抛出异常IllegalArgumentException
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
@@ -38,7 +38,7 @@ public class StreamUtils {
      *
      * @param data data
      * @param pre  pre
-     * @param <T>  List<T>
+     * @param <T>  List
      * @return data为空返回data
      */
     public static <T> List<T> filter(List<T> data, Predicate<T> pre) {
@@ -53,7 +53,7 @@ public class StreamUtils {
      *
      * @param data       data
      * @param comparator comparator
-     * @param <T>        <T> List<T>
+     * @param <T>        List
      * @return data为空返回data
      */
     public static <T> List<T> sorted(List<T> data, Comparator<T> comparator) {
@@ -67,7 +67,7 @@ public class StreamUtils {
      * 去重
      *
      * @param data data
-     * @param <T>  <T> List<T>
+     * @param <T>  List
      * @return data为空返回data
      */
     public static <T> List<T> distinct(List<T> data) {
@@ -82,8 +82,8 @@ public class StreamUtils {
      *
      * @param data data
      * @param pre  pre
-     * @param <T>  <T>
-     * @return <T>
+     * @param <T>  未定义
+     * @return boolean
      */
     public static <T> boolean anyMatch(List<T> data, Predicate<T> pre) {
         if (CollectionUtils.isNull(data)) {

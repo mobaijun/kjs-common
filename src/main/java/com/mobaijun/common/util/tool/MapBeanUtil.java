@@ -18,6 +18,7 @@ public class MapBeanUtil {
      * 实体对象转成Map
      *
      * @param obj 对象
+     * @return Map String, Object
      */
     public static Map<String, Object> objectTwoMap(Object obj) {
         Map<String, Object> map = new HashMap<>(1000);
@@ -42,6 +43,7 @@ public class MapBeanUtil {
      *
      * @param map   实体对象包含属性
      * @param clazz 实体对象类型
+     * @return Object
      */
     public static Object mapTwoObject(Map<String, Object> map, Class<?> clazz) {
         if (map == null) {

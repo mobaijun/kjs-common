@@ -248,10 +248,10 @@ public class StrConvert {
     }
 
     /**
-     * 转换为Integer数组<br>
+     * 转换为Integer数组
      *
      * @param split 分隔符
-     * @param split 被转换的值
+     * @param str   被转换的值
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
@@ -298,10 +298,10 @@ public class StrConvert {
     }
 
     /**
-     * 转换为String数组<br>
+     * 转换为String数组
      *
      * @param split 分隔符
-     * @param split 被转换的值
+     * @param str   被转换的值
      * @return 结果
      */
     public static String[] toStrArray(String split, String str) {
@@ -340,8 +340,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为long<br>
-     * 如果给定的值为<code>null</code>，或者转换失败，返回默认值<code>null</code><br>
+     * 转换为long
+     * 如果给定的值为null，或者转换失败，返回默认值null
      * 转换失败不会报错
      *
      * @param value 被转换的值
@@ -352,8 +352,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为double<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为double
+     * 如果给定的值为空，或者转换失败，返回默认值
      * 转换失败不会报错
      *
      * @param value        被转换的值
@@ -383,8 +383,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为double<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<code>null</code><br>
+     * 转换为double
+     * 如果给定的值为空，或者转换失败，返回默认值null
      * 转换失败不会报错
      *
      * @param value 被转换的值
@@ -395,8 +395,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为Float<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为Float
+     * 如果给定的值为空，或者转换失败，返回默认值
      * 转换失败不会报错
      *
      * @param value        被转换的值
@@ -425,8 +425,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为Float<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<code>null</code><br>
+     * 转换为Float
+     * 如果给定的值为空，或者转换失败，返回默认值 null
      * 转换失败不会报错
      *
      * @param value 被转换的值
@@ -437,8 +437,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为boolean<br>
-     * String支持的值为：true、false、yes、ok、no，1,0 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为boolean
+     * String支持的值为：true、false、yes、ok、no，1,0 如果给定的值为空，或者转换失败，返回默认值
      * 转换失败不会报错
      *
      * @param value        被转换的值
@@ -473,8 +473,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为boolean<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<code>null</code><br>
+     * 转换为boolean
+     * 如果给定的值为空，或者转换失败，返回默认值null
      * 转换失败不会报错
      *
      * @param value 被转换的值
@@ -485,8 +485,8 @@ public class StrConvert {
     }
 
     /**
-     * 转换为Enum对象<br>
-     * 如果给定的值为空，或者转换失败，返回默认值<br>
+     * 转换为Enum对象
+     * 如果给定的值为空，或者转换失败，返回默认值
      *
      * @param clazz        Enum的Class
      * @param value        值
