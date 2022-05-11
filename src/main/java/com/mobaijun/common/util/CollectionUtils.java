@@ -18,7 +18,7 @@ public class CollectionUtils {
      * 判断单列集合是否为 null
      *
      * @param collection collection
-     * @param <T>        <T>
+     * @param <T>        未定义
      * @return boolean
      */
     public static <T> boolean isEmpty(Collection<T> collection) {
@@ -28,9 +28,9 @@ public class CollectionUtils {
     /**
      * 判断 map 是否为 null
      *
-     * @param <K>  K
-     * @param <V>  V
-     * @param data data
+     * @param <K>  未定义
+     * @param <V>  未定义
+     * @param data map集合数据
      * @return boolean
      */
     public static <K, V> boolean isEmpty(Map<K, V> data) {
@@ -63,8 +63,8 @@ public class CollectionUtils {
      * 判断 map 是否为 null
      *
      * @param data 集合对象
-     * @param <K>  <K>
-     * @param <V>  <V>
+     * @param <K>  未定义参数
+     * @param <V>  未定义参数
      * @return boolean
      */
     public static <K, V> boolean isNull(Map<K, V> data) {

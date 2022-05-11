@@ -2,14 +2,11 @@ package com.mobaijun.common.util.file;
 
 import com.mobaijun.common.util.constant.Constant;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -80,33 +77,5 @@ public class FileUtils {
      */
     public static boolean isValidFilename(String filename) {
         return filename.matches(Constant.FILENAME_PATTERN);
-    }
-
-    /**
-     * 下载文件名重新编码
-     *
-     * @param request  请求对象
-     * @param fileName 文件名
-     * @return 编码后的文件名
-     */
-    public static String setFileDownloadHeader(HttpServletRequest request, String fileName)
-            throws UnsupportedEncodingException {
-        final String agent = request.getHeader("USER-AGENT");
-        String filename = fileName;
-        if (agent.contains("MSIE")) {
-            // IE浏览器
-            filename = URLEncoder.encode(filename, Constant.UTF_8);
-            filename = filename.replace("+", " ");
-        } else if (agent.contains("Firefox")) {
-            // 火狐浏览器
-            filename = new String(fileName.getBytes(), "ISO8859-1");
-        } else if (agent.contains("Chrome")) {
-            // google浏览器
-            filename = URLEncoder.encode(filename, Constant.UTF_8);
-        } else {
-            // 其它浏览器
-            filename = URLEncoder.encode(filename, Constant.UTF_8);
-        }
-        return filename;
     }
 }

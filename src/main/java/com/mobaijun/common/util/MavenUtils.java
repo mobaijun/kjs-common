@@ -14,7 +14,14 @@ import java.util.Objects;
  */
 public class MavenUtils {
 
+    /**
+     * 记录数
+     */
     private static long total;
+
+    /**
+     * 耗时
+     */
     private static long time;
 
     /**
@@ -40,7 +47,7 @@ public class MavenUtils {
      *
      * @param file 文件
      */
-    public static void delFile(File file) {
+    private static void delFile(File file) {
         File[] list = file.listFiles();
         assert list != null;
         for (File f : list) {
@@ -77,7 +84,7 @@ public class MavenUtils {
      *
      * @param file file
      */
-    public static void delAll(File file) {
+    private static void delAll(File file) {
         File[] list = file.listFiles();
         assert list != null;
         for (File f : list) {

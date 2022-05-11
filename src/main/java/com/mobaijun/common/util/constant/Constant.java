@@ -15,6 +15,11 @@ public class Constant {
     public static final String UTF_8 = "UTF-8";
 
     /**
+     * MD5
+     */
+    public static final String MD5 = "MD5";
+
+    /**
      * 正则
      */
     public static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";
@@ -23,4 +28,14 @@ public class Constant {
      * jpg
      */
     public static final String IMAGE_JPG = ".jpg";
+
+    /**
+     * 大写十六进制数
+     */
+    public static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    /**
+     * 小写十六进制
+     */
+    public static final char[] HEX_DIGITS_LOWER = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 }

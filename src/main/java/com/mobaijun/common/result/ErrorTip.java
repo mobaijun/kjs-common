@@ -23,6 +23,12 @@ public class ErrorTip<T> extends AbstractTip<T> implements Serializable {
      */
     private T data;
 
+    public ErrorTip() {
+        super();
+        super.code = HttpStatus.ERROR.getCode();
+        super.message = HttpStatus.ERROR.getMessage();
+    }
+
     /**
      * 判断数据是否异常
      *

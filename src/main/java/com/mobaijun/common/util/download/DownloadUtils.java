@@ -23,9 +23,12 @@ public class DownloadUtils {
 
     /**
      * 存储图片
+     *
+     * @param picUrls 下载地址
+     * @param path    存储地址
+     * @return url path
      */
     public static String pictureStorage(String picUrls, String path) {
-        String picUrl = picUrls;
         // 生成文件名称
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
         Date date = new Date();
@@ -37,13 +40,18 @@ public class DownloadUtils {
             // 输出文件流
             f.mkdirs();
         }
-        String fileName = DownloadUtils.downLoadJpg(picUrl, uuid, filePath);
+        String fileName = DownloadUtils.downLoadJpg(picUrls, uuid, filePath);
         return "" + dataForm + "/" + fileName + "";
     }
 
 
     /**
      * 下载文件到本地
+     *
+     * @param urlString url
+     * @param uuid      uuid
+     * @param localPath 存储路径
+     * @return url path
      */
     public static String downLoadJpg(String urlString, String uuid, String localPath) {
         try {

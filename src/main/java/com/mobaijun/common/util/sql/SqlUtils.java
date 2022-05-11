@@ -24,16 +24,22 @@ public class SqlUtils {
 
     /**
      * 检查字符，防止注入绕过
+     *
+     * @param value value
+     * @return String
      */
     public static String escapeOrderBySql(String value) {
         if (StringUtils.isNotEmpty(value) && !isValidOrderBySql(value)) {
-           throw new UtilException("参数不符合规范，不能进行查询");
+            throw new UtilException("参数不符合规范，不能进行查询");
         }
         return value;
     }
 
     /**
      * 验证 order by 语法是否符合规范
+     *
+     * @param value value
+     * @return boolean
      */
     public static boolean isValidOrderBySql(String value) {
         return value.matches(SQL_PATTERN);
@@ -41,6 +47,8 @@ public class SqlUtils {
 
     /**
      * SQL关键字检查
+     *
+     * @param value void
      */
     public static void filterKeyword(String value) {
         if (StringUtils.isEmpty(value)) {
@@ -49,7 +57,7 @@ public class SqlUtils {
         String[] sqlKeywords = StringUtils.split(SQL_REGEX, "\\|");
         for (String sqlKeyword : sqlKeywords) {
             if (StringUtils.indexOfIgnoreCase(value, sqlKeyword) > -1) {
-//                throw new UtilException("参数存在SQL注入风险");
+                throw new UtilException("参数存在SQL注入风险");
             }
         }
     }

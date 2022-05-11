@@ -24,6 +24,14 @@ public class SuccessTip<T> extends AbstractTip<T> implements Serializable {
 
     /**
      * 返回信息
+     */
+    public SuccessTip() {
+        super.code = HttpStatus.OK.getCode();
+        super.message = HttpStatus.OK.getMessage();
+    }
+
+    /**
+     * 返回信息
      *
      * @param data 返回对象
      */
