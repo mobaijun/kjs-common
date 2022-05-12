@@ -9,22 +9,7 @@ package com.mobaijun.common.exception;
  */
 public class CustomException extends BaseException {
 
-    /**
-     * 状态码
-     */
-    private int code;
-
-    /**
-     * 消息
-     */
-    private final String message;
-
-    public CustomException(String message) {
-        this.message = message;
-    }
-
-    public CustomException(int code, String message) {
-        this.message = message;
-        this.code = code;
+    public CustomException(Integer errorCode, String userTip) {
+        super(errorCode, userTip);
     }
 }

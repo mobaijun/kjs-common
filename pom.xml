@@ -57,8 +57,6 @@
         <hutool-all.version>5.7.22</hutool-all.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-io.version>2.11.0</commons-io.version>
-        <fastjson.version>2.0.2</fastjson.version>
-        <slf4j.version>1.7.36</slf4j.version>
     </properties>
 
     <dependencies>
@@ -96,13 +94,6 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
-        </dependency>
-
-        <dependency>
-            <!--  json -->
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 

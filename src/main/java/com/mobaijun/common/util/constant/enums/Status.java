@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.enums;
+package com.mobaijun.common.util.constant.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

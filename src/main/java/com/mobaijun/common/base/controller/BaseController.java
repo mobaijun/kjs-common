@@ -4,6 +4,7 @@ import com.mobaijun.common.base.BaseWrapper;
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.result.ErrorTip;
 import com.mobaijun.common.result.SuccessTip;
+import com.mobaijun.common.result.enums.HttpStatus;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.util.page.PageInfo;
@@ -55,7 +56,7 @@ public class BaseController {
      */
     public void assertNotNull(Object object, String message) {
         if (ObjectUtils.isEmpty(object)) {
-            throw new CustomException(message);
+            throw new CustomException(HttpStatus.ERROR.getCode(), message);
         }
     }
 
@@ -67,7 +68,7 @@ public class BaseController {
      */
     public void assertNotEmpty(String str, String message) {
         if (StringUtils.isEmpty(str)) {
-            throw new CustomException(message);
+            throw new CustomException(HttpStatus.ERROR.getCode(), message);
         }
     }
 
@@ -79,7 +80,7 @@ public class BaseController {
      */
     public void assertTrue(boolean condition, String message) {
         if (!condition) {
-            throw new CustomException(message);
+            throw new CustomException(HttpStatus.ERROR.getCode(), message);
         }
     }
 

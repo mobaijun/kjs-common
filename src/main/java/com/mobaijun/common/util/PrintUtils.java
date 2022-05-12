@@ -59,6 +59,13 @@ public class PrintUtils {
     }
 
     /**
+     * 打印异常消息
+     */
+    public static void print(String message, String clazz) {
+        System.out.println(message + clazz);
+    }
+
+    /**
      * 格式化输出
      *
      * @param format format

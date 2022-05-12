@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.pass;
+package com.mobaijun.common.util.uid;
 
 import com.mobaijun.common.util.constant.Constant;
 

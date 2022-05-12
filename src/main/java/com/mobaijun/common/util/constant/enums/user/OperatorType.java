@@ -1,4 +1,6 @@
-package com.mobaijun.common.util.enums;
+package com.mobaijun.common.util.constant.enums.user;
+
+import lombok.Getter;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -7,6 +9,7 @@ package com.mobaijun.common.util.enums;
  *
  * @author MoBaiJun 2022/4/25 15:18
  */
+@Getter
 public enum OperatorType {
 
     /**

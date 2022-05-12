@@ -1,5 +1,8 @@
 package com.mobaijun.common.util;
 
+import cn.hutool.core.util.StrUtil;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -89,6 +92,34 @@ public class DateUtils {
         // 计算差多少秒//输出结果
         // long sec = diff % nd % nh % nm / ns;
         return day + "天" + hour + "小时" + min + "分钟";
+    }
+
+    /**
+     * 获取YYYY-MM-DD格式
+     *
+     * @param date date
+     * @return String
+     */
+    public static String getDay(Date date) {
+        return formatDate(date, "yyyy-MM-dd");
+    }
+
+
+    /**
+     * 格式化日期
+     *
+     * @param date    date
+     * @param pattern pattern
+     * @return String
+     */
+    public static String formatDate(Date date, String pattern) {
+        String formatDate = null;
+        if (StrUtil.isBlank(pattern)) {
+            formatDate = DateFormatUtils.format(date, pattern);
+        } else {
+            formatDate = DateFormatUtils.format(date, "yyyy-MM-dd");
+        }
+        return formatDate;
     }
 
 }

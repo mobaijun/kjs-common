@@ -20,7 +20,7 @@ public class StringUtils {
      *
      * @param value        要判断的value
      * @param defaultValue 要判断的value
-     * @param <T> 未定义
+     * @param <T>          未定义
      * @return value 返回值
      */
     public static <T> T isEmpty(T value, T defaultValue) {
@@ -321,5 +321,37 @@ public class StringUtils {
             }
         }
         return true;
+    }
+
+    /**
+     * 首字母变大写
+     *
+     * @param str String
+     * @return String
+     */
+    public static String firstCharToUpperCase(String str) {
+        char firstChar = str.charAt(0);
+        if (firstChar >= 'a' && firstChar <= 'z') {
+            char[] arr = str.toCharArray();
+            arr[0] -= ('a' - 'A');
+            return new String(arr);
+        }
+        return str;
+    }
+
+    /**
+     * 首字母变小写
+     *
+     * @param str String
+     * @return String
+     */
+    public static String firstCharToLowerCase(String str) {
+        char firstChar = str.charAt(0);
+        if (firstChar >= 'A' && firstChar <= 'Z') {
+            char[] arr = str.toCharArray();
+            arr[0] += ('a' - 'A');
+            return new String(arr);
+        }
+        return str;
     }
 }

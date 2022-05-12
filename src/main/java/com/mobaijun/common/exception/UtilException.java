@@ -8,4 +8,8 @@ package com.mobaijun.common.exception;
  * @author MoBaiJun 2022/4/25 15:14
  */
 public class UtilException extends BaseException {
+
+    public UtilException(Integer errorCode, String userTip) {
+        super(errorCode, userTip);
+    }
 }

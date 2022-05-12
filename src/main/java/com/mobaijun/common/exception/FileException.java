@@ -8,4 +8,8 @@ package com.mobaijun.common.exception;
  * @author MoBaiJun 2022/4/25 15:13
  */
 public class FileException extends BaseException {
+
+    public FileException(Integer errorCode, String userTip) {
+        super(errorCode, userTip);
+    }
 }

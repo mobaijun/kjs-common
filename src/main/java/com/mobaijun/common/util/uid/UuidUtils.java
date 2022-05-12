@@ -1,6 +1,4 @@
-package com.mobaijun.common.util.pass;
-
-import java.util.UUID;
+package com.mobaijun.common.util.uid;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -28,6 +26,24 @@ public class UuidUtils {
     public static String getUUID() {
         // 把-替换为空
         return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    /**
+     * 获取随机UUID，使用性能更好的ThreadLocalRandom生成UUID
+     *
+     * @return 随机UUID
+     */
+    public static String fastUUID() {
+        return UUID.fastUUID().toString();
+    }
+
+    /**
+     * 简化的UUID，去掉了横线，使用性能更好的ThreadLocalRandom生成UUID
+     *
+     * @return 简化的UUID，去掉了横线
+     */
+    public static String fastSimpleUUID() {
+        return UUID.fastUUID().toString(true);
     }
 
     /**
