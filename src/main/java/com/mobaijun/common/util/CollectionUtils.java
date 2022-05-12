@@ -3,7 +3,6 @@ package com.mobaijun.common.util;
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.result.enums.HttpStatus;
-import com.sun.istack.internal.Nullable;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -141,7 +140,7 @@ public class CollectionUtils {
      * @param defaultValue 默认
      * @return long
      */
-    public static long strToLong(@Nullable final String str, final long defaultValue) {
+    public static long strToLong(final String str, final long defaultValue) {
         if (str == null) {
             return defaultValue;
         }
@@ -159,7 +158,7 @@ public class CollectionUtils {
      * @param defaultValue 默认
      * @return long
      */
-    public static long objectToLong(@Nullable final Object str, final long defaultValue) {
+    public static long objectToLong(final Object str, final long defaultValue) {
         if (str == null) {
             return defaultValue;
         }
