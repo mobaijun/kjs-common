@@ -21,8 +21,7 @@ public class StartCalcUtil {
     /**
      * 初始化项目开始时间
      *
-     * @author fengshuonan
-     * @date 2021/7/13 17:42
+     * @param date 开始日期
      */
     public static void init(Date date) {
         startDate = date;
@@ -31,8 +30,9 @@ public class StartCalcUtil {
     /**
      * 计算是否项目已经启动
      *
-     * @author fengshuonan
-     * @date 2021/7/13 17:43
+     * @param date                 日期
+     * @param startInterValSeconds 启动时间毫秒值
+     * @return true启动 false 未启动
      */
     public static boolean calcEnable(Date date, long startInterValSeconds) {
         return DateUtil.between(startDate, date, DateUnit.SECOND) > startInterValSeconds;

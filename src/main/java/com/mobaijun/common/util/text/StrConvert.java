@@ -491,6 +491,7 @@ public class StrConvert {
      * @param clazz        Enum的Class
      * @param value        值
      * @param defaultValue 默认值
+     * @param <E>          Enum的Class
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value, E defaultValue) {
@@ -519,6 +520,7 @@ public class StrConvert {
      *
      * @param clazz Enum的Class
      * @param value 值
+     * @param <E> Enum的Class
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value) {

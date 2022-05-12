@@ -83,9 +83,8 @@ public class ToolUtil {
     }
 
     /**
-     * 比较两个对象是否相等。<br>
-     * 相同的条件有两个，满足其一即可：<br>
-     * 1. obj1 == null && obj2 == null; 2. obj1.equals(obj2)
+     * 比较两个对象是否相等。
+     * 相同的条件有两个，满足其一即可
      *
      * @param obj1 对象1
      * @param obj2 对象2
@@ -283,7 +282,8 @@ public class ToolUtil {
     /**
      * 如果为空, 则调用默认值
      *
-     * @param str 对象
+     * @param str          对象
+     * @param defaultValue 对比值
      * @return Object
      */
     public static Object getValue(Object str, Object defaultValue) {
@@ -316,7 +316,7 @@ public class ToolUtil {
     }
 
     /**
-     * 强转->string,并去掉多余空格
+     * 强转 -- string,并去掉多余空格
      *
      * @param str 对象
      * @return String
@@ -326,7 +326,7 @@ public class ToolUtil {
     }
 
     /**
-     * 强转->string,并去掉多余空格
+     * 强转 -- string,并去掉多余空格
      *
      * @param str          对象
      * @param defaultValue 默认值

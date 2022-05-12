@@ -18,8 +18,6 @@ public class RedirectUrlBuildUtil {
 
     /**
      * 构建redirect url
-     * <p>
-     * 构建结果为：originUrl?xx1=xx&xx2=xx&xx3=xx
      *
      * @param originUrl 原始的url
      * @param paramsMap url上要拼接的参数信息

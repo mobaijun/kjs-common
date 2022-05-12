@@ -37,6 +37,7 @@ public class NumberUtils {
     /**
      * 根据身份证的号码算出当前身份证持有者的年龄
      *
+     * @param idNumber 身份证
      * @return int
      */
     public static int countAge(String idNumber) {
@@ -61,15 +62,16 @@ public class NumberUtils {
         String fyue = format.format(date).substring(5, 7);
         String fday = format.format(date).substring(8, 10);
         int age = 0;
+        int number = Integer.parseInt(fyear) - Integer.parseInt(year);
         if (Integer.parseInt(yue) == Integer.parseInt(fyue)) {
             if (Integer.parseInt(day) <= Integer.parseInt(fday)) {
-                age = Integer.parseInt(fyear) - Integer.parseInt(year);
+                age = number;
             }
         } else {
 
             if (Integer.parseInt(yue) < Integer.parseInt(fyue)) {
                 // 如果当前月份大于出生月份
-                age = Integer.parseInt(fyear) - Integer.parseInt(year);
+                age = number;
             } else {
                 // 如果当前月份小于出生月份,说明生日还没过
                 age = Integer.parseInt(fyear) - Integer.parseInt(year) - 1;

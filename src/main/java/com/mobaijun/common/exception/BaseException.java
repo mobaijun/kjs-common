@@ -29,12 +29,12 @@ public class BaseException extends RuntimeException {
      */
     private Object data;
 
-    public BaseException(Integer errorCode, String userTip) {
+    BaseException(Integer errorCode, String userTip) {
         this.errorCode = errorCode;
         this.userTip = userTip;
     }
 
-    public BaseException(Throwable cause, Integer errorCode, String userTip) {
+    BaseException(Throwable cause, Integer errorCode, String userTip) {
         super(cause);
         this.errorCode = errorCode;
         this.userTip = userTip;
@@ -42,8 +42,12 @@ public class BaseException extends RuntimeException {
 
     /**
      * 根据模块名，错误码，用户提示直接抛出异常
+     *
+     * @param moduleName 模块名
+     * @param errorCode  状态码
+     * @param userTip    消息
      */
-    public BaseException(String moduleName, Integer errorCode, String userTip) {
+    BaseException(String moduleName, Integer errorCode, String userTip) {
         super(userTip);
         this.errorCode = errorCode;
         this.moduleName = moduleName;
@@ -52,20 +56,25 @@ public class BaseException extends RuntimeException {
 
     /**
      * 如果要直接抛出ServiceException，可以用这个构造函数
+     *
+     * @param moduleName 模块名
+     * @param exception  异常信息
      */
-    public BaseException(String moduleName, AbstractExceptionEnum exception) {
+    BaseException(String moduleName, AbstractExceptionEnum exception) {
         super(exception.getUserTip());
         this.moduleName = moduleName;
         this.errorCode = exception.getErrorCode();
         this.userTip = exception.getUserTip();
     }
 
+
     /**
-     * 不建议直接抛出ServiceException，因为这样无法确认是哪个模块抛出的异常
-     * <p>
-     * 建议使用业务异常时，都抛出自己模块的异常类
+     * 不建议直接抛出ServiceException，因为这样无法确认是哪个模块抛出的异常，建议使用业务异常时，都抛出自己模块的异常类
+     *
+     * @param moduleName 模块名称
+     * @param exception  异常信息
      */
-    public BaseException(AbstractExceptionEnum exception, String moduleName) {
+    BaseException(AbstractExceptionEnum exception, String moduleName) {
         super(exception.getUserTip());
         this.moduleName = moduleName;
         this.errorCode = exception.getErrorCode();
@@ -74,8 +83,13 @@ public class BaseException extends RuntimeException {
 
     /**
      * 携带数据的异常构造函数
+     *
+     * @param moduleName 模块名称
+     * @param errorCode  状态码
+     * @param userTip    描述
+     * @param data       返回信息
      */
-    public BaseException(String moduleName, Integer errorCode, String userTip, Object data) {
+    BaseException(String moduleName, Integer errorCode, String userTip, Object data) {
         super(userTip);
         this.errorCode = errorCode;
         this.moduleName = moduleName;

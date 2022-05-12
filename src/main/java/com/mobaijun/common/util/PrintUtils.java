@@ -60,6 +60,9 @@ public class PrintUtils {
 
     /**
      * 打印异常消息
+     *
+     * @param message 内容
+     * @param clazz   消息
      */
     public static void print(String message, String clazz) {
         System.out.println(message + clazz);

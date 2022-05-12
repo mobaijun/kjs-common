@@ -12,7 +12,7 @@ import lombok.Getter;
 @Getter
 public enum ParamTypeEnum {
     /**
-     * query param参数，例如：?field1=aaa&field2=bbb
+     * query param参数
      */
     QUERY_PARAM(1),
 

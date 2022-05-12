@@ -32,7 +32,7 @@ public enum FieldTypeEnum {
     BASE_COLLECTION(4),
 
     /**
-     * 集合类型，Collection携带泛型的，需要具体解析泛型中实体的，例如List<SysUser>，List<String>
+     * 集合类型，Collection携带泛型的，需要具体解析泛型中实体的，例如List String
      */
     COLLECTION_WITH_OBJECT(5),
 
@@ -42,12 +42,12 @@ public enum FieldTypeEnum {
     OBJECT(6),
 
     /**
-     * 对象类型携带泛型的，需要再解析泛型中的实体，例如ResponseData<SysUser>
+     * 对象类型携带泛型的，需要再解析泛型中的实体，例如pojo
      */
     OBJECT_WITH_GENERIC(7),
 
     /**
-     * 带T类型的泛型对象，需要从所属类上拿到具体泛型，例如字段SomeEntity<T>，List<T>，T
+     * 带T类型的泛型对象，需要从所属类上拿到具体泛型，例如字段pojo，List
      */
     WITH_UNKNOWN_GENERIC(8),
 

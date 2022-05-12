@@ -22,7 +22,7 @@ public class MacAddressUtil {
      * 一台机器不一定有多个网卡，所以返回的是数组
      *
      * @return 集合地址
-     * @throws Exception
+     * @throws Exception Exception
      */
     public static List<String> getMacList() throws Exception {
         java.util.Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();

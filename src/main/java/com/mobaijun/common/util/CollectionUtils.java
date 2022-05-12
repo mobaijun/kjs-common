@@ -261,6 +261,8 @@ public class CollectionUtils {
     /**
      * 新建一个HashMap
      *
+     * @param <T> 未定义
+     * @param <K> 未定义
      * @return HashMap对象
      */
     public static <T, K> HashMap<T, K> newHashMap() {
@@ -271,6 +273,8 @@ public class CollectionUtils {
      * 新建一个HashMap
      *
      * @param size 初始大小，由于默认负载因子0.75，传入的size会实际初始大小为size / 0.75
+     * @param <T>  未定义
+     * @param <K>  未定义
      * @return HashMap对象
      */
     public static <T, K> HashMap<T, K> newHashMap(int size) {
@@ -280,7 +284,8 @@ public class CollectionUtils {
     /**
      * 新建一个HashSet
      *
-     * @return HashSet对象
+     * @param <T> 未定义
+     * @return 新建一个HashSet
      */
     public static <T> HashSet<T> newHashSet() {
         return new HashSet<T>();
@@ -289,6 +294,8 @@ public class CollectionUtils {
     /**
      * 新建一个HashSet
      *
+     * @param ts  集合对象
+     * @param <T> 集合对象
      * @return HashSet对象
      */
     @SafeVarargs
@@ -303,6 +310,12 @@ public class CollectionUtils {
      *
      * @return ArrayList对象
      */
+    /**
+     * 新建一个ArrayList
+     *
+     * @param <T> ArrayList对象
+     * @return ArrayList对象
+     */
     public static <T> ArrayList<T> newArrayList() {
         return new ArrayList<T>();
     }
@@ -310,6 +323,8 @@ public class CollectionUtils {
     /**
      * 新建一个ArrayList
      *
+     * @param values 未定义
+     * @param <T>    ArrayList对象
      * @return ArrayList对象
      */
     @SafeVarargs
@@ -318,11 +333,12 @@ public class CollectionUtils {
     }
 
     /**
-     * 将新元素添加到已有数组中<br/>
+     * 将新元素添加到已有数组中<br>
      * 添加新元素会生成一个新的数组，不影响原数组
      *
      * @param buffer     已有数组
      * @param newElement 新元素
+     * @param <T>        新数组
      * @return 新数组
      */
     public static <T> T[] append(T[] buffer, T newElement) {
@@ -337,20 +353,21 @@ public class CollectionUtils {
      * @param buffer        原数组
      * @param newSize       新的数组大小
      * @param componentType 数组元素类型
+     * @param <T>           调整后的新数组
      * @return 调整后的新数组
      */
     public static <T> T[] resize(T[] buffer, int newSize, Class<?> componentType) {
         T[] newArray = newArray(componentType, newSize);
-        System.arraycopy(buffer, 0, newArray, 0, buffer.length >= newSize ? newSize : buffer.length);
+        System.arraycopy(buffer, 0, newArray, 0, Math.min(buffer.length, newSize));
         return newArray;
     }
 
     /**
-     * 生成一个新的重新设置大小的数组<br/>
-     * 新数组的类型为原数组的类型
+     * 生成一个新的重新设置大小的数组，新数组的类型为原数组的类型
      *
      * @param buffer  原数组
      * @param newSize 新的数组大小
+     * @param <T>     调整后的新数组
      * @return 调整后的新数组
      */
     public static <T> T[] resize(T[] buffer, int newSize) {
@@ -362,6 +379,7 @@ public class CollectionUtils {
      *
      * @param componentType 元素类型
      * @param newSize       大小
+     * @param <T>           元素类型
      * @return 空数组
      */
     @SuppressWarnings("unchecked")
@@ -374,6 +392,7 @@ public class CollectionUtils {
      * 忽略null的数组
      *
      * @param arrays 数组集合
+     * @param <T>    数组集合
      * @return 合并后的数组
      */
     @SafeVarargs
@@ -406,6 +425,7 @@ public class CollectionUtils {
      * 克隆数组
      *
      * @param array 被克隆的数组
+     * @param <T>   被克隆的数组
      * @return 新数组
      */
     public static <T> T[] clone(T[] array) {
@@ -477,13 +497,13 @@ public class CollectionUtils {
      * @param list  被截取的数组
      * @param start 开始位置（包含）
      * @param end   结束位置（不包含）
+     * @param <T>   被截取的数组
      * @return 截取后的数组，当开始位置超过最大时，返回null
      */
     public static <T> List<T> sub(List<T> list, int start, int end) {
         if (list == null || list.isEmpty()) {
             return null;
         }
-
         if (start < 0) {
             start = 0;
         }
@@ -514,6 +534,7 @@ public class CollectionUtils {
      * @param list  被截取的数组
      * @param start 开始位置（包含）
      * @param end   结束位置（不包含）
+     * @param <T>   被截取的数组
      * @return 截取后的数组，当开始位置超过最大时，返回null
      */
     public static <T> List<T> sub(Collection<T> list, int start, int end) {
@@ -528,6 +549,7 @@ public class CollectionUtils {
      * 数组是否为空
      *
      * @param array 数组
+     * @param <T>   数组
      * @return 是否为空
      */
     public static <T> boolean isEmpty(T[] array) {
@@ -538,6 +560,7 @@ public class CollectionUtils {
      * 数组是否为非空
      *
      * @param array 数组
+     * @param <T>   数组
      * @return 是否为非空
      */
     public static <T> boolean isNotEmpty(T[] array) {
@@ -549,6 +572,8 @@ public class CollectionUtils {
      * Map是否为非空
      *
      * @param map 集合
+     * @param <V> 值列表
+     * @param <K> 键列表
      * @return 是否为非空
      */
     public static <K, V> boolean isNotEmpty(Map<K, V> map) {
@@ -565,6 +590,8 @@ public class CollectionUtils {
      *
      * @param keys   键列表
      * @param values 值列表
+     * @param <T>    值列表
+     * @param <K>    键列表
      * @return Map
      */
     public static <T, K> Map<T, K> zip(T[] keys, K[] values) {
@@ -590,8 +617,9 @@ public class CollectionUtils {
      * 则得到的Map是 {a=1, b=2, c=3, d=4}<br>
      * 如果两个数组长度不同，则只对应最短部分
      *
-     * @param keys   键列表
-     * @param values 值列表
+     * @param keys      键列表
+     * @param values    值列表
+     * @param delimiter 未定义
      * @return Map
      */
     public static Map<String, String> zip(String keys, String values, String delimiter) {
@@ -608,6 +636,8 @@ public class CollectionUtils {
      *
      * @param keys   键列表
      * @param values 值列表
+     * @param <T>    键列表
+     * @param <K>    值列表
      * @return Map
      */
     public static <T, K> Map<T, K> zip(Collection<T> keys, Collection<K> values) {
@@ -632,6 +662,7 @@ public class CollectionUtils {
      *
      * @param array 数组
      * @param value 被检查的元素
+     * @param <T>   未定义
      * @return 是否包含
      */
     public static <T> boolean contains(T[] array, T value) {
@@ -654,6 +685,8 @@ public class CollectionUtils {
      * 将Entry集合转换为HashMap
      *
      * @param entryCollection entry集合
+     * @param <T>             未定义
+     * @param <K>             未定义
      * @return Map
      */
     public static <T, K> HashMap<T, K> toMap(Collection<Entry<T, K>> entryCollection) {
@@ -669,6 +702,7 @@ public class CollectionUtils {
      *
      * @param collection 集合
      * @param comparator 比较器
+     * @param <T>        未定义
      * @return treeSet
      */
     public static <T> TreeSet<T> toTreeSet(Collection<T> collection, Comparator<T> comparator) {
@@ -682,6 +716,7 @@ public class CollectionUtils {
      *
      * @param collection 集合
      * @param comparator 比较器
+     * @param <T>        未定义
      * @return treeSet
      */
     public static <T> List<T> sort(Collection<T> collection, Comparator<T> comparator) {

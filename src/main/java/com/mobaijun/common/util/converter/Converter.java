@@ -546,6 +546,7 @@ public class Converter {
      *
      * @param clazz Enum的Class
      * @param value 值
+     * @param <E> Enum的Class
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value) {

@@ -22,6 +22,7 @@ public @interface Wrapper {
 
     /**
      * 具体包装类
+     * @return Class
      */
     Class<? extends BaseWrapper<?>>[] value();
 

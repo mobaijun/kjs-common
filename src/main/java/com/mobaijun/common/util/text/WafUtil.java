@@ -73,23 +73,21 @@ public class WafUtil {
     }
 
     /**
-     * stripSqlInjection
-     *
-     * @param value 待处理内容
-     * @Description 过滤SQL注入内容
-     * * @return  String
-     */
-    public static String stripSqlInjection(String value) {
-        value.replaceAll("('.+--)|(--)|(\\|)|(%7C)", "");
-        return (null == value) ? null : value.replaceAll("('.+--)|(--)|(%7C)", "");
-    }
-
-    /**
-     * stripSqlXss
+     * 过滤SQL注入内容
      *
      * @param value 待处理内容
      * @return String
-     * @Description 过滤SQL/XSS注入内容
+     */
+    public static String stripSqlInjection(String value) {
+        value.replaceAll("('.+--)|(--)|(\\|)|(%7C)", "");
+        return value.replaceAll("('.+--)|(--)|(%7C)", "");
+    }
+
+    /**
+     * 过滤SQL/XSS注入内容
+     *
+     * @param value 待处理内容
+     * @return String
      */
     public static String stripSqlXss(String value) {
         return stripXss(stripSqlInjection(value));

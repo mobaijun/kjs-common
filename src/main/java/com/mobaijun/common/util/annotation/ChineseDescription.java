@@ -21,6 +21,8 @@ public @interface ChineseDescription {
 
     /**
      * 中文注释的值
+     *
+     * @return String
      */
     String value() default "";
 }

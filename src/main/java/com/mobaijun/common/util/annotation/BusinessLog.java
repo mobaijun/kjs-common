@@ -20,6 +20,8 @@ public @interface BusinessLog {
 
     /**
      * 是否进行日志记录，默认是开启
+     *
+     * @return boolean
      */
     boolean openLog() default true;
 }
