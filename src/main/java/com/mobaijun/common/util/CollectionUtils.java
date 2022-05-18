@@ -897,4 +897,35 @@ public class CollectionUtils {
         }
         return obj.toString();
     }
+
+    /**
+     * 比较连个集合元素是否相同
+     *
+     * @param listA 集合a
+     * @param listB 集合b
+     * @return true false
+     */
+    public static boolean isListEquals(List<?> listA, List<?> listB) {
+        if (listA == null && listB == null) {
+            return true;
+        }
+        if (listA == null) {
+            return false;
+        }
+        if (listB == null) {
+            return false;
+        }
+        if (listA.size() == listB.size()) {
+            if (listA.size() == 0) {
+                return true;
+            }
+            for (Object temp : listA) {
+                if (!listB.contains(temp)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }

@@ -1,0 +1,46 @@
+package com.mobaijun.common.util.network;
+
+/**
+ * software：IntelliJ IDEA 2022.1
+ * class name: NetUtil
+ * class description： 网络工具类
+ *
+ * @author MoBaiJun 2022/5/18 10:05
+ */
+public class NetUtil {
+
+    /**
+     * 是否 ping 通
+     *
+     * @param host 主机地址
+     * @return true false
+     */
+    private static boolean ping(String host) {
+        try {
+            boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
+            ProcessBuilder processBuilder = new ProcessBuilder("ping", isWindows ? "-n" : "-c", "1", host);
+            Process proc = processBuilder.start();
+            int returnVal = proc.waitFor();
+            return returnVal == 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     * 获取一个ping通的ip
+     *
+     * @param ipAddrs ip数组
+     * @return ip
+     */
+    public static String getOneUseFullIp(String[] ipAddrs) {
+        String ip = "";
+        for (String ipAddr : ipAddrs) {
+            ip = ipAddr;
+            if (ping(ip)) {
+                break;
+            }
+        }
+        return ip;
+    }
+}

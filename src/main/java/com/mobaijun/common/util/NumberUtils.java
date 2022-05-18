@@ -1,5 +1,7 @@
 package com.mobaijun.common.util;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -79,5 +81,21 @@ public class NumberUtils {
         }
         System.out.println("age = " + age);
         return age;
+    }
+
+    /**
+     * 四舍五入,小数点后保留几位
+     *
+     * @param v     数位1
+     * @param scale 数位2
+     * @return double
+     */
+    public static double round(double v, int scale) {
+        if (scale < 0) {
+            throw new IllegalArgumentException("The scale must be a positive integer or zero");
+        }
+        BigDecimal b = new BigDecimal(Double.toString(v));
+        BigDecimal one = new BigDecimal("1");
+        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
     }
 }

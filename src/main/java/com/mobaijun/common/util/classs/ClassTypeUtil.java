@@ -3,10 +3,12 @@ package com.mobaijun.common.util.classs;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ClassUtil;
 import com.mobaijun.common.util.PrintUtils;
-import com.mobaijun.common.util.constant.enums.http.FieldTypeEnum;
+import com.mobaijun.common.enums.http.FieldTypeEnum;
 import sun.reflect.generics.reflectiveObjects.TypeVariableImpl;
 import sun.reflect.generics.reflectiveObjects.WildcardTypeImpl;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
@@ -143,5 +145,25 @@ public class ClassTypeUtil {
             PrintUtils.print("未知类型的处理，既不是class也不是ParameterizedType，打印出类的信息如下：{}", type.getTypeName());
             return FieldTypeEnum.OTHER;
         }
+    }
+
+    @SuppressWarnings("all")
+    public static void main(String[] args) throws Exception {
+        // 另一个com.sg.myReflection.bean包下的User类
+        String path = "com.sg.myReflection.bean.User";
+        Class clazz = Class.forName(path);
+
+        // 获取类名
+        String strName01 = clazz.getName();// 获取完整类名com.sg.myReflection.bean.User
+        String strName02 = clazz.getSimpleName();// 直接获取类名 User
+
+        // 获取属性
+        Field[] field01 = clazz.getFields(); // 返回属性为public的字段
+        Field[] field02 = clazz.getDeclaredFields(); // 返回所有的属性
+        Field field03 = clazz.getDeclaredField("id"); // 获取属性为id的字段
+
+        // 获取普通方法
+        Method[] Method01 = clazz.getDeclaredMethods(); // 返回public方法
+        Method method = clazz.getDeclaredMethod("getId", null); // 返回getId这个方法，如果没有参数，就默认为null
     }
 }

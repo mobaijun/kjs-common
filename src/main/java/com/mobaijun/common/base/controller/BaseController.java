@@ -16,7 +16,7 @@ import com.mobaijun.common.util.page.PageInfo;
  *
  * @author MoBaiJun 2022/4/22 16:54
  */
-public class BaseController {
+public class BaseController<T> {
 
     /**
      * 成功
@@ -41,12 +41,12 @@ public class BaseController {
     /**
      * 成功返回
      */
-    protected static SuccessTip<?> SUCCESS_TIP = new SuccessTip<>();
+    protected SuccessTip<T> SUCCESS_TIP = new SuccessTip<>();
 
     /**
      * 异常返回
      */
-    protected static ErrorTip<?> ERROR_TIP = new ErrorTip<>();
+    protected ErrorTip<T> ERROR_TIP = new ErrorTip<>();
 
     /**
      * 参数是否为空的校验
@@ -88,10 +88,9 @@ public class BaseController {
      * 把service层的分页信息，封装为bootstrap table通用的分页封装
      *
      * @param page 分页信息
-     * @param <T>  分页对象
      * @return 分页结果集
      */
-    protected <T> PageInfo<T> packForBt(PageInfo<T> page) {
+    protected PageInfo<T> packForBt(PageInfo<T> page) {
         return new PageInfo<T>(page);
     }
 

@@ -7,7 +7,7 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 
     <description>A simple and useful java commons packaging</description>
     <name>kjs-common</name>
@@ -54,9 +54,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.24</lombok.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <hutool-all.version>5.7.22</hutool-all.version>
+        <hutool-all.version>5.8.1</hutool-all.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <commons-io.version>2.11.0</commons-io.version>
+        <commons-lang.version>2.6</commons-lang.version>
     </properties>
 
     <dependencies>
