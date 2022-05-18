@@ -7,7 +7,7 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.3-SNAPSHOT</version>
 
     <description>A simple and useful java commons packaging</description>
     <name>kjs-common</name>
