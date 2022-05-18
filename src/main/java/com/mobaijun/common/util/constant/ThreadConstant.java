@@ -7,7 +7,7 @@ package com.mobaijun.common.util.constant;
  *
  * @author MoBaiJun 2022/4/25 12:20
  */
-public class ConstantThread {
+public class ThreadConstant {
 
     /**
      * 超时时间

@@ -2,6 +2,7 @@ package com.mobaijun.common.util.converter;
 
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.constant.StringConstant;
 import com.mobaijun.common.util.text.CharsetKit;
 
 import java.math.BigDecimal;
@@ -480,17 +481,12 @@ public class Converter {
         valueStr = valueStr.trim().toLowerCase();
         switch (valueStr) {
             case "true":
-                return true;
-            case "false":
-                return false;
             case "yes":
-                return true;
             case "ok":
-                return true;
-            case "no":
-                return false;
             case "1":
                 return true;
+            case "false":
+            case "no":
             case "0":
                 return false;
             default:
@@ -546,7 +542,7 @@ public class Converter {
      *
      * @param clazz Enum的Class
      * @param value 值
-     * @param <E> Enum的Class
+     * @param <E>   Enum的Class
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value) {
@@ -615,7 +611,7 @@ public class Converter {
             return new BigDecimal((Long) value);
         }
         if (value instanceof Double) {
-            return new BigDecimal((Double) value);
+            return BigDecimal.valueOf((Double) value);
         }
         if (value instanceof Integer) {
             return new BigDecimal((Integer) value);
@@ -686,7 +682,8 @@ public class Converter {
         if (obj instanceof String) {
             return (String) obj;
         } else if (obj instanceof byte[] || obj instanceof Byte[]) {
-            return str((Byte[]) obj, charset);
+            assert obj instanceof Byte[];
+            return str(obj, charset);
         } else if (obj instanceof ByteBuffer) {
             return str((ByteBuffer) obj, charset);
         }
@@ -820,9 +817,9 @@ public class Converter {
      * @return 中文大写数字
      */
     public static String digitUppercase(double n) {
-        String[] fraction = {"角", "分"};
-        String[] digit = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
-        String[][] unit = {{"元", "万", "亿"}, {"", "拾", "佰", "仟"}};
+        String[] fraction = StringConstant.FRACTION;
+        String[] digit = StringConstant.CHINESE_CHARACTERES;
+        String[][] unit = StringConstant.UNIT;
 
         String head = n < 0 ? "负" : "";
         n = Math.abs(n);

@@ -3,9 +3,10 @@ package com.mobaijun.common.util.image;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Base64;
 
 /**
@@ -189,7 +190,7 @@ public class Base64Utils {
         InputStream is = null;
         byte[] data = null;
         try {
-            is = new FileInputStream(image);
+            is = Files.newInputStream(Paths.get(image));
             data = new byte[is.available()];
             is.read();
             is.close();
@@ -243,7 +244,7 @@ public class Base64Utils {
     }
 
     private static boolean isData(char octect) {
-        return (octect < BASELENGTH && base64Alphabet[octect] != -1);
+        return (octect >= BASELENGTH || base64Alphabet[octect] == -1);
     }
 
     /**
@@ -265,7 +266,7 @@ public class Base64Utils {
         int fewerThan24bits = lengthDataBits % TWENTYFOURBITGROUP;
         int numberTriplets = lengthDataBits / TWENTYFOURBITGROUP;
         int numberQuartet = fewerThan24bits != 0 ? numberTriplets + 1 : numberTriplets;
-        char encodedData[] = null;
+        char[] encodedData = null;
 
         encodedData = new char[numberQuartet * 4];
 
@@ -343,7 +344,7 @@ public class Base64Utils {
             return new byte[0];
         }
 
-        byte decodedData[] = null;
+        byte[] decodedData = null;
         byte b1 = 0, b2 = 0, b3 = 0, b4 = 0;
         char d1 = 0, d2 = 0, d3 = 0, d4 = 0;
 
@@ -354,8 +355,8 @@ public class Base64Utils {
 
         for (; i < numberQuadruple - 1; i++) {
 
-            if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))
-                    || !isData((d3 = base64Data[dataIndex++])) || !isData((d4 = base64Data[dataIndex++]))) {
+            if (isData((d1 = base64Data[dataIndex++])) || isData((d2 = base64Data[dataIndex++]))
+                    || isData((d3 = base64Data[dataIndex++])) || isData((d4 = base64Data[dataIndex++]))) {
                 return null;
             } // if found "no data" just return null
 
@@ -369,7 +370,7 @@ public class Base64Utils {
             decodedData[encodedIndex++] = (byte) (b3 << 6 | b4);
         }
 
-        if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))) {
+        if (isData((d1 = base64Data[dataIndex++])) || isData((d2 = base64Data[dataIndex++]))) {
             return null;// if found "no data" just return null
         }
 
@@ -378,7 +379,7 @@ public class Base64Utils {
 
         d3 = base64Data[dataIndex++];
         d4 = base64Data[dataIndex++];
-        if (!isData((d3)) || !isData((d4))) {// Check if they are PAD characters
+        if (isData((d3)) || isData((d4))) {// Check if they are PAD characters
             if (isPad(d3) && isPad(d4)) {
                 if ((b2 & 0xf) != 0)// last 4 bits should be zero
                 {

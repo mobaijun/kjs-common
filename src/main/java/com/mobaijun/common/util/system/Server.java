@@ -1,5 +1,6 @@
 package com.mobaijun.common.util.system;
 
+import com.mobaijun.common.util.constant.JdkConstant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,7 +44,7 @@ public class Server {
     /**
      * 磁盘相关信息
      */
-    private List<SysFile> sysFiles = new LinkedList<SysFile>();
+    private List<SysFile> sysFiles = new LinkedList<>();
 
     /**
      * 设置Java虚拟机
@@ -53,8 +54,8 @@ public class Server {
         jvm.setTotal(Runtime.getRuntime().totalMemory());
         jvm.setMax(Runtime.getRuntime().maxMemory());
         jvm.setFree(Runtime.getRuntime().freeMemory());
-        jvm.setVersion(props.getProperty("java.version"));
-        jvm.setHome(props.getProperty("java.home"));
+        jvm.setVersion(props.getProperty(JdkConstant.VERSION));
+        jvm.setHome(props.getProperty(JdkConstant.HOME));
     }
 
     /**

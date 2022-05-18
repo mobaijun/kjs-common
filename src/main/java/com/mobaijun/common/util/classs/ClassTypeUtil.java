@@ -4,6 +4,7 @@ import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.util.ClassUtil;
 import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.enums.http.FieldTypeEnum;
+import com.mobaijun.common.util.constant.StringConstant;
 import sun.reflect.generics.reflectiveObjects.TypeVariableImpl;
 import sun.reflect.generics.reflectiveObjects.WildcardTypeImpl;
 
@@ -27,7 +28,7 @@ public class ClassTypeUtil {
     /**
      * 认定为实体对象的包结构，如果属于此包结构，则会被认定为实体结构
      */
-    public static List<String> entityScanPackage = ListUtil.list(false, "com.mobaijun");
+    public static List<String> entityScanPackage = ListUtil.list(false, StringConstant.PACKAGE_NAME);
 
     /**
      * 判断类类型是否是扫描的包范围之内
@@ -149,9 +150,8 @@ public class ClassTypeUtil {
 
     @SuppressWarnings("all")
     public static void main(String[] args) throws Exception {
-        // 另一个com.sg.myReflection.bean包下的User类
-        String path = "com.sg.myReflection.bean.User";
-        Class clazz = Class.forName(path);
+        // 另一个bean包下的User类
+        Class clazz = Class.forName(StringConstant.PACKAGE_NAME);
 
         // 获取类名
         String strName01 = clazz.getName();// 获取完整类名com.sg.myReflection.bean.User

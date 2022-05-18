@@ -65,7 +65,7 @@ public class RsaUtils {
         KeyPair keyPair = keyPairGen.generateKeyPair();
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-        Map<String, Object> keyMap = new HashMap<String, Object>();
+        Map<String, Object> keyMap = new HashMap<>();
         keyMap.put(PUBLIC_KEY, publicKey);
         keyMap.put(PRIVATE_KEY, privateKey);
         return keyMap;
@@ -126,60 +126,26 @@ public class RsaUtils {
         Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
         cipher.init(Cipher.ENCRYPT_MODE, privateK);
         int inputLen = data.length;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        int offSet = 0;
-        byte[] cache;
-        int i = 0;
-        // 对数据分段加密
-        while (inputLen - offSet > 0) {
-            if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
-                cache = cipher.doFinal(data, offSet, MAX_ENCRYPT_BLOCK);
-            } else {
-                cache = cipher.doFinal(data, offSet, inputLen - offSet);
-            }
-            out.write(cache, 0, cache.length);
-            i++;
-            offSet = i * MAX_ENCRYPT_BLOCK;
-        }
-        byte[] encryptedData = out.toByteArray();
-        out.close();
-        return encryptedData;
+        return encryptedData(data, inputLen, cipher);
     }
 
     /**
      * 私钥解密
      *
-     * @param encryptedData 已加密数据
-     * @param privateKey    私钥(BASE64编码)
+     * @param data       已加密数据
+     * @param privateKey 私钥(BASE64编码)
      * @return byte
      * @throws Exception GeneralSecurityException
      */
-    public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey) throws Exception {
+    public static byte[] decryptByPrivateKey(byte[] data, String privateKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key privateK = keyFactory.generatePrivate(keySpec);
         Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
         cipher.init(Cipher.DECRYPT_MODE, privateK);
-        int inputLen = encryptedData.length;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        int offSet = 0;
-        byte[] cache;
-        int i = 0;
-        // 对数据分段解密
-        while (inputLen - offSet > 0) {
-            if (inputLen - offSet > MAX_DECRYPT_BLOCK) {
-                cache = cipher.doFinal(encryptedData, offSet, MAX_DECRYPT_BLOCK);
-            } else {
-                cache = cipher.doFinal(encryptedData, offSet, inputLen - offSet);
-            }
-            out.write(cache, 0, cache.length);
-            i++;
-            offSet = i * MAX_DECRYPT_BLOCK;
-        }
-        byte[] decryptedData = out.toByteArray();
-        out.close();
-        return decryptedData;
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
     }
 
     /**
@@ -199,60 +165,26 @@ public class RsaUtils {
         Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
         cipher.init(Cipher.ENCRYPT_MODE, publicK);
         int inputLen = data.length;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        int offSet = 0;
-        byte[] cache;
-        int i = 0;
-        // 对数据分段加密
-        while (inputLen - offSet > 0) {
-            if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
-                cache = cipher.doFinal(data, offSet, MAX_ENCRYPT_BLOCK);
-            } else {
-                cache = cipher.doFinal(data, offSet, inputLen - offSet);
-            }
-            out.write(cache, 0, cache.length);
-            i++;
-            offSet = i * MAX_ENCRYPT_BLOCK;
-        }
-        byte[] encryptedData = out.toByteArray();
-        out.close();
-        return encryptedData;
+        return encryptedData(data, inputLen, cipher);
     }
 
     /**
      * 公钥解密
      *
-     * @param encryptedData 已加密数据
-     * @param publicKey     公钥(BASE64编码)
+     * @param data      已加密数据
+     * @param publicKey 公钥(BASE64编码)
      * @return byte[]
      * @throws Exception Exception
      */
-    public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey) throws Exception {
+    public static byte[] decryptByPublicKey(byte[] data, String publicKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key publicK = keyFactory.generatePublic(keySpec);
         Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
         cipher.init(Cipher.DECRYPT_MODE, publicK);
-        int inputLen = encryptedData.length;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        int offSet = 0;
-        byte[] cache;
-        int i = 0;
-        // 对数据分段解密
-        while (inputLen - offSet > 0) {
-            if (inputLen - offSet > MAX_DECRYPT_BLOCK) {
-                cache = cipher.doFinal(encryptedData, offSet, MAX_DECRYPT_BLOCK);
-            } else {
-                cache = cipher.doFinal(encryptedData, offSet, inputLen - offSet);
-            }
-            out.write(cache, 0, cache.length);
-            i++;
-            offSet = i * MAX_DECRYPT_BLOCK;
-        }
-        byte[] decryptedData = out.toByteArray();
-        out.close();
-        return decryptedData;
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
     }
 
     /**
@@ -334,5 +266,26 @@ public class RsaUtils {
                 "<Modulus>" + Base64Utils.encode(removeMSZero(publicK.getModulus().toByteArray())) + "</Modulus>" +
                 "<Exponent>" + Base64Utils.encode(removeMSZero(publicK.getPublicExponent().toByteArray())) + "</Exponent>" +
                 "</RSAKeyValue>";
+    }
+
+    private static byte[] encryptedData(byte[] data, int inputLen, Cipher cipher) throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        int offSet = 0;
+        byte[] cache;
+        int i = 0;
+        // 对数据分段加密
+        while (inputLen - offSet > 0) {
+            if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
+                cache = cipher.doFinal(data, offSet, MAX_ENCRYPT_BLOCK);
+            } else {
+                cache = cipher.doFinal(data, offSet, inputLen - offSet);
+            }
+            out.write(cache, 0, cache.length);
+            i++;
+            offSet = i * MAX_ENCRYPT_BLOCK;
+        }
+        byte[] encryptedData = out.toByteArray();
+        out.close();
+        return encryptedData;
     }
 }

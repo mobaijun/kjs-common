@@ -7,7 +7,7 @@ package com.mobaijun.common.util.constant;
  *
  * @author MoBaiJun 2022/4/22 18:52
  */
-public class ConstantDate {
+public class DateConstant {
 
     public static final String YYYY = "yyyy";
 

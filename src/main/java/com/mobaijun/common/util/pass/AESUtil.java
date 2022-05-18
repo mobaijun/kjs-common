@@ -19,11 +19,6 @@ public class AESUtil {
     private static final String AES = "AES";
 
     /**
-     * 默认加密规则
-     */
-    private static final String DEFAULT_ENCODE_RULE = "com.mobaijun";
-
-    /**
      * 加密
      * 1.构造密钥生成器
      * 2.根据ecnodeRules规则初始化密钥生成器

@@ -179,7 +179,7 @@ public class JdbcDriverUtil {
      * @return key:参数位置(从1开始), value:输出的值
      */
     public static Map<Integer, Object> executeProcedure(Connection conn, String sql, Map<Integer, Object> in, Map<Integer, Integer> out) {
-        Map<Integer, Object> map = new HashMap<Integer, Object>();
+        Map<Integer, Object> map = new HashMap<>();
         CallableStatement cs = null;
         ResultSet rs = null;
         try {

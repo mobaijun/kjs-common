@@ -1,5 +1,8 @@
 package com.mobaijun.common.util.classs;
 
+import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.util.constant.StringConstant;
+
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -10,7 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 /**
- * software：IntelliJ IDEA 2022.1
+ * software：IntelliJ IDEA NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO.1
  * class name: ClassUtil
  * class description： 反射操作工具类
  * 这个类是方便控制台输出object，主要应用java反射机制。 因为考虑到使用性和美观性，没有使用无限递归。
@@ -18,7 +21,7 @@ import java.util.Map.Entry;
  * 当然我们也可以将boolean recursion换成int recursion，控制递归次数。
  * 其实就我使用经验来看，复杂数据 toString，用 json 工具转化成 json 输出是一个不错的方式。
  *
- * @author MoBaiJun 2022/5/18 9:19
+ * @author MoBaiJun NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO/5/18 9:19
  */
 public class ClassUtil {
 
@@ -40,8 +43,7 @@ public class ClassUtil {
      * return sum;
      * }
      */
-    private static final String SPLIT_LINE = "=";// 分割线
-    private static final String MY_SIGN = "KLG_print";//默認標記
+    private static final String MY_SIGN = "KLG_print";// 默認標記
 
     /**
      * 将集合类型toSring方法
@@ -52,8 +54,8 @@ public class ClassUtil {
      */
     private static String collectionToStr(Object object, boolean recursion) {
         if (object == null)
-            return "null";
-        Object[] a = null;
+            return StringConstant.NULL;
+        Object[] a;
         // 将集合类型转换成数组类型
         if (isArrayType(object))
             a = (Object[]) object;
@@ -70,17 +72,17 @@ public class ClassUtil {
      */
     private static String complexArrToStr(Object[] a) {
         if (a == null)
-            return "null";
-        int iMax = a.length - 1;
-        if (iMax == -1)
-            return "[]";
+            return StringConstant.NULL;
+        int iMax = a.length - NumberConstant.ONE;
+        if (iMax == NumberConstant.MINUS_ONE)
+            return StringConstant.SQUARE_BRACKETS;
         StringBuilder b = new StringBuilder();
-        for (int i = 0; ; i++) {
+        for (int i = NumberConstant.ZERO; ; i++) {
             String value = objToStr(a[i], false);
-            b.append("[")
+            b.append(StringConstant.LEFT_SQUARE_BRACKETS)
                     .append(i)
-                    .append("]")
-                    .append(" -> ")
+                    .append(StringConstant.RIGHT_SQUARE_BRACKETS)
+                    .append(StringConstant.LEFT_ARROW)
                     .append(value);
             if (i == iMax)
                 return b.toString();
@@ -97,7 +99,7 @@ public class ClassUtil {
      */
     private static String mapToStr(Map<String, Object> map, boolean recursion) {
         if (map == null)
-            return "null";
+            return StringConstant.NULL;
         if (isSimpleMap(map) || !recursion)
             return simpleMapToStr(map);
         else
@@ -113,17 +115,21 @@ public class ClassUtil {
     private static String simpleMapToStr(Map<String, Object> map) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         if (!i.hasNext())
-            return "{}";
+            return StringConstant.BIG_PARANTHESES;
 
         StringBuilder sb = new StringBuilder();
-        sb.append('{');
-        for (int t = 1; ; t++) {
+        sb.append(StringConstant.LEFT_BIG_PARANTHESES);
+        for (int t = NumberConstant.ONE; ; t++) {
             Entry<String, Object> e = i.next();
-            sb.append(e.getKey()).append(" = ").append(e.getValue());
+            sb.append(e.getKey())
+                    .append(StringConstant.EMPTY_STRING)
+                    .append(StringConstant.EQUAL)
+                    .append(StringConstant.EMPTY_STRING)
+                    .append(e.getValue());
             if (!i.hasNext())
-                return sb.append('}').toString();
-            sb.append(',').append(' ');
-            if (t % 10 == 0 && t != 0)
+                return sb.append(StringConstant.RIGHT_BIG_PARANTHESES).toString();
+            sb.append(StringConstant.COMMA).append(StringConstant.EMPTY_STRING);
+            if (t % NumberConstant.TEN == NumberConstant.ZERO && t != NumberConstant.ZERO)
                 sb.append("\r\n ");
         }
     }
@@ -138,14 +144,14 @@ public class ClassUtil {
     private static String complexMapToStr(Map<String, Object> map, boolean recursion) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         if (!i.hasNext())
-            return "{}";
+            return StringConstant.NULL;
         StringBuilder sb = new StringBuilder();
-        sb.append("{\r\n");
-        for (int t = 1; ; t++) {
+        sb.append(StringConstant.LEFT_BIG_PARANTHESES);
+        for (int t = NumberConstant.ONE; ; t++) {
             Entry<String, Object> e = i.next();
             String key = String.valueOf(e.getKey());
             Object value = e.getValue();
-            sb.append(indent(2, " ")).append(key).append(" = ");
+            sb.append(indent(NumberConstant.TWO, " ")).append(key).append(" = ");
             if (isSimpleType(value) || !recursion)
                 sb.append(String.valueOf(value));
             else
@@ -160,9 +166,9 @@ public class ClassUtil {
     private static String beanToStr(Object object, boolean recursion) {
         if (object == null)
             return "null";
-        Class clazz = object.getClass();
+        Class<?> clazz = object.getClass();
         StringBuilder sb = new StringBuilder();
-        //返回源代码中给出的底层类的简称
+        // 返回源代码中给出的底层类的简称
         sb.append(clazz.getSimpleName()).append("[");
         Field[] fields = sortFieldByType(clazz.getDeclaredFields());
         int iMax = fields.length - 1;
@@ -187,7 +193,7 @@ public class ClassUtil {
                 else
                     sb
                             .append("\r\n")
-                            .append(indent(clazz.getSimpleName().length() + 2, " "))
+                            .append(indent(clazz.getSimpleName().length() + NumberConstant.TWO, " "))
                             .append(objToStr(value, false))
                             .append("\r\n");
             } catch (Exception e) {
@@ -343,7 +349,7 @@ public class ClassUtil {
         else if (isCollectionType(object))
             return collectionToStr(object, recursion);
         else if (isMapType(object))
-            return mapToStr((Map) object, recursion);
+            return mapToStr((Map<String, Object>) object, recursion);
         else
             return String.valueOf(object);
     }
@@ -353,11 +359,11 @@ public class ClassUtil {
     }
 
     private static void print(Object obj, String sign, String content) {
-        String begin = indent(15, SPLIT_LINE) + "  " + obj.getClass().getSimpleName()
-                + "  >> " + sign + "  " + indent(10, SPLIT_LINE);
-        int length = (begin.length() - sign.length() - 5) / 2;
+        String begin = indent(15, StringConstant.EQUAL) + "  " + obj.getClass().getSimpleName()
+                + "  >> " + sign + "  " + indent(10, StringConstant.EQUAL);
+        int length = (begin.length() - sign.length() - 5) / NumberConstant.TWO;
 
-        String end = indent(length, SPLIT_LINE) + "  " + sign + "  " + indent(length, SPLIT_LINE);
+        String end = indent(length, StringConstant.EQUAL) + "  " + sign + "  " + indent(length, StringConstant.EQUAL);
         System.out.println(begin + "\r\n" + content + "\r\n" + end);
 
     }

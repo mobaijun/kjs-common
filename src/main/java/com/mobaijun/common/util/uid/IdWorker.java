@@ -1,5 +1,8 @@
 package com.mobaijun.common.util.uid;
 
+import com.mobaijun.common.util.PrintUtils;
+import com.mobaijun.common.util.constant.StringConstant;
+
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -164,18 +167,14 @@ public class IdWorker {
      * @return long
      */
     protected static long getMaxWorkerId(long datacenterId) {
-        StringBuffer mpid = new StringBuffer();
+        StringBuilder mpid = new StringBuilder();
         mpid.append(datacenterId);
         String name = ManagementFactory.getRuntimeMXBean().getName();
         if (!name.isEmpty()) {
-            /*
-             * GET jvmPid
-             */
-            mpid.append(name.split("@")[0]);
+            // GET jvmPid
+            mpid.append(name.split(StringConstant.AT)[0]);
         }
-        /*
-         * MAC + PID 的 hashcode 获取16个低位
-         */
+        // MAC + PID 的 hashcode 获取16个低位
         return (mpid.toString().hashCode() & 0xffff) % (IdWorker.maxWorkerId + 1);
     }
 
@@ -198,7 +197,7 @@ public class IdWorker {
                 id = id % (IdWorker.maxDatacenterId + 1);
             }
         } catch (Exception e) {
-            System.out.println(" getDatacenterId: " + e.getMessage());
+            PrintUtils.print(" getDatacenterId: " + e.getMessage());
         }
         return id;
     }

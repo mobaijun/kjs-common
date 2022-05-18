@@ -39,7 +39,6 @@ public class ZipUtils {
             zos = new ZipOutputStream(new BufferedOutputStream(Files.newOutputStream(Paths.get(zipFilePath))));
             for (File file : files) {
                 if (file.isFile()) {
-                    len = -1;
                     b = new byte[BUFFER_SIZE];
                     bis = new BufferedInputStream(Files.newInputStream(file.toPath()));
                     ZipEntry ze = new ZipEntry(file.getName());

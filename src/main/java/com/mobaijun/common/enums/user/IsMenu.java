@@ -18,8 +18,8 @@ public enum IsMenu {
      */
     NO(0, "不是");
 
-    private int code;
-    private String message;
+    private final int code;
+    private final String message;
 
     IsMenu(int code, String message) {
         this.code = code;

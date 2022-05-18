@@ -16,8 +16,8 @@ public enum AccountStatus {
     FREEZE(2, "冻结"),
     DELETED(-1, "被删除");
 
-    private int code;
-    private String message;
+    private final int code;
+    private final String message;
 
     AccountStatus(int code, String message) {
         this.code = code;

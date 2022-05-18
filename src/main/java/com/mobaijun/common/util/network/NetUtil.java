@@ -1,5 +1,7 @@
 package com.mobaijun.common.util.network;
 
+import com.mobaijun.common.util.constant.JdkConstant;
+
 /**
  * software：IntelliJ IDEA 2022.1
  * class name: NetUtil
@@ -17,7 +19,7 @@ public class NetUtil {
      */
     private static boolean ping(String host) {
         try {
-            boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
+            boolean isWindows = System.getProperty(JdkConstant.OS_NAME).toLowerCase().contains("win");
             ProcessBuilder processBuilder = new ProcessBuilder("ping", isWindows ? "-n" : "-c", "1", host);
             Process proc = processBuilder.start();
             int returnVal = proc.waitFor();

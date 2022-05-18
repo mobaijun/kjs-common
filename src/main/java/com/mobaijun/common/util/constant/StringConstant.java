@@ -28,4 +28,23 @@ public class StringConstant {
     public static final String X_TOTAL = "X-Total-Count";
     public static final String COOKIE = "Cookie";
     public static final String SET_COOKIE = "Set-Cookie";
+    public static final String EQUAL = "=";
+    public static final String EMPTY_STRING = " ";
+    public static final String LEFT_BIG_PARANTHESES = "{";
+    public static final String RIGHT_BIG_PARANTHESES = "}";
+    public static final String BIG_PARANTHESES = "{}";
+    public static final String SQUARE_BRACKETS = "[]";
+    public static final String LEFT_SQUARE_BRACKETS = "[";
+    public static final String RIGHT_SQUARE_BRACKETS = "]";
+
+    public static final String PARENTHESES = "()";
+    public static final String LEFT_PARENTHESES = "(";
+    public static final String RIGHT_PARENTHESES = ")";
+    public static final String LEFT_ARROW = " -> ";
+    public static final String AT = "@";
+    public static final String NULL = "null";
+    public static final String PACKAGE_NAME = "com.mobaijun";
+    public static final String[] CHINESE_CHARACTERES = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
+    public static final String[][] UNIT = {{"元", "万", "亿"}, {"拾", "佰", "仟"}};
+    public static final String[] FRACTION = {"角", "分"};
 }

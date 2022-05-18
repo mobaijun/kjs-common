@@ -1,7 +1,7 @@
 package com.mobaijun.common.util;
 
 
-import com.mobaijun.common.util.constant.ConstantStr;
+import com.mobaijun.common.util.constant.StringConstant;
 
 import java.util.Collection;
 import java.util.Map;
@@ -74,7 +74,7 @@ public class StringUtils {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(String str) {
-        return ObjectUtils.isNull(str) || ConstantStr.NULLSTR.equals(str.trim());
+        return ObjectUtils.isNull(str) || StringConstant.EMPTY_STRING.equals(str.trim());
     }
 
     /**
@@ -128,7 +128,7 @@ public class StringUtils {
      */
     public static String substring(final String str, int start) {
         if (str == null) {
-            return ConstantStr.NULLSTR;
+            return StringConstant.EMPTY_STRING;
         }
 
         if (start < 0) {
@@ -139,7 +139,7 @@ public class StringUtils {
             start = 0;
         }
         if (start > str.length()) {
-            return ConstantStr.NULLSTR;
+            return StringConstant.EMPTY_STRING;
         }
 
         return str.substring(start);
@@ -155,7 +155,7 @@ public class StringUtils {
      */
     public static String substring(final String str, int start, int end) {
         if (str == null) {
-            return ConstantStr.NULLSTR;
+            return StringConstant.EMPTY_STRING;
         }
 
         if (end < 0) {
@@ -170,7 +170,7 @@ public class StringUtils {
         }
 
         if (start > end) {
-            return ConstantStr.NULLSTR;
+            return StringConstant.EMPTY_STRING;
         }
 
         if (start < 0) {
@@ -215,9 +215,9 @@ public class StringUtils {
             }
 
             if (preCharIsUpperCase && curreCharIsUpperCase && !nexteCharIsUpperCase) {
-                sb.append(ConstantStr.SEPARATOR);
+                sb.append(StringConstant.UNDERLINE);
             } else if ((i != 0 && !preCharIsUpperCase) && curreCharIsUpperCase) {
-                sb.append(ConstantStr.SEPARATOR);
+                sb.append(StringConstant.UNDERLINE);
             }
             sb.append(Character.toLowerCase(c));
         }

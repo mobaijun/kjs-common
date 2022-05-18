@@ -2,7 +2,7 @@ package com.mobaijun.common.util.thread;
 
 
 import com.mobaijun.common.util.PrintUtils;
-import com.mobaijun.common.util.constant.ConstantThread;
+import com.mobaijun.common.util.constant.ThreadConstant;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -44,9 +44,9 @@ public class Threads {
         if (pool != null && !pool.isShutdown()) {
             pool.shutdown();
             try {
-                if (!pool.awaitTermination(ConstantThread.TIME_OUT, TimeUnit.SECONDS)) {
+                if (!pool.awaitTermination(ThreadConstant.TIME_OUT, TimeUnit.SECONDS)) {
                     pool.shutdownNow();
-                    if (!pool.awaitTermination(ConstantThread.TIME_OUT, TimeUnit.SECONDS)) {
+                    if (!pool.awaitTermination(ThreadConstant.TIME_OUT, TimeUnit.SECONDS)) {
                         PrintUtils.println("Pool did not terminate");
                     }
                 }

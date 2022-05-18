@@ -18,6 +18,6 @@ public enum MenuStatus {
     ENABLE(1, "启用"),
     DISABLE(2, "禁用");
 
-    final int code;
-    final String name;
+    private final int code;
+    private final String name;
 }

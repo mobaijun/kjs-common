@@ -36,13 +36,11 @@ public class PicFileTypeUtil {
         if (StringUtils.isEmpty(fileName)) {
             return false;
         }
-
         for (String picType : PIC_TYPES) {
             if (fileName.toLowerCase().endsWith(picType)) {
                 return true;
             }
         }
-
         return false;
     }
 }

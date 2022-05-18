@@ -115,7 +115,7 @@ public class CollectionUtils {
      */
     public static Collection<? extends Serializable> arrayToCollection(Long[] longArray) {
         Collection<? extends Serializable> collection = new ArrayList<>();
-        CollectionUtils.addAll(collection, longArray);
+        CollectionUtils.addAll(Collections.singleton(collection), longArray);
         return collection;
     }
 
@@ -127,10 +127,8 @@ public class CollectionUtils {
      * @param elements   the array of elements to add, must not be null
      * @throws NullPointerException if the collection or array is null
      */
-    public static void addAll(Collection collection, Object[] elements) {
-        for (int i = 0, size = elements.length; i < size; i++) {
-            collection.add(elements[i]);
-        }
+    public static void addAll(Collection<Object> collection, Object[] elements) {
+        collection.addAll(Arrays.asList(elements));
     }
 
     /**

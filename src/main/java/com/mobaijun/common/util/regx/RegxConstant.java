@@ -46,4 +46,9 @@ public class RegxConstant {
      * 正则表达式：mac地址校验
      */
     public static final String REGEX_MAC = "^(([0-9a-fA-F]){1,2}[:-]){5}([0-9a-fA-F]){1,2}";
+
+    /**
+     * 正则表达式：检测邮箱是否合法
+     */
+    public static final String PATH_EMAIL = "^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
 }
