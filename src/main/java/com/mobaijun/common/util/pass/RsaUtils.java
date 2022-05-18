@@ -4,7 +4,6 @@ import com.mobaijun.common.util.image.Base64Utils;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -80,7 +79,7 @@ public class RsaUtils {
      * @return String
      * @throws Exception GeneralSecurityException
      */
-    public static String sign(byte[] data, String privateKey) throws GeneralSecurityException {
+    public static String sign(byte[] data, String privateKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -100,7 +99,7 @@ public class RsaUtils {
      * @return byte
      * @throws Exception GeneralSecurityException
      */
-    public static boolean verify(byte[] data, String publicKey, String sign) throws GeneralSecurityException {
+    public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {
         byte[] keyBytes = Base64Utils.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -119,7 +118,7 @@ public class RsaUtils {
      * @return byte
      * @throws Exception GeneralSecurityException
      */
-    public static byte[] encryptByPrivateKey(byte[] data, String privateKey) throws GeneralSecurityException, IOException {
+    public static byte[] encryptByPrivateKey(byte[] data, String privateKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -155,7 +154,7 @@ public class RsaUtils {
      * @return byte
      * @throws Exception GeneralSecurityException
      */
-    public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey) throws GeneralSecurityException, IOException {
+    public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -191,7 +190,7 @@ public class RsaUtils {
      * @return byte[]
      * @throws Exception IOException
      */
-    public static byte[] encryptByPublicKey(byte[] data, String publicKey) throws GeneralSecurityException, IOException {
+    public static byte[] encryptByPublicKey(byte[] data, String publicKey) throws Exception {
         byte[] keyBytes = Base64Utils.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
@@ -300,13 +299,13 @@ public class RsaUtils {
      *
      * @param keyMap 密钥对
      * @return String
+     * @throws GeneralSecurityException Exception
      */
     public static String getPrivateKey2CSharp(Map<String, Object> keyMap) throws GeneralSecurityException {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(key.getEncoded());
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         RSAPrivateCrtKey privateK = (RSAPrivateCrtKey) keyFactory.generatePrivate(keySpec);
-
         return "<RSAKeyValue>" +
                 "<Modulus>" + Base64Utils.encode(removeMSZero(privateK.getModulus().toByteArray())) + "</Modulus>" +
                 "<Exponent>" + Base64Utils.encode(removeMSZero(privateK.getPublicExponent().toByteArray())) + "</Exponent>" +
@@ -324,6 +323,7 @@ public class RsaUtils {
      *
      * @param keyMap 密钥对
      * @return String
+     * @throws GeneralSecurityException Exception
      */
     public static String getPublicKey2CSharp(Map<String, Object> keyMap) throws GeneralSecurityException {
         Key key = (Key) keyMap.get(PUBLIC_KEY);

@@ -56,8 +56,6 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <hutool-all.version>5.8.1</hutool-all.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <commons-io.version>2.11.0</commons-io.version>
-        <commons-lang.version>2.6</commons-lang.version>
     </properties>
 
     <dependencies>

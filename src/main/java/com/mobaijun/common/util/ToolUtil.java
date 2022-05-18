@@ -621,7 +621,8 @@ public class ToolUtil {
      *
      * @param obj   obj
      * @param clazz clazz
-     * @return {@link List<T>}
+     * @param <T>   T
+     * @return List
      */
     public static <T> List<T> castList(Object obj, Class<T> clazz) {
         List<T> result = new ArrayList<T>();
@@ -639,7 +640,8 @@ public class ToolUtil {
      *
      * @param obj   obj
      * @param clazz clazz
-     * @return {@link Set<T>}
+     * @param <T>   T
+     * @return Set
      */
     public static <T> Set<T> castSet(Object obj, Class<T> clazz) {
         Set<T> result = new HashSet<>();

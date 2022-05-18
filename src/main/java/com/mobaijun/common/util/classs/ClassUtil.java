@@ -17,26 +17,29 @@ import java.util.Map.Entry;
  * 而是在toStr方法中加入一个boolean recursion ，是否递归。
  * 当然我们也可以将boolean recursion换成int recursion，控制递归次数。
  * 其实就我使用经验来看，复杂数据 toString，用 json 工具转化成 json 输出是一个不错的方式。
- * // 这是我用的方式，boolean recursion是否递归
- * public static int add(int i,boolean recursion){
- * sum+=i;
- * if(recursion)
- * add(i, false);
- * return sum;
- * }
- * // 也可以这样，int recursion表示递归次数
- * public static int add(int i,int recursion){
- * sum+=i;
- * if(recursion>0){
- * recursion--;
- * add(i, recursion);
- * }
- * return sum;
- * }
  *
  * @author MoBaiJun 2022/5/18 9:19
  */
 public class ClassUtil {
+
+    // 这是我用的方式，boolean recursion是否递归
+    /**
+     * public static int add(int i,boolean recursion){
+     * sum+=i;
+     * if(recursion)
+     * add(i, false);
+     * return sum;
+     * }
+     * // 也可以这样，int recursion表示递归次数
+     * public static int add(int i,int recursion){
+     * sum+=i;
+     * if(recursion > 0){
+     * recursion--;
+     * add(i, recursion);
+     * }
+     * return sum;
+     * }
+     */
     private static final String SPLIT_LINE = "=";// 分割线
     private static final String MY_SIGN = "KLG_print";//默認標記
 
@@ -294,21 +297,23 @@ public class ClassUtil {
         return flag;
     }
 
-    /***
+    /**
      * 将简单类型排在前面
-     * @param fields
-     * @return
+     *
+     * @param fields 参数
+     * @return Field
      */
-
     public static Field[] sortFieldByType(Field[] fields) {
         for (int i = 0; i < fields.length; i++) {
             if (isSimpleType(fields[i].getType()))
-                continue;// fields[i]是简单类型不管
+                // fields[i]是简单类型不管
+                continue;
             // fields[i]是复杂类型
             // int j = i+1，从fields[i]之后开始比较
             for (int j = i + 1; j < fields.length; j++) {
                 Field fieldTmp = null;
-                if (isSimpleType(fields[j].getType())) {// 与后面的第一个简单类型交互
+                // 与后面的第一个简单类型交互
+                if (isSimpleType(fields[j].getType())) {
                     fieldTmp = fields[i];
                     fields[i] = fields[j];
                     fields[j] = fieldTmp;
@@ -322,9 +327,9 @@ public class ClassUtil {
     /**
      * 这个方法是递归方法，并且并多个地方调用，考虑到循环引用和显示格式， boolean recursion取得确保递归可以被终止。
      *
-     * @param object
+     * @param object    object
      * @param recursion 是否需要更深一层显示
-     * @return
+     * @return String
      */
     private static String objToStr(Object object, boolean recursion) {
         if (object == null)
