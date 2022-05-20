@@ -24,7 +24,6 @@
         </license>
     </licenses>
 
-
     <!--  GitHub issues -->
     <issueManagement>
         <system>GitHub Issues</system>
@@ -159,7 +158,6 @@
             </plugin>
         </plugins>
     </build>
-
 
     <!-- 【注】snapshotRepository 与 repository 中的 id 一定要与 setting.xml 中 server 的 id 保持一致！ -->
     <distributionManagement>
