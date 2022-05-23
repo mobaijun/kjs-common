@@ -18,25 +18,25 @@ public class PrintUtils {
     /**
      * 不换行输出
      *
-     * @param obj obj
+     * @param data data
      */
-    public static void print(Object obj) {
-        if (ObjectUtils.isEmpty(obj)) {
+    public static <T> void print(T data) {
+        if (ObjectUtils.isEmpty(data)) {
             return;
         }
-        System.out.print(obj);
+        System.out.print(data);
     }
 
     /**
      * 换行打印输出
      *
-     * @param obj obj
+     * @param data obj
      */
-    public static void println(Object obj) {
-        if (ObjectUtils.isEmpty(obj)) {
+    public static <T> void println(T data) {
+        if (ObjectUtils.isEmpty(data)) {
             return;
         }
-        System.out.println(obj);
+        System.out.println(data);
     }
 
     /**
@@ -44,7 +44,7 @@ public class PrintUtils {
      *
      * @param collection collection
      */
-    public static void println(Collection<Object> collection) {
+    public static void println(Collection<?> collection) {
         if (CollectionUtils.isEmpty(collection)) {
             return;
         }
@@ -86,7 +86,7 @@ public class PrintUtils {
      *
      * @param map map
      */
-    public static void println(Map<String, String> map) {
+    public static void println(Map<?, ?> map) {
         if (map.size() == 0) {
             return;
         }
@@ -94,11 +94,11 @@ public class PrintUtils {
     }
 
     /**
-     * println String map values
+     * println  map values
      *
      * @param map map
      */
-    public static void mapValue(Map<String, String> map) {
+    public static void mapValue(Map<?, ?> map) {
         if (map.size() == 0) {
             return;
         }
@@ -110,7 +110,7 @@ public class PrintUtils {
      *
      * @param map map
      */
-    public static void mapKey(Map<String, String> map) {
+    public static void mapKey(Map<?, ?> map) {
         if (map.size() == 0) {
             return;
         }
