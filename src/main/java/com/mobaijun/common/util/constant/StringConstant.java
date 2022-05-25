@@ -47,4 +47,6 @@ public class StringConstant {
     public static final String[] CHINESE_CHARACTERES = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
     public static final String[][] UNIT = {{"元", "万", "亿"}, {"拾", "佰", "仟"}};
     public static final String[] FRACTION = {"角", "分"};
+    public static final String HTTP_PREFIX = "http://";
+    public static final String HTTPS_PREFIX = "https://";
 }
