@@ -25,16 +25,16 @@ public class Md5Utils {
      */
     public static String sign(String str) {
         MessageDigest md5;
-        String sgin = "";
+        String sign = "";
         try {
             md5 = MessageDigest.getInstance(Constant.MD5);
             md5.reset();
             md5.update(str.getBytes(StandardCharsets.UTF_8));
-            sgin = byteToStr(md5.digest()).toUpperCase();
+            sign = byteToStr(md5.digest()).toUpperCase();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return sgin;
+        return sign;
     }
 
     /**
@@ -186,7 +186,7 @@ public class Md5Utils {
      * @param plainText plainText
      * @return String
      */
-    public static String MD5(String plainText) {
+    public static String md5(String plainText) {
         try {
             MessageDigest mdTemp = MessageDigest.getInstance(Constant.MD5);
 
@@ -213,6 +213,6 @@ public class Md5Utils {
      * @return 校验结果
      */
     public static boolean valid(String text, String md5) {
-        return md5.equals(MD5(text)) || md5.equals(Objects.requireNonNull(MD5(text)).toUpperCase());
+        return md5.equals(md5(text)) || md5.equals(Objects.requireNonNull(md5(text)).toUpperCase());
     }
 }

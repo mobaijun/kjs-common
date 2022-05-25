@@ -25,7 +25,7 @@ public class UUID implements Serializable, Comparable<UUID> {
      * SecureRandom 的单例
      */
     private static class Holder {
-        static final SecureRandom numberGenerator = getSecureRandom();
+        static final SecureRandom NUMBER_GENERATOR = getSecureRandom();
     }
 
     /**
@@ -93,14 +93,18 @@ public class UUID implements Serializable, Comparable<UUID> {
      * @return 随机生成的   UUID
      */
     public static UUID randomUUID(boolean isSecure) {
-        final Random ng = isSecure ? Holder.numberGenerator : getRandom();
+        final Random ng = isSecure ? Holder.NUMBER_GENERATOR : getRandom();
 
         byte[] randomBytes = new byte[16];
         ng.nextBytes(randomBytes);
-        randomBytes[6] &= 0x0f; /* clear version */
-        randomBytes[6] |= 0x40; /* set to version 4 */
-        randomBytes[8] &= 0x3f; /* clear variant */
-        randomBytes[8] |= 0x80; /* set to IETF variant */
+        /* clear version */
+        randomBytes[6] &= 0x0f;
+        /* set to version 4 */
+        randomBytes[6] |= 0x40;
+        /* clear variant */
+        randomBytes[8] &= 0x3f;
+        /* set to IETF variant */
+        randomBytes[8] |= 0x80;
         return new UUID(randomBytes);
     }
 
@@ -114,14 +118,18 @@ public class UUID implements Serializable, Comparable<UUID> {
         MessageDigest md;
         try {
             md = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException nsae) {
+        } catch (NoSuchAlgorithmException nsa) {
             throw new InternalError("MD5 not supported");
         }
         byte[] md5Bytes = md.digest(name);
-        md5Bytes[6] &= 0x0f; /* clear version */
-        md5Bytes[6] |= 0x30; /* set to version 3 */
-        md5Bytes[8] &= 0x3f; /* clear variant */
-        md5Bytes[8] |= 0x80; /* set to IETF variant */
+        /* clear version */
+        md5Bytes[6] &= 0x0f;
+        /* set to version 3 */
+        md5Bytes[6] |= 0x30;
+        /* clear variant */
+        md5Bytes[8] &= 0x3f;
+        /* set to IETF variant */
+        md5Bytes[8] |= 0x80;
         return new UUID(md5Bytes);
     }
 
@@ -343,7 +351,7 @@ public class UUID implements Serializable, Comparable<UUID> {
 
     /**
      * 将此对象与指定对象比较。
-     * 当且仅当参数不为 null、而是一个 UUID 对象、具有与此 UUID 相同的 varriant、包含相同的值（每一位均相同）时，结果才为 {@code true}。
+     * 当且仅当参数不为 null、而是一个 UUID 对象、具有与此 UUID 相同的 variant、包含相同的值（每一位均相同）时，结果才为 {@code true}。
      *
      * @param obj 要与之比较的对象
      * @return 如果对象相同，则返回 true；否则返回 false

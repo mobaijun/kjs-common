@@ -7,6 +7,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -16,6 +19,11 @@ import java.io.OutputStream;
  * @author MoBaiJun 2022/4/22 17:06
  */
 public class FileUtils {
+
+    /**
+     * 存储文件列表
+     */
+    private static final ArrayList<String> FILE_LIST = new ArrayList<>();
 
     /**
      * 输出指定文件的byte数组
@@ -76,5 +84,27 @@ public class FileUtils {
      */
     public static boolean isValidFilename(String filename) {
         return filename.matches(Constant.FILENAME_PATTERN);
+    }
+
+    /**
+     * 获取目录下所有文件路径
+     *
+     * @param path 地址
+     * @return 文件集合
+     * @throws IOException IO 异常
+     */
+    private static ArrayList<String> getFileList(File path) throws IOException {
+        File[] listFile = path.listFiles();
+        assert listFile != null;
+        for (File a : listFile) {
+            BasicFileAttributes basicFileAttributes = Files.readAttributes(a.toPath(), BasicFileAttributes.class);
+            if (basicFileAttributes.isDirectory()) {
+                // 递归调用getFile()方法
+                getFileList(new File(a.getAbsolutePath()));
+            } else if (basicFileAttributes.isRegularFile()) {
+                FILE_LIST.add(a.getAbsolutePath());
+            }
+        }
+        return FILE_LIST;
     }
 }
