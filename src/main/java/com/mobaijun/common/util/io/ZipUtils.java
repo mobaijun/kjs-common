@@ -169,9 +169,15 @@ public class ZipUtils {
             e.printStackTrace();
         } finally {
             try {
-                if (bos != null) bos.close();
-                if (bis != null) bis.close();
-                if (zipFile != null) zipFile.close();
+                if (bos != null) {
+                    bos.close();
+                }
+                if (bis != null) {
+                    bis.close();
+                }
+                if (zipFile != null) {
+                    zipFile.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
