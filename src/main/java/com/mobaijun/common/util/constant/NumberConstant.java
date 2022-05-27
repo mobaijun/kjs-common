@@ -21,4 +21,5 @@ public class NumberConstant {
     public final static int EIGHT = 8;
     public final static int NINE = 9;
     public final static int TEN = 10;
+    public final static int FIRST_CLASS = 1024;
 }

@@ -73,11 +73,11 @@ public class RegxUtil extends RegxConstant {
     /**
      * 校验IP地址
      *
-     * @param ipAddr ip地址
+     * @param ipAddress ip地址
      * @return true or false
      */
-    public static boolean isIPAddr(String ipAddr) {
-        return Pattern.matches(REGEX_IP_ADDR, ipAddr);
+    public static boolean isIpAddress(String ipAddress) {
+        return Pattern.matches(REGEX_IP_ADDR, ipAddress);
     }
 
     /**

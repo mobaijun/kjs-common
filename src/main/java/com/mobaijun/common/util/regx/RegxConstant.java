@@ -42,6 +42,7 @@ public class RegxConstant {
      * 正则表达式：验证IP地址
      */
     public static final String REGEX_IP_ADDR = "([1-9]|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])(\\.(\\d|[1-9]\\d|1\\d{2}|2[0-4]\\d|25[0-5])){3}";
+
     /**
      * 正则表达式：mac地址校验
      */
@@ -51,4 +52,54 @@ public class RegxConstant {
      * 正则表达式：检测邮箱是否合法
      */
     public static final String PATH_EMAIL = "^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
+
+    /**
+     * 域名
+     */
+    public static final String REGEX_DOMAIN_NAME = "[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\\.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+\\.?";
+
+    /**
+     * 网络地址
+     */
+    public static final String REGEX_INTERNET_URL = "^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$";
+
+    /**
+     * 手机号码
+     */
+    public static final String REGEX_PHONE = "^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$";
+
+    /**
+     * 弱密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：
+     */
+    public static final String REGEX_WEAK_PASSWORD = "^[a-zA-Z]\\w{5,17}$";
+
+    /**
+     * 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在 8-20 之间)：
+     */
+    public static final String REGEX_STRONG_PASSWORD = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$";
+
+    /**
+     * xml文件
+     */
+    public static final String REGEX_XML = "^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$";
+
+    /**
+     * QQ号
+     */
+    public static final String REGEX_QQ = "[1-9][0-9]{4,}";
+
+    /**
+     * 中国邮政编码： (中国邮政编码为6位数字)
+     */
+    public static final String REGEX_CHINA_POST = "[1-9]\\d{5}(?!\\d)";
+
+    /**
+     * IP地址
+     */
+    public static final String REGEX_IP_ADDRESS = "\\d+\\.\\d+\\.\\d+\\.\\d+";
+
+    /**
+     * 长度为3-20的所有字符
+     */
+    public static final String REGEX_CHAR_ALL = "^.{3,20}$";
 }

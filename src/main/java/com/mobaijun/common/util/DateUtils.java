@@ -1,12 +1,16 @@
 package com.mobaijun.common.util;
 
 import cn.hutool.core.util.StrUtil;
+import com.mobaijun.common.util.constant.DateConstant;
+import lombok.SneakyThrows;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -122,4 +126,18 @@ public class DateUtils {
         return formatDate;
     }
 
+    /**
+     * 获取两个日期之间相差的天数
+     *
+     * @param date1 日期
+     * @param date2 日期
+     * @return 相差天数
+     */
+    @SneakyThrows
+    public static Long timeDifference(String date1, String date2) {
+        // format date string
+        SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD, Locale.SIMPLIFIED_CHINESE);
+        // Calculate the number of days between dates
+        return TimeUnit.DAYS.convert(Math.abs(sdf.parse(date1).getTime() - sdf.parse(date2).getTime()), TimeUnit.MILLISECONDS);
+    }
 }
