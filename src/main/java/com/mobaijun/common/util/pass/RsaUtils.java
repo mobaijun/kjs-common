@@ -1,6 +1,6 @@
 package com.mobaijun.common.util.pass;
 
-import com.mobaijun.common.util.image.Base64Utils;
+import cn.hutool.core.codec.Base64;
 
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
@@ -80,14 +80,14 @@ public class RsaUtils {
      * @throws Exception GeneralSecurityException
      */
     public static String sign(byte[] data, String privateKey) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(privateKey);
+        byte[] keyBytes = Base64.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         PrivateKey privateK = keyFactory.generatePrivate(keySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initSign(privateK);
         signature.update(data);
-        return Base64Utils.encode(signature.sign());
+        return Base64.encode(signature.sign());
     }
 
     /**
@@ -100,14 +100,14 @@ public class RsaUtils {
      * @throws Exception GeneralSecurityException
      */
     public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(publicKey);
+        byte[] keyBytes = Base64.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         PublicKey publicK = keyFactory.generatePublic(keySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initVerify(publicK);
         signature.update(data);
-        return signature.verify(Base64Utils.decode(sign));
+        return signature.verify(Base64.decode(sign));
     }
 
     /**
@@ -119,7 +119,7 @@ public class RsaUtils {
      * @throws Exception GeneralSecurityException
      */
     public static byte[] encryptByPrivateKey(byte[] data, String privateKey) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(privateKey);
+        byte[] keyBytes = Base64.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key privateK = keyFactory.generatePrivate(keySpec);
@@ -138,7 +138,7 @@ public class RsaUtils {
      * @throws Exception GeneralSecurityException
      */
     public static byte[] decryptByPrivateKey(byte[] data, String privateKey) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(privateKey);
+        byte[] keyBytes = Base64.decode(privateKey);
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key privateK = keyFactory.generatePrivate(keySpec);
@@ -157,7 +157,7 @@ public class RsaUtils {
      * @throws Exception IOException
      */
     public static byte[] encryptByPublicKey(byte[] data, String publicKey) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(publicKey);
+        byte[] keyBytes = Base64.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key publicK = keyFactory.generatePublic(keySpec);
@@ -177,7 +177,7 @@ public class RsaUtils {
      * @throws Exception Exception
      */
     public static byte[] decryptByPublicKey(byte[] data, String publicKey) throws Exception {
-        byte[] keyBytes = Base64Utils.decode(publicKey);
+        byte[] keyBytes = Base64.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key publicK = keyFactory.generatePublic(keySpec);
@@ -195,7 +195,7 @@ public class RsaUtils {
      */
     public static String getPrivateKey(Map<String, Object> keyMap) {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
-        return Base64Utils.encode(key.getEncoded());
+        return Base64.encode(key.getEncoded());
     }
 
     /**
@@ -206,7 +206,7 @@ public class RsaUtils {
      */
     public static String getPublicKey(Map<String, Object> keyMap) {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
-        return Base64Utils.encode(key.getEncoded());
+        return Base64.encode(key.getEncoded());
     }
 
     /**
@@ -239,14 +239,14 @@ public class RsaUtils {
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         RSAPrivateCrtKey privateK = (RSAPrivateCrtKey) keyFactory.generatePrivate(keySpec);
         return "<RSAKeyValue>" +
-                "<Modulus>" + Base64Utils.encode(removeMSZero(privateK.getModulus().toByteArray())) + "</Modulus>" +
-                "<Exponent>" + Base64Utils.encode(removeMSZero(privateK.getPublicExponent().toByteArray())) + "</Exponent>" +
-                "<P>" + Base64Utils.encode(removeMSZero(privateK.getPrimeP().toByteArray())) + "</P>" +
-                "<Q>" + Base64Utils.encode(removeMSZero(privateK.getPrimeQ().toByteArray())) + "</Q>" +
-                "<DP>" + Base64Utils.encode(removeMSZero(privateK.getPrimeExponentP().toByteArray())) + "</DP>" +
-                "<DQ>" + Base64Utils.encode(removeMSZero(privateK.getPrimeExponentQ().toByteArray())) + "</DQ>" +
-                "<InverseQ>" + Base64Utils.encode(removeMSZero(privateK.getCrtCoefficient().toByteArray())) + "</InverseQ>" +
-                "<D>" + Base64Utils.encode(removeMSZero(privateK.getPrivateExponent().toByteArray())) + "</D>" +
+                "<Modulus>" + Base64.encode(removeMSZero(privateK.getModulus().toByteArray())) + "</Modulus>" +
+                "<Exponent>" + Base64.encode(removeMSZero(privateK.getPublicExponent().toByteArray())) + "</Exponent>" +
+                "<P>" + Base64.encode(removeMSZero(privateK.getPrimeP().toByteArray())) + "</P>" +
+                "<Q>" + Base64.encode(removeMSZero(privateK.getPrimeQ().toByteArray())) + "</Q>" +
+                "<DP>" + Base64.encode(removeMSZero(privateK.getPrimeExponentP().toByteArray())) + "</DP>" +
+                "<DQ>" + Base64.encode(removeMSZero(privateK.getPrimeExponentQ().toByteArray())) + "</DQ>" +
+                "<InverseQ>" + Base64.encode(removeMSZero(privateK.getCrtCoefficient().toByteArray())) + "</InverseQ>" +
+                "<D>" + Base64.encode(removeMSZero(privateK.getPrivateExponent().toByteArray())) + "</D>" +
                 "</RSAKeyValue>";
     }
 
@@ -263,8 +263,8 @@ public class RsaUtils {
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         RSAPublicKey publicK = (RSAPublicKey) keyFactory.generatePublic(keySpec);
         return "<RSAKeyValue>" +
-                "<Modulus>" + Base64Utils.encode(removeMSZero(publicK.getModulus().toByteArray())) + "</Modulus>" +
-                "<Exponent>" + Base64Utils.encode(removeMSZero(publicK.getPublicExponent().toByteArray())) + "</Exponent>" +
+                "<Modulus>" + Base64.encode(removeMSZero(publicK.getModulus().toByteArray())) + "</Modulus>" +
+                "<Exponent>" + Base64.encode(removeMSZero(publicK.getPublicExponent().toByteArray())) + "</Exponent>" +
                 "</RSAKeyValue>";
     }
 

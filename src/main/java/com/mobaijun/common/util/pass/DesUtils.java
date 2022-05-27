@@ -1,6 +1,6 @@
 package com.mobaijun.common.util.pass;
 
-import com.mobaijun.common.util.image.Base64Utils;
+import cn.hutool.core.codec.Base64;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.crypto.Cipher;
@@ -40,7 +40,7 @@ public class DesUtils {
                 Cipher cipher = Cipher.getInstance(DES);
                 cipher.init(Cipher.ENCRYPT_MODE, securekey, new SecureRandom());
                 byte[] bytes = cipher.doFinal(str.getBytes(StandardCharsets.UTF_8));
-                return Base64Utils.encode(bytes);
+                return Base64.encode(bytes);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -63,7 +63,7 @@ public class DesUtils {
                 SecretKey securekey = keyFactory.generateSecret(dks);
                 Cipher cipher = Cipher.getInstance(DES);
                 cipher.init(Cipher.DECRYPT_MODE, securekey, new SecureRandom());
-                byte[] bytes = cipher.doFinal(Base64Utils.decode(str));
+                byte[] bytes = cipher.doFinal(Base64.decode(str));
                 return new String(bytes, StandardCharsets.UTF_8);
             } catch (Exception e) {
                 e.printStackTrace();
