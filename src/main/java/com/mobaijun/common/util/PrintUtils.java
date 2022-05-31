@@ -1,5 +1,7 @@
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.util.collection.CollectionUtils;
+
 import java.util.Collection;
 import java.util.Map;
 

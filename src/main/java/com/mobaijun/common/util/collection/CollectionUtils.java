@@ -1,4 +1,4 @@
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.collection;
 
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.exception.CustomException;

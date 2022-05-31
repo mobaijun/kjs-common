@@ -1,7 +1,7 @@
 package com.mobaijun.common.util.system;
 
 import cn.hutool.core.date.DateTime;
-import com.mobaijun.common.util.DateUtils;
+import com.mobaijun.common.util.date.DateUtils;
 
 import java.lang.management.ManagementFactory;
 

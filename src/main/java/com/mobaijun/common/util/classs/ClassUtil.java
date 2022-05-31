@@ -53,29 +53,34 @@ public class ClassUtil {
      * @return String
      */
     private static String collectionToStr(Object object, boolean recursion) {
-        if (object == null)
+        if (object == null) {
             return StringConstant.NULL;
+        }
         Object[] a;
         // 将集合类型转换成数组类型
-        if (isArrayType(object))
+        if (isArrayType(object)) {
             a = (Object[]) object;
-        else
+        } else {
             a = ((Collection<?>) object).toArray();
-        if (isSimpleArr(a) || !recursion)
+        }
+        if (isSimpleArr(a) || !recursion) {
             return Arrays.toString(a);
-        else
+        } else {
             return complexArrToStr(a);
+        }
     }
 
     /**
      * Arrays有toString方法，但是对象内容太多，在一行显示 还有就是没有显示index信息
      */
     private static String complexArrToStr(Object[] a) {
-        if (a == null)
+        if (a == null) {
             return StringConstant.NULL;
+        }
         int iMax = a.length - NumberConstant.ONE;
-        if (iMax == NumberConstant.MINUS_ONE)
+        if (iMax == NumberConstant.MINUS_ONE) {
             return StringConstant.SQUARE_BRACKETS;
+        }
         StringBuilder b = new StringBuilder();
         for (int i = NumberConstant.ZERO; ; i++) {
             String value = objToStr(a[i], false);
@@ -84,8 +89,9 @@ public class ClassUtil {
                     .append(StringConstant.RIGHT_SQUARE_BRACKETS)
                     .append(StringConstant.LEFT_ARROW)
                     .append(value);
-            if (i == iMax)
+            if (i == iMax) {
                 return b.toString();
+            }
             b.append(", \r\n");
         }
     }
@@ -98,12 +104,14 @@ public class ClassUtil {
      * @return String
      */
     private static String mapToStr(Map<String, Object> map, boolean recursion) {
-        if (map == null)
+        if (map == null) {
             return StringConstant.NULL;
-        if (isSimpleMap(map) || !recursion)
+        }
+        if (isSimpleMap(map) || !recursion) {
             return simpleMapToStr(map);
-        else
+        } else {
             return complexMapToStr(map, true);
+        }
     }
 
     /**
@@ -114,8 +122,9 @@ public class ClassUtil {
      */
     private static String simpleMapToStr(Map<String, Object> map) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
-        if (!i.hasNext())
+        if (!i.hasNext()) {
             return StringConstant.BIG_PARANTHESES;
+        }
 
         StringBuilder sb = new StringBuilder();
         sb.append(StringConstant.LEFT_BIG_PARANTHESES);
@@ -126,11 +135,13 @@ public class ClassUtil {
                     .append(StringConstant.EQUAL)
                     .append(StringConstant.EMPTY_STRING)
                     .append(e.getValue());
-            if (!i.hasNext())
+            if (!i.hasNext()) {
                 return sb.append(StringConstant.RIGHT_BIG_PARANTHESES).toString();
+            }
             sb.append(StringConstant.COMMA).append(StringConstant.EMPTY_STRING);
-            if (t % NumberConstant.TEN == NumberConstant.ZERO && t != NumberConstant.ZERO)
+            if (t % NumberConstant.TEN == NumberConstant.ZERO && t != NumberConstant.ZERO) {
                 sb.append("\r\n ");
+            }
         }
     }
 
@@ -143,8 +154,9 @@ public class ClassUtil {
      */
     private static String complexMapToStr(Map<String, Object> map, boolean recursion) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
-        if (!i.hasNext())
+        if (!i.hasNext()) {
             return StringConstant.NULL;
+        }
         StringBuilder sb = new StringBuilder();
         sb.append(StringConstant.LEFT_BIG_PARANTHESES);
         for (int t = NumberConstant.ONE; ; t++) {
@@ -152,55 +164,62 @@ public class ClassUtil {
             String key = String.valueOf(e.getKey());
             Object value = e.getValue();
             sb.append(indent(NumberConstant.TWO, " ")).append(key).append(" = ");
-            if (isSimpleType(value) || !recursion)
+            if (isSimpleType(value) || !recursion) {
                 sb.append(String.valueOf(value));
-            else
+            } else {
                 sb.append(objToStr(value, false));
-            if (!i.hasNext())
+            }
+            if (!i.hasNext()) {
                 return sb.append("\r\n}").toString();
+            }
             sb.append(',').append("\r\n");
         }
     }
 
 
     private static String beanToStr(Object object, boolean recursion) {
-        if (object == null)
+        if (object == null) {
             return "null";
+        }
         Class<?> clazz = object.getClass();
         StringBuilder sb = new StringBuilder();
         // 返回源代码中给出的底层类的简称
         sb.append(clazz.getSimpleName()).append("[");
         Field[] fields = sortFieldByType(clazz.getDeclaredFields());
         int iMax = fields.length - 1;
-        if (iMax == -1)
+        if (iMax == -1) {
             return sb.append("]").toString();
+        }
         for (int i = 0; ; i++) {
             Field field = fields[i];
             // 设置些属性是可以访问的
             field.setAccessible(true);
             // 取得field的名称
             String name = field.getName();
-            if (name.equals("serialVersionUID"))
+            if (name.equals("serialVersionUID")) {
                 continue;
+            }
             try {
                 // 得到此属性的值
                 Object value = field.get(object);
-                if (isSimpleType(value) || !recursion)
+                if (isSimpleType(value) || !recursion) {
                     sb
                             .append(name)
                             .append(" = ")
                             .append(value);
-                else
+                } else {
                     sb
                             .append("\r\n")
                             .append(indent(clazz.getSimpleName().length() + NumberConstant.TWO, " "))
                             .append(objToStr(value, false))
                             .append("\r\n");
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (i == iMax)
+            if (i == iMax) {
                 return sb.append("]").append(",").toString();
+            }
         }
     }
 
@@ -214,9 +233,9 @@ public class ClassUtil {
     }
 
     private static boolean isSimpleType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return true;
-        else {
+        } else {
             Class objectClass = obj.getClass();
             return isSimpleType(objectClass);
         }
@@ -245,39 +264,45 @@ public class ClassUtil {
      * @return boolean
      */
     private static boolean isCollectionType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
         return (obj.getClass().isArray() || (obj instanceof Collection));
     }
 
     private static boolean isArrayType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
         return (obj.getClass().isArray());
     }
 
     private static boolean isMapType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
         return (obj instanceof Map);
     }
 
     private static boolean isDateType(Object obj) {
-        if (obj == null)
+        if (obj == null) {
             return false;
+        }
         return (obj instanceof Date);
     }
 
     private static boolean isBeanType(Object obj) {
-        if (isSimpleType(obj) || isCollectionType(obj) || isMapType(obj))
+        if (isSimpleType(obj) || isCollectionType(obj) || isMapType(obj)) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
     private static boolean isSimpleArr(Object[] a) {
-        if (a == null || a.length < 1)
+        if (a == null || a.length < 1) {
             return true;
+        }
         boolean flag = true;
         for (Object o : a) {
             if (!isSimpleType(o)) {
@@ -289,8 +314,9 @@ public class ClassUtil {
     }
 
     private static boolean isSimpleMap(Map<String, Object> map) {
-        if (map == null)
+        if (map == null) {
             return true;
+        }
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         boolean flag = true;
         while (i.hasNext()) {
@@ -312,8 +338,10 @@ public class ClassUtil {
     public static Field[] sortFieldByType(Field[] fields) {
         for (int i = 0; i < fields.length; i++) {
             if (isSimpleType(fields[i].getType()))
-                // fields[i]是简单类型不管
+            // fields[i]是简单类型不管
+            {
                 continue;
+            }
             // fields[i]是复杂类型
             // int j = i+1，从fields[i]之后开始比较
             for (int j = i + 1; j < fields.length; j++) {
@@ -338,20 +366,22 @@ public class ClassUtil {
      * @return String
      */
     private static String objToStr(Object object, boolean recursion) {
-        if (object == null)
+        if (object == null) {
             return "null";
+        }
         object.toString();
         String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-        if (isDateType(object))
+        if (isDateType(object)) {
             return new SimpleDateFormat(DATE_FORMAT).format((Date) object);
-        else if (isBeanType(object))
+        } else if (isBeanType(object)) {
             return beanToStr(object, recursion);
-        else if (isCollectionType(object))
+        } else if (isCollectionType(object)) {
             return collectionToStr(object, recursion);
-        else if (isMapType(object))
+        } else if (isMapType(object)) {
             return mapToStr((Map<String, Object>) object, recursion);
-        else
+        } else {
             return String.valueOf(object);
+        }
     }
 
     public static String objToStr(Object obj) {

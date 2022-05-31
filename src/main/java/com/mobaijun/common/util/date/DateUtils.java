@@ -1,4 +1,4 @@
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.date;
 
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.constant.DateConstant;

@@ -1,6 +1,6 @@
 package com.mobaijun.common.util.stream;
 
-import com.mobaijun.common.util.CollectionUtils;
+import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.util.Comparator;
 import java.util.List;
