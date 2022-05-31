@@ -9,10 +9,10 @@
     <artifactId>kjs-common</artifactId>
     <version>1.0.3-SNAPSHOT</version>
 
-    <description>A simple and useful java commons packaging</description>
     <name>kjs-common</name>
-    <url>https://github.com/mobaijun/kjs-common</url>
     <inceptionYear>2022</inceptionYear>
+    <url>https://github.com/mobaijun/kjs-common</url>
+    <description>A simple and useful java commons packaging</description>
 
     <!--  许可证  -->
     <licenses>
