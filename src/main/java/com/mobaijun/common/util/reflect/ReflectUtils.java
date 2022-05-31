@@ -4,6 +4,7 @@ import java.beans.PropertyDescriptor;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -263,5 +264,21 @@ public class ReflectUtils {
             throw new RuntimeException(String.format("Cannot find method \"%s\" of \"%s\" with parameter types %s.",
                     name, type.getCanonicalName(), Arrays.toString(parameterTypes)), e);
         }
+    }
+
+    /**
+     * 通过反射获取父类属性
+     *
+     * @param object 对象
+     * @return 属性数组
+     */
+    public static Field[] getAllFields(Object object) {
+        Class<?> clazz = object.getClass();
+        List<Field> fieldList = new ArrayList<>();
+        while (Object.class != clazz) {
+            fieldList.addAll(new ArrayList<>(Arrays.asList(clazz.getDeclaredFields())));
+            clazz = clazz.getSuperclass();
+        }
+        return fieldList.stream().toArray(Field[]::new);
     }
 }

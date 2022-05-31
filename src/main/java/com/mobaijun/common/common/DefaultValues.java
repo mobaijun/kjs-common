@@ -80,7 +80,7 @@ public class DefaultValues {
          * 最大线程池数量
          * public static final
          */
-        int MAX_POOL_SIZE = 32;
+        public static final int MAX_POOL_SIZE = 32;
         /**
          * 定时线程池处理线程数
          */
@@ -102,5 +102,10 @@ public class DefaultValues {
          * 默认主页
          */
         public static final String URL = "https://www.mobaijun.com";
+
+        /**
+         * 品牌
+         */
+        public static final String BRAND = "框架师";
     }
 }
