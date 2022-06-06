@@ -1,6 +1,7 @@
 package com.mobaijun.common.util.image;
 
 import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.util.constant.StringConstant;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -122,7 +123,7 @@ public class GeneratorImage {
      * @return Color
      */
     private static Color getRandomColor() {
-        String[] beautifulColors = new String[]{"2,168,250"};
+        String[] beautifulColors = StringConstant.COLOR_LIST;
         int len = beautifulColors.length;
         Random random = new Random();
         String[] color = beautifulColors[random.nextInt(len)].split(",");
@@ -154,7 +155,7 @@ public class GeneratorImage {
     }
 
     public static void main(String[] args) throws IOException {
-        String name = "墨白";
+        String name = "墨白S";
         generateImg(name, "F:\\Users\\mobai\\Pictures\\Camera Roll", "2222222222", 30);
     }
 }
