@@ -1,7 +1,7 @@
 package com.mobaijun.common.util.classs;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import com.mobaijun.common.util.PrintUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -21,7 +21,7 @@ public class ReflectionUtils {
     /**
      * logger
      */
-    private static final Logger log = LoggerFactory.getLogger(ReflectionUtils.class);
+    // private static final Logger log = LoggerFactory.getLogger(ReflectionUtils.class);
 
     /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
@@ -36,7 +36,7 @@ public class ReflectionUtils {
         try {
             result = field.get(object);
         } catch (IllegalAccessException e) {
-            log.error("getFieldValue:", e);
+            PrintUtils.print("getFieldValue:", e.getMessage());
         }
 
         return result;
@@ -57,7 +57,7 @@ public class ReflectionUtils {
         try {
             field.set(object, value);
         } catch (IllegalAccessException e) {
-            log.error("setFieldValue:", e);
+            PrintUtils.print("setFieldValue:", e.getMessage());
         }
     }
 
@@ -103,7 +103,7 @@ public class ReflectionUtils {
             try {
                 return superClass.getDeclaredMethod(methodName, parameterTypes);
             } catch (NoSuchMethodException e) {
-                //Method 不在当前类定义, 继续向上转型
+                // Method 不在当前类定义, 继续向上转型
             }
         }
         return null;
@@ -148,7 +148,7 @@ public class ReflectionUtils {
         try {
             return method.invoke(object, parameters);
         } catch (IllegalAccessException e) {
-            log.error("invokeMethod:", e);
+            PrintUtils.print("invokeMethod:", e.getMessage());
         }
         return null;
     }
