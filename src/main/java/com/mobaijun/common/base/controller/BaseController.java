@@ -97,10 +97,10 @@ public class BaseController<T> {
     /**
      * 包装一个list，让list增加额外属性
      *
-     * @param warpper warpper
+     * @param wrapper wrapper
      * @return Object
      */
-    protected Object warpObject(BaseWrapper warpper) {
-        return warpper.warp();
+    protected Object warpObject(BaseWrapper wrapper) {
+        return wrapper.warp();
     }
 }
