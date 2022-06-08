@@ -162,7 +162,9 @@ public class JdbcDriverUtil {
             }
         } finally {
             try {
-                if (pst != null) pst.close();
+                if (pst != null) {
+                    pst.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -212,13 +214,13 @@ public class JdbcDriverUtil {
                     Object obj = cs.getObject(index);
 
                     if (obj instanceof ResultSet) {
-                        List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
+                        List<Map<String, Object>> rows = new ArrayList<>();
                         rs = (ResultSet) obj;
-                        ResultSetMetaData rsmd = rs.getMetaData();
+                        ResultSetMetaData read = rs.getMetaData();
                         while (rs.next()) {
-                            Map<String, Object> columns = new HashMap<String, Object>();
-                            for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                                String fieldName = rsmd.getColumnName(i);
+                            Map<String, Object> columns = new HashMap<>(1);
+                            for (int i = 1; i <= read.getColumnCount(); i++) {
+                                String fieldName = read.getColumnName(i);
                                 Object fieldValue = rs.getObject(fieldName);
                                 columns.put(fieldName.toUpperCase(), fieldValue);
                             }
@@ -241,8 +243,12 @@ public class JdbcDriverUtil {
             e.printStackTrace();
         } finally {
             try {
-                if (rs != null) rs.close();
-                if (cs != null) cs.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (cs != null) {
+                    cs.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -277,11 +283,11 @@ public class JdbcDriverUtil {
                 }
             }
             rs = pst.executeQuery();
-            ResultSetMetaData rsmd = rs.getMetaData();
+            ResultSetMetaData red = rs.getMetaData();
             while (rs.next()) {
                 Map<String, Object> map = new HashMap<>();
-                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    String fieldName = rsmd.getColumnName(i);
+                for (int i = 1; i <= red.getColumnCount(); i++) {
+                    String fieldName = red.getColumnName(i);
                     Object fieldValue = rs.getObject(fieldName);
                     map.put(fieldName.toUpperCase(), fieldValue);
                 }
@@ -291,8 +297,12 @@ public class JdbcDriverUtil {
             e.printStackTrace();
         } finally {
             try {
-                if (rs != null) rs.close();
-                if (pst != null) pst.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -323,12 +333,12 @@ public class JdbcDriverUtil {
         }
 
         StringBuilder sb = new StringBuilder();
-        if (DB_NAME.equals("oracle")) {
+        if ("oracle".equals(DB_NAME)) {
             sb.append("SELECT * FROM (");
             sb.append("SELECT TEMP_TABLE_.*, ROWNUM ROWNUM_ FROM (").append(sql).append(") TEMP_TABLE_");
             sb.append(" WHERE ROWNUM <= ").append(firstResult + maxResults).append(")");
             sb.append(" WHERE ROWNUM_ > ").append(firstResult);
-        } else if (DB_NAME.equals("mysql")) {
+        } else if ("mysql".equals(DB_NAME)) {
             sb.append("SELECT * FROM (").append(sql).append(") TEMP_TABLE_");
             sb.append(" LIMIT ").append(firstResult).append(",").append(maxResults);
         }

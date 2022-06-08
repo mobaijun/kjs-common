@@ -32,13 +32,13 @@ public class NetUtil {
     /**
      * 获取一个ping通的ip
      *
-     * @param ipAddrs ip数组
+     * @param ipAdders ip数组
      * @return ip
      */
-    public static String getOneUseFullIp(String[] ipAddrs) {
+    public static String getOneUseFullIp(String[] ipAdders) {
         String ip = "";
-        for (String ipAddr : ipAddrs) {
-            ip = ipAddr;
+        for (String ipAdder : ipAdders) {
+            ip = ipAdder;
             if (ping(ip)) {
                 break;
             }
