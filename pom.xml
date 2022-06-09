@@ -52,8 +52,8 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.24</lombok.version>
-        <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <hutool-all.version>5.8.1</hutool-all.version>
+        <mapstruct.version>1.5.1.Final</mapstruct.version>
+        <hutool-all.version>5.8.2</hutool-all.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
 
