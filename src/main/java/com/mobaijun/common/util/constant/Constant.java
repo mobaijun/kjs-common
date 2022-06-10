@@ -30,16 +30,6 @@ public class Constant {
     public static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";
 
     /**
-     * jpg
-     */
-    public static final String IMAGE_JPG = ".jpg";
-
-    /**
-     * jpg
-     */
-    public static final String JPG = "jpg";
-
-    /**
      * 大写十六进制数
      */
     public static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
@@ -63,9 +53,4 @@ public class Constant {
      * 接口文档的菜单名
      */
     public static String API_MENU_NAME = "接口文档";
-
-    /**
-     * 文件后缀
-     */
-    public static final String FILE_SUFFIX = ".sql";
 }

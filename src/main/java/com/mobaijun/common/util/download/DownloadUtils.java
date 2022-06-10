@@ -1,7 +1,8 @@
 package com.mobaijun.common.util.download;
 
-import com.mobaijun.common.util.constant.Constant;
 import com.mobaijun.common.util.constant.DateConstant;
+import com.mobaijun.common.util.constant.FileConstant;
+import com.mobaijun.common.util.uid.UuidUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -11,8 +12,7 @@ import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -31,10 +31,7 @@ public class DownloadUtils {
      * @return url path
      */
     public static String pictureStorage(String picUrls, String path) {
-        // 生成文件名称
-        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-        Date date = new Date();
-        String dataForm = new SimpleDateFormat(DateConstant.YYYY_MM_DD).format(date);
+        String dataForm = new SimpleDateFormat(DateConstant.YYYY_MM_DD).format(LocalDateTime.now());
         String filePath = path + dataForm + "/";
         // 如果不存在,创建文件夹
         File f = new File(filePath);
@@ -42,7 +39,7 @@ public class DownloadUtils {
             // 输出文件流
             f.mkdirs();
         }
-        String fileName = DownloadUtils.downLoadJpg(picUrls, uuid, filePath);
+        String fileName = DownloadUtils.downLoadJpg(picUrls, UuidUtils.getUUID(), filePath);
         return "" + dataForm + "/" + fileName + "";
     }
 
@@ -63,7 +60,7 @@ public class DownloadUtils {
             URLConnection connection = url.openConnection();
             // 输入流
             InputStream inputStream = connection.getInputStream();
-            OutputStream outputStream = Files.newOutputStream(Paths.get(localPath + uuid + Constant.IMAGE_JPG));
+            OutputStream outputStream = Files.newOutputStream(Paths.get(localPath + uuid + FileConstant.IMAGE_JPG));
             // 缓冲区对象
             byte[] b = new byte[1024];
             // 读取计数器
@@ -88,6 +85,6 @@ public class DownloadUtils {
             // 监听下载失败
             e.printStackTrace();
         }
-        return uuid + Constant.IMAGE_JPG;
+        return uuid + FileConstant.IMAGE_JPG;
     }
 }
