@@ -41,7 +41,7 @@ public class ExecutorServiceUtil {
     /**
      * 创建一个定时调度线程池
      *
-     * @return
+     * @return ScheduledExecutorService
      */
     static public ScheduledExecutorService newScheduledExecutorService() {
         return new ScheduledThreadPoolExecutor(DefaultValues.Thread.SCHEDULED_EXECUTOR_POOL_SIZE, THREAD_FACTORY);
@@ -50,7 +50,7 @@ public class ExecutorServiceUtil {
     /**
      * 创建只有一个线程的调度线程池
      *
-     * @return
+     * @return ScheduledExecutorService
      */
     static public ScheduledExecutorService newSingleScheduledExecutorService() {
         return new ScheduledThreadPoolExecutor(1, THREAD_FACTORY);
@@ -59,7 +59,7 @@ public class ExecutorServiceUtil {
     /**
      * 创建单例线程池
      *
-     * @return
+     * @return ExecutorService
      */
     static public ExecutorService newSingleExecutorService() {
         return Executors.newSingleThreadExecutor(THREAD_FACTORY);
@@ -78,7 +78,6 @@ public class ExecutorServiceUtil {
 
     /**
      * 关闭一个线程连接池
-     * <p>
      *
      * @param executorService 要关闭的线程池
      */
@@ -89,7 +88,7 @@ public class ExecutorServiceUtil {
     /**
      * 获取默认的线程工厂
      *
-     * @return
+     * @return ThreadFactory
      */
     static public ThreadFactory getDefaultTreadFactory() {
         return THREAD_FACTORY;
