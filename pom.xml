@@ -7,7 +7,7 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.5-SNAPSHOT</version>
 
     <name>kjs-common</name>
     <inceptionYear>2022</inceptionYear>
