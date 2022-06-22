@@ -116,7 +116,9 @@ public class JdbcDriverUtil {
             }
         } finally {
             try {
-                if (pst != null) pst.close();
+                if (pst != null) {
+                    pst.close();
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
