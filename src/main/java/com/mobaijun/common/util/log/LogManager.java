@@ -1,8 +1,12 @@
 package com.mobaijun.common.util.log;
 
+import cn.hutool.core.thread.ThreadFactoryBuilder;
+import com.mobaijun.common.util.constant.NumberConstant;
+
 import java.util.TimerTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -15,22 +19,26 @@ import java.util.concurrent.TimeUnit;
 public class LogManager {
 
     /**
+     * 设置线程名称
+     */
+    public static ThreadFactory threadFactory = new ThreadFactoryBuilder().setNamePrefix("thread-log-%d").build();
+
+    /**
      * 异步操作记录日志的线程池
      */
-    public static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(10);
+    public static ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(NumberConstant.TEN, threadFactory);
 
     private LogManager() {
     }
 
     public static LogManager logManager = new LogManager();
 
-    public static LogManager me() {
+    public LogManager me() {
         return logManager;
     }
 
     public void executeLog(TimerTask task) {
         // 日志记录操作延时
-        int operateDelayTime = 10;
-        executorService.schedule(task, operateDelayTime, TimeUnit.MILLISECONDS);
+        executorService.schedule(task, NumberConstant.TEN, TimeUnit.MILLISECONDS);
     }
 }
