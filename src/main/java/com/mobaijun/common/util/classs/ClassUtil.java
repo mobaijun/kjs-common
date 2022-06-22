@@ -25,8 +25,8 @@ import java.util.Map.Entry;
  */
 public class ClassUtil {
 
-    // 这是我用的方式，boolean recursion是否递归
     /**
+     * 这是我用的方式，boolean recursion是否递归
      * public static int add(int i,boolean recursion){
      * sum+=i;
      * if(recursion)
@@ -46,7 +46,7 @@ public class ClassUtil {
     private static final String MY_SIGN = "KLG_print";// 默認標記
 
     /**
-     * 将集合类型toSring方法
+     * 将集合类型toString方法
      *
      * @param object    object
      * @param recursion 是否递归
@@ -110,7 +110,7 @@ public class ClassUtil {
         if (isSimpleMap(map) || !recursion) {
             return simpleMapToStr(map);
         } else {
-            return complexMapToStr(map, true);
+            return complexMapToStr(map);
         }
     }
 
@@ -148,11 +148,10 @@ public class ClassUtil {
     /**
      * 复杂的映射到 Str
      *
-     * @param map       map
-     * @param recursion recursion
+     * @param map map
      * @return String
      */
-    private static String complexMapToStr(Map<String, Object> map, boolean recursion) {
+    private static String complexMapToStr(Map<String, Object> map) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         if (!i.hasNext()) {
             return StringConstant.NULL;
@@ -164,8 +163,8 @@ public class ClassUtil {
             String key = String.valueOf(e.getKey());
             Object value = e.getValue();
             sb.append(indent(NumberConstant.TWO, " ")).append(key).append(" = ");
-            if (isSimpleType(value) || !recursion) {
-                sb.append(String.valueOf(value));
+            if (isSimpleType(value)) {
+                sb.append(value);
             } else {
                 sb.append(objToStr(value, false));
             }
@@ -196,7 +195,7 @@ public class ClassUtil {
             field.setAccessible(true);
             // 取得field的名称
             String name = field.getName();
-            if (name.equals("serialVersionUID")) {
+            if ("serialVersionUID".equals(name)) {
                 continue;
             }
             try {
@@ -236,13 +235,13 @@ public class ClassUtil {
         if (obj == null) {
             return true;
         } else {
-            Class objectClass = obj.getClass();
+            Class<?> objectClass = obj.getClass();
             return isSimpleType(objectClass);
         }
     }
 
-    private static boolean isSimpleType(Class objectClass) {
-        if (objectClass == boolean.class || objectClass == Boolean.class
+    private static boolean isSimpleType(Class<?> objectClass) {
+        return objectClass == boolean.class || objectClass == Boolean.class
                 || objectClass == short.class || objectClass == Short.class
                 || objectClass == byte.class || objectClass == Byte.class
                 || objectClass == int.class || objectClass == Integer.class
@@ -250,11 +249,7 @@ public class ClassUtil {
                 || objectClass == float.class || objectClass == Float.class
                 || objectClass == char.class || objectClass == Character.class
                 || objectClass == double.class || objectClass == Double.class
-                || objectClass == String.class) {
-            return true;
-        } else {
-            return false;
-        }
+                || objectClass == String.class;
     }
 
     /**

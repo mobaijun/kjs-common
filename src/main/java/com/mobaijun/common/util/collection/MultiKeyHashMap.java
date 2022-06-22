@@ -57,7 +57,8 @@ public class MultiKeyHashMap<K, V> extends HashMap<K, V> {
         return super.put(key2, value);
     }
 
-    public V putValue(V value, K key, K... keys) {
+    @SafeVarargs
+    public final V putValue(V value, K key, K... keys) {
         V v = super.put(key, value);
         if (keys != null) {
             for (K k : keys) {

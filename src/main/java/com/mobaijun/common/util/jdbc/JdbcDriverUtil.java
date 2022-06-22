@@ -18,7 +18,8 @@ import java.util.Map.Entry;
  * class name: JdbcDriverUtil
  * class description： jdbc 链接工具类
  * <p>
- * 1.reparedStatement用于处理动态SQL语句，在执行前会有一个预编译过程，这个过程是有时间开销的，虽然相对数据库的操作，该时间开销可以忽略不计，但是PreparedStatement的预编译结果会被缓存，下次执行相同的预编译语句时，就不需要编译，只要将参数直接传入编译过的语句执行代码中就会得到执行，所以，对于批量处理可以大大提高效率。
+ * 1.repairedStatement用于处理动态SQL语句，在执行前会有一个预编译过程，这个过程是有时间开销的，虽然相对数据库的操作，该时间开销可以忽略不计，
+ * 但是PreparedStatement的预编译结果会被缓存，下次执行相同的预编译语句时，就不需要编译，只要将参数直接传入编译过的语句执行代码中就会得到执行，所以，对于批量处理可以大大提高效率。
  * 2.Statement每次都会执行SQL语句，相关数据库都要执行SQL语句的编译。
  * 作为开发者，应该尽可能以PreparedStatement代替Statement,原因如下：
  * 1.代码的可读性和可维护性。
@@ -52,7 +53,7 @@ public class JdbcDriverUtil {
             case "oracle.jdbc.driver.OracleDriver":
                 DB_NAME = "oracle";
                 break;
-            case "com.mysql.jdbc.Driver":
+            case "com.mysql.cj.jdbc.Driver":
                 DB_NAME = "mysql";
                 break;
         }

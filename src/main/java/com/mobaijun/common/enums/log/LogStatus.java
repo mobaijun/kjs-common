@@ -14,8 +14,19 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum LogStatus {
 
+    /**
+     * 未知
+     */
     OTHER("未知"),
+
+    /**
+     * 成功
+     */
     SUCCESS("成功"),
+
+    /**
+     * 失败
+     */
     FAIL("失败");
 
     private final String message;

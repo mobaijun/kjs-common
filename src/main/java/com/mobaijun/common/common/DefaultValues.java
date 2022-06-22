@@ -59,7 +59,7 @@ public class DefaultValues {
     }
 
 
-    public class Date {
+    public static class Date {
         /**
          * 默认时间格式化
          */
@@ -71,7 +71,7 @@ public class DefaultValues {
         public static final String DATE_PATTERN = "yyyy-MM-dd";
     }
 
-    public class Thread {
+    public static class Thread {
         /**
          * 要保留的空闲线程数。
          */
@@ -87,7 +87,7 @@ public class DefaultValues {
         public static final int SCHEDULED_EXECUTOR_POOL_SIZE = 8;
     }
 
-    public class Author {
+    public static class Author {
         /**
          * 默认邮箱
          */

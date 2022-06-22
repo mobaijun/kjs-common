@@ -12,7 +12,14 @@ import lombok.Getter;
 @Getter
 public enum LoginType {
 
+    /**
+     * 其他
+     */
     OTHER(0, "Other"),
+
+    /**
+     * 平台
+     */
     PORTAL(1, "Portal");
 
     private final int code;

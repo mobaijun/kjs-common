@@ -12,6 +12,9 @@ import lombok.Getter;
 @Getter
 public enum IsMenu {
 
+    /**
+     * 是
+     */
     YES(1, "是"),
     /**
      * 不是菜单的是按钮
