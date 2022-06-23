@@ -14,36 +14,43 @@ public class JdkUtils {
     /**
      * 获取 JDK 的详细版本号，例如：1.8.0_91 ， 1.7.0_79，1.6.0
      */
-    public static void getJdkVersion() {
-        System.out.println(System.getProperty(JdkConstant.VERSION));
+    public static String getJdkVersion() {
+        return System.getProperty(JdkConstant.VERSION);
     }
 
     /**
      * 获取 jdk的标准版本 ，例如： 1.8 , 1.7 , 1.6
      */
-    public static void getJdkSpeVersion() {
-        System.out.println(System.getProperty(JdkConstant.VERSION_TOW));
+    public static String getJdkSpeVersion() {
+        return System.getProperty(JdkConstant.VERSION_TOW);
     }
 
     /**
      * 包含 "64",即可64位 JDK , 否则 32位
      */
-    public static void getJdkVmVersion() {
-        System.out.println(System.getProperty(JdkConstant.VM_NAME));
+    public static String getJdkVmVersion() {
+        return System.getProperty(JdkConstant.VM_NAME);
 
     }
 
     /**
      * 64位JDK：amd64 ，32位JDK：x86
      */
-    public static void getJdkOsVersion() {
-        System.out.println(System.getProperty(JdkConstant.OS_ARCH));
+    public static String getJdkOsVersion() {
+        return System.getProperty(JdkConstant.OS_ARCH);
     }
 
     /**
      * 64位JDK：64 ，32位JDK：32
      */
-    public static void getJdkSunDataVersion() {
-        System.out.println(System.getProperty(JdkConstant.ARCH_DATA_MODEL));
+    public static String getJdkSunDataVersion() {
+        return System.getProperty(JdkConstant.ARCH_DATA_MODEL);
+    }
+
+    /**
+     * 获取当前服务器逻辑处理器数量
+     */
+    public static int getServerCpuNum() {
+        return Runtime.getRuntime().availableProcessors();
     }
 }
