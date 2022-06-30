@@ -7,7 +7,6 @@ import com.mobaijun.common.result.SuccessTip;
 import com.mobaijun.common.result.enums.HttpStatus;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.page.PageInfo;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -82,16 +81,6 @@ public class BaseController<T> {
         if (!condition) {
             throw new CustomException(HttpStatus.ERROR.getCode(), message);
         }
-    }
-
-    /**
-     * 把service层的分页信息，封装为bootstrap table通用的分页封装
-     *
-     * @param page 分页信息
-     * @return 分页结果集
-     */
-    protected PageInfo<T> packForBt(PageInfo<T> page) {
-        return new PageInfo<T>(page);
     }
 
     /**
