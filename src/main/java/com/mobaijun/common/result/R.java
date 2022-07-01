@@ -1,5 +1,6 @@
 package com.mobaijun.common.result;
 
+import com.mobaijun.common.result.enums.HttpStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,23 +45,23 @@ public class R<T> implements Serializable {
     }
 
     public static <T> R<T> ok(T data) {
-        return new R<T>().setCode(SystemResultCode.SUCCESS.getCode()).setData(data)
-                .setMessage(SystemResultCode.SUCCESS.getMessage());
+        return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data)
+                .setMessage(HttpStatus.OK.getMessage());
     }
 
     public static <T> R<T> ok(T data, String message) {
-        return new R<T>().setCode(SystemResultCode.SUCCESS.getCode()).setData(data).setMessage(message);
+        return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data).setMessage(message);
     }
 
     public static <T> R<T> failed(int code, String message) {
         return new R<T>().setCode(code).setMessage(message);
     }
 
-    public static <T> R<T> failed(ResultCode failMsg) {
+    public static <T> R<T> failed(HttpStatus failMsg) {
         return new R<T>().setCode(failMsg.getCode()).setMessage(failMsg.getMessage());
     }
 
-    public static <T> R<T> failed(ResultCode failMsg, String message) {
+    public static <T> R<T> failed(HttpStatus failMsg, String message) {
         return new R<T>().setCode(failMsg.getCode()).setMessage(message);
     }
 }
