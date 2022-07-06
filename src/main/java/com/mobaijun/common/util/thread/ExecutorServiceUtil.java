@@ -25,7 +25,7 @@ public class ExecutorServiceUtil {
         private final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
         private final AtomicInteger threadNumber = new AtomicInteger(1);
 
-        private static final String THREAD_NAME_PREFIX = "alianga-";
+        private static final String THREAD_NAME_PREFIX = "april-";
 
         @Override
         public Thread newThread(Runnable r) {

@@ -82,10 +82,10 @@ public class DefaultValues {
          */
         public static final int CORE_POOL_SIZE = 0;
         /**
-         * 最大线程池数量
+         * 最大线程池数量(获取系统处理器个数，作为线程池数量)
          * public static final
          */
-        public static final int MAX_POOL_SIZE = 32;
+        public static final int MAX_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
         /**
          * 定时线程池处理线程数
          */
