@@ -20,6 +20,7 @@ public abstract class BaseWrapper {
 
     /**
      * 包装器
+     *
      * @return 对象
      */
     @SuppressWarnings("unchecked")
@@ -44,6 +45,11 @@ public abstract class BaseWrapper {
         }
     }
 
+    /**
+     * map 包装器
+     *
+     * @param map map
+     */
     protected abstract void warpTheMap(Map<String, Object> map);
 
     protected void warpTheObject(Object o) {

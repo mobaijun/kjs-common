@@ -72,7 +72,9 @@ public class ExecutorServiceUtil {
      * @return executor service
      */
     static public ExecutorService newExecutorService() {
-        return new ThreadPoolExecutor(DefaultValues.Thread.CORE_POOL_SIZE, DefaultValues.Thread.MAX_POOL_SIZE, 0L, TimeUnit.MILLISECONDS, new SynchronousQueue<Runnable>(),
+        return new ThreadPoolExecutor(DefaultValues.Thread.CORE_POOL_SIZE,
+                DefaultValues.Thread.MAX_POOL_SIZE, 0L,
+                TimeUnit.MILLISECONDS, new SynchronousQueue<>(),
                 THREAD_FACTORY);
     }
 

@@ -241,19 +241,19 @@ public class CollectionUtils {
             return null;
         }
 
-        final List<T> currentAlaDatas = new ArrayList<T>();
+        final List<T> currentAlaData = new ArrayList<>();
         int size = surplusAlaDatas.size();
         // 切割
         if (size > partSize) {
             for (int i = 0; i < partSize; i++) {
-                currentAlaDatas.add(surplusAlaDatas.pop());
+                currentAlaData.add(surplusAlaDatas.pop());
             }
         } else {
             for (int i = 0; i < size; i++) {
-                currentAlaDatas.add(surplusAlaDatas.pop());
+                currentAlaData.add(surplusAlaDatas.pop());
             }
         }
-        return currentAlaDatas;
+        return currentAlaData;
     }
 
     /**
@@ -264,7 +264,7 @@ public class CollectionUtils {
      * @return HashMap对象
      */
     public static <T, K> HashMap<T, K> newHashMap() {
-        return new HashMap<T, K>();
+        return new HashMap<>();
     }
 
     /**
@@ -276,7 +276,7 @@ public class CollectionUtils {
      * @return HashMap对象
      */
     public static <T, K> HashMap<T, K> newHashMap(int size) {
-        return new HashMap<T, K>((int) (size / 0.75));
+        return new HashMap<>((int) (size / 0.75));
     }
 
     /**
@@ -286,7 +286,7 @@ public class CollectionUtils {
      * @return 新建一个HashSet
      */
     public static <T> HashSet<T> newHashSet() {
-        return new HashSet<T>();
+        return new HashSet<>();
     }
 
     /**
@@ -298,7 +298,7 @@ public class CollectionUtils {
      */
     @SafeVarargs
     public static <T> HashSet<T> newHashSet(T... ts) {
-        HashSet<T> set = new HashSet<T>();
+        HashSet<T> set = new HashSet<>();
         Collections.addAll(set, ts);
         return set;
     }
@@ -306,16 +306,11 @@ public class CollectionUtils {
     /**
      * 新建一个ArrayList
      *
-     * @return ArrayList对象
-     */
-    /**
-     * 新建一个ArrayList
-     *
      * @param <T> ArrayList对象
      * @return ArrayList对象
      */
     public static <T> ArrayList<T> newArrayList() {
-        return new ArrayList<T>();
+        return new ArrayList<>();
     }
 
     /**
@@ -327,7 +322,7 @@ public class CollectionUtils {
      */
     @SafeVarargs
     public static <T> ArrayList<T> newArrayList(T... values) {
-        return new ArrayList<T>(Arrays.asList(values));
+        return new ArrayList<>(Arrays.asList(values));
     }
 
     /**
@@ -540,7 +535,7 @@ public class CollectionUtils {
             return null;
         }
 
-        return sub(new ArrayList<T>(list), start, end);
+        return sub(new ArrayList<>(list), start, end);
     }
 
     /**
@@ -643,8 +638,8 @@ public class CollectionUtils {
             return null;
         }
 
-        final List<T> keyList = new ArrayList<T>(keys);
-        final List<K> valueList = new ArrayList<K>(values);
+        final List<T> keyList = new ArrayList<>(keys);
+        final List<K> valueList = new ArrayList<>(values);
 
         final int size = Math.min(keys.size(), values.size());
         final Map<T, K> map = new HashMap<>((int) (size / 0.75));
@@ -688,7 +683,7 @@ public class CollectionUtils {
      * @return Map
      */
     public static <T, K> HashMap<T, K> toMap(Collection<Entry<T, K>> entryCollection) {
-        HashMap<T, K> map = new HashMap<T, K>();
+        HashMap<T, K> map = new HashMap<>();
         for (Entry<T, K> entry : entryCollection) {
             map.put(entry.getKey(), entry.getValue());
         }
@@ -704,7 +699,7 @@ public class CollectionUtils {
      * @return treeSet
      */
     public static <T> TreeSet<T> toTreeSet(Collection<T> collection, Comparator<T> comparator) {
-        final TreeSet<T> treeSet = new TreeSet<T>(comparator);
+        final TreeSet<T> treeSet = new TreeSet<>(comparator);
         treeSet.addAll(collection);
         return treeSet;
     }
@@ -718,7 +713,7 @@ public class CollectionUtils {
      * @return treeSet
      */
     public static <T> List<T> sort(Collection<T> collection, Comparator<T> comparator) {
-        List<T> list = new ArrayList<T>(collection);
+        List<T> list = new ArrayList<>(collection);
         list.sort(comparator);
         return list;
     }
@@ -857,7 +852,7 @@ public class CollectionUtils {
     }
 
     /**
-     * 数组或集合转String
+     * 数组或集合转 String
      *
      * @param obj 集合或数组对象
      * @return 数组字符串，与集合转字符串格式相同
@@ -925,5 +920,31 @@ public class CollectionUtils {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 对集合按照指定长度分段，每一个段为单独的集合，返回这个集合的列表
+     *
+     * @param <T>        集合元素类型
+     * @param collection 集合
+     * @param size       每个段的长度
+     * @return 分段列表
+     */
+    public static <T> List<List<T>> split(Collection<T> collection, int size) {
+        final List<List<T>> result = new ArrayList<>();
+        if (isEmpty(collection)) {
+            return result;
+        }
+
+        ArrayList<T> subList = new ArrayList<>(size);
+        for (T t : collection) {
+            if (subList.size() >= size) {
+                result.add(subList);
+                subList = new ArrayList<>(size);
+            }
+            subList.add(t);
+        }
+        result.add(subList);
+        return result;
     }
 }

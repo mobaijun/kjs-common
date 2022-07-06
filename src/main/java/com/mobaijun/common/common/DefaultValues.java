@@ -58,15 +58,20 @@ public class DefaultValues {
         public static final int MAX_EVICTABLE_IDLE_TIME = 30000;
     }
 
-
     public static class Date {
+
         /**
-         * 默认时间格式化
+         * 默认时间格式化(年月日，时分秒)
          */
         public static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
         /**
-         * 默认时间格式化
+         * 默认时间格式化(年月日，时分)
+         */
+        public static final String DATE_TIME_MINUTE_PATTERN = "yyyy-MM-dd HH:mm";
+
+        /**
+         * 默认时间格式化(年月日)
          */
         public static final String DATE_PATTERN = "yyyy-MM-dd";
     }
