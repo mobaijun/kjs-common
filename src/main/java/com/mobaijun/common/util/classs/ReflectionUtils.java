@@ -1,9 +1,7 @@
 package com.mobaijun.common.util.classs;
 
 
-import com.mobaijun.common.util.ObjectUtils;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import com.mobaijun.common.util.PrintUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -20,18 +18,17 @@ import java.lang.reflect.Type;
  * @author MoBaiJun 2022/5/31 10:53
  */
 public class ReflectionUtils {
-
     /**
      * logger
      */
-    private static final Logger log = LoggerFactory.getLogger(ReflectionUtils.class);
+    // private static final Logger log = LoggerFactory.getLogger(ReflectionUtils.class);
 
     /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
      */
     public static Object getFieldValue(Object object, String fieldName) {
         Field field = getDeclaredField(object, fieldName);
-        if (ObjectUtils.isEmpty(field)) {
+        if (field == null) {
             throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
         }
         makeAccessible(field);
@@ -39,7 +36,7 @@ public class ReflectionUtils {
         try {
             result = field.get(object);
         } catch (IllegalAccessException e) {
-            log.error("getFieldValue:", e.getMessage());
+            PrintUtils.print("getFieldValue:", e.getMessage());
         }
 
         return result;
@@ -51,7 +48,7 @@ public class ReflectionUtils {
     public static void setFieldValue(Object object, String fieldName, Object value) {
         Field field = getDeclaredField(object, fieldName);
 
-        if (ObjectUtils.isEmpty(field)) {
+        if (field == null) {
             throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
         }
 
@@ -60,7 +57,7 @@ public class ReflectionUtils {
         try {
             field.set(object, value);
         } catch (IllegalAccessException e) {
-            log.error("setFieldValue:", e.getMessage());
+            PrintUtils.print("setFieldValue:", e.getMessage());
         }
     }
 
@@ -130,7 +127,7 @@ public class ReflectionUtils {
             try {
                 return superClass.getDeclaredField(filedName);
             } catch (NoSuchFieldException e) {
-                // Field 不在当前类定义, 继续向上转型
+                //Field 不在当前类定义, 继续向上转型
             }
         }
         return null;
@@ -143,7 +140,7 @@ public class ReflectionUtils {
                                       Object[] parameters) throws InvocationTargetException {
         Method method = getDeclaredMethod(object, methodName, parameterTypes);
 
-        if (ObjectUtils.isEmpty(method)) {
+        if (method == null) {
             throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + object + "]");
         }
         method.setAccessible(true);
@@ -151,7 +148,7 @@ public class ReflectionUtils {
         try {
             return method.invoke(object, parameters);
         } catch (IllegalAccessException e) {
-            log.error("invokeMethod:", e.getMessage());
+            PrintUtils.print("invokeMethod:", e.getMessage());
         }
         return null;
     }
