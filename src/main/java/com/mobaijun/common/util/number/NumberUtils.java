@@ -1,4 +1,4 @@
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.number;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,6 +13,8 @@ import java.util.Date;
  * @author MoBaiJun 2022/5/12 14:27
  */
 public class NumberUtils {
+    private static final int CLASSIC_ID_LENGTH = 15;
+    private static final int CURRENT_ID_LENGTH = 18;
 
     /**
      * 根据身份证号判断性别
@@ -21,8 +23,7 @@ public class NumberUtils {
      * @return int
      */
     public static int getGender(String idNumber) throws IllegalArgumentException {
-        int CLASSIC_ID_LENGTH = 15;
-        int CURRENT_ID_LENGTH = 18;
+
         if (idNumber.length() != CURRENT_ID_LENGTH && idNumber.length() != CLASSIC_ID_LENGTH) {
             throw new IllegalArgumentException("Invalid ID length");
         }

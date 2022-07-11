@@ -1,5 +1,8 @@
 package com.mobaijun.common.util.regx;
 
+import com.mobaijun.common.util.StringUtils;
+
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -66,7 +69,7 @@ public class RegxUtil extends RegxConstant {
      * @param idCard 身份证
      * @return 校验通过返回true，否则返回false
      */
-    public static boolean isIDCard(String idCard) {
+    public static boolean isIdCard(String idCard) {
         return Pattern.matches(REGEX_ID_CARD, idCard);
     }
 
@@ -88,5 +91,51 @@ public class RegxUtil extends RegxConstant {
      */
     public static boolean isMac(String mac) {
         return Pattern.matches(REGEX_MAC, mac);
+    }
+
+    /**
+     * 编译传入正则表达式和字符串去匹配,忽略大小写
+     */
+    public static boolean match(String regex, String beTestString) {
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(beTestString);
+        return matcher.matches();
+    }
+
+    /**
+     * 编译传入正则表达式在字符串中寻找，如果匹配到则为true
+     */
+    public static boolean find(String regex, String beTestString) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(beTestString);
+        return matcher.find();
+    }
+
+    /**
+     * 编译传入正则表达式在字符串中寻找，如果找到返回第一个结果<br/>
+     * 找不到返回null
+     */
+    public static String findResult(String regex, String beFoundString) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(beFoundString);
+        if (matcher.find()) {
+            return matcher.group();
+        }
+        return null;
+    }
+
+    /**
+     * 隐藏手机号中间4位
+     */
+    public static String encodePhone(String phone) {
+        if (StringUtils.isEmpty(phone)) {
+            return "";
+        }
+        if (match(REGEX_PHONE, phone)) {
+            String begin = phone.substring(0, 3);
+            String end = phone.substring(7);
+            return begin + "****" + end;
+        }
+        return phone;
     }
 }

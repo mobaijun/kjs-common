@@ -29,7 +29,7 @@ public class StringConstant {
     public static final String COOKIE = "Cookie";
     public static final String SET_COOKIE = "Set-Cookie";
     public static final String EQUAL = "=";
-    public static final String EMPTY_STRING = " ";
+    public static final String EMPTY_STRING = "";
     public static final String LEFT_BIG_PARANTHESES = "{";
     public static final String RIGHT_BIG_PARANTHESES = "}";
     public static final String BIG_PARANTHESES = "{}";

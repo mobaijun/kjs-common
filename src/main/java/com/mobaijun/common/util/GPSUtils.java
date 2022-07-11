@@ -1,5 +1,7 @@
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.util.number.NumberUtils;
+
 /**
  * software：IntelliJ IDEA 2022.1
  * class name: GPSUtils

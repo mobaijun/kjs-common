@@ -21,6 +21,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -181,15 +182,16 @@ public class CollectionUtils {
 
     private static <T> String sb(Iterable<T> collection, String conjunction) {
         StringBuilder sb = new StringBuilder();
-        boolean isFirst = true;
-        for (T item : collection) {
-            if (isFirst) {
-                isFirst = false;
+        AtomicBoolean isFirst = new AtomicBoolean(true);
+        boolean finalIsFirst = isFirst.get();
+        collection.forEach(item -> {
+            if (finalIsFirst) {
+                isFirst.set(false);
             } else {
                 sb.append(conjunction);
             }
             sb.append(item);
-        }
+        });
         return sb.toString();
     }
 
@@ -946,5 +948,46 @@ public class CollectionUtils {
         }
         result.add(subList);
         return result;
+    }
+
+    /**
+     * 取得Collection的第一个元素，如果collection为空返回null.
+     */
+    public static <T> T getFirst(Collection<T> collection) {
+        if (isEmpty(collection)) {
+            return null;
+        }
+        if (collection instanceof List) {
+            return ((List<T>) collection).get(0);
+        }
+        return collection.iterator().next();
+    }
+
+    /**
+     * 返回无序集合中的最小值，使用元素默认排序
+     */
+    public static <T extends Object & Comparable<? super T>> T min(Collection<? extends T> coll) {
+        return Collections.min(coll);
+    }
+
+    /**
+     * 返回无序集合中的最小值
+     */
+    public static <T> T min(Collection<? extends T> coll, Comparator<? super T> comp) {
+        return Collections.min(coll, comp);
+    }
+
+    /**
+     * 返回无序集合中的最大值，使用元素默认排序
+     */
+    public static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) {
+        return Collections.max(coll);
+    }
+
+    /**
+     * 返回无序集合中的最大值
+     */
+    public static <T> T max(Collection<? extends T> coll, Comparator<? super T> comp) {
+        return Collections.max(coll, comp);
     }
 }

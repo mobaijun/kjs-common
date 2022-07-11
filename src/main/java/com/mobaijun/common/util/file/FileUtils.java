@@ -72,12 +72,13 @@ public class FileUtils {
      *
      * @param filePath 文件
      */
-    public static void deleteFile(String filePath) {
+    public static boolean deleteFile(String filePath) {
         File file = new File(filePath);
         // 路径为文件且不为空则进行删除
         if (file.isFile() && file.exists()) {
-            file.delete();
+            return file.delete();
         }
+        return false;
     }
 
     /**
