@@ -99,7 +99,7 @@ public class StreamUtils {
      * @param join join
      * @return 返回join之后的字符串, data为空返回null
      */
-    public static <T>String join(List<String> data, String join) {
+    public static <T> String join(List<String> data, String join) {
         if (CollectionUtils.isNull(data)) {
             return null;
         }

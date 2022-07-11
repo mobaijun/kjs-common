@@ -1,5 +1,6 @@
 package com.mobaijun.common.util.classs;
 
+import cn.hutool.core.util.ClassUtil;
 import com.mobaijun.common.util.constant.NumberConstant;
 import com.mobaijun.common.util.constant.StringConstant;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * software：IntelliJ IDEA NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO.1
@@ -23,7 +25,7 @@ import java.util.Map.Entry;
  *
  * @author MoBaiJun NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO/5/18 9:19
  */
-public class ClassUtil {
+public class ClassUtils extends ClassUtil {
 
     /**
      * 这是我用的方式，boolean recursion是否递归
@@ -399,5 +401,27 @@ public class ClassUtil {
 
     public static void printWithSign(String sign, Object obj) {
         print(obj, sign, objToStr(obj));
+    }
+
+    private static final Map<String, Boolean> CACHE = new ConcurrentHashMap<>(8);
+
+    /**
+     * 确定class是否可以被加载
+     *
+     * @param className   完整类名
+     * @param classLoader 类加载
+     */
+    public static boolean isPresent(String className, ClassLoader classLoader) {
+        if (CACHE.containsKey(className)) {
+            return CACHE.get(className);
+        }
+        try {
+            Class.forName(className, true, classLoader);
+            CACHE.put(className, true);
+            return true;
+        } catch (Exception ex) {
+            CACHE.put(className, false);
+            return false;
+        }
     }
 }
