@@ -18,10 +18,6 @@ import java.lang.reflect.Type;
  * @author MoBaiJun 2022/5/31 10:53
  */
 public class ReflectionUtils {
-    /**
-     * logger
-     */
-    // private static final Logger log = LoggerFactory.getLogger(ReflectionUtils.class);
 
     /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
