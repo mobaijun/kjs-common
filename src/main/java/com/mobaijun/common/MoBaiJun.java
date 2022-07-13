@@ -14,10 +14,6 @@ import java.util.Set;
  * @author MoBaiJun 2022/7/13 16:15
  */
 public class MoBaiJun {
-    public static void main(String[] args) {
-        printAllUtils();
-    }
-
 
     private static Set<Class<?>> getAllUtils() {
         return ClassUtil.scanPackage("com.mobaijun.common",
