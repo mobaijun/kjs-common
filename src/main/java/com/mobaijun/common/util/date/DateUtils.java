@@ -21,8 +21,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class DateUtils {
 
-    public static String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
-
     /**
      * 获取启动时间
      *
@@ -105,7 +103,7 @@ public class DateUtils {
      * @return String
      */
     public static String getDay(Date date) {
-        return formatDate(date, "yyyy-MM-dd");
+        return formatDate(date, DateConstant.YYYY_MM_DD);
     }
 
 
@@ -117,11 +115,11 @@ public class DateUtils {
      * @return String
      */
     public static String formatDate(Date date, String pattern) {
-        String formatDate = null;
+        String formatDate;
         if (StrUtil.isBlank(pattern)) {
             formatDate = DateFormatUtils.format(date, pattern);
         } else {
-            formatDate = DateFormatUtils.format(date, "yyyy-MM-dd");
+            formatDate = DateFormatUtils.format(date, DateConstant.YYYY_MM_DD);
         }
         return formatDate;
     }

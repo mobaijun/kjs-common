@@ -21,7 +21,7 @@ public class AESUtil {
     /**
      * 加密
      * 1.构造密钥生成器
-     * 2.根据ecnodeRules规则初始化密钥生成器
+     * 2.根据encodeRules规则初始化密钥生成器
      * 3.产生密钥
      * 4.创建和初始化密码器
      * 5.内容加密
@@ -37,9 +37,9 @@ public class AESUtil {
         SecretKey key = new SecretKeySpec(raw, AES);
         Cipher cipher = Cipher.getInstance(AES);
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        byte[] byte_encode = content.getBytes(StandardCharsets.UTF_8);
-        byte[] byte_AES = cipher.doFinal(byte_encode);
-        return Base64.getEncoder().encodeToString(byte_AES);
+        byte[] byteEncode = content.getBytes(StandardCharsets.UTF_8);
+        byte[] byteAes = cipher.doFinal(byteEncode);
+        return Base64.getEncoder().encodeToString(byteAes);
     }
 
     /**
@@ -59,10 +59,10 @@ public class AESUtil {
         SecretKey key = new SecretKeySpec(raw, AES);
         Cipher cipher = Cipher.getInstance(AES);
         cipher.init(Cipher.DECRYPT_MODE, key);
-        byte[] byte_content = Base64.getDecoder().decode(content);
+        byte[] byteContent = Base64.getDecoder().decode(content);
         // 解密
-        byte[] byte_decode = cipher.doFinal(byte_content);
-        return new String(byte_decode, StandardCharsets.UTF_8);
+        byte[] byteDecode = cipher.doFinal(byteContent);
+        return new String(byteDecode, StandardCharsets.UTF_8);
     }
 
     /**
@@ -77,7 +77,7 @@ public class AESUtil {
         SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
         secureRandom.setSeed(encodeRules.getBytes());
         keygen.init(128, secureRandom);
-        SecretKey original_key = keygen.generateKey();
-        return original_key.getEncoded();
+        SecretKey originalKey = keygen.generateKey();
+        return originalKey.getEncoded();
     }
 }

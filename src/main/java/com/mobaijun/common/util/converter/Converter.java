@@ -12,6 +12,8 @@ import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.Set;
 
+import static com.mobaijun.common.util.text.StrConvert.getaByte;
+
 /**
  * Software：IntelliJ IDEA 2021.3.2
  * ClassName: Converter
@@ -98,21 +100,7 @@ public class Converter {
         if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
-        if (value instanceof Byte) {
-            return (Byte) value;
-        }
-        if (value instanceof Number) {
-            return ((Number) value).byteValue();
-        }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
-            return defaultValue;
-        }
-        try {
-            return Byte.parseByte(valueStr);
-        } catch (Exception e) {
-            return defaultValue;
-        }
+        return getaByte(value, defaultValue, toStr(value, null));
     }
 
     /**
@@ -140,18 +128,21 @@ public class Converter {
         if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
+        return getaShort(value, defaultValue, toStr(value, null));
+    }
+
+    public static Short getaShort(Object value, Short defaultValue, String s) {
         if (value instanceof Short) {
             return (Short) value;
         }
         if (value instanceof Number) {
             return ((Number) value).shortValue();
         }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtils.isEmpty(s)) {
             return defaultValue;
         }
         try {
-            return Short.parseShort(valueStr.trim());
+            return Short.parseShort(s.trim());
         } catch (Exception e) {
             return defaultValue;
         }
@@ -825,23 +816,23 @@ public class Converter {
         String head = n < 0 ? "负" : "";
         n = Math.abs(n);
 
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < fraction.length; i++) {
-            s += (digit[(int) (Math.floor(n * 10 * Math.pow(10, i)) % 10)] + fraction[i]).replaceAll("(零.)+", "");
+            s.append((digit[(int) (Math.floor(n * 10 * Math.pow(10, i)) % 10)] + fraction[i]).replaceAll("(零.)+", ""));
         }
         if (s.length() < 1) {
-            s = "整";
+            s = new StringBuilder("整");
         }
         int integerPart = (int) Math.floor(n);
 
         for (int i = 0; i < unit[0].length && integerPart > 0; i++) {
-            String p = "";
+            StringBuilder p = new StringBuilder();
             for (int j = 0; j < unit[1].length && n > 0; j++) {
-                p = digit[integerPart % 10] + unit[1][j] + p;
+                p.insert(0, digit[integerPart % 10] + unit[1][j]);
                 integerPart = integerPart / 10;
             }
-            s = p.replaceAll("(零.)*零$", "").replaceAll("^$", "零") + unit[0][i] + s;
+            s.insert(0, p.toString().replaceAll("(零.)*零$", "").replaceAll("^$", "零") + unit[0][i]);
         }
-        return head + s.replaceAll("(零.)*零元", "元").replaceFirst("(零.)+", "").replaceAll("(零.)+", "零").replaceAll("^整$", "零元整");
+        return head + s.toString().replaceAll("(零.)*零元", "元").replaceFirst("(零.)+", "").replaceAll("(零.)+", "零").replaceAll("^整$", "零元整");
     }
 }

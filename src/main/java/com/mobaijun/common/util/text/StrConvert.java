@@ -9,6 +9,8 @@ import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.Set;
 
+import static com.mobaijun.common.util.converter.Converter.getaShort;
+
 /**
  * Software：IntelliJ IDEA 2021.3.2
  * ClassName: StrConvert
@@ -95,18 +97,21 @@ public class StrConvert {
         if (value == null) {
             return defaultValue;
         }
+        return getaByte(value, defaultValue, toStr(value, null));
+    }
+
+    public static Byte getaByte(Object value, Byte defaultValue, String s) {
         if (value instanceof Byte) {
             return (Byte) value;
         }
         if (value instanceof Number) {
             return ((Number) value).byteValue();
         }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtils.isEmpty(s)) {
             return defaultValue;
         }
         try {
-            return Byte.parseByte(valueStr);
+            return Byte.parseByte(s);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -137,21 +142,7 @@ public class StrConvert {
         if (value == null) {
             return defaultValue;
         }
-        if (value instanceof Short) {
-            return (Short) value;
-        }
-        if (value instanceof Number) {
-            return ((Number) value).shortValue();
-        }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
-            return defaultValue;
-        }
-        try {
-            return Short.parseShort(valueStr.trim());
-        } catch (Exception e) {
-            return defaultValue;
-        }
+        return getaShort(value, defaultValue, toStr(value, null));
     }
 
     /**
@@ -589,7 +580,7 @@ public class StrConvert {
             return new BigDecimal((Long) value);
         }
         if (value instanceof Double) {
-            return new BigDecimal((Double) value);
+            return BigDecimal.valueOf((Double) value);
         }
         if (value instanceof Integer) {
             return new BigDecimal((Integer) value);
@@ -656,7 +647,8 @@ public class StrConvert {
         if (obj instanceof String) {
             return (String) obj;
         } else if (obj instanceof byte[] || obj instanceof Byte[]) {
-            return str((Byte[]) obj, charset);
+            assert obj instanceof Byte[];
+            return str(obj, charset);
         } else if (obj instanceof ByteBuffer) {
             return str((ByteBuffer) obj, charset);
         }
@@ -772,23 +764,23 @@ public class StrConvert {
         final String head = n < 0 ? "负" : "";
         n = Math.abs(n);
 
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < fraction.length; i++) {
-            s += (digit[(int) (Math.floor(n * 10 * Math.pow(10, i)) % 10)] + fraction[i]).replaceAll("(零.)+", "");
+            s.append((digit[(int) (Math.floor(n * 10 * Math.pow(10, i)) % 10)] + fraction[i]).replaceAll("(零.)+", ""));
         }
         if (s.length() < 1) {
-            s = "整";
+            s = new StringBuilder("整");
         }
         int integerPart = (int) Math.floor(n);
 
         for (int i = 0; i < unit[0].length && integerPart > 0; i++) {
-            String p = "";
+            StringBuilder p = new StringBuilder();
             for (int j = 0; j < unit[1].length && n > 0; j++) {
-                p = digit[integerPart % 10] + unit[1][j] + p;
+                p.insert(0, digit[integerPart % 10] + unit[1][j]);
                 integerPart = integerPart / 10;
             }
-            s = p.replaceAll("(零.)*零$", "").replaceAll("^$", "零") + unit[0][i] + s;
+            s.insert(0, p.toString().replaceAll("(零.)*零$", "").replaceAll("^$", "零") + unit[0][i]);
         }
-        return head + s.replaceAll("(零.)*零元", "元").replaceFirst("(零.)+", "").replaceAll("(零.)+", "零").replaceAll("^整$", "零元整");
+        return head + s.toString().replaceAll("(零.)*零元", "元").replaceFirst("(零.)+", "").replaceAll("(零.)+", "零").replaceAll("^整$", "零元整");
     }
 }

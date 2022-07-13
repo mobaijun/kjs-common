@@ -31,7 +31,7 @@ public class MoneyCoverUtils {
      *
      * @param money int
      * @return String
-     * @throws Exception
+     * @throws Exception Exception
      */
     public static String converseChinese(int money) throws Exception {
         if (money < 0) {
@@ -53,7 +53,7 @@ public class MoneyCoverUtils {
      *
      * @param money double
      * @return String
-     * @throws Exception
+     * @throws Exception Exception
      */
     public static String converseChinese(double money) throws Exception {
         if (money < 0) {

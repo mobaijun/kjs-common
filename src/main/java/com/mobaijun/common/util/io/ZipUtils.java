@@ -32,7 +32,7 @@ public class ZipUtils {
      */
     public static void zipFile(List<File> files, String zipFilePath) {
         int len = -1;
-        byte[] b = null;
+        byte[] b;
         BufferedInputStream bis = null;
         ZipOutputStream zos = null;
         try {
@@ -57,8 +57,12 @@ public class ZipUtils {
             e.printStackTrace();
         } finally {
             try {
-                if (bis != null) bis.close();
-                if (zos != null) zos.close();
+                if (bis != null) {
+                    bis.close();
+                }
+                if (zos != null) {
+                    zos.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -82,7 +86,9 @@ public class ZipUtils {
             e.printStackTrace();
         } finally {
             try {
-                if (zos != null) zos.close();
+                if (zos != null) {
+                    zos.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -117,7 +123,9 @@ public class ZipUtils {
                 e.printStackTrace();
             } finally {
                 try {
-                    if (bis != null) bis.close();
+                    if (bis != null) {
+                        bis.close();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -133,7 +141,7 @@ public class ZipUtils {
      */
     public static void unzip(String zipFilePath, String destFilePath) {
         int len = -1;
-        byte[] b = null;
+        byte[] b;
         ZipFile zipFile = null;
         BufferedInputStream bis = null;
         BufferedOutputStream bos = null;
@@ -141,7 +149,7 @@ public class ZipUtils {
             zipFile = new ZipFile(zipFilePath);
             Enumeration<? extends ZipEntry> zipEntries = zipFile.entries();
             while (zipEntries.hasMoreElements()) {
-                ZipEntry zipEntry = (ZipEntry) zipEntries.nextElement();
+                ZipEntry zipEntry = zipEntries.nextElement();
                 if (zipEntry.isDirectory()) {
                     new File(destFilePath, zipEntry.getName()).mkdirs();
                     continue;

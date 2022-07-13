@@ -56,6 +56,8 @@ public class JdbcDriverUtil {
             case "com.mysql.cj.jdbc.Driver":
                 DB_NAME = "mysql";
                 break;
+            default:
+                return null;
         }
         try {
             Class.forName(driver);
@@ -184,7 +186,7 @@ public class JdbcDriverUtil {
      * @return key:参数位置(从1开始), value:输出的值
      */
     public static Map<Integer, Object> executeProcedure(Connection conn, String sql, Map<Integer, Object> in, Map<Integer, Integer> out) {
-        Map<Integer, Object> map = new HashMap<>();
+        Map<Integer, Object> map = new HashMap<>(10);
         CallableStatement cs = null;
         ResultSet rs = null;
         try {
@@ -233,7 +235,7 @@ public class JdbcDriverUtil {
                         map.put(index, rows);
                     } else if (obj instanceof java.sql.Clob) {
                         java.sql.Clob clob = cs.getClob(index);
-                        map.put(index, clob.getSubString((long) 1, (int) clob.length()));
+                        map.put(index, clob.getSubString(1, (int) clob.length()));
                     } else if (obj instanceof java.sql.Date || obj instanceof java.sql.Timestamp) {
                         java.sql.Timestamp timestamp = cs.getTimestamp(index);
                         map.put(index, timestamp);
@@ -288,7 +290,7 @@ public class JdbcDriverUtil {
             rs = pst.executeQuery();
             ResultSetMetaData red = rs.getMetaData();
             while (rs.next()) {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>(10);
                 for (int i = 1; i <= red.getColumnCount(); i++) {
                     String fieldName = red.getColumnName(i);
                     Object fieldValue = rs.getObject(fieldName);
@@ -346,12 +348,5 @@ public class JdbcDriverUtil {
             sb.append(" LIMIT ").append(firstResult).append(",").append(maxResults);
         }
         return findAll(conn, sb.toString(), obj);
-    }
-
-    public static void main(String[] args) {
-        Connection conn = getConnection("", "", "admin", "admin");
-        execute(conn, "", null);
-        findAll(conn, "", null);
-        close(conn);
     }
 }

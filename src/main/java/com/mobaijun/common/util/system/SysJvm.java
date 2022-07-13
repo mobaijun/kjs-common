@@ -1,6 +1,7 @@
 package com.mobaijun.common.util.system;
 
 import cn.hutool.core.date.DateTime;
+import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.date.DateUtils;
 
 import java.lang.management.ManagementFactory;
@@ -101,7 +102,7 @@ public class SysJvm {
      * @return DateTime
      */
     public String getStartTime() {
-        return DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS, DateUtils.getServerStartDate());
+        return DateUtils.parseDateToStr(DateConstant.YYYY_MM_DD_HH_MM_SS, DateUtils.getServerStartDate());
     }
 
     /**

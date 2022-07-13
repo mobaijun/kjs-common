@@ -29,7 +29,7 @@ public class SqlUtils {
     /**
      * 仅支持字母、数字、下划线、空格、逗号、小数点（支持多个字段排序）
      */
-    public static String SQL_PATTERN = "[a-zA-Z0-9_\\ \\,\\.]+";
+    public static String SQL_PATTERN = "[a-zA-Z0-9_ ,.]+";
 
     /**
      * 检查字符，防止注入绕过
@@ -78,14 +78,12 @@ public class SqlUtils {
      * @return String
      */
     public static String parse(List<?> list) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
         if (list != null && list.size() > 0) {
-            str = str + "?";
-            for (int i = 1; i < list.size(); i++) {
-                str = str + ",?";
-            }
+            str.append("?");
+            str.append(",?".repeat(list.size() - 1));
         }
-        return str;
+        return str.toString();
     }
 
     /**
@@ -96,7 +94,7 @@ public class SqlUtils {
      */
     public static Map<String, Object> resultSet2Map(ResultSet resultSet) {
         try {
-            HashMap<String, Object> result = new HashMap<>();
+            HashMap<String, Object> result = new HashMap<>(100);
             ResultSetMetaData metaData = resultSet.getMetaData();
             for (int i = 1; i <= metaData.getColumnCount(); i++) {
                 String columnName = metaData.getColumnName(i);
@@ -105,9 +103,9 @@ public class SqlUtils {
             }
             return result;
         } catch (SQLException e) {
-            PrintUtils.print("转化结果集错误！");
+            PrintUtils.print(e.getMessage(), "转化结果集错误！");
             // 返回空map
-            return new HashMap<>();
+            return new HashMap<>(1);
         }
     }
 
@@ -126,7 +124,7 @@ public class SqlUtils {
             }
             return result;
         } catch (SQLException e) {
-            PrintUtils.print("转化结果集错误！");
+            PrintUtils.print(e.getMessage(), "转化结果集错误！");
             // 返回空map
             return result;
         }

@@ -37,8 +37,4 @@ public class GPSUtils {
         double distance = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(deltaLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(deltaLng / 2), 2)));
         return NumberUtils.round(distance * EARTH_RADIUS_KM, 4);
     }
-
-    public static void main(String[] args) {
-        System.out.println(GPSUtils.getDistance(41.797944, 123.439618, 41.790522, 123.442708));
-    }
 }

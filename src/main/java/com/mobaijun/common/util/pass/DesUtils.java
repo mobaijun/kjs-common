@@ -36,9 +36,9 @@ public class DesUtils {
             try {
                 DESKeySpec dks = new DESKeySpec(key.getBytes(StandardCharsets.UTF_8));
                 SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
-                SecretKey securekey = keyFactory.generateSecret(dks);
+                SecretKey secureKey = keyFactory.generateSecret(dks);
                 Cipher cipher = Cipher.getInstance(DES);
-                cipher.init(Cipher.ENCRYPT_MODE, securekey, new SecureRandom());
+                cipher.init(Cipher.ENCRYPT_MODE, secureKey, new SecureRandom());
                 byte[] bytes = cipher.doFinal(str.getBytes(StandardCharsets.UTF_8));
                 return Base64.encode(bytes);
             } catch (Exception e) {
@@ -60,9 +60,9 @@ public class DesUtils {
             try {
                 DESKeySpec dks = new DESKeySpec(key.getBytes(StandardCharsets.UTF_8));
                 SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(DES);
-                SecretKey securekey = keyFactory.generateSecret(dks);
+                SecretKey secureKey = keyFactory.generateSecret(dks);
                 Cipher cipher = Cipher.getInstance(DES);
-                cipher.init(Cipher.DECRYPT_MODE, securekey, new SecureRandom());
+                cipher.init(Cipher.DECRYPT_MODE, secureKey, new SecureRandom());
                 byte[] bytes = cipher.doFinal(Base64.decode(str));
                 return new String(bytes, StandardCharsets.UTF_8);
             } catch (Exception e) {

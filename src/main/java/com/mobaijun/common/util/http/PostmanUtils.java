@@ -24,7 +24,6 @@ import java.util.Map;
  */
 public class PostmanUtils {
 
-
     public static String sendPost(String url, Map<String, Object> param, String charset) {
         PrintWriter out = null;
         BufferedReader in = null;
@@ -79,7 +78,7 @@ public class PostmanUtils {
 
     public static void main(String[] args) {
         String postUrl = "http://192.168.31.80:8000/rpc/2.0/cvsaas/v1/device/add";
-        Map<String, Object> params = new HashMap<String, Object>();
+        Map<String, Object> params = new HashMap<>(1);
         params.put("deviceName", "守护小猪窝");
         params.put("rtspAddress", "rtmp://rtmp01open.ys7.com/openlive/b41d634ec9984700a03db5865dc514cc.hd");
         params.put("deviceStatus", "1");

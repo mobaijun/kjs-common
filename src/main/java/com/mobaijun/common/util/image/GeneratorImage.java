@@ -39,7 +39,7 @@ public class GeneratorImage {
         int nameLen = name.length();
         String nameWritten;
         // 如果用户输入的姓名少于等于2个字符，不用截取
-        if (nameLen <= 2) {
+        if (nameLen <= NumberConstant.TWO) {
             nameWritten = name;
         } else {
             // 如果用户输入的姓名大于等于3个字符，截取后面两位
@@ -63,7 +63,7 @@ public class GeneratorImage {
         g2.setBackground(getRandomColor());
         g2.clearRect(0, 0, width, height);
         g2.setPaint(Color.WHITE);
-        Font font = null;
+        Font font;
         // 两个字及以上
         if (nameWritten.length() >= NumberConstant.TWO) {
             font = new Font("微软雅黑", Font.PLAIN, 30);
@@ -152,10 +152,5 @@ public class GeneratorImage {
         g2.drawImage(image, 0, 0, null);
         g2.dispose();
         return output;
-    }
-
-    public static void main(String[] args) throws IOException {
-        String name = "墨白S";
-        generateImg(name, "F:\\Users\\mobai\\Pictures\\Camera Roll", "2222222222", 30);
     }
 }

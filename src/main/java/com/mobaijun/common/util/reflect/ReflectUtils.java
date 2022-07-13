@@ -279,6 +279,6 @@ public class ReflectUtils {
             fieldList.addAll(new ArrayList<>(Arrays.asList(clazz.getDeclaredFields())));
             clazz = clazz.getSuperclass();
         }
-        return fieldList.stream().toArray(Field[]::new);
+        return fieldList.toArray(Field[]::new);
     }
 }
