@@ -15,7 +15,7 @@ import java.util.Base64;
  *
  * @author MoBaiJun 2022/5/18 9:55
  */
-public class AESUtil {
+public class AESUtils {
     private static final String AES = "AES";
 
     /**

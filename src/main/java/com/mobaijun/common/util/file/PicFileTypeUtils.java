@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author MoBaiJun 2022/5/12 13:21
  */
-public class PicFileTypeUtil {
+public class PicFileTypeUtils {
 
     private static final List<String> PIC_TYPES;
 

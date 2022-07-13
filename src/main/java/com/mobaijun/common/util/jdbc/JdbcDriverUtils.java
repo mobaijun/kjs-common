@@ -28,7 +28,7 @@ import java.util.Map.Entry;
  *
  * @author MoBaiJun 2022/5/18 9:29
  */
-public class JdbcDriverUtil {
+public class JdbcDriverUtils {
 
 
     private static String DB_NAME = "DB_NAME";

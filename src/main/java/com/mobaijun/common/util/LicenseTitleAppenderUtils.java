@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author MoBaiJun 2022/5/12 11:35
  */
-public class LicenseTitleAppenderUtil {
+public class LicenseTitleAppenderUtils {
 
     /**
      * 添加开源协议

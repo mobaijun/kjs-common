@@ -9,7 +9,7 @@ import com.mobaijun.common.util.constant.JdkConstant;
  *
  * @author MoBaiJun 2022/5/18 10:05
  */
-public class NetUtil {
+public class NetUtils {
 
     /**
      * 是否 ping 通

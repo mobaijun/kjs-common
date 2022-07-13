@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author MoBaiJun 2022/5/12 14:05
  */
-public class StartCalcUtil {
+public class StartCalcUtils {
     /**
      * 项目开始启动时间
      */

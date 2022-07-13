@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/5/12 10:37
  */
-public class WafUtil {
+public class WafUtils {
 
     /**
      * 过滤xss

@@ -12,7 +12,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/4/24 10:53
  */
-public class MapBeanUtil {
+public class MapBeanUtils {
 
     /**
      * 实体对象转成Map

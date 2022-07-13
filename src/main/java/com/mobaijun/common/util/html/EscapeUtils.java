@@ -9,7 +9,7 @@ import cn.hutool.core.util.StrUtil;
  *
  * @author MoBaiJun 2022/5/12 9:33
  */
-public class EscapeUtil {
+public class EscapeUtils {
 
     private static final char[][] TEXT = new char[64][];
 

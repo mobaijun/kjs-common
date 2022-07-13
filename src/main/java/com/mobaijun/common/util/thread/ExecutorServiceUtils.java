@@ -19,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author MoBaiJun 2022/5/31 11:38
  */
-public class ExecutorServiceUtil {
+public class ExecutorServiceUtils {
     private static final ThreadFactory THREAD_FACTORY = new ThreadFactory() {
 
         private final ThreadFactory defaultFactory = Executors.defaultThreadFactory();

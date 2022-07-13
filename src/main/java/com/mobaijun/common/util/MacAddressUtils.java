@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  *
  * @author MoBaiJun 2022/5/12 11:36
  */
-public class MacAddressUtil {
+public class MacAddressUtils {
 
     /**
      * 获取mac的地址信息列表

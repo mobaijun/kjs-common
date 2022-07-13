@@ -14,7 +14,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/5/12 11:38
  */
-public class RedirectUrlBuildUtil {
+public class RedirectUrlBuildUtils {
 
     /**
      * 构建redirect url

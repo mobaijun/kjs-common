@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/4/22 18:59
  */
-public class ToolUtil {
+public class ToolUtils {
 
     /**
      * 获取随机位数的字符串
@@ -478,11 +478,11 @@ public class ToolUtil {
      */
     public static String getWebRootPath(String filePath) {
         try {
-            String path = Objects.requireNonNull(ToolUtil.class.getClassLoader().getResource("")).toURI().getPath();
+            String path = Objects.requireNonNull(ToolUtils.class.getClassLoader().getResource("")).toURI().getPath();
             path = path.replace("/WEB-INF/classes/", "");
             path = path.replace("/target/classes/", "");
             path = path.replace("file:/", "");
-            if (ToolUtil.isEmpty(filePath)) {
+            if (ToolUtils.isEmpty(filePath)) {
                 return path;
             } else {
                 return path + "/" + filePath;
