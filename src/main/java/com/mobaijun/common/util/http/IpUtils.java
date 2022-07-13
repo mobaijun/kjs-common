@@ -1,6 +1,7 @@
 package com.mobaijun.common.util.http;
 
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.constant.NumberConstant;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -76,29 +77,6 @@ public class IpUtils {
     }
 
     /**
-     * 解决IP地址转换为64位整数类型
-     * 如: [192.168.31.4]转换为[192168031004]
-     *
-     * @param ip String
-     * @return String
-     */
-    public static String ipSplit(String ip) {
-        ip = ip.replace(".", "\\");
-        String[] ips = ip.split("[^\\d]+");
-        StringBuilder s1 = new StringBuilder();
-        for (String value : ips) {
-            String s = value;
-            if (s.length() == 1) {
-                s = "00" + s;
-            } else if (s.length() == 2) {
-                s = "0" + s;
-            }
-            s1.append(s);
-        }
-        return s1.toString();
-    }
-
-    /**
      * 获取当前机器的hostname
      *
      * @return String
@@ -117,7 +95,7 @@ public class IpUtils {
     }
 
     private static boolean internalIp(byte[] adder) {
-        if (StringUtils.isEmpty(Collections.singleton(adder)) || adder.length < 2) {
+        if (StringUtils.isEmpty(Collections.singleton(adder)) || adder.length < NumberConstant.TWO) {
             return true;
         }
         final byte b0 = adder[0];
@@ -126,22 +104,21 @@ public class IpUtils {
         final byte SECTION_1 = 0x0A;
         // 172.16.x.x/12
         final byte SECTION_2 = (byte) 0xAC;
-        final byte SECTION_3 = (byte) 0x10;
-        final byte SECTION_4 = (byte) 0x1F;
+        final byte sECTION3 = (byte) 0x10;
+        final byte sECTION4 = (byte) 0x1F;
         // 192.168.x.x/16
-        final byte SECTION_5 = (byte) 0xC0;
-        final byte SECTION_6 = (byte) 0xA8;
+        final byte sECTION5 = (byte) 0xC0;
+        final byte sECTION6 = (byte) 0xA8;
         switch (b0) {
             case SECTION_1:
                 return true;
             case SECTION_2:
-                if (b1 >= SECTION_3 && b1 <= SECTION_4) {
+                if (b1 >= sECTION3 && b1 <= sECTION4) {
                     return true;
                 }
-            case SECTION_5:
-                switch (b1) {
-                    case SECTION_6:
-                        return true;
+            case sECTION5:
+                if (b1 == sECTION6) {
+                    return true;
                 }
             default:
                 return false;
@@ -190,7 +167,7 @@ public class IpUtils {
                     bytes[3] = (byte) (int) (l & 0xFF);
                     break;
                 case 3:
-                    for (i = 0; i < 2; ++i) {
+                    for (i = 0; i < NumberConstant.TWO; ++i) {
                         l = Integer.parseInt(elements[i]);
                         if ((l < 0L) || (l > 255L)) {
                             return null;
@@ -222,8 +199,18 @@ public class IpUtils {
         return bytes;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(IpUtils.getHostName());
+    /**
+     * 192.168.1.2 转为 192168001002
+     *
+     * @param ip IP地址
+     * @return IP地址
+     */
+    public static String getRegroupIp(String ip) {
+        String[] split = ip.split("\\.");
+        StringBuilder leftPad = new StringBuilder();
+        for (String ipStr : split) {
+            leftPad.append(org.apache.commons.lang3.StringUtils.leftPad(ipStr, 3, '0'));
+        }
+        return leftPad.toString();
     }
 }
