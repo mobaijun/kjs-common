@@ -40,11 +40,13 @@ public class BaseController<T> {
     /**
      * 成功返回
      */
+    @Deprecated(since = "2.x")
     protected SuccessTip<T> SUCCESS_TIP = new SuccessTip<>();
 
     /**
      * 异常返回
      */
+    @Deprecated(since = "2.x")
     protected ErrorTip<T> ERROR_TIP = new ErrorTip<>();
 
     /**
