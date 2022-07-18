@@ -2,7 +2,6 @@ package com.mobaijun.common.util;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.CharsetUtil;
-import com.mobaijun.common.util.constant.LicenseConstant;
 
 import java.io.File;
 import java.util.ArrayList;
