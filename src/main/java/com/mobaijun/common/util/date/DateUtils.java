@@ -7,6 +7,8 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -137,5 +139,15 @@ public class DateUtils {
         SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD, Locale.SIMPLIFIED_CHINESE);
         // Calculate the number of days between dates
         return TimeUnit.DAYS.convert(Math.abs(sdf.parse(date1).getTime() - sdf.parse(date2).getTime()), TimeUnit.MILLISECONDS);
+    }
+
+    /**
+     * 格式化 LocalDateTime
+     *
+     * @param format 格式
+     * @return 格式化日期
+     */
+    public static String parseLocalDateTime(String format) {
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
     }
 }
