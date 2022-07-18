@@ -1,6 +1,6 @@
 package com.mobaijun.common.util.classs;
 
-
+import cn.hutool.log.Log;
 import com.mobaijun.common.util.PrintUtils;
 
 import java.lang.reflect.Field;
@@ -20,6 +20,11 @@ import java.lang.reflect.Type;
 public class ReflectionUtils {
 
     /**
+     * tools log
+     */
+    private static final Log log = Log.get(ReflectionUtils.class);
+
+    /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
      */
     public static Object getFieldValue(Object object, String fieldName) {
@@ -32,7 +37,7 @@ public class ReflectionUtils {
         try {
             result = field.get(object);
         } catch (IllegalAccessException e) {
-            PrintUtils.print("getFieldValue:", e.getMessage());
+            log.error(e, "getFieldValue:{}", e.getMessage());
         }
 
         return result;
@@ -47,13 +52,11 @@ public class ReflectionUtils {
         if (field == null) {
             throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
         }
-
         makeAccessible(field);
-
         try {
             field.set(object, value);
         } catch (IllegalAccessException e) {
-            PrintUtils.print("setFieldValue:", e.getMessage());
+            log.error(e, "setFieldValue:{}", e.getMessage());
         }
     }
 
@@ -123,7 +126,8 @@ public class ReflectionUtils {
             try {
                 return superClass.getDeclaredField(filedName);
             } catch (NoSuchFieldException e) {
-                //Field 不在当前类定义, 继续向上转型
+                // Field 不在当前类定义, 继续向上转型
+                log.error(e, "NoSuchFieldException:{}", e.getMessage());
             }
         }
         return null;
@@ -132,19 +136,17 @@ public class ReflectionUtils {
     /**
      * 直接调用对象方法, 而忽略修饰符(private, protected)
      */
-    public static Object invokeMethod(Object object, String methodName, Class<?>[] parameterTypes,
-                                      Object[] parameters) throws InvocationTargetException {
+    public static Object invokeMethod(Object object, String methodName, Class<?>[] parameterTypes, Object[] parameters) throws InvocationTargetException {
         Method method = getDeclaredMethod(object, methodName, parameterTypes);
 
         if (method == null) {
             throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + object + "]");
         }
         method.setAccessible(true);
-
         try {
             return method.invoke(object, parameters);
         } catch (IllegalAccessException e) {
-            PrintUtils.print("invokeMethod:", e.getMessage());
+            log.error(e, "invokeMethod:{}", e.getMessage());
         }
         return null;
     }

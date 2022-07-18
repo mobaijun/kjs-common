@@ -1,6 +1,7 @@
 package com.mobaijun.common.util.thread;
 
 
+import cn.hutool.log.Log;
 import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.util.constant.ThreadConstant;
 
@@ -18,6 +19,11 @@ import java.util.concurrent.TimeUnit;
  * @author MoBaiJun 2022/4/22 18:57
  */
 public class Threads {
+
+    /**
+     * tools log
+     */
+    private static final Log log = Log.get(Threads.class);
 
     /**
      * sleep等待,单位为毫秒
@@ -79,7 +85,7 @@ public class Threads {
             }
         }
         if (t != null) {
-            PrintUtils.println(t.getMessage());
+            log.error(t, "Thread Exception:{}", t.getMessage());
         }
     }
 }

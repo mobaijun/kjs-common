@@ -103,4 +103,9 @@ public class FileConstant {
      * 文件后缀
      */
     public static final String FILE_SUFFIX = ".sql";
+
+    /**
+     * 临时文件后缀
+     */
+    public static final String FILE_TEMP_SUFFIX = ".temp";
 }

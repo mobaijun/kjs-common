@@ -63,7 +63,7 @@ public final class LambdaExceptionUtils {
      * 1.外层代码中编译器将无法提示有异常需要处理
      * 2.也无法主动在外层捕获具体的异常，如果尝试try一个具体的异常，编译器将提示：在try语句体中永远不会抛出相应异常（Exception 'XXX' is never thrown in the corresponding try block）
      */
-    public static <T, R, E extends Exception> Function<T, R> wrapFunction(FunctionWithExceptions<T, R, E> function) throws E {
+    public static <T, R, E extends Exception> Function<T, R> wrapFunction(FunctionWithExceptions<T, R, E> function) {
         return t -> {
             try {
                 return function.apply(t);
@@ -77,7 +77,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装双入参普通函数（BiFunction）
      */
-    public static <T, U, R, E extends Exception> BiFunction<T, U, R> wrapBiFunction(BiFunctionWithExceptions<T, U, R, E> biFunction) throws E {
+    public static <T, U, R, E extends Exception> BiFunction<T, U, R> wrapBiFunction(BiFunctionWithExceptions<T, U, R, E> biFunction) {
         return (t, u) -> {
             try {
                 return biFunction.apply(t, u);
@@ -91,7 +91,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装消费函数（Consumer）
      */
-    public static <T, E extends Exception> Consumer<T> wrapConsumer(ConsumerWithExceptions<T, E> consumer) throws E {
+    public static <T, E extends Exception> Consumer<T> wrapConsumer(ConsumerWithExceptions<T, E> consumer) {
         return t -> {
             try {
                 consumer.accept(t);
@@ -104,7 +104,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装双重消费函数（BiConsumer）
      */
-    public static <T, U, E extends Exception> BiConsumer<T, U> wrapBiConsumer(BiConsumerWithExceptions<T, U, E> biConsumer) throws E {
+    public static <T, U, E extends Exception> BiConsumer<T, U> wrapBiConsumer(BiConsumerWithExceptions<T, U, E> biConsumer) {
         return (t, u) -> {
             try {
                 biConsumer.accept(t, u);
@@ -118,7 +118,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装生产函数（Supplier）
      */
-    public static <T, E extends Exception> Supplier<T> wrapSupplier(SupplierWithExceptions<T, E> function) throws E {
+    public static <T, E extends Exception> Supplier<T> wrapSupplier(SupplierWithExceptions<T, E> function) {
         return () -> {
             try {
                 return function.get();
@@ -132,7 +132,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装条件函数（Predicate）
      */
-    public static <T, E extends Exception> Predicate<T> wrapPredicate(PredicateWithExceptions<T, E> predicate) throws E {
+    public static <T, E extends Exception> Predicate<T> wrapPredicate(PredicateWithExceptions<T, E> predicate) {
         return t -> {
             try {
                 return predicate.test(t);
@@ -146,7 +146,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装双入参条件函数（BiPredicate）
      */
-    public static <T, U, E extends Exception> BiPredicate<T, U> wrapBiPredicate(BiPredicateWithExceptions<T, U, E> predicate) throws E {
+    public static <T, U, E extends Exception> BiPredicate<T, U> wrapBiPredicate(BiPredicateWithExceptions<T, U, E> predicate) {
         return (t, u) -> {
             try {
                 return predicate.test(t, u);
@@ -160,7 +160,7 @@ public final class LambdaExceptionUtils {
     /**
      * 包装纯执行函数（Runnable）
      */
-    public static <E extends Exception> void wrapRunnable(RunnableWithExceptions<E> runnable) throws E {
+    public static <E extends Exception> void wrapRunnable(RunnableWithExceptions<E> runnable) {
         try {
             runnable.run();
         } catch (Exception exception) {

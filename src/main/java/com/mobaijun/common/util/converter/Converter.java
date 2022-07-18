@@ -173,15 +173,18 @@ public class Converter {
         if (ObjectUtils.isEmpty(value)) {
             return defaultValue;
         }
+        return getNumber(value, defaultValue, toStr(value, null));
+    }
+
+    public static Number getNumber(Object value, Number defaultValue, String s) {
         if (value instanceof Number) {
             return (Number) value;
         }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtils.isEmpty(s)) {
             return defaultValue;
         }
         try {
-            return NumberFormat.getInstance().parse(valueStr);
+            return NumberFormat.getInstance().parse(s);
         } catch (Exception e) {
             return defaultValue;
         }

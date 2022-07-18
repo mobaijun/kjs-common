@@ -177,8 +177,6 @@ public class FileUtils {
 
     /**
      * 更新临时文件路径
-     *
-     * @author lingting 2021-10-18 17:10
      */
     public static void updateTmpDir(String dirName) {
         tempDir = new File(SYSTEM_TEMP_DIR, dirName);
@@ -189,8 +187,6 @@ public class FileUtils {
 
     /**
      * 获取临时文件, 不会创建文件
-     *
-     * @author lingting 2021-04-19 10:48
      */
     public static File getTemplateFile(String name) throws IOException {
         File file;

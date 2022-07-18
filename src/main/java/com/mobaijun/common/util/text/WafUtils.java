@@ -19,16 +19,14 @@ public class WafUtils {
      */
     public static String stripXss(String value) {
         String rlt = null;
-
+        Pattern scriptPattern;
         if (null != value) {
             // NOTE: It's highly recommended using the ESAPI library and uncomment the following line to
             // avoid encoded attacks.
-            // value = ESAPI.encoder().canonicalize(value);
-            // Avoid null characters
             rlt = value.replaceAll("", "");
 
             // Avoid anything between script tags
-            Pattern scriptPattern = Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE);
+            scriptPattern = Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE);
             rlt = scriptPattern.matcher(rlt).replaceAll("");
 
             // Avoid anything in a src='...' type of expression
@@ -68,7 +66,6 @@ public class WafUtils {
                     | Pattern.MULTILINE | Pattern.DOTALL);
             rlt = scriptPattern.matcher(rlt).replaceAll("");
         }
-
         return rlt;
     }
 
@@ -79,8 +76,8 @@ public class WafUtils {
      * @return String
      */
     public static String stripSqlInjection(String value) {
-        value.replaceAll("('.+--)|(--)|(\\|)|(%7C)", "");
-        return value.replaceAll("('.+--)|(--)|(%7C)", "");
+        return value.replaceAll("('.+--)|(--)|(\\|)|(%7C)", "")
+                .replaceAll("('.+--)|(--)|(%7C)", "");
     }
 
     /**

@@ -1,5 +1,7 @@
 package com.mobaijun.common.util.tool;
 
+import cn.hutool.log.Log;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -13,6 +15,11 @@ import java.util.Map;
  * @author MoBaiJun 2022/4/24 10:53
  */
 public class MapBeanUtils {
+
+    /**
+     * tools log
+     */
+    private static final Log log = Log.get(MapBeanUtils.class);
 
     /**
      * 实体对象转成Map
@@ -33,7 +40,7 @@ public class MapBeanUtils {
                 map.put(field.getName(), field.get(obj));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e, e.getMessage());
         }
         return map;
     }
@@ -51,7 +58,7 @@ public class MapBeanUtils {
         }
         Object obj = null;
         try {
-            obj = clazz.newInstance();
+            obj = clazz.getDeclaredConstructor().newInstance();
             Field[] fields = obj.getClass().getDeclaredFields();
             for (Field field : fields) {
                 int mod = field.getModifiers();
@@ -62,7 +69,7 @@ public class MapBeanUtils {
                 field.set(obj, map.get(field.getName()));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e, e.getMessage());
         }
         return obj;
     }

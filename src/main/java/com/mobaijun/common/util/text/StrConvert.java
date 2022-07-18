@@ -6,9 +6,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-import java.text.NumberFormat;
 import java.util.Set;
 
+import static com.mobaijun.common.util.converter.Converter.getNumber;
 import static com.mobaijun.common.util.converter.Converter.getaShort;
 
 /**
@@ -170,18 +170,7 @@ public class StrConvert {
         if (value == null) {
             return defaultValue;
         }
-        if (value instanceof Number) {
-            return (Number) value;
-        }
-        final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
-            return defaultValue;
-        }
-        try {
-            return NumberFormat.getInstance().parse(valueStr);
-        } catch (Exception e) {
-            return defaultValue;
-        }
+        return getNumber(value, defaultValue, toStr(value, null));
     }
 
     /**

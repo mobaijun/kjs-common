@@ -1,5 +1,7 @@
 package com.mobaijun.common.util.collection;
 
+import com.mobaijun.common.util.constant.NumberConstant;
+
 /**
  * software：IntelliJ IDEA 2022.1
  * class name: ArrayUtils
@@ -10,7 +12,7 @@ package com.mobaijun.common.util.collection;
 public class ArrayUtils {
 
     /**
-     * write specfield bytes to a byte array start from offset
+     * write specified bytes to a byte array start from offset
      *
      * @param b      b
      * @param offset offset
@@ -24,7 +26,7 @@ public class ArrayUtils {
     }
 
     /**
-     * write a int to a byte array
+     * write an int to a byte array
      *
      * @param b      b
      * @param offset offset
@@ -38,7 +40,7 @@ public class ArrayUtils {
     }
 
     /**
-     * get a int from a byte array start from the specifiled offset
+     * get an int from a byte array start from the specified offset
      *
      * @param b      b
      * @param offset offset
@@ -53,7 +55,7 @@ public class ArrayUtils {
     }
 
     /**
-     * get a int from a byte array start from the specifield offset
+     * get an int from a byte array start from the specified offset
      *
      * @param b      b
      * @param offset offset
@@ -83,11 +85,11 @@ public class ArrayUtils {
      * string ip to long ip
      *
      * @param ip ip
-     * @return long long
+     * @return long
      */
     public static long ip2long(String ip) {
         String[] p = ip.split("\\.");
-        if (p.length != 4) {
+        if (p.length != NumberConstant.FOUR) {
             return 0;
         }
 
@@ -106,26 +108,21 @@ public class ArrayUtils {
      * @return string
      */
     public static String long2ip(long ip) {
-        StringBuilder sb = new StringBuilder();
-
-        sb
-                .append((ip >> 24) & 0xFF).append('.')
-                .append((ip >> 16) & 0xFF).append('.')
-                .append((ip >> 8) & 0xFF).append('.')
-                .append((ip >> 0) & 0xFF);
-
-        return sb.toString();
+        return String.valueOf((ip >> 24) & 0xFF) + '.' +
+                ((ip >> 16) & 0xFF) + '.' +
+                ((ip >> 8) & 0xFF) + '.' +
+                ((ip) & 0xFF);
     }
 
     /**
-     * check the validate of the specifeld ip address
+     * check to validate of the specified ip address
      *
      * @param ip ip
      * @return boolean
      */
     public static boolean isIpAddress(String ip) {
         String[] p = ip.split("\\.");
-        if (p.length != 4) {
+        if (p.length != NumberConstant.FOUR) {
             return false;
         }
 
@@ -133,7 +130,7 @@ public class ArrayUtils {
             if (pp.length() > 3) {
                 return false;
             }
-            int val = Integer.valueOf(pp);
+            int val = Integer.parseInt(pp);
             if (val > 255) {
                 return false;
             }

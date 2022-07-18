@@ -1,6 +1,7 @@
 package com.mobaijun.common.util.classs;
 
 import cn.hutool.core.util.ClassUtil;
+import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.constant.NumberConstant;
 import com.mobaijun.common.util.constant.StringConstant;
 
@@ -226,11 +227,7 @@ public class ClassUtils extends ClassUtil {
 
 
     private static String indent(int length, String sign) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append(sign);
-        }
-        return sb.toString();
+        return String.valueOf(sign).repeat(Math.max(0, length));
     }
 
     private static boolean isSimpleType(Object obj) {
@@ -289,11 +286,7 @@ public class ClassUtils extends ClassUtil {
     }
 
     private static boolean isBeanType(Object obj) {
-        if (isSimpleType(obj) || isCollectionType(obj) || isMapType(obj)) {
-            return false;
-        } else {
-            return true;
-        }
+        return !isSimpleType(obj) && !isCollectionType(obj) && !isMapType(obj);
     }
 
     private static boolean isSimpleArr(Object[] a) {
@@ -342,13 +335,14 @@ public class ClassUtils extends ClassUtil {
             // fields[i]是复杂类型
             // int j = i+1，从fields[i]之后开始比较
             for (int j = i + 1; j < fields.length; j++) {
-                Field fieldTmp = null;
+                Field fieldTmp;
                 // 与后面的第一个简单类型交互
                 if (isSimpleType(fields[j].getType())) {
                     fieldTmp = fields[i];
                     fields[i] = fields[j];
                     fields[j] = fieldTmp;
-                    break; // 后面的循环，是没有意义de
+                    // 后面的循环，是没有意义de
+                    break;
                 }
             }
         }
@@ -366,10 +360,8 @@ public class ClassUtils extends ClassUtil {
         if (object == null) {
             return "null";
         }
-        object.toString();
-        String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         if (isDateType(object)) {
-            return new SimpleDateFormat(DATE_FORMAT).format((Date) object);
+            return new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS).format((Date) object);
         } else if (isBeanType(object)) {
             return beanToStr(object, recursion);
         } else if (isCollectionType(object)) {
