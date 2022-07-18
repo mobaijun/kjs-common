@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 /**
  * software：IntelliJ IDEA 2022.1
@@ -48,14 +49,13 @@ public class MaskToStringBuilder extends ReflectionToStringBuilder {
         }
         Field[] fields = clazz.getDeclaredFields();
         AccessibleObject.setAccessible(fields, true);
-        for (Field field : fields) {
+        Arrays.stream(fields)
+                .filter(field -> field.getName() != null)
+                .forEach(field -> {
             String fieldName = field.getName();
             if (this.accept(field)) {
                 try {
                     Object fieldValue = this.getValue(field);
-                    if (fieldValue == null) {
-                        continue;
-                    }
                     // 如果需要打码
                     Mask anno = field.getAnnotation(Mask.class);
                     if (anno != null) {
@@ -88,14 +88,10 @@ public class MaskToStringBuilder extends ReflectionToStringBuilder {
                     throw new InternalError("Unexpected IllegalAccessException: " + ex.getMessage());
                 }
             }
-        }
+        });
     }
 
     private String fillMask(String maskStr, int length) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            sb.append(maskStr);
-        }
-        return sb.toString();
+        return String.valueOf(maskStr).repeat(Math.max(0, length));
     }
 }

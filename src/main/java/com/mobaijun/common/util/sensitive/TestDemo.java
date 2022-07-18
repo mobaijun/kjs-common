@@ -14,8 +14,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TestDemo {
-    @Mask(prefixNoMaskLen = 2, suffixNoMaskLen = 2)
-    private String arce;
+    @Mask(prefixNoMaskLen = 3, suffixNoMaskLen = 4)
+    private String arced;
 
     @Mask(prefixNoMaskLen = 1)
     private String name;
@@ -23,7 +23,7 @@ public class TestDemo {
     @Mask(prefixNoMaskLen = 4)
     private String birthday;
 
-    @Mask(prefixNoMaskLen = 4)
+    @Mask(prefixNoMaskLen = 1, suffixNoMaskLen = 8,maskStr = "-")
     private String email;
 
     @Override
@@ -34,7 +34,7 @@ public class TestDemo {
 
     public static void main(String[] args) {
         TestDemo testDemo = new TestDemo();
-        testDemo.setArce("4547665157465765");
+        testDemo.setArced("4547665157465765");
         testDemo.setName("墨白君");
         testDemo.setEmail("mobaijun8@163.com");
         testDemo.setBirthday(DateTime.now().toString());
