@@ -2,6 +2,7 @@ package com.mobaijun.common.util;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.CharsetUtil;
+import com.mobaijun.common.util.constant.LicenseConstant;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -17,23 +18,22 @@ import java.util.List;
 public class LicenseTitleAppenderUtils {
 
     /**
-     * 添加开源协议
+     * 为指定目录下所有java文件添加开源协议
      *
      * @param codeDirectory 代码路径
      * @param licenseHeader 协议头
      */
     public static void append(String codeDirectory, String licenseHeader) {
         List<File> files = FileUtil.loopFiles(codeDirectory);
-        for (File file : files) {
-            if (file.getName().endsWith(".java")) {
-                List<String> strings = FileUtil.readLines(file, CharsetUtil.UTF_8);
-                if (!strings.get(0).equals("/*")) {
-                    ArrayList<Object> newLines = new ArrayList<>();
-                    newLines.add(licenseHeader);
-                    newLines.addAll(strings);
-                    FileUtil.writeUtf8Lines(newLines, file);
-                }
-            }
-        }
+        files.stream().filter(file -> file.getName().endsWith(".java"))
+                .forEach(file -> {
+                    List<String> strings = FileUtil.readLines(file, CharsetUtil.UTF_8);
+                    if (!"/*".equals(strings.get(0))) {
+                        ArrayList<Object> newLines = new ArrayList<>(32);
+                        newLines.add(licenseHeader);
+                        newLines.addAll(strings);
+                        FileUtil.writeUtf8Lines(newLines, file);
+                    }
+                });
     }
 }

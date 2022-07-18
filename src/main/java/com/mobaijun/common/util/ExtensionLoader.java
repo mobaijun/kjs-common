@@ -36,7 +36,7 @@ public class ExtensionLoader<C> {
                 );
                 Class<?> clazz = Class.forName(classpath, true, loader);
                 Class<? extends C> newClass = clazz.asSubclass(parentClass);
-                // Apparently its bad to use Class.newInstance, so we use
+                // Apparently It's bad to use Class.newInstance, so we use
                 // newClass.getConstructor() instead
                 Constructor<? extends C> constructor = newClass.getConstructor();
                 return constructor.newInstance();
