@@ -12,22 +12,22 @@ public class UserConstant {
     /**
      * 系统默认的管理员密码
      */
-    public static String DEFAULT_PWD = "123456";
+    public static final String DEFAULT_PWD = "123456";
 
     /**
      * 管理员角色的名字
      */
-    public static String ADMIN_NAME = "管理员";
+    public static final String ADMIN_NAME = "管理员";
 
     /**
      * 管理员id
      */
-    public static Integer ADMIN_ID = 1;
+    public static final Integer ADMIN_ID = 1;
 
     /**
      * 超级管理员角色id
      */
-    public static Integer ADMIN_ROLE_ID = 1;
+    public static final Integer ADMIN_ROLE_ID = 1;
 
     /**
      * 平台内系统用户的唯一标志

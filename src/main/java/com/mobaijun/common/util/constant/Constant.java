@@ -42,15 +42,17 @@ public class Constant {
     /**
      * 总记录数
      */
+    @Deprecated(since = "2.0")
     public static Long TOTAL = null;
 
     /**
      * 当前时间毫秒值
      */
+    @Deprecated(since = "2.0")
     public static Long TIME = null;
 
     /**
      * 接口文档的菜单名
      */
-    public static String API_MENU_NAME = "接口文档";
+    public static final String API_MENU_NAME = "接口文档";
 }
