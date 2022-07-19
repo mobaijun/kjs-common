@@ -1,5 +1,7 @@
 package com.mobaijun.common.util.file;
 
+import cn.hutool.core.codec.Base64;
+import cn.hutool.core.io.FileUtil;
 import com.mobaijun.common.util.constant.Constant;
 import com.mobaijun.common.util.constant.NumberConstant;
 import lombok.AccessLevel;
@@ -18,6 +20,9 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -208,5 +213,32 @@ public class FileUtils {
         conn.setConnectTimeout(5 * 1000);
         // 得到输入流
         return conn.getInputStream();
+    }
+
+    /**
+     * 根据图片地址获取所有图片 base 编码
+     *
+     * @param path 图片地址
+     * @return base64 集合
+     */
+    public static List<String> imageToBase64(String path) {
+        List<String> base64List = new LinkedList<>();
+        // 转流处理
+        Arrays.stream(FileUtil.ls(path))
+                .forEach(file -> {
+                    // 转 base64
+                    base64List.add(Base64.encode(FileUtil.readBytes(file)));
+                });
+        return base64List;
+    }
+
+    /**
+     * base64 转指定格式文件
+     *
+     * @param data     base64s数据
+     * @param fileName 文件名称
+     */
+    public static void base64ToImage(byte[] data, String fileName) {
+        FileUtil.writeBytes(Base64.decode(data), fileName);
     }
 }
