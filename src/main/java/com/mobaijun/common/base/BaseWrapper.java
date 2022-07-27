@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public abstract class BaseWrapper {
 
-    public Object obj = null;
+    public Object obj;
 
     public BaseWrapper(Object obj) {
         this.obj = obj;
@@ -24,7 +24,7 @@ public abstract class BaseWrapper {
      * @return 对象
      */
     @SuppressWarnings("unchecked")
-    public Object warp() {
+    public <T> T warp() {
         if (this.obj instanceof List) {
             List<Object> list = (List<Object>) this.obj;
             for (Object o : list) {
@@ -34,14 +34,14 @@ public abstract class BaseWrapper {
                     warpTheObject(o);
                 }
             }
-            return list;
+            return (T) list;
         } else if (this.obj instanceof Map) {
             Map<String, Object> map = (Map<String, Object>) this.obj;
             warpTheMap(map);
-            return map;
+            return (T) map;
         } else {
             warpTheObject(this.obj);
-            return this.obj;
+            return (T) this.obj;
         }
     }
 

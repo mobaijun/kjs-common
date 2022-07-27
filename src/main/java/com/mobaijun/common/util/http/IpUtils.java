@@ -47,6 +47,7 @@ public class IpUtils {
      * @param ip           ip
      * @return boolean
      */
+    @SuppressWarnings("all")
     public static boolean isLimitedIP(Map<String, Long> limitedIpMap, String ip) {
         if (limitedIpMap.containsKey(ip)) {
             return true;
@@ -94,6 +95,7 @@ public class IpUtils {
         return internalIp(adder) || "127.0.0.1".equals(ip);
     }
 
+    @SuppressWarnings("all")
     private static boolean internalIp(byte[] adder) {
         if (StringUtils.isEmpty(Collections.singleton(adder)) || adder.length < NumberConstant.TWO) {
             return true;

@@ -20,6 +20,7 @@ import java.util.zip.ZipOutputStream;
  *
  * @author MoBaiJun 2022/5/18 10:27
  */
+@SuppressWarnings("all")
 public class ZipUtils {
     private static final int BUFFER_SIZE = 1024 * 4;
 

@@ -356,6 +356,7 @@ public class ClassUtils extends ClassUtil {
      * @param recursion 是否需要更深一层显示
      * @return String
      */
+    @SuppressWarnings("all")
     private static String objToStr(Object object, boolean recursion) {
         if (object == null) {
             return "null";

@@ -19,7 +19,12 @@ public class MoneyUtils {
 
     private static final ThreadLocal<DecimalFormat> PRETTY_FORMAT = createThreadLocalNumberFormat("#,##0.00");
 
-    // ThreadLocal重用MessageDigest
+    /**
+     * ThreadLocal重用MessageDigest
+     *
+     * @param pattern String
+     * @return ThreadLocal
+     */
     private static ThreadLocal<DecimalFormat> createThreadLocalNumberFormat(final String pattern) {
         return ThreadLocal.withInitial(() -> {
             DecimalFormat df = (DecimalFormat) DecimalFormat.getInstance();
@@ -116,7 +121,7 @@ public class MoneyUtils {
      * 格式化金额，当pattern为空时，pattern默认为#,##0.00
      */
     public static String format(double number, String pattern) {
-        DecimalFormat df = null;
+        DecimalFormat df;
         if (StringUtils.isEmpty(pattern)) {
             df = PRETTY_FORMAT.get();
         } else {
@@ -145,7 +150,7 @@ public class MoneyUtils {
      * 按格式分析字符串，当pattern为空时，pattern默认为#,##0.00
      */
     public static BigDecimal parseString(String numberStr, String pattern) throws ParseException {
-        DecimalFormat df = null;
+        DecimalFormat df;
         if (StringUtils.isEmpty(pattern)) {
             df = PRETTY_FORMAT.get();
         } else {

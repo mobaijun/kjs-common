@@ -1,7 +1,6 @@
 package com.mobaijun.common.util.classs;
 
 import cn.hutool.log.Log;
-import com.mobaijun.common.util.PrintUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +16,7 @@ import java.lang.reflect.Type;
  *
  * @author MoBaiJun 2022/5/31 10:53
  */
+@SuppressWarnings("all")
 public class ReflectionUtils {
 
     /**
@@ -27,7 +27,7 @@ public class ReflectionUtils {
     /**
      * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
      */
-    public static Object getFieldValue(Object object, String fieldName) {
+    public static <T> T getFieldValue(Object object, String fieldName) {
         Field field = getDeclaredField(object, fieldName);
         if (field == null) {
             throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
@@ -39,8 +39,7 @@ public class ReflectionUtils {
         } catch (IllegalAccessException e) {
             log.error(e, "getFieldValue:{}", e.getMessage());
         }
-
-        return result;
+        return (T) result;
     }
 
     /**
@@ -65,24 +64,23 @@ public class ReflectionUtils {
      * 通过反射, 获得定义 Class 时声明的父类的泛型参数的类型
      * 如: public EmployeeDao extends BaseDao<Employee, String>
      */
-    public static Class<?> getSuperClassGenericType(Class<?> clazz, int index) {
+    public static <T> Class<T> getSuperClassGenericType(Class<T> clazz, int index) {
         Type genType = clazz.getGenericSuperclass();
 
         if (!(genType instanceof ParameterizedType)) {
-            return Object.class;
+            return (Class<T>) Object.class;
         }
 
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 
         if (index >= params.length || index < 0) {
-            return Object.class;
+            return (Class<T>) Object.class;
         }
 
         if (!(params[index] instanceof Class)) {
-            return Object.class;
+            return (Class<T>) Object.class;
         }
-
-        return (Class<?>) params[index];
+        return (Class<T>) params[index];
     }
 
     /**
@@ -90,7 +88,7 @@ public class ReflectionUtils {
      * 如: public EmployeeDao extends BaseDao
      */
     @SuppressWarnings("unchecked")
-    public static <T> Class<T> getSuperGenericType(Class<?> clazz) {
+    public static <T> Class<T> getSuperGenericType(Class<T> clazz) {
         return (Class<T>) getSuperClassGenericType(clazz, 0);
     }
 
@@ -136,7 +134,7 @@ public class ReflectionUtils {
     /**
      * 直接调用对象方法, 而忽略修饰符(private, protected)
      */
-    public static Object invokeMethod(Object object, String methodName, Class<?>[] parameterTypes, Object[] parameters) throws InvocationTargetException {
+    public static <T> T invokeMethod(T object, String methodName, Class<T>[] parameterTypes, T[] parameters) throws InvocationTargetException {
         Method method = getDeclaredMethod(object, methodName, parameterTypes);
 
         if (method == null) {
@@ -144,7 +142,7 @@ public class ReflectionUtils {
         }
         method.setAccessible(true);
         try {
-            return method.invoke(object, parameters);
+            return (T) method.invoke(object, parameters);
         } catch (IllegalAccessException e) {
             log.error(e, "invokeMethod:{}", e.getMessage());
         }

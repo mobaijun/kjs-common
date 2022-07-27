@@ -50,11 +50,12 @@ public class ReflectUtils {
      * @param type 类型
      * @return 如果type是基本类型，则返回对应的包装类型，否则返回type
      */
-    public static Class<?> getWrap(Class<?> type) {
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getWrap(Class<T> type) {
         if (!isPrimitive(type)) {
             return type;
         }
-        return PRIMITIVE_AND_WRAP.get(type);
+        return (Class<T>) PRIMITIVE_AND_WRAP.get(type);
     }
 
     /**
@@ -141,8 +142,9 @@ public class ReflectUtils {
      * @param parameterTypes 参数类型数组
      * @return 方法返回值类型
      */
-    public static Class<?> getReturnType(Class<?> type, String methodName, Class<?>... parameterTypes) {
-        return getMethod(type, methodName, parameterTypes).getReturnType();
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getReturnType(Class<T> type, String methodName, Class<?>... parameterTypes) {
+        return (Class<T>) getMethod(type, methodName, parameterTypes).getReturnType();
     }
 
     /**

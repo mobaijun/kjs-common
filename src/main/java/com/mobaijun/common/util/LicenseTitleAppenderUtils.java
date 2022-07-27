@@ -22,6 +22,7 @@ public class LicenseTitleAppenderUtils {
      * @param codeDirectory 代码路径
      * @param licenseHeader 协议头
      */
+    @SuppressWarnings("all")
     public static void append(String codeDirectory, String licenseHeader) {
         List<File> files = FileUtil.loopFiles(codeDirectory);
         files.stream().filter(file -> file.getName().endsWith(".java"))

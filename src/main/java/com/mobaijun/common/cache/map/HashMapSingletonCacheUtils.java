@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author MoBaiJun 2022/7/11 16:56
  */
+@SuppressWarnings("all")
 public class HashMapSingletonCacheUtils {
 
     private static volatile HashMapSingletonCacheUtils cacheSingletonUtil;
@@ -50,8 +51,8 @@ public class HashMapSingletonCacheUtils {
     /**
      * 从内存中取出
      */
-    public Object getCacheData(String key) {
-        return CACHE_SINGLETON_MAP.get(key);
+    public <T> T getCacheData(String key) {
+        return (T) CACHE_SINGLETON_MAP.get(key);
     }
 
     /**
@@ -83,10 +84,10 @@ public class HashMapSingletonCacheUtils {
      *
      * @return 集合对象
      */
-    public ConcurrentHashMap<String, Object> getAll() {
-        ConcurrentHashMap<String, Object> hashMap = new ConcurrentHashMap<>(Double.SIZE);
+    public <K, V> ConcurrentHashMap<K, V> getAll() {
+        ConcurrentHashMap<K, V> hashMap = new ConcurrentHashMap<>(Double.SIZE);
         // 获取所有缓存数据
-        CACHE_SINGLETON_MAP.keySet().forEach(k -> hashMap.put(k, CACHE_SINGLETON_MAP.get(k)));
-        return hashMap;
+        CACHE_SINGLETON_MAP.keySet().forEach(k -> hashMap.put((K) k, (V) CACHE_SINGLETON_MAP.get(k)));
+        return (ConcurrentHashMap<K, V>) hashMap;
     }
 }

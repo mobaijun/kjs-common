@@ -17,5 +17,5 @@ public interface BaseWrapper<T> {
      * @param beWrappedModel 被包装的原始对象，可以是obj，list，page，PageResult
      * @return 包装后增加的增量集合
      */
-    Map<String, Object> doWrap(T beWrappedModel);
+    <K, V> Map<K, V> doWrap(T beWrappedModel);
 }

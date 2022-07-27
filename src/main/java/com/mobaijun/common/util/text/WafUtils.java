@@ -17,6 +17,7 @@ public class WafUtils {
      * @param value value
      * @return String
      */
+    @SuppressWarnings("all")
     public static String stripXss(String value) {
         String rlt = null;
         Pattern scriptPattern;

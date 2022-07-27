@@ -46,7 +46,7 @@ public class PrintUtils {
      *
      * @param collection collection
      */
-    public static void println(Collection<?> collection) {
+    public static <T> void println(Collection<T> collection) {
         if (CollectionUtils.isEmpty(collection)) {
             return;
         }
@@ -76,7 +76,7 @@ public class PrintUtils {
      * @param format format
      * @param obj    obj
      */
-    public static void printf(String format, Object obj) {
+    public static <T> void printf(String format, T obj) {
         if (ObjectUtils.isEmpty(obj)) {
             return;
         }
@@ -88,7 +88,7 @@ public class PrintUtils {
      *
      * @param map map
      */
-    public static void println(Map<?, ?> map) {
+    public static <K, V> void println(Map<K, V> map) {
         if (map.size() == 0) {
             return;
         }
@@ -100,7 +100,7 @@ public class PrintUtils {
      *
      * @param map map
      */
-    public static void mapValue(Map<?, ?> map) {
+    public static <K, V> void mapValue(Map<K, V> map) {
         if (map.size() == 0) {
             return;
         }
@@ -112,7 +112,7 @@ public class PrintUtils {
      *
      * @param map map
      */
-    public static void mapKey(Map<?, ?> map) {
+    public static <K, V> void mapKey(Map<K, V> map) {
         if (map.size() == 0) {
             return;
         }
