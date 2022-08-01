@@ -40,18 +40,6 @@ public class Constant {
     public static final char[] HEX_DIGITS_LOWER = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /**
-     * 总记录数
-     */
-    @Deprecated(since = "2.0")
-    public static Long TOTAL = null;
-
-    /**
-     * 当前时间毫秒值
-     */
-    @Deprecated(since = "2.0")
-    public static Long TIME = null;
-
-    /**
      * 接口文档的菜单名
      */
     public static final String API_MENU_NAME = "接口文档";
