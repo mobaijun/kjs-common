@@ -2,8 +2,6 @@ package com.mobaijun.common.base.controller;
 
 import com.mobaijun.common.base.BaseWrapper;
 import com.mobaijun.common.exception.CustomException;
-import com.mobaijun.common.result.ErrorTip;
-import com.mobaijun.common.result.SuccessTip;
 import com.mobaijun.common.result.enums.HttpStatus;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
@@ -37,18 +35,6 @@ public class BaseController<T> {
      * 转发
      */
     protected static String FORWARD = "forward:";
-
-    /**
-     * 成功返回
-     */
-    @Deprecated(since = "2.x")
-    protected SuccessTip<T> SUCCESS_TIP = new SuccessTip<>();
-
-    /**
-     * 异常返回
-     */
-    @Deprecated(since = "2.x")
-    protected ErrorTip<T> ERROR_TIP = new ErrorTip<>();
 
     /**
      * 参数是否为空的校验
