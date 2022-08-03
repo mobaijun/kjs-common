@@ -81,7 +81,9 @@ public class SqlUtils {
         StringBuilder str = new StringBuilder();
         if (list != null && list.size() > 0) {
             str.append("?");
-            str.append(",?".repeat(list.size() - 1));
+            for (int i = 1; i < list.size(); i++) {
+                str.append(",?");
+            }
         }
         return str.toString();
     }

@@ -227,7 +227,11 @@ public class ClassUtils extends ClassUtil {
 
 
     private static String indent(int length, String sign) {
-        return String.valueOf(sign).repeat(Math.max(0, length));
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            sb.append(sign);
+        }
+        return sb.toString();
     }
 
     private static boolean isSimpleType(Object obj) {

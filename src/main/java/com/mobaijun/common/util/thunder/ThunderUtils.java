@@ -1,6 +1,8 @@
 package com.mobaijun.common.util.thunder;
 
 import cn.hutool.log.Log;
+import com.mobaijun.common.util.constant.Constant;
+import lombok.SneakyThrows;
 
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
@@ -44,6 +46,7 @@ public class ThunderUtils {
      * @param url URL
      * @return http url
      */
+    @SneakyThrows
     public static String toHttpUrl(String url) {
         if (!isThunderLink(url)) {
             return url;
@@ -53,7 +56,7 @@ public class ThunderUtils {
         // base 64 转换
         url = new String(Base64.getDecoder().decode(url.getBytes()), UTF8);
         // url 解码
-        url = URLDecoder.decode(url, UTF8);
+        url = URLDecoder.decode(url, Constant.UTF_8);
 
         // 去头去尾
         if (url.startsWith(STARTS_WITH)) {

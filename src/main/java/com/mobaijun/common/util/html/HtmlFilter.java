@@ -221,7 +221,7 @@ public class HtmlFilter {
      */
     private String escapeComments(final String s) {
         final Matcher m = P_COMMENTS.matcher(s);
-        final StringBuilder buf = new StringBuilder();
+        final StringBuffer buf = new StringBuffer();
         if (m.find()) {
             final String match = m.group(1); // (.*?)
             m.appendReplacement(buf, Matcher.quoteReplacement("<!--" + htmlSpecialChars(match) + "-->"));
@@ -274,7 +274,7 @@ public class HtmlFilter {
     private String checkTags(String s) {
         Matcher m = P_TAGS.matcher(s);
 
-        final StringBuilder buf = new StringBuilder();
+        final StringBuffer buf = new StringBuffer();
         while (m.find()) {
             String replaceStr = m.group(1);
             replaceStr = processTag(replaceStr);
@@ -497,7 +497,7 @@ public class HtmlFilter {
      * @return String
      */
     private String validateEntities(final String s) {
-        StringBuilder buf = new StringBuilder();
+        StringBuffer buf = new StringBuffer();
 
         // validate entities throughout the string
         Matcher m = P_VALID_ENTITIES.matcher(s);
@@ -521,7 +521,7 @@ public class HtmlFilter {
      */
     private String encodeQuotes(final String s) {
         if (encodeQuotes) {
-            StringBuilder buf = new StringBuilder();
+            StringBuffer buf = new StringBuffer();
             Matcher m = P_VALID_QUOTES.matcher(s);
             while (m.find()) {
                 // (>|^)
