@@ -26,17 +26,17 @@ public abstract class BaseWrapper {
     @SuppressWarnings("unchecked")
     public <T> T warp() {
         if (this.obj instanceof List) {
-            List<Object> list = (List<Object>) this.obj;
-            for (Object o : list) {
+            List<T> list = (List<T>) this.obj;
+            for (T o : list) {
                 if (o instanceof Map) {
-                    warpTheMap((Map<String, Object>) o);
+                    warpTheMap((Map<String, T>) o);
                 } else {
                     warpTheObject(o);
                 }
             }
             return (T) list;
         } else if (this.obj instanceof Map) {
-            Map<String, Object> map = (Map<String, Object>) this.obj;
+            Map<String, T> map = (Map<String, T>) this.obj;
             warpTheMap(map);
             return (T) map;
         } else {
@@ -50,9 +50,8 @@ public abstract class BaseWrapper {
      *
      * @param map map
      */
-    protected abstract void warpTheMap(Map<String, Object> map);
+    protected abstract <K, V> void warpTheMap(Map<K, V> map);
 
-    protected void warpTheObject(Object o) {
+    protected <T> void warpTheObject(T o) {
     }
-
 }

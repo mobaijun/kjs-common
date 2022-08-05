@@ -13,8 +13,7 @@ import com.mobaijun.common.util.StringUtils;
  *
  * @author MoBaiJun 2022/4/22 16:54
  */
-@SuppressWarnings("all")
-public class BaseController<T> {
+public class BaseController {
 
     /**
      * 成功
@@ -78,6 +77,7 @@ public class BaseController<T> {
      * @param wrapper wrapper
      * @return Object
      */
+    @SuppressWarnings("all")
     protected <T> T warpObject(BaseWrapper wrapper) {
         return (T) wrapper.warp();
     }
