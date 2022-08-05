@@ -28,9 +28,9 @@ public class MultiKeyHashMap<K, V> extends HashMap<K, V> {
      * @param key1 key1
      * @param key2 key2
      * @param keys 键
-     * @return {@link V}
      */
-    public V get(Object key1, Object key2, Object... keys) {
+    @SafeVarargs
+    public final <T> V get(T key1, T key2, T... keys) {
         V v = super.get(key1);
         if (v != null) {
             return v;
@@ -47,7 +47,6 @@ public class MultiKeyHashMap<K, V> extends HashMap<K, V> {
                 }
             }
         }
-
         return null;
     }
 
