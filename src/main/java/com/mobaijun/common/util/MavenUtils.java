@@ -90,11 +90,11 @@ public class MavenUtils {
         for (File f : list) {
             if (f.isFile()) {
                 // 是文件就删除
+                f.delete();
             } else {
                 // 先将文件夹下的文件夹和文件全部删除再删除源文件夹
                 delAll(f);
             }
-            f.delete();
             total++;
             System.out.println("删除：" + f.getAbsolutePath());
         }
