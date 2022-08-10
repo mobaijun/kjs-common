@@ -1,7 +1,7 @@
 package com.mobaijun.common.util.pass;
 
 import cn.hutool.core.codec.Base64;
-import org.apache.commons.lang3.StringUtils;
+import com.mobaijun.common.util.StringUtils;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

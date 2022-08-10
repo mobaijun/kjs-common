@@ -42,6 +42,7 @@ public class MaskToStringBuilder extends ReflectionToStringBuilder {
      *
      * @param clazz The class of object parameter
      */
+    @SuppressWarnings("all")
     protected void appendFieldsIn(Class clazz) {
         if (clazz.isArray()) {
             this.reflectionAppendArray(this.getObject());

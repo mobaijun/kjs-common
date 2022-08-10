@@ -3,7 +3,6 @@ package com.mobaijun.common.util.date;
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.constant.DateConstant;
 import lombok.SneakyThrows;
-import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;
@@ -119,9 +118,9 @@ public class DateUtils {
     public static String formatDate(Date date, String pattern) {
         String formatDate;
         if (StrUtil.isBlank(pattern)) {
-            formatDate = DateFormatUtils.format(date, pattern);
+            formatDate = new SimpleDateFormat(pattern).format(date);
         } else {
-            formatDate = DateFormatUtils.format(date, DateConstant.YYYY_MM_DD);
+            formatDate = new SimpleDateFormat(DateConstant.YYYY_MM_DD).format(date);
         }
         return formatDate;
     }
