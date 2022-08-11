@@ -164,4 +164,22 @@ public class DateUtils {
     public static String parseLocalDateTime(String format) {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
     }
+
+    /**
+     * long 转 （yyyy-MM-dd HH:mm:ss）字符串日期格式
+     *
+     * @param time 时间
+     * @return 时间字符串
+     */
+    public static String longToString(Long time) {
+        // 要转换的时间格式
+        SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS);
+        try {
+            Date date = sdf.parse(sdf.format(time));
+            return sdf.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
