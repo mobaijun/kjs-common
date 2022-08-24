@@ -18,7 +18,7 @@ package com.mobaijun.common.util.collection;
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.result.enums.HttpStatus;
-import org.apache.commons.lang3.StringUtils;
+import com.mobaijun.common.util.StringUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -111,7 +111,7 @@ public class CollectionUtils {
      * @return Collection
      */
     public static Collection<? extends Serializable> stringToCollection(String str) {
-        if (StringUtils.isBlank(str)) {
+        if (StringUtils.isEmpty(str)) {
             return null;
         } else {
             String[] strArray = str.split(",");

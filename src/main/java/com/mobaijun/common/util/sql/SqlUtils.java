@@ -16,8 +16,9 @@
 package com.mobaijun.common.util.sql;
 
 import cn.hutool.core.exceptions.UtilException;
+import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.PrintUtils;
-import org.apache.commons.lang3.StringUtils;
+import com.mobaijun.common.util.StringUtils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -78,9 +79,9 @@ public class SqlUtils {
         if (StringUtils.isEmpty(value)) {
             return;
         }
-        String[] sqlKeywords = StringUtils.split(SQL_REGEX, "\\|");
+        String[] sqlKeywords = StrUtil.splitToArray(SQL_REGEX, "\\|");
         for (String sqlKeyword : sqlKeywords) {
-            if (StringUtils.indexOfIgnoreCase(value, sqlKeyword) > -1) {
+            if (StrUtil.indexOfIgnoreCase(value, sqlKeyword) > -1) {
                 throw new UtilException("参数存在SQL注入风险");
             }
         }

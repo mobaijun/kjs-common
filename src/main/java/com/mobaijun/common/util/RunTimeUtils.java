@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util;
 
+import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.constant.NumberConstant;
 import com.mobaijun.common.util.constant.StringConstant;
-import org.apache.commons.lang3.StringUtils;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;
@@ -65,7 +65,7 @@ public class RunTimeUtils {
      */
     public static String getVmArguments() {
         List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
-        return StringUtils.join(vmArguments, StringConstant.BLANK);
+        return StrUtil.join(StringConstant.BLANK, vmArguments);
     }
 
 
@@ -95,7 +95,7 @@ public class RunTimeUtils {
             StackTraceElement element = stacktrace[NumberConstant.THREE];
             return element.getClassName();
         } else {
-            return StringUtils.EMPTY;
+            return StringConstant.EMPTY_STRING;
         }
     }
 
@@ -110,7 +110,7 @@ public class RunTimeUtils {
             StackTraceElement element = stacktrace[NumberConstant.THREE];
             return element.getClassName() + StringConstant.DOT + element.getMethodName() + StringConstant.PARENTHESES;
         } else {
-            return StringUtils.EMPTY;
+            return StringConstant.EMPTY_STRING;
         }
     }
 
@@ -125,7 +125,7 @@ public class RunTimeUtils {
             StackTraceElement element = stacktrace[NumberConstant.TWO];
             return element.getClassName();
         } else {
-            return StringUtils.EMPTY;
+            return StringConstant.EMPTY_STRING;
         }
     }
 
@@ -140,7 +140,7 @@ public class RunTimeUtils {
             StackTraceElement element = stacktrace[NumberConstant.TWO];
             return element.getClassName() + StringConstant.DOT + element.getMethodName() + StringConstant.PARENTHESES;
         } else {
-            return StringUtils.EMPTY;
+            return StringConstant.EMPTY_STRING;
         }
     }
 }

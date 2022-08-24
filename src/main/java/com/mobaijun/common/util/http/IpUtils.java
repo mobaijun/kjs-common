@@ -226,7 +226,7 @@ public class IpUtils {
         String[] split = ip.split("\\.");
         StringBuilder leftPad = new StringBuilder();
         for (String ipStr : split) {
-            leftPad.append(org.apache.commons.lang3.StringUtils.leftPad(ipStr, 3, '0'));
+            leftPad.append(StringUtils.leftPad(ipStr, 3, '0'));
         }
         return leftPad.toString();
     }

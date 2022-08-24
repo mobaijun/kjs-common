@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.number;
 
-import org.apache.commons.lang3.StringUtils;
+import com.mobaijun.common.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
