@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.uid;
 
-import com.mobaijun.common.util.PrintUtils;
+import cn.hutool.log.Log;
 import com.mobaijun.common.util.constant.StringConstant;
 
 import java.lang.management.ManagementFactory;
@@ -46,9 +46,14 @@ import java.net.NetworkInterface;
 public class IdWorker {
 
     /**
+     * tools log
+     */
+    private static final Log log = Log.get(IdWorker.class);
+
+    /**
      * 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
      */
-    private final static long TWEPOCH = 1288834974657L;
+    private final static long EPOCH = 1288834974657L;
 
     /**
      * 机器标识位数
@@ -158,9 +163,7 @@ public class IdWorker {
         }
         lastTimestamp = timestamp;
         // ID偏移组合生成最终的ID，并返回ID
-        return ((timestamp - TWEPOCH) << TIMESTAMP_LEFT_SHIFT)
-                | (datacenterId << DATACENTER_ID_SHIFT)
-                | (workerId << WORKER_ID_SHIFT) | sequence;
+        return ((timestamp - EPOCH) << TIMESTAMP_LEFT_SHIFT) | (datacenterId << DATACENTER_ID_SHIFT) | (workerId << WORKER_ID_SHIFT) | sequence;
     }
 
     /**
@@ -218,12 +221,11 @@ public class IdWorker {
                 id = 1L;
             } else {
                 byte[] mac = network.getHardwareAddress();
-                id = ((0x000000FF & (long) mac[mac.length - 1])
-                        | (0x0000FF00 & (((long) mac[mac.length - 2]) << 8))) >> 6;
+                id = ((0x000000FF & (long) mac[mac.length - 1]) | (0x0000FF00 & (((long) mac[mac.length - 2]) << 8))) >> 6;
                 id = id % (IdWorker.MAX_DATACENTER_ID + 1);
             }
         } catch (Exception e) {
-            PrintUtils.print(" getDatacenterId: " + e.getMessage());
+            log.error(" getDatacenterId: " + e.getMessage());
         }
         return id;
     }

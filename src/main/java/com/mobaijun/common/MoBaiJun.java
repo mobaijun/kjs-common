@@ -41,9 +41,7 @@ public class MoBaiJun {
     public static void printAllUtils(String packageName, String suffix) {
         final Set<Class<?>> allUtils = getAllUtils(packageName, suffix);
         final ConsoleTable consoleTable = ConsoleTable.create().addHeader("工具类名", "所在包");
-        for (Class<?> clazz : allUtils) {
-            consoleTable.addBody(clazz.getSimpleName(), clazz.getPackage().getName());
-        }
+        allUtils.forEach(temp -> consoleTable.addBody(temp.getSimpleName(), temp.getPackage().getName()));
         consoleTable.print();
     }
 }

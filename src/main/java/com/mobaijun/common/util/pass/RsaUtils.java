@@ -48,7 +48,7 @@ public class RsaUtils {
     /**
      * 算法名/工作模式/填充模式
      */
-    public static final String RSA_ECB_PKCS5Padding = "RSA/ECB/PKCS1Padding";
+    public static final String RSA_ECB_PKC_S5_PADDING = "RSA/ECB/PKCS1Padding";
 
     /**
      * 签名算法
@@ -138,7 +138,7 @@ public class RsaUtils {
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key privateK = keyFactory.generatePrivate(keySpec);
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
         cipher.init(Cipher.ENCRYPT_MODE, privateK);
         int inputLen = data.length;
         return encryptedData(data, inputLen, cipher);
@@ -157,7 +157,7 @@ public class RsaUtils {
         PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key privateK = keyFactory.generatePrivate(keySpec);
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
         cipher.init(Cipher.DECRYPT_MODE, privateK);
         int inputLen = data.length;
         return encryptedData(data, inputLen, cipher);
@@ -177,7 +177,7 @@ public class RsaUtils {
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key publicK = keyFactory.generatePublic(keySpec);
         // 对数据加密
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
         cipher.init(Cipher.ENCRYPT_MODE, publicK);
         int inputLen = data.length;
         return encryptedData(data, inputLen, cipher);
@@ -196,7 +196,7 @@ public class RsaUtils {
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(RSA);
         Key publicK = keyFactory.generatePublic(keySpec);
-        Cipher cipher = Cipher.getInstance(RSA_ECB_PKCS5Padding);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
         cipher.init(Cipher.DECRYPT_MODE, publicK);
         int inputLen = data.length;
         return encryptedData(data, inputLen, cipher);

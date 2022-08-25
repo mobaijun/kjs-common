@@ -17,6 +17,9 @@ package com.mobaijun.common.util.network;
 
 import com.mobaijun.common.util.constant.JdkConstant;
 
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * software：IntelliJ IDEA 2022.1
  * class name: NetUtil
@@ -51,13 +54,11 @@ public class NetUtils {
      * @return ip
      */
     public static String getOneUseFullIp(String[] ipAdders) {
-        String ip = "";
-        for (String ipAdder : ipAdders) {
-            ip = ipAdder;
-            if (ping(ip)) {
-                break;
-            }
-        }
-        return ip;
+        AtomicReference<String> ip = new AtomicReference<>("");
+        Arrays.stream(ipAdders).forEach(temp -> {
+            ip.set(temp);
+            ping(ip.get());
+        });
+        return ip.get();
     }
 }

@@ -20,6 +20,7 @@ import com.mobaijun.common.util.constant.NumberConstant;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
@@ -225,9 +226,8 @@ public class IpUtils {
     public static String getRegroupIp(String ip) {
         String[] split = ip.split("\\.");
         StringBuilder leftPad = new StringBuilder();
-        for (String ipStr : split) {
-            leftPad.append(StringUtils.leftPad(ipStr, 3, '0'));
-        }
+        Arrays.stream(split).forEach(temp ->
+                leftPad.append(StringUtils.leftPad(temp, 3, '0')));
         return leftPad.toString();
     }
 }

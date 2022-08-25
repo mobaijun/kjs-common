@@ -43,7 +43,7 @@ public class StreamUtils {
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
         if (CollectionUtils.isNull(data)) {
-            throw new IllegalArgumentException();
+            return null;
         }
         return data.stream().map(fun).collect(Collectors.toList());
     }

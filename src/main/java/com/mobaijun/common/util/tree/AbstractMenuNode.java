@@ -33,7 +33,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class MenuNode implements Serializable {
+public abstract class AbstractMenuNode implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private Long pid;

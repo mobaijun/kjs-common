@@ -45,7 +45,6 @@ import java.util.Map.Entry;
  */
 public class JdbcDriverUtils {
 
-
     private static String DB_NAME = "DB_NAME";
 
     /**
