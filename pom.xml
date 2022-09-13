@@ -49,6 +49,13 @@
             <name>mobaijun</name>
             <email>wljmobai@gmail.com</email>
             <url>https://www.mobaijun.com</url>
+            <roles>
+                <role>april</role>
+            </roles>
+            <id>1</id>
+            <timezone>+8</timezone>
+            <organization>april-projects</organization>
+            <organizationUrl>https://github.com/april-projects</organizationUrl>
         </developer>
     </developers>
 
