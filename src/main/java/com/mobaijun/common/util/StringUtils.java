@@ -497,4 +497,25 @@ public class StringUtils {
             return new String(padding).concat(str);
         }
     }
+
+    /**
+     * 左位数不足补0
+     *
+     * @param str       待补位的字符
+     * @param strLength 限制位数
+     * @return 字符
+     */
+
+    public static String appendZero(String str, int strLength) {
+        int strLen = str.length();
+        StringBuilder sb = null;
+        while (strLen < strLength) {
+            sb = new StringBuilder();
+            // 左补0
+            sb.append("0").append(str);
+            str = sb.toString();
+            strLen = str.length();
+        }
+        return str;
+    }
 }
