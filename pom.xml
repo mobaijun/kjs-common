@@ -14,14 +14,14 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.3</version>
 
     <name>kjs-common</name>
     <inceptionYear>2022</inceptionYear>
     <url>https://github.com/mobaijun/kjs-common</url>
     <description>A simple and useful java commons packaging</description>
 
-    <!--  许可证  -->
+    <!--  license  -->
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -43,7 +43,7 @@
         <developerConnection>https://github.com/mobaijun</developerConnection>
     </scm>
 
-    <!--  个人信息  -->
+    <!--  Personal information  -->
     <developers>
         <developer>
             <name>mobaijun</name>
@@ -52,7 +52,7 @@
         </developer>
     </developers>
 
-    <!--  依赖版本管理 -->
+    <!--  Dependency version management -->
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -70,14 +70,14 @@
 
     <dependencies>
         <dependency>
-            <!-- 简化实体类 -->
+            <!-- Simplified entity class -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>compile</scope>
         </dependency>
 
-        <!-- 类型转换器 -->
+        <!-- type converter -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
@@ -140,7 +140,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <!-- 忽略注释异常 -->
+                            <!-- Ignore annotation exceptions -->
                             <additionalOptions>-Xdoclint:none</additionalOptions>
                         </configuration>
                     </execution>
@@ -188,7 +188,7 @@
         </plugins>
     </build>
 
-    <!-- 【注】snapshotRepository 与 repository 中的 id 一定要与 setting.xml 中 server 的 id 保持一致！ -->
+    <!-- [Note] The id in snapshotRepository and repository must be consistent with the id of server in setting.xml! -->
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
