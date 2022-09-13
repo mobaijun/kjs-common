@@ -43,7 +43,7 @@
         <developerConnection>https://github.com/mobaijun</developerConnection>
     </scm>
 
-    <!--  Personal information  -->
+    <!--  developer information  -->
     <developers>
         <developer>
             <name>mobaijun</name>
