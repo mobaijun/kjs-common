@@ -1,4 +1,3 @@
-![](https://tencent.cos.mobaijun.com/article_with_pictures/wallhaven-k7pjvd.jpg)
 ---
 # ksj-core
 
