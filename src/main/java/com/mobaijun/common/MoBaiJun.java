@@ -23,8 +23,8 @@ import java.util.Set;
 
 /**
  * software：IntelliJ IDEA 2022.1
- * class name: MoBaiJun
- * class description：<img src="https://w.wallhaven.cc/full/l3/wallhaven-l315vy.png" alt="migrate" height="400" width="800">
+ * class name: MoBaiJun<br/>
+ * class description：<img src="https://tencent.cos.mobaijun.com/img/icon/avatar.jpg" alt="migrate" height="300" width="400">
  *
  * @author MoBaiJun 2022/7/13 16:15
  */
