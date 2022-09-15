@@ -287,7 +287,7 @@
 
 ## 快速开始
 
-本仓库已经同步发布 maven 中央仓库，内置自定义工具类，欢迎使用，欢迎 star
+本仓库已经同步发布 [maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，内置自定义工具类，欢迎使用，欢迎 star
 
 <div style="position: relative; padding: 30% 45%;">
     <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
