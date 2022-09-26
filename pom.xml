@@ -73,6 +73,7 @@
         <lombok.version>[1.+,)</lombok.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
         <hutool-all.version>[5.+,)</hutool-all.version>
+        <mapstruct.version>[1.+,)</mapstruct.version>
     </properties>
 
     <dependencies>
@@ -124,9 +125,6 @@
                 <executions>
                     <execution>
                         <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -143,9 +141,6 @@
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
                         <configuration>
                             <!-- Ignore annotation exceptions -->
                             <additionalOptions>-Xdoclint:none</additionalOptions>
@@ -161,9 +156,6 @@
                 <executions>
                     <execution>
                         <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -176,9 +168,6 @@
                     <execution>
                         <id>copy-mapstruct-license</id>
                         <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/classes/META-INF</outputDirectory>
                             <resources>
