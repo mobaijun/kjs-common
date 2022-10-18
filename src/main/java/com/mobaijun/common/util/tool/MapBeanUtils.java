@@ -42,7 +42,7 @@ public class MapBeanUtils {
      * @param obj 对象
      * @return Map String, Object
      */
-    public static Map<String, Object> objectTwoMap(Object obj) {
+    public static Map<String, Object> objectToMap(Object obj) {
         Map<String, Object> map = new HashMap<>(1000);
         if (obj == null) {
             return map;
@@ -67,7 +67,7 @@ public class MapBeanUtils {
      * @param clazz 实体对象类型
      * @return Object
      */
-    public static Object mapTwoObject(Map<String, Object> map, Class<?> clazz) {
+    public static Object mapToObject(Map<String, Object> map, Class<?> clazz) {
         if (map == null) {
             return null;
         }
