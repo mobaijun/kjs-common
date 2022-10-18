@@ -16,10 +16,10 @@
 package com.mobaijun.common.download;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.UUID;
 import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.constant.FileConstant;
 import com.mobaijun.common.util.date.DateUtils;
-import com.mobaijun.common.util.uid.UuidUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -54,7 +54,7 @@ public class DownloadUtils {
             // 输出文件流
             FileUtil.mkdir(f);
         }
-        String fileName = DownloadUtils.downLoadJpg(picUrls, UuidUtils.getUUID(), filePath);
+        String fileName = DownloadUtils.downLoadJpg(picUrls, UUID.fastUUID().toString(), filePath);
         return dataForm + "\\" + fileName;
     }
 
