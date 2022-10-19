@@ -23,7 +23,6 @@ package com.mobaijun.common.util.constant;
  * com.sun.java.accessibility.util.EventID
  * @author MoBaiJun 2022/5/18 13:47
  */
-@Deprecated
 public class NumberConstant {
 
     public final static int MINUS_ONE = -1;
