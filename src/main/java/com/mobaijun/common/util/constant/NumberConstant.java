@@ -19,9 +19,11 @@ package com.mobaijun.common.util.constant;
  * software：IntelliJ IDEA 2022.1
  * class name: NumberConstant
  * class description： 数字常量，避免在代码中写入魔法值
- *
+ * 推荐使用 jdk 原生数字常亮包
+ * com.sun.java.accessibility.util.EventID
  * @author MoBaiJun 2022/5/18 13:47
  */
+@Deprecated
 public class NumberConstant {
 
     public final static int MINUS_ONE = -1;
