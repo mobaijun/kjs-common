@@ -22,6 +22,7 @@ import lombok.Getter;
  * Software：IntelliJ IDEA 2021.3.2
  * EnumName: BaseResultCode
  * 枚举描述： 返回状态码
+ * <a href="https://www.runoob.com/http/http-status-codes.html">学习链接</a>
  *
  * @author MoBaiJun 2022/4/22 17:30
  */
@@ -78,6 +79,11 @@ public enum HttpStatus {
      * API方法未由服务器实现
      */
     NOT_IMPLEMENTED(501, "API方法未由服务器实现"),
+
+    /**
+     * 作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应
+     */
+    BAD_GATEWAY(502, "作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应"),
 
     /**
      * 服务不可用，一般是服务器宕机所致
