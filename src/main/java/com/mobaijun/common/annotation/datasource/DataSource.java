@@ -13,37 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.datasource;
+
+import com.mobaijun.common.enums.database.DataSourceType;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
  * software：IntelliJ IDEA 2022.1
- * annotation name: DataScope
- * annotation description： 数据权限过滤注解
+ * annotation name: DataSource
+ * annotation description： 自定义多数据源切换
  *
- * @author MoBaiJun 2022/5/12 11:05
+ * @author MoBaiJun 2022/5/12 10:47
  */
+@Inherited
 @Documented
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface DataScope {
-
+public @interface DataSource {
     /**
-     * 部门表的别名
+     * 切换数据源名称
      *
-     * @return String
+     * @return 数据源类型
      */
-    String deptAlias() default "";
-
-    /**
-     * 用户表的别名
-     *
-     * @return String
-     */
-    String userAlias() default "";
+    DataSourceType value() default DataSourceType.MASTER;
 }

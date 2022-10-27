@@ -13,23 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.poi;
 
-import com.mobaijun.common.enums.log.BusinessType;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * software：IntelliJ IDEA 2022.1
- * annotation name: OpenLog
- * annotation description： 操作日志注解，默认类型新增
+ * annotation name: Excels
+ * annotation description： Excel注解集
  *
- * @author MoBaiJun 2022/5/17 10:51
+ * @author MoBaiJun 2022/5/12 10:48
  */
-public @interface OperateLog {
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Excels {
 
     /**
-     * 操作类型  ， 默认新增
+     * Excel注解集
      *
-     * @return 操作类型
+     * @return Excel注解集
      */
-    BusinessType type() default BusinessType.INSERT;
+    Excel[] value();
 }

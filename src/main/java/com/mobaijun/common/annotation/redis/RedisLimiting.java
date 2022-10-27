@@ -13,30 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.redis;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
  * software：IntelliJ IDEA 2022.1
- * annotation name: BusinessLog
- * annotation description：用来标记在控制器类或方法上，进行判断是否需要对接口进行日志记录
+ * annotation name: RedisLimiting
+ * annotation description： Redis 接口限流注解
  *
- * @author MoBaiJun 2022/5/12 11:18
+ * @author MoBaiJun 2022/5/17 10:42
  */
+@Inherited
 @Documented
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface BusinessLog {
+public @interface RedisLimiting {
 
     /**
-     * 是否进行日志记录，默认是开启
+     * 单位时间（秒）,默认为 10 秒最大请求 1 次
      *
-     * @return boolean
+     * @return int
      */
-    boolean openLog() default true;
+    long seconds() default 10;
+
+    /**
+     * 单位时间最大请求次数,默认 1 次
+     *
+     * @return int
+     */
+    int maxCount() default 1;
 }

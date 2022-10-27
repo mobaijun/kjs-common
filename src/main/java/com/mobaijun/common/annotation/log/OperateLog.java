@@ -13,25 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.log;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.mobaijun.common.enums.log.BusinessType;
 
 /**
  * software：IntelliJ IDEA 2022.1
- * annotation name: RepeatSubmit
- * annotation description： 自定义注解防止表单重复提交
+ * annotation name: OpenLog
+ * annotation description： 操作日志注解，默认类型新增
  *
- * @author MoBaiJun 2022/5/12 11:07
+ * @author MoBaiJun 2022/5/17 10:51
  */
-@Inherited
-@Documented
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface RepeatSubmit {
+public @interface OperateLog {
+
+    /**
+     * 操作类型  ， 默认新增
+     *
+     * @return 操作类型
+     */
+    BusinessType type() default BusinessType.INSERT;
 }

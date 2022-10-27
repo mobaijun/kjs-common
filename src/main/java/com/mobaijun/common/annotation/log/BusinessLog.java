@@ -13,30 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.log;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
-import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * AnnotationName: Log
- * 注解描述： 日志注解 标记需要做业务日志的方法
+ * software：IntelliJ IDEA 2022.1
+ * annotation name: BusinessLog
+ * annotation description：用来标记在控制器类或方法上，进行判断是否需要对接口进行日志记录
  *
- * @author MoBaiJun 2022/4/22 16:52
+ * @author MoBaiJun 2022/5/12 11:18
  */
-@Inherited
+@Documented
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
-public @interface Log {
+public @interface BusinessLog {
 
     /**
-     * 业务的名称
+     * 是否进行日志记录，默认是开启
      *
-     * @return String
+     * @return boolean
      */
-    String value() default "";
+    boolean openLog() default true;
 }

@@ -13,28 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.annotation;
+package com.mobaijun.common.annotation.log;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: Excels
- * annotation description： Excel注解集
+ * Software：IntelliJ IDEA 2021.3.2
+ * AnnotationName: Log
+ * 注解描述： 日志注解 标记需要做业务日志的方法
  *
- * @author MoBaiJun 2022/5/12 10:48
+ * @author MoBaiJun 2022/4/22 16:52
  */
-@Target(ElementType.FIELD)
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Excels {
+@Target({ElementType.METHOD})
+public @interface Log {
 
     /**
-     * Excel注解集
+     * 业务的名称
      *
-     * @return Excel注解集
+     * @return String
      */
-    Excel[] value();
+    String value() default "";
 }
