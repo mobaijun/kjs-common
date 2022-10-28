@@ -33,7 +33,7 @@ public class IfFunction<K> {
     /**
      * 通过map保存
      */
-    private Map<K, JudgeFunction> map;
+    private final Map<K, JudgeFunction> map;
 
     /**
      * 通过map类型来保存对应的条件key和方法
