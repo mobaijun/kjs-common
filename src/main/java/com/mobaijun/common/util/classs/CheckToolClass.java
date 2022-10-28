@@ -18,6 +18,10 @@ package com.mobaijun.common.util.classs;
 import cn.hutool.json.JSONUtil;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.collection.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * software：IntelliJ IDEA 2022.1
@@ -31,11 +35,11 @@ public class CheckToolClass {
     /**
      * 参数是否为空的校验
      *
-     * @param object  对象
+     * @param data    数据
      * @param message 消息
      */
-    public static <T> void assertNotNull(T object, String message) {
-        if (ObjectUtils.isEmpty(object)) {
+    public static <T> void assertNotNull(T data, String message) {
+        if (ObjectUtils.isEmpty(data)) {
             throw new NullPointerException(message);
         }
     }
@@ -88,5 +92,15 @@ public class CheckToolClass {
         if (!condition) {
             throw new NullPointerException(message);
         }
+    }
+
+    /**
+     * 集合是否为 null,返回空集合
+     */
+    public static <T> Collection<T> assertListIsNull(Collection<T> list) {
+        if (CollectionUtils.isEmpty(list)) {
+            return new ArrayList<>(10);
+        }
+        return list;
     }
 }
