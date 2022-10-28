@@ -16,8 +16,9 @@
 package com.mobaijun.common.util;
 
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
-import com.mobaijun.common.util.date.DateUtils;
+import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.regx.RegxConstant;
 
 import java.io.IOException;
@@ -77,7 +78,7 @@ public class ToolUtils {
      */
     public static String dateType(Object o) {
         if (o instanceof Date) {
-            return DateUtils.getDay((Date) o);
+            return DateUtil.format((Date) o, DateConstant.YYYY_MM_DD_HH_MM_SS);
         } else {
             return o.toString();
         }

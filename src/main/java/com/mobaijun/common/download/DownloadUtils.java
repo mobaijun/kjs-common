@@ -19,7 +19,7 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.UUID;
 import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.constant.FileConstant;
-import com.mobaijun.common.util.date.DateUtils;
+import com.mobaijun.common.util.date.LocalDateUtils;
 
 import java.io.File;
 import java.io.InputStream;
@@ -28,6 +28,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2
@@ -46,7 +47,7 @@ public class DownloadUtils {
      * @return 文件存储地址：2022-07-18\59bed7171c9549508f7c5791ab79218e.jpg
      */
     public static String pictureStorage(String path, String picUrls) {
-        String dataForm = DateUtils.parseLocalDateTime(DateConstant.YYYY_MM_DD);
+        String dataForm = LocalDateUtils.toFormat(LocalDateTime.now(), DateConstant.YYYY_MM_DD);
         String filePath = path + dataForm + "\\";
         // 如果不存在,创建文件夹
         File f = new File(filePath);

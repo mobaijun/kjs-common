@@ -17,7 +17,7 @@ package com.mobaijun.common.util.system;
 
 import cn.hutool.core.date.DateTime;
 import com.mobaijun.common.util.constant.DateConstant;
-import com.mobaijun.common.util.date.DateUtils;
+import com.mobaijun.common.util.date.LocalDateUtils;
 
 import java.lang.management.ManagementFactory;
 
@@ -89,6 +89,7 @@ public class SysJvm {
 
     /**
      * 获取JDK名称
+     *
      * @return jdk name
      */
     public String getName() {
@@ -117,15 +118,15 @@ public class SysJvm {
      * @return DateTime
      */
     public String getStartTime() {
-        return DateUtils.parseDateToStr(DateConstant.YYYY_MM_DD_HH_MM_SS, DateUtils.getServerStartDate());
+        return LocalDateUtils.toString(LocalDateUtils.getServerStartDate(), DateConstant.YYYY_MM_DD_HH_MM_SS);
     }
 
     /**
-     * JDK运行时间
+     * JDK 运行时间
      *
      * @return DateTime
      */
     public String getRunTime() {
-        return DateUtils.getDatePoor(DateTime.now(), DateUtils.getServerStartDate());
+        return LocalDateUtils.getDatePoor(DateTime.now(), LocalDateUtils.toDate(LocalDateUtils.getServerStartDate()));
     }
 }
