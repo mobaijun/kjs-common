@@ -522,4 +522,25 @@ public class LocalDateUtils {
         // long sec = diff % nd % nh % nm / ns;
         return day + "天" + hour + "小时" + min + "分钟";
     }
+
+    /**
+     * 检查是否闰年
+     *
+     * @param year 年份
+     * @return boolean
+     */
+    public static boolean isLeapYear(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+
+    /**
+     * 检查是否闰年
+     *
+     * @param date 日期
+     * @return boolean
+     */
+    public static boolean isLeapYearDate(Date date) {
+        int year = Integer.parseInt(String.format("%tY", date));
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
 }
