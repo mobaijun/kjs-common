@@ -16,7 +16,10 @@
 package com.mobaijun.common.download;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.StreamProgress;
+import cn.hutool.core.lang.Console;
 import cn.hutool.core.lang.UUID;
+import cn.hutool.http.HttpUtil;
 import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.constant.FileConstant;
 import com.mobaijun.common.util.date.LocalDateUtils;
@@ -101,5 +104,30 @@ public class DownloadUtils {
             e.printStackTrace();
         }
         return uuid + FileConstant.IMAGE_JPG;
+    }
+
+    /**
+     * 设置代理下载
+     *
+     * @param url 下载地址
+     * @return 操作数
+     */
+    public static Long downloadFile(String url, String filePath) {
+        return HttpUtil.downloadFile(url, new File(filePath), new StreamProgress() {
+            @Override
+            public void start() {
+                Console.log("start download file：。。。。。。。。。。。。。。。。。。。。。。。。。。。。");
+            }
+
+            @Override
+            public void progress(long total, long progressSize) {
+                Console.log("total file size：{}，downloaded size:{}", total, progressSize);
+            }
+
+            @Override
+            public void finish() {
+                Console.log("the download is complete：。。。。。。。。。。。。。。。。。。。。。。。。。。。");
+            }
+        });
     }
 }
