@@ -18,6 +18,7 @@ package com.mobaijun.common.util.http;
 import cn.hutool.http.GlobalHeaders;
 import cn.hutool.http.Header;
 import cn.hutool.http.HttpConnection;
+import cn.hutool.http.HttpUtil;
 import cn.hutool.log.Log;
 
 /**
@@ -43,5 +44,17 @@ public class HttpUtils {
     public static HttpConnection getHttpConnection(String url) {
         return HttpConnection.create(url, null).header(Header.USER_AGENT.getValue(),
                 GlobalHeaders.INSTANCE.header(Header.USER_AGENT.getValue()), false);
+    }
+
+    /**
+     * 创建 git 请求
+     *
+     * @param url      url 地址
+     * @param hostname 代理idiz
+     * @param port     代理端口
+     * @return 主体 body
+     */
+    public static String createGet(String url, String hostname, Integer port) {
+        return HttpUtil.createGet(url).setHttpProxy(hostname, port).execute().body();
     }
 }
