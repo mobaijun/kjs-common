@@ -1,7 +1,7 @@
 package com.mobaijun.common.util.tree;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -11,8 +11,7 @@ import java.util.List;
  *
  * @author MoBaiJun 2022/11/6 0:19
  */
-@SuppressWarnings("all")
-public class TreeNodeMap extends HashMap implements Serializable {
+public class TreeNodeMap extends LinkedHashMap<String, Object> implements Serializable {
 
     private static final long serialVersionUID = 8376668307601977428L;
 
@@ -32,6 +31,7 @@ public class TreeNodeMap extends HashMap implements Serializable {
         this.treeNodeConfig = treeNodeConfig;
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getId() {
         return (T) super.get(treeNodeConfig.getIdKey());
     }
@@ -40,6 +40,7 @@ public class TreeNodeMap extends HashMap implements Serializable {
         super.put(treeNodeConfig.getIdKey(), id);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getParentId() {
         return (T) super.get(treeNodeConfig.getParentIdKey());
     }
@@ -48,6 +49,7 @@ public class TreeNodeMap extends HashMap implements Serializable {
         super.put(treeNodeConfig.getParentIdKey(), parentId);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getName() {
         return (T) super.get(treeNodeConfig.getNameKey());
     }
@@ -56,6 +58,7 @@ public class TreeNodeMap extends HashMap implements Serializable {
         super.put(treeNodeConfig.getNameKey(), name);
     }
 
+    @SuppressWarnings("unchecked")
     public <T> T getCode() {
         return (T) super.get(treeNodeConfig.getCodeKey());
     }
@@ -65,6 +68,7 @@ public class TreeNodeMap extends HashMap implements Serializable {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
     public List<TreeNodeMap> getChildren() {
         return (List<TreeNodeMap>) super.get(treeNodeConfig.getChildrenKey());
     }
