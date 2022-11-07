@@ -15,5 +15,5 @@ public interface TreeNodeConvert<T, TreeNodeMap> {
      * @param data     数据
      * @param treeNode 节点
      */
-    public void treeNodeConvert(T data, TreeNodeMap treeNode);
+    void treeNodeConvert(T data, TreeNodeMap treeNode);
 }
