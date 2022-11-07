@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.util.classs;
 
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONException;
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
@@ -102,5 +105,36 @@ public class CheckToolClass {
             return new ArrayList<>(10);
         }
         return list;
+    }
+
+    /**
+     * 校验 json 格式是否正确，严格模式
+     *
+     * @param json json 字符串
+     * @return 是否正确
+     */
+    private static boolean assertIfJsonIsLegal(String json) {
+        if (StringUtils.isEmpty(json)) {
+            return false;
+        }
+        Object parse;
+        try {
+            parse = JSONUtil.parse(json);
+        } catch (JSONException e) {
+            return false;
+        }
+        return parse instanceof JSONObject || parse instanceof JSONArray;
+    }
+
+    /**
+     * 校验 json 是否合法 严格模式
+     *
+     * @param json    json 字符串
+     * @param message 返回内容
+     */
+    public static void assertIsJsonLegals(String json, String message) {
+        if (assertIfJsonIsLegal(json)) {
+            throw new ArrayIndexOutOfBoundsException(message);
+        }
     }
 }
