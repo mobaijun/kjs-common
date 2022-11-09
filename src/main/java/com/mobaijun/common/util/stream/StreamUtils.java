@@ -15,10 +15,19 @@
  */
 package com.mobaijun.common.util.stream;
 
+import cn.hutool.core.collection.CollUtil;
+import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.util.collection.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -119,5 +128,110 @@ public class StreamUtils {
             return null;
         }
         return data.stream().collect(Collectors.joining(join == null ? "" : join));
+    }
+
+    /**
+     * 生成 list 集合
+     *
+     * @param data 数据对象
+     * @param <T>  未定义类型
+     * @return List 集合
+     */
+    public static <T> List<T> singletonList(T data) {
+        return Collections.singletonList(data);
+    }
+
+    /**
+     * 生成list
+     *
+     * @param elements 元素
+     * @param <T>      泛型
+     * @return List
+     */
+
+    @SafeVarargs
+    public static <T> List<T> toList(T... elements) {
+        List<T> list = new ArrayList<>();
+        if (Objects.nonNull(elements)) {
+            Arrays.stream(elements).forEach(item -> {
+                if (Objects.nonNull(item)) {
+                    list.add(item);
+                }
+            });
+        }
+        return list;
+    }
+
+    /**
+     * 添加到 list 集合
+     *
+     * @param collection 集合
+     * @param add        待添加的集合
+     * @param <T>        未定义类型
+     */
+    public static <T> void addAll(Collection<T> collection, Collection<T> add) {
+        if (StringUtils.isNotEmpty(add)) {
+            collection.addAll(add);
+        }
+    }
+
+    /**
+     * 两个Map进行合并
+     *
+     * @param map 原始 map
+     * @param add 要合并的 map
+     * @param <K> key 泛型
+     * @param <V> 值泛型
+     */
+    public static <K, V> void addAll(Map<K, V> map, Map<K, V> add) {
+        if (!CollectionUtils.isEmpty(add) && !CollectionUtils.isEmpty(map)) {
+            map.putAll(add);
+        }
+    }
+
+    /**
+     * set 转 list
+     *
+     * @param set set 集合
+     * @param <T> 未定义类型
+     * @return list 集合
+     */
+    public static <T> List<T> setToList(Set<T> set) {
+        if (!CollectionUtils.isEmpty(set)) {
+            return new ArrayList<>(set);
+        } else {
+            return CollUtil.newArrayList();
+        }
+    }
+
+    /**
+     * 返回空集合
+     *
+     * @param <T> 泛型
+     * @return List
+     */
+    public static <T> List<T> emptyList() {
+        return Collections.emptyList();
+    }
+
+    /**
+     * 返回空 map
+     *
+     * @param <K> 键
+     * @param <V> 值
+     * @return 空 map
+     */
+    public static <K, V> Map<K, V> emptyMap() {
+        return Collections.emptyMap();
+    }
+
+    /**
+     * 返回空集合
+     *
+     * @param <T> 泛型
+     * @return set
+     */
+    public static <T> Set<T> emptySet() {
+        return Collections.emptySet();
     }
 }
