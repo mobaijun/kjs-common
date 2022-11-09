@@ -26,6 +26,7 @@ public class UnicodeUtils {
 
     /**
      * 转义 Unicode 字符输出 emoji
+     *
      * @param unicode 字符
      * @return char 数组
      */

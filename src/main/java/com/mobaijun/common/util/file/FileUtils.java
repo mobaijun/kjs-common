@@ -131,10 +131,9 @@ public class FileUtils {
      * 获取目录下所有文件路径
      *
      * @param path 地址
-     * @return 文件集合
      * @throws IOException IO 异常
      */
-    private static ArrayList<String> getFileList(File path) throws IOException {
+    private static void getFileList(File path) throws IOException {
         File[] listFile = path.listFiles();
         assert listFile != null;
         for (File a : listFile) {
@@ -146,7 +145,6 @@ public class FileUtils {
                 FILE_LIST.add(a.getAbsolutePath());
             }
         }
-        return FILE_LIST;
     }
 
     /**

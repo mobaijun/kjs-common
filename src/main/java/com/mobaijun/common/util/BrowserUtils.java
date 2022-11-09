@@ -34,7 +34,7 @@ public class BrowserUtils {
      *
      * @param url 地址
      */
-    public void openUrl(String url) {
+    public static void openUrl(String url) {
         // 判断是否支持Desktop扩展,如果支持则进行下一步
         if (Desktop.isDesktopSupported()) {
             try {
@@ -50,5 +50,9 @@ public class BrowserUtils {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }

@@ -52,16 +52,6 @@ public class StringUtils {
     }
 
     /**
-     * 校验字符串序列是否含有空值
-     *
-     * @param str 字符串序列
-     * @return 只要有一个字符串为空时就返回 true，否则返回 false
-     */
-    public static boolean isEmpty(String[] str) {
-        return isEmpty(str);
-    }
-
-    /**
      * * 判断一个Collection是否为空， 包含List，Set，Queue
      *
      * @param coll 要判断的Collection
@@ -219,9 +209,9 @@ public class StringUtils {
         }
         StringBuilder sb = new StringBuilder();
         // 前置字符是否大写
-        boolean preCharIsUpperCase = true;
+        boolean preCharIsUpperCase;
         // 当前字符是否大写
-        boolean curreCharIsUpperCase = true;
+        boolean curreCharIsUpperCase;
         // 下一字符是否大写
         boolean nexteCharIsUpperCase = true;
         for (int i = 0; i < str.length(); i++) {
@@ -508,7 +498,7 @@ public class StringUtils {
 
     public static String appendZero(String str, int strLength) {
         int strLen = str.length();
-        StringBuilder sb = null;
+        StringBuilder sb;
         while (strLen < strLength) {
             sb = new StringBuilder();
             // 左补0

@@ -58,7 +58,7 @@ public class DownloadUtils {
             // 输出文件流
             FileUtil.mkdir(f);
         }
-        String fileName = DownloadUtils.downLoadJpg(picUrls, UUID.fastUUID().toString(), filePath);
+        String fileName = downLoadJpg(picUrls, UUID.fastUUID().toString(), filePath);
         return dataForm + "\\" + fileName;
     }
 

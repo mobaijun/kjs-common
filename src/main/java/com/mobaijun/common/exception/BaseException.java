@@ -27,22 +27,17 @@ public class BaseException extends RuntimeException {
     /**
      * 错误码
      */
-    private Integer errorCode;
+    private final Integer errorCode;
 
     /**
      * 返回给用户的提示信息
      */
-    private String userTip;
+    private final String userTip;
 
     /**
      * 异常的模块名称
      */
     private String moduleName;
-
-    /**
-     * 异常的具体携带数据
-     */
-    private Object data;
 
     BaseException(Integer errorCode, String userTip) {
         this.errorCode = errorCode;
@@ -109,6 +104,5 @@ public class BaseException extends RuntimeException {
         this.errorCode = errorCode;
         this.moduleName = moduleName;
         this.userTip = userTip;
-        this.data = data;
     }
 }

@@ -55,18 +55,22 @@ public class DefaultValues {
          * 初始化连接(最小连接数)
          */
         public static final int MIN_ACTION_NUM = 1;
+
         /**
          * 最大连接数
          */
         public static final int DEFAULT_DATASOURCE_MAX_ACTION_NUM = 10;
+
         /**
          * 最大等待时间
          */
         public static final int DEFAULT_DATASOURCE_MAX_WAIT_TIME = 15000;
+
         /**
          * 最小空闲时间
          */
         public static final int DEFAULT_DATASOURCE_MIN_EVICTABLE_IDLE_TIME = 30000;
+
         /**
          * 最大空闲时间
          */
@@ -92,15 +96,18 @@ public class DefaultValues {
     }
 
     public static class Thread {
+
         /**
          * 要保留的空闲线程数。
          */
         public static final int CORE_POOL_SIZE = 0;
+
         /**
          * 最大线程池数量(获取系统处理器个数，作为线程池数量)
          * public static final
          */
         public static final int MAX_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+
         /**
          * 定时线程池处理线程数
          */
@@ -114,9 +121,19 @@ public class DefaultValues {
         public static final String EMAIL = "mobaijun8@163.com";
 
         /**
+         * 默认 gmail 邮箱
+         */
+        public static final String EMAIL_GMAIL = "wljmobai@gmail.com";
+
+        /**
          * 默认名称
          */
         public static final String NAME = "MoBaiJun";
+
+        /**
+         * 默认名字
+         */
+        public static final String FIRST_NAME = "墨白";
 
         /**
          * 默认主页
