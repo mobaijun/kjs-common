@@ -1,6 +1,10 @@
 # ksj-core
 
+> 本项目计划在 2.0 版本支持 jdk 17 及以上版本，2.0 以内版本以 jdk 8 为基石，这表示未来 2.X 版本不会兼容 jdk 17 以下的项目，如果是
+> jdk 17 以内项目推荐使用 2.0 以内版本
+
 本项目集成了项目中常用的工具类：
+
 * hutool-all （最全工具类）
 * lombok （简化实体类）
 * mapstruct （简化参数传递）
@@ -8,295 +12,304 @@
 ## 源码目录结构
 
 ~~~bash
-|-- LICENSE.txt
-|-- NOTICE.txt
-|-- pom.xml
-|-- README.md
-`-- src
-    `-- main
-        `-- java
-            `-- com
-                `-- mobaijun
-                    `-- common
-                        |-- annotation
-                        |   |-- BusinessLog.java
-                        |   |-- ChineseDescription.java
-                        |   |-- DataScope.java
-                        |   |-- DataSource.java
-                        |   |-- Excel.java
-                        |   |-- Excels.java
-                        |   |-- Log.java
-                        |   |-- OperateLog.java
-                        |   |-- package-info.java
-                        |   |-- RedisLimiting.java
-                        |   |-- RedisLock.java
-                        |   |-- RepeatSubmit.java
-                        |   `-- Wrapper.java
-                        |-- base
-                        |   |-- BaseWrapper.java
-                        |   |-- controller
-                        |   |   |-- BaseController.java
-                        |   |   `-- package-info.java
-                        |   `-- package-info.java
-                        |-- cache
-                        |   `-- map
-                        |       |-- HashMapSingletonCacheUtils.java
-                        |       `-- package-info.java
-                        |-- code
-                        |   |-- package-info.java
-                        |   `-- UnicodeUtils.java
-                        |-- common
-                        |   |-- DefaultValues.java
-                        |   `-- package-info.java
-                        |-- download
-                        |   |-- DownloadUtils.java
-                        |   `-- package-info.java
-                        |-- enums
-                        |   |-- BooleanEnum.java
-                        |   |-- client
-                        |   |   |-- package-info.java
-                        |   |   `-- SourceEnum.java
-                        |   |-- database
-                        |   |   |-- DataSourceStatusEnum.java
-                        |   |   |-- DataSourceType.java
-                        |   |   |-- Order.java
-                        |   |   `-- package-info.java
-                        |   |-- dict
-                        |   |   |-- DictSelectTagHeadEnum.java
-                        |   |   |-- DictTypeClassEnum.java
-                        |   |   |-- DictTypeEnum.java
-                        |   |   `-- package-info.java
-                        |   |-- Env.java
-                        |   |-- file
-                        |   |   |-- BucketAuthEnum.java
-                        |   |   |-- FileLocationEnum.java
-                        |   |   |-- FileStatusEnum.java
-                        |   |   |-- ImageType.java
-                        |   |   `-- package-info.java
-                        |   |-- http
-                        |   |   |-- FieldMetadataTypeEnum.java
-                        |   |   |-- FieldTypeEnum.java
-                        |   |   |-- package-info.java
-                        |   |   `-- ParamTypeEnum.java
-                        |   |-- log
-                        |   |   |-- BusinessStatus.java
-                        |   |   |-- BusinessType.java
-                        |   |   |-- LoginType.java
-                        |   |   |-- LogStatus.java
-                        |   |   |-- LogType.java
-                        |   |   `-- package-info.java
-                        |   |-- message
-                        |   |   |-- MessageReadFlagEnum.java
-                        |   |   `-- package-info.java
-                        |   |-- package-info.java
-                        |   |-- sms
-                        |   |   |-- package-info.java
-                        |   |   |-- SendStatusEnum.java
-                        |   |   `-- SmsTypeEnum.java
-                        |   |-- StatusEnum.java
-                        |   |-- Status.java
-                        |   |-- timer
-                        |   |   |-- package-info.java
-                        |   |   `-- TimerJobStatusEnum.java
-                        |   |-- user
-                        |   |   |-- AccountStatus.java
-                        |   |   |-- IsMenu.java
-                        |   |   |-- MenuStatus.java
-                        |   |   |-- OnlineStatus.java
-                        |   |   |-- OperatorType.java
-                        |   |   |-- package-info.java
-                        |   |   `-- SexEnum.java
-                        |   `-- YesOrNotEnum.java
-                        |-- exception
-                        |   |-- AbstractExceptionEnum.java
-                        |   |-- BaseException.java
-                        |   |-- CustomException.java
-                        |   |-- FileException.java
-                        |   |-- package-info.java
-                        |   |-- ToolBoxException.java
-                        |   `-- UtilException.java
-                        |-- function
-                        |   |-- package-info.java
-                        |   |-- ResultMethod.java
-                        |   `-- VoidMethod.java
-                        |-- lambda
-                        |   |-- LambdaExceptionUtils.java
-                        |   `-- package-info.java
-                        |-- MoBaiJun.java
-                        |-- result
-                        |   |-- AbstractTip.java
-                        |   |-- enums
-                        |   |   |-- HttpStatus.java
-                        |   |   `-- package-info.java
-                        |   |-- ErrorTip.java
-                        |   |-- package-info.java
-                        |   |-- R.java
-                        |   `-- SuccessTip.java
-                        `-- util
-                            |-- BrowserUtils.java
-                            |-- classs
-                            |   |-- ClassUtils.java
-                            |   |-- package-info.java
-                            |   `-- ReflectionUtils.java
-                            |-- collection
-                            |   |-- ArrayUtils.java
-                            |   |-- CollectionUtils.java
-                            |   |-- CountMap.java
-                            |   |-- MultiKeyHashMap.java
-                            |   `-- package-info.java
-                            |-- constant
-                            |   |-- Constant.java
-                            |   |-- DateConstant.java
-                            |   |-- FileConstant.java
-                            |   |-- JdkConstant.java
-                            |   |-- LicenseConstant.java
-                            |   |-- NumberConstant.java
-                            |   |-- package-info.java
-                            |   |-- ShiroConstants.java
-                            |   |-- StringConstant.java
-                            |   |-- SymbolConstant.java
-                            |   |-- ThreadConstant.java
-                            |   `-- UserConstant.java
-                            |-- converter
-                            |   |-- Converter.java
-                            |   |-- MoneyCoverUtils.java
-                            |   `-- package-info.java
-                            |-- cron
-                            |   |-- CronUtils.java
-                            |   |-- package-info.java
-                            |   `-- TaskScheduleModel.java
-                            |-- date
-                            |   |-- DateUtils.java
-                            |   `-- package-info.java
-                            |-- ExtensionLoader.java
-                            |-- file
-                            |   |-- FileUtils.java
-                            |   |-- MimeTypeUtils.java
-                            |   |-- package-info.java
-                            |   `-- PicFileTypeUtils.java
-                            |-- GPSUtils.java
-                            |-- html
-                            |   |-- EscapeUtils.java
-                            |   |-- HtmlFilter.java
-                            |   `-- package-info.java
-                            |-- http
-                            |   |-- HttpUtils.java
-                            |   |-- IpUtils.java
-                            |   `-- package-info.java
-                            |-- image
-                            |   |-- GeneratorImage.java
-                            |   `-- package-info.java
-                            |-- io
-                            |   |-- package-info.java
-                            |   `-- ZipUtils.java
-                            |-- jdbc
-                            |   |-- JdbcDriverUtils.java
-                            |   `-- package-info.java
-                            |-- JdkUtils.java
-                            |-- LanguageUtil.java
-                            |-- LicenseTitleAppenderUtils.java
-                            |-- log
-                            |   |-- LogManager.java
-                            |   `-- package-info.java
-                            |-- MacAddressUtils.java
-                            |-- MavenUtils.java
-                            |-- network
-                            |   |-- NetUtils.java
-                            |   `-- package-info.java
-                            |-- number
-                            |   |-- MoneyUtils.java
-                            |   |-- NumberUtils.java
-                            |   `-- package-info.java
-                            |-- ObjectUtils.java
-                            |-- package-info.java
-                            |-- page
-                            |   |-- package-info.java
-                            |   `-- PageResult.java
-                            |-- pass
-                            |   |-- AESUtils.java
-                            |   |-- CRC16.java
-                            |   |-- DesUtils.java
-                            |   |-- package-info.java
-                            |   `-- RsaUtils.java
-                            |-- PrintUtils.java
-                            |-- RandUtils.java
-                            |-- RedirectUrlBuildUtils.java
-                            |-- reflect
-                            |   |-- package-info.java
-                            |   `-- ReflectUtils.java
-                            |-- regx
-                            |   |-- package-info.java
-                            |   |-- RegxConstant.java
-                            |   `-- RegxUtils.java
-                            |-- RunTimeUtils.java
-                            |-- seo
-                            |   |-- package-info.java
-                            |   `-- PostUrlUtils.java
-                            |-- sql
-                            |   |-- package-info.java
-                            |   `-- SqlUtils.java
-                            |-- StartCalcUtils.java
-                            |-- stream
-                            |   |-- package-info.java
-                            |   `-- StreamUtils.java
-                            |-- StrFormatter.java
-                            |-- StringUtils.java
-                            |-- system
-                            |   |-- Arith.java
-                            |   |-- DiskUtils.java
-                            |   |-- package-info.java
-                            |   |-- Server.java
-                            |   |-- SysCpu.java
-                            |   |-- SysFile.java
-                            |   |-- SysJvm.java
-                            |   |-- SysMem.java
-                            |   `-- System.java
-                            |-- text
-                            |   |-- CharsetKit.java
-                            |   |-- package-info.java
-                            |   |-- StrConvert.java
-                            |   `-- WafUtils.java
-                            |-- thread
-                            |   |-- ExecutorServiceUtils.java
-                            |   |-- package-info.java
-                            |   |-- RemoveThreadLocalApi.java
-                            |   |-- ThreadPrint.java
-                            |   `-- Threads.java
-                            |-- thunder
-                            |   |-- package-info.java
-                            |   `-- ThunderUtils.java
-                            |-- TimeUtils.java
-                            |-- tool
-                            |   |-- MapBeanUtils.java
-                            |   `-- package-info.java
-                            |-- ToolUtils.java
-                            |-- tree
-                            |   |-- AbstractMenuNode.java
-                            |   |-- INode.java
-                            |   `-- package-info.java
-                            |-- uid
-                            |   |-- IdWorker.java
-                            |   |-- Md5Utils.java
-                            |   |-- package-info.java
-                            |   |-- UUID.java
-                            |   `-- UuidUtils.java
-                            `-- UrlParamsUtil.java
+--------------------------------------------------------------------------------------------
+|_ .gitignore
+|_ LICENSE.txt
+|_ NOTICE.txt
+|_ README.md
+|_ kjs-common.iml
+|_ pom.xml
+|_ src
+|     |_ main
+|     |      |_ java
+|     |      |      |_ com
+|     |      |      |     |_ mobaijun
+|     |      |      |     |          |_ common
+|     |      |      |     |          |        |_ MoBaiJun.java
+|     |      |      |     |          |        |_ annotation
+|     |      |      |     |          |        |            |_ package-info.java
+|     |      |      |     |          |        |            |_ datasource
+|     |      |      |     |          |        |            |            |_ DataScope.java
+|     |      |      |     |          |        |            |            |_ DataSource.java
+|     |      |      |     |          |        |            |            |_ package-info.java
+|     |      |      |     |          |        |            |_ i18n
+|     |      |      |     |          |        |            |      |_ ChineseDescription.java
+|     |      |      |     |          |        |            |      |_ package-info.java
+|     |      |      |     |          |        |            |_ log
+|     |      |      |     |          |        |            |     |_ BusinessLog.java
+|     |      |      |     |          |        |            |     |_ Log.java
+|     |      |      |     |          |        |            |     |_ OperateLog.java
+|     |      |      |     |          |        |            |     |_ package-info.java
+|     |      |      |     |          |        |            |_ poi
+|     |      |      |     |          |        |            |     |_ Excel.java
+|     |      |      |     |          |        |            |     |_ Excels.java
+|     |      |      |     |          |        |            |     |_ package-info.java
+|     |      |      |     |          |        |            |_ redis
+|     |      |      |     |          |        |            |       |_ RedisLimiting.java
+|     |      |      |     |          |        |            |       |_ RedisLock.java
+|     |      |      |     |          |        |            |       |_ package-info.java
+|     |      |      |     |          |        |_ cache
+|     |      |      |     |          |        |       |_ map
+|     |      |      |     |          |        |       |     |_ HashMapSingletonCacheUtils.java
+|     |      |      |     |          |        |       |     |_ package-info.java
+|     |      |      |     |          |        |_ code
+|     |      |      |     |          |        |      |_ UnicodeUtils.java
+|     |      |      |     |          |        |      |_ package-info.java
+|     |      |      |     |          |        |_ common
+|     |      |      |     |          |        |        |_ DefaultValues.java
+|     |      |      |     |          |        |        |_ package-info.java
+|     |      |      |     |          |        |_ download
+|     |      |      |     |          |        |          |_ DownloadUtils.java
+|     |      |      |     |          |        |          |_ package-info.java
+|     |      |      |     |          |        |_ enums
+|     |      |      |     |          |        |       |_ BooleanEnum.java
+|     |      |      |     |          |        |       |_ EPlatformEnum.java
+|     |      |      |     |          |        |       |_ Env.java
+|     |      |      |     |          |        |       |_ LoginTypeEnum.java
+|     |      |      |     |          |        |       |_ MenuTypeEnum.java
+|     |      |      |     |          |        |       |_ Status.java
+|     |      |      |     |          |        |       |_ StatusEnum.java
+|     |      |      |     |          |        |       |_ YesOrNotEnum.java
+|     |      |      |     |          |        |       |_ package-info.java
+|     |      |      |     |          |        |       |_ client
+|     |      |      |     |          |        |       |        |_ SourceEnum.java
+|     |      |      |     |          |        |       |        |_ package-info.java
+|     |      |      |     |          |        |       |_ database
+|     |      |      |     |          |        |       |          |_ DataSourceStatusEnum.java
+|     |      |      |     |          |        |       |          |_ DataSourceType.java
+|     |      |      |     |          |        |       |          |_ Order.java
+|     |      |      |     |          |        |       |          |_ package-info.java
+|     |      |      |     |          |        |       |_ dict
+|     |      |      |     |          |        |       |      |_ DictSelectTagHeadEnum.java
+|     |      |      |     |          |        |       |      |_ DictTypeClassEnum.java
+|     |      |      |     |          |        |       |      |_ DictTypeEnum.java
+|     |      |      |     |          |        |       |      |_ package-info.java
+|     |      |      |     |          |        |       |_ file
+|     |      |      |     |          |        |       |      |_ BucketAuthEnum.java
+|     |      |      |     |          |        |       |      |_ FileLocationEnum.java
+|     |      |      |     |          |        |       |      |_ FileStatusEnum.java
+|     |      |      |     |          |        |       |      |_ ImageType.java
+|     |      |      |     |          |        |       |      |_ package-info.java
+|     |      |      |     |          |        |       |_ http
+|     |      |      |     |          |        |       |      |_ ContentTypeEnum.java
+|     |      |      |     |          |        |       |      |_ FieldMetadataTypeEnum.java
+|     |      |      |     |          |        |       |      |_ FieldTypeEnum.java
+|     |      |      |     |          |        |       |      |_ HttpRequestEnum.java
+|     |      |      |     |          |        |       |      |_ ParamTypeEnum.java
+|     |      |      |     |          |        |       |      |_ RenderType.java
+|     |      |      |     |          |        |       |      |_ ResponseHeader.java
+|     |      |      |     |          |        |       |      |_ package-info.java
+|     |      |      |     |          |        |       |_ log
+|     |      |      |     |          |        |       |     |_ BusinessStatus.java
+|     |      |      |     |          |        |       |     |_ BusinessType.java
+|     |      |      |     |          |        |       |     |_ LogStatus.java
+|     |      |      |     |          |        |       |     |_ LogType.java
+|     |      |      |     |          |        |       |     |_ LoginType.java
+|     |      |      |     |          |        |       |     |_ package-info.java
+|     |      |      |     |          |        |       |_ message
+|     |      |      |     |          |        |       |         |_ MessageReadFlagEnum.java
+|     |      |      |     |          |        |       |         |_ package-info.java
+|     |      |      |     |          |        |       |_ sms
+|     |      |      |     |          |        |       |     |_ SendStatusEnum.java
+|     |      |      |     |          |        |       |     |_ SmsTypeEnum.java
+|     |      |      |     |          |        |       |     |_ package-info.java
+|     |      |      |     |          |        |       |_ timer
+|     |      |      |     |          |        |       |       |_ TimerJobStatusEnum.java
+|     |      |      |     |          |        |       |       |_ package-info.java
+|     |      |      |     |          |        |       |_ user
+|     |      |      |     |          |        |       |      |_ AccountStatus.java
+|     |      |      |     |          |        |       |      |_ IsMenu.java
+|     |      |      |     |          |        |       |      |_ MenuStatus.java
+|     |      |      |     |          |        |       |      |_ OnlineStatus.java
+|     |      |      |     |          |        |       |      |_ OperatorType.java
+|     |      |      |     |          |        |       |      |_ SexEnum.java
+|     |      |      |     |          |        |       |      |_ package-info.java
+|     |      |      |     |          |        |_ exception
+|     |      |      |     |          |        |           |_ AbstractExceptionEnum.java
+|     |      |      |     |          |        |           |_ BaseException.java
+|     |      |      |     |          |        |           |_ CustomException.java
+|     |      |      |     |          |        |           |_ FileException.java
+|     |      |      |     |          |        |           |_ ToolBoxException.java
+|     |      |      |     |          |        |           |_ UtilException.java
+|     |      |      |     |          |        |           |_ package-info.java
+|     |      |      |     |          |        |_ function
+|     |      |      |     |          |        |          |_ JudgeFunction.java
+|     |      |      |     |          |        |          |_ ResultMethod.java
+|     |      |      |     |          |        |          |_ VoidMethod.java
+|     |      |      |     |          |        |          |_ package-info.java
+|     |      |      |     |          |        |          |_ impl
+|     |      |      |     |          |        |          |      |_ IfFunction.java
+|     |      |      |     |          |        |          |      |_ package-info.java
+|     |      |      |     |          |        |_ lambda
+|     |      |      |     |          |        |        |_ LambdaExceptionUtils.java
+|     |      |      |     |          |        |        |_ package-info.java
+|     |      |      |     |          |        |_ result
+|     |      |      |     |          |        |        |_ AbstractTip.java
+|     |      |      |     |          |        |        |_ ErrorTip.java
+|     |      |      |     |          |        |        |_ R.java
+|     |      |      |     |          |        |        |_ SuccessTip.java
+|     |      |      |     |          |        |        |_ package-info.java
+|     |      |      |     |          |        |        |_ enums
+|     |      |      |     |          |        |        |       |_ HttpStatus.java
+|     |      |      |     |          |        |        |       |_ package-info.java
+|     |      |      |     |          |        |_ util
+|     |      |      |     |          |        |      |_ BrowserUtils.java
+|     |      |      |     |          |        |      |_ ExtensionLoader.java
+|     |      |      |     |          |        |      |_ GPSUtils.java
+|     |      |      |     |          |        |      |_ JdkUtils.java
+|     |      |      |     |          |        |      |_ LanguageUtil.java
+|     |      |      |     |          |        |      |_ LicenseTitleAppenderUtils.java
+|     |      |      |     |          |        |      |_ MacAddressUtils.java
+|     |      |      |     |          |        |      |_ MavenUtils.java
+|     |      |      |     |          |        |      |_ ObjectUtils.java
+|     |      |      |     |          |        |      |_ PrintUtils.java
+|     |      |      |     |          |        |      |_ RandUtils.java
+|     |      |      |     |          |        |      |_ RedirectUrlBuildUtils.java
+|     |      |      |     |          |        |      |_ RunTimeUtils.java
+|     |      |      |     |          |        |      |_ StartCalcUtils.java
+|     |      |      |     |          |        |      |_ StrFormatter.java
+|     |      |      |     |          |        |      |_ StringUtils.java
+|     |      |      |     |          |        |      |_ TimeUtils.java
+|     |      |      |     |          |        |      |_ ToolUtils.java
+|     |      |      |     |          |        |      |_ UrlParamsUtil.java
+|     |      |      |     |          |        |      |_ package-info.java
+|     |      |      |     |          |        |      |_ classs
+|     |      |      |     |          |        |      |        |_ CheckToolClass.java
+|     |      |      |     |          |        |      |        |_ ClassUtils.java
+|     |      |      |     |          |        |      |        |_ ReflectionUtils.java
+|     |      |      |     |          |        |      |        |_ package-info.java
+|     |      |      |     |          |        |      |_ collection
+|     |      |      |     |          |        |      |            |_ ArrayUtils.java
+|     |      |      |     |          |        |      |            |_ CollectionUtils.java
+|     |      |      |     |          |        |      |            |_ CountMap.java
+|     |      |      |     |          |        |      |            |_ MultiKeyHashMap.java
+|     |      |      |     |          |        |      |            |_ package-info.java
+|     |      |      |     |          |        |      |_ constant
+|     |      |      |     |          |        |      |          |_ Constant.java
+|     |      |      |     |          |        |      |          |_ DateConstant.java
+|     |      |      |     |          |        |      |          |_ FileConstant.java
+|     |      |      |     |          |        |      |          |_ JdkConstant.java
+|     |      |      |     |          |        |      |          |_ LicenseConstant.java
+|     |      |      |     |          |        |      |          |_ NumberConstant.java
+|     |      |      |     |          |        |      |          |_ ShiroConstants.java
+|     |      |      |     |          |        |      |          |_ StringConstant.java
+|     |      |      |     |          |        |      |          |_ SymbolConstant.java
+|     |      |      |     |          |        |      |          |_ ThreadConstant.java
+|     |      |      |     |          |        |      |          |_ UserConstant.java
+|     |      |      |     |          |        |      |          |_ package-info.java
+|     |      |      |     |          |        |      |_ converter
+|     |      |      |     |          |        |      |           |_ Converter.java
+|     |      |      |     |          |        |      |           |_ MoneyCoverUtils.java
+|     |      |      |     |          |        |      |           |_ package-info.java
+|     |      |      |     |          |        |      |_ cron
+|     |      |      |     |          |        |      |      |_ CronUtils.java
+|     |      |      |     |          |        |      |      |_ TaskScheduleModel.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ date
+|     |      |      |     |          |        |      |      |_ LocalDateUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ file
+|     |      |      |     |          |        |      |      |_ FileUtils.java
+|     |      |      |     |          |        |      |      |_ MimeTypeUtils.java
+|     |      |      |     |          |        |      |      |_ PicFileTypeUtils.java
+|     |      |      |     |          |        |      |      |_ ReadDirectoryUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ html
+|     |      |      |     |          |        |      |      |_ EscapeUtils.java
+|     |      |      |     |          |        |      |      |_ HtmlFilter.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ http
+|     |      |      |     |          |        |      |      |_ HttpUtils.java
+|     |      |      |     |          |        |      |      |_ IpUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ image
+|     |      |      |     |          |        |      |       |_ GeneratorImage.java
+|     |      |      |     |          |        |      |       |_ package-info.java
+|     |      |      |     |          |        |      |_ io
+|     |      |      |     |          |        |      |    |_ ZipUtils.java
+|     |      |      |     |          |        |      |    |_ package-info.java
+|     |      |      |     |          |        |      |_ jdbc
+|     |      |      |     |          |        |      |      |_ JdbcDriverUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ network
+|     |      |      |     |          |        |      |         |_ NetUtils.java
+|     |      |      |     |          |        |      |         |_ package-info.java
+|     |      |      |     |          |        |      |_ number
+|     |      |      |     |          |        |      |        |_ BigDecimalChain.java
+|     |      |      |     |          |        |      |        |_ MoneyUtils.java
+|     |      |      |     |          |        |      |        |_ NumberUtils.java
+|     |      |      |     |          |        |      |        |_ package-info.java
+|     |      |      |     |          |        |      |_ pass
+|     |      |      |     |          |        |      |      |_ AESUtils.java
+|     |      |      |     |          |        |      |      |_ CRC16.java
+|     |      |      |     |          |        |      |      |_ DesUtils.java
+|     |      |      |     |          |        |      |      |_ RsaUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ reflect
+|     |      |      |     |          |        |      |         |_ ReflectUtils.java
+|     |      |      |     |          |        |      |         |_ package-info.java
+|     |      |      |     |          |        |      |_ regx
+|     |      |      |     |          |        |      |      |_ RegxConstant.java
+|     |      |      |     |          |        |      |      |_ RegxUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ seo
+|     |      |      |     |          |        |      |     |_ PostUrlUtils.java
+|     |      |      |     |          |        |      |     |_ package-info.java
+|     |      |      |     |          |        |      |_ sql
+|     |      |      |     |          |        |      |     |_ SqlUtils.java
+|     |      |      |     |          |        |      |     |_ package-info.java
+|     |      |      |     |          |        |      |_ stream
+|     |      |      |     |          |        |      |        |_ StreamUtils.java
+|     |      |      |     |          |        |      |        |_ package-info.java
+|     |      |      |     |          |        |      |_ system
+|     |      |      |     |          |        |      |        |_ Arith.java
+|     |      |      |     |          |        |      |        |_ DiskUtils.java
+|     |      |      |     |          |        |      |        |_ Server.java
+|     |      |      |     |          |        |      |        |_ SysCpu.java
+|     |      |      |     |          |        |      |        |_ SysFile.java
+|     |      |      |     |          |        |      |        |_ SysJvm.java
+|     |      |      |     |          |        |      |        |_ SysMem.java
+|     |      |      |     |          |        |      |        |_ System.java
+|     |      |      |     |          |        |      |        |_ package-info.java
+|     |      |      |     |          |        |      |_ text
+|     |      |      |     |          |        |      |      |_ CharsetKit.java
+|     |      |      |     |          |        |      |      |_ StrConvert.java
+|     |      |      |     |          |        |      |      |_ WafUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ thread
+|     |      |      |     |          |        |      |        |_ ExecutorServiceUtils.java
+|     |      |      |     |          |        |      |        |_ RemoveThreadLocalApi.java
+|     |      |      |     |          |        |      |        |_ ThreadPrint.java
+|     |      |      |     |          |        |      |        |_ Threads.java
+|     |      |      |     |          |        |      |        |_ package-info.java
+|     |      |      |     |          |        |      |_ thunder
+|     |      |      |     |          |        |      |         |_ ThunderUtils.java
+|     |      |      |     |          |        |      |         |_ package-info.java
+|     |      |      |     |          |        |      |_ tool
+|     |      |      |     |          |        |      |      |_ MapBeanUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+|     |      |      |     |          |        |      |_ tree
+|     |      |      |     |          |        |      |      |_ TreeConstant.java
+|     |      |      |     |          |        |      |      |_ TreeNode.java
+|     |      |      |     |          |        |      |      |_ TreeNodeConfig.java
+|     |      |      |     |          |        |      |      |_ TreeNodeConvert.java
+|     |      |      |     |          |        |      |      |_ TreeNodeMap.java
+|     |      |      |     |          |        |      |      |_ TreeUtils.java
+|     |      |      |     |          |        |      |      |_ package-info.java
+--------------------------------------------------------------------------------------------
 ~~~
 
 > 所有依赖会同步更新最新版本
 
 ## 快速开始
 
-本仓库已经同步发布 [maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，内置自定义工具类，欢迎使用，欢迎 star
+本仓库已经同步发布 [maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，内置自定义工具类，欢迎使用，欢迎
+star
 
-<div style="position: relative; padding: 30% 45%;">
-    <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
-            src="https://mvnrepository.com/artifact/com.mobaijun/kjs-common" frameborder="1" scrolling="yes" width="320"
-            height="240">
-    </iframe>
-</div>
+<iframe height=850 width=90% src="https://search.maven.org/search?q=mobaijun" frameborder=0 allowfullscreen></iframe>
 
 如需使用，引入如下依赖即可
+
 ```xml
 <dependency>
     <groupId>com.mobaijun</groupId>
