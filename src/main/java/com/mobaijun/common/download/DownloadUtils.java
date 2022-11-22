@@ -107,7 +107,7 @@ public class DownloadUtils {
     }
 
     /**
-     * 设置代理下载
+     * 下载
      *
      * @param url 下载地址
      * @return 操作数

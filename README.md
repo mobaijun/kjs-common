@@ -1,7 +1,34 @@
-# ksj-core
+<h1 align="center">
+    kjs-common
+</h1>
 
-> 本项目计划在 2.0 版本支持 jdk 17 及以上版本，2.0 以内版本以 jdk 8 为基石，这表示未来 2.X 版本不会兼容 jdk 17 以下的项目，如果是
-> jdk 17 以内项目推荐使用 2.0 以内版本
+<p align="center">
+	<strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
+</p>
+
+<p align="center">
+	<a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
+		<img src="https://img.shields.io/:license-apache-blue.svg" ></img>
+	</a>
+	<a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
+		<img src="https://img.shields.io/badge/JDK-1.8+-green.svg" ></img>
+	</a>
+	<a target="_blank" href='https://github.com/mobaijun/kjs-common'>
+		<img src="https://img.shields.io/github/stars/mobaijun/kjs-common.svg?style=social" alt="github star"></img>
+	</a>
+</p>
+## 概述
+
+kjs-common ，是一个Java开发基础工具类库，对项目开发中常用的工具进行封装，如：加密、http 请求、API 接口等。 目的是帮助开发者更快速、更快捷的开发。
+
+目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+
+> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
+
+## kjs-common
+
+> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
+> JDK 17 以内项目推荐使用 2.0 以内版本
 
 本项目集成了项目中常用的工具类：
 
@@ -325,3 +352,7 @@ star
 ~~~bash
 $ mvn clean deploy -DskipTests -P sonatype-release
 ~~~
+
+## 趋势
+
+![](https://starchart.cc/mobaijun/kjs-common.svg)
