@@ -12,10 +12,12 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- Package Description -->
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
     <version>1.1.9</version>
 
+    <!-- Project Introduction -->
     <name>kjs-common</name>
     <inceptionYear>2022</inceptionYear>
     <url>https://github.com/mobaijun/kjs-common</url>
@@ -38,6 +40,7 @@
     </issueManagement>
 
     <scm>
+        <!-- git address of the project and Git Hub information of the author -->
         <url>https://github.com/mobaijun/kjs-common</url>
         <connection>https://github.com/mobaijun/kjs-common.git</connection>
         <developerConnection>https://github.com/mobaijun</developerConnection>
@@ -113,6 +116,7 @@
     <build>
         <plugins>
             <plugin>
+                <!-- maven compiler plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
@@ -122,6 +126,7 @@
                 </configuration>
             </plugin>
             <plugin>
+                <!-- maven-source-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>${maven-source-plugin.version}</version>
@@ -196,7 +201,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- maven 打包时跳过测试 -->
+            <!-- maven packaging skips tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
