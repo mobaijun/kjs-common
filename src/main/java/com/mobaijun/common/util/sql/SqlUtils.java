@@ -17,7 +17,7 @@ package com.mobaijun.common.util.sql;
 
 import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.util.StrUtil;
-import com.mobaijun.common.util.PrintUtils;
+import cn.hutool.log.Log;
 import com.mobaijun.common.util.StringUtils;
 
 import java.sql.ResultSet;
@@ -36,6 +36,11 @@ import java.util.Map;
  * @author MoBaiJun 2022/4/22 17:06
  */
 public class SqlUtils {
+
+    /**
+     * tools log
+     */
+    private static final Log log = Log.get(SqlUtils.class);
 
     /**
      * 定义常用的 sql关键字
@@ -121,7 +126,7 @@ public class SqlUtils {
             }
             return result;
         } catch (SQLException e) {
-            PrintUtils.print(e.getMessage(), "转化结果集错误！");
+            log.error("转化结果集错误！{}", e.getMessage());
             // 返回空map
             return new HashMap<>(1);
         }
@@ -142,7 +147,7 @@ public class SqlUtils {
             }
             return result;
         } catch (SQLException e) {
-            PrintUtils.print(e.getMessage(), "转化结果集错误！");
+            log.error("转化结果集错误！{}", e.getMessage());
             // 返回空map
             return result;
         }

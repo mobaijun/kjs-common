@@ -76,13 +76,14 @@ public class PrintUtils {
     }
 
     /**
-     * 打印异常消息
+     * 打印异常信息
      *
      * @param message 内容
-     * @param clazz   消息
+     * @param clazz   类
+     * @param <T>     泛型
      */
-    public static void print(String message, String clazz) {
-        System.out.println(message + clazz);
+    public static <T> void println(String message, Class<T> clazz) {
+        System.out.printf("The exception comes from {%s} class，The error message is：{%s}", clazz.getName(), message);
     }
 
     /**
