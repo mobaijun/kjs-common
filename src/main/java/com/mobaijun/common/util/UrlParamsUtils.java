@@ -28,7 +28,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/9/13 14:19
  */
-public class UrlParamsUtil {
+public class UrlParamsUtils {
 
     /**
      * 将Map转成String, 可以指定分隔符
