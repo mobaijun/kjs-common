@@ -17,7 +17,6 @@ package com.mobaijun.common.function.impl;
 
 import com.mobaijun.common.function.JudgeFunction;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -80,18 +79,5 @@ public class IfFunction<K> {
         } else {
             defaultFunction.invoke();
         }
-    }
-
-    public static void main(String[] args) {
-        IfFunction<String> ifFunction = new IfFunction<>(new HashMap<>(5));
-        // 定义好要判断的条件和对应执行的方法
-        ifFunction.add("1", () -> System.out.println("苹果"))
-                .add("2", () -> System.out.println("西瓜"))
-                .add("3", () -> System.out.println("橙子"));
-
-        // 要进入的条件
-        ifFunction.doIf("3");
-        // 执行默认方法
-        ifFunction.doIfWithDefault("4", () -> System.out.println("默认方法"));
     }
 }

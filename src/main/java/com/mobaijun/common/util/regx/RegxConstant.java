@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util.regx;
 
+import java.util.regex.Pattern;
+
 /**
  * software：IntelliJ IDEA 2022.1
  * class name: Regx
@@ -117,4 +119,14 @@ public class RegxConstant {
      * 长度为3-20的所有字符
      */
     public static final String REGEX_CHAR_ALL = "^.{3,20}$";
+
+    /**
+     * 驼峰
+     */
+    public static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
+
+    /**
+     * 大驼峰模式
+     */
+    public static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
 }

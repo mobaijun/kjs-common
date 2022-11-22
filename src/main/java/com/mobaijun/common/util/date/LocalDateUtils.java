@@ -15,7 +15,10 @@
  */
 package com.mobaijun.common.util.date;
 
+import com.mobaijun.common.util.constant.DateConstant;
+
 import java.lang.management.ManagementFactory;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.Instant;
@@ -32,6 +35,7 @@ import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * software：IntelliJ IDEA 2022.1
@@ -42,10 +46,11 @@ import java.util.List;
  */
 public class LocalDateUtils {
 
+
     /**
      * local date 转 date
      *
-     * @param date localdate
+     * @param date LocalDate
      * @return date
      */
     public static Date toDate(LocalDate date) {
@@ -65,76 +70,12 @@ public class LocalDateUtils {
     /**
      * local date to timestamp
      *
-     * @param date localdate
+     * @param date LocalDate
      * @return long
      */
     public static Long toTimestamp(LocalDate date) {
         return date.atStartOfDay(ZoneOffset.ofHours(8)).toInstant().toEpochMilli();
     }
-
-    /**
-     * 获取指定月份
-     *
-     * @param minus 偏移量
-     * @return 月
-     */
-    public static int getMinusMonth(int minus) {
-        return LocalDate.now().minusMonths(minus).getMonthValue();
-    }
-
-    /**
-     * 获取当前年
-     *
-     * @return yyyy
-     */
-    public static int curYear() {
-        return getYear(0);
-    }
-
-    /**
-     * 获取指定年份
-     *
-     * @param minus 偏移量
-     * @return 年
-     */
-    public static int getYear(int minus) {
-        return LocalDate.now().minusYears(minus).getYear();
-    }
-
-    /**
-     * 获取月；格式 yyyy-MM
-     *
-     * @param minus   前几个月
-     * @param pattern 格
-     * @return 格式化月份
-     */
-    public static String getYearOfMonth(int minus, String pattern) {
-        LocalDate localDate = LocalDate.now().minusMonths(1);
-        return localDate.format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-
-    /**
-     * 获取指定年的第一天
-     *
-     * @param minus 年偏移量
-     * @return 时间 yyyy-MM-dd
-     */
-    public static String getFirstDayOfYear(int minus) {
-        return LocalDate.now().minusYears(minus).with(TemporalAdjusters.firstDayOfYear()).toString();
-    }
-
-    /**
-     * 获取指定某年的某月的第一天
-     *
-     * @param minusYear 年偏移量
-     *                  minusMonth:月偏移量
-     * @return 时间 yyyy-MM-dd
-     */
-    public static String getFirstDayOfMonthMinYear(int minusYear, int minusMonth) {
-        return LocalDate.now().minusYears(minusYear).minusMonths(minusMonth).with(TemporalAdjusters.firstDayOfMonth()).toString();
-    }
-
 
     /**
      * 将 localDate 按照一定的格式转换成 String
@@ -143,7 +84,7 @@ public class LocalDateUtils {
      * @param pattern   pattern
      * @return String
      */
-    public static String toSrting(LocalDate localDate, String pattern) {
+    public static String toString(LocalDate localDate, String pattern) {
         return localDate.format(DateTimeFormatter.ofPattern(pattern));
     }
 
@@ -165,7 +106,7 @@ public class LocalDateUtils {
      * @param pattern pattern
      * @return String
      */
-    public static String toSrting(Date date, String pattern) {
+    public static String toString(Date date, String pattern) {
         return LocalDateUtils.toString(toLocalDateTime(date), pattern);
     }
 
@@ -213,6 +154,124 @@ public class LocalDateUtils {
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
     }
 
+
+    /**
+     * 获取 LocalDateTime的毫秒数
+     *
+     * @param localDateTime 时间 {@link LocalDateTime}
+     * @return 毫秒数
+     */
+    public static Long toMillisecond(LocalDateTime localDateTime) {
+        if (Objects.isNull(localDateTime)) {
+            return null;
+        }
+        return localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
+
+    /**
+     * 获取 LocalDate 的毫秒数
+     *
+     * @param localDate 时间 {@link LocalDate}
+     * @return 毫秒数
+     */
+    public static Long toMillisecond(LocalDate localDate) {
+        if (Objects.isNull(localDate)) {
+            return null;
+        }
+        return localDate.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
+    }
+
+    /**
+     * 将 Instant 转换成 LocalDateTime
+     *
+     * @param instant {@link Instant}
+     * @return {@link LocalDateTime}
+     */
+    public static LocalDateTime toLocalDateTime(Instant instant) {
+        return instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
+    }
+
+    /**
+     * 将 Date 转换成 Instant
+     *
+     * @param date {@link Date}
+     * @return {@link Instant}
+     */
+    public static Instant toInstant(Date date) {
+        return date.toInstant();
+    }
+
+    /**
+     * 获取 LocalDateTime的秒数
+     *
+     * @param localDateTime 时间 {@link LocalDateTime}
+     * @return 时间戳（秒数）
+     */
+    public static Long toSecond(LocalDateTime localDateTime) {
+        if (Objects.isNull(localDateTime)) {
+            return null;
+        }
+        return localDateTime.atZone(ZoneId.systemDefault()).toInstant().getEpochSecond();
+    }
+
+    /**
+     * 获取指定时间的指定格式
+     *
+     * @param time    time
+     * @param pattern pattern
+     * @return String
+     */
+    public static String toFormat(LocalDateTime time, String pattern) {
+        return time.format(DateTimeFormatter.ofPattern(pattern));
+    }
+
+    /**
+     * 将时间格式化成字符串
+     * <p>
+     * 提示：不能转换秒
+     * </p>
+     *
+     * @param timestamp 时间戳（毫秒）
+     * @param pattern   描述日期和时间格式的模式
+     * @return 满足指定格式的时间字符串
+     */
+    public static String format(Long timestamp, String pattern) {
+        return new SimpleDateFormat(pattern).format(timestamp);
+    }
+
+    /**
+     * 将时间格式化成字符串
+     *
+     * @param instant 时间点（Instant）
+     * @param pattern 描述日期和时间格式的模式
+     * @return 满足指定格式的时间字符串
+     */
+    public static String format(Instant instant, String pattern) {
+        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+                .format(DateTimeFormatter.ofPattern(pattern));
+    }
+
+    /**
+     * 获取指定年的第一天
+     *
+     * @param minus 年偏移量
+     * @return 时间 yyyy-MM-dd
+     */
+    public static String getFirstDayOfYear(int minus) {
+        return LocalDate.now().minusYears(minus).with(TemporalAdjusters.firstDayOfYear()).toString();
+    }
+
+    /**
+     * 获取指定某年的某月的第一天
+     *
+     * @param minusYear 年偏移量
+     *                  minusMonth:月偏移量
+     * @return 时间 yyyy-MM-dd
+     */
+    public static String getFirstDayOfMonthMinYear(int minusYear, int minusMonth) {
+        return LocalDate.now().minusYears(minusYear).minusMonths(minusMonth).with(TemporalAdjusters.firstDayOfMonth()).toString();
+    }
+
     /**
      * 计算两个LocalDateTime 之间的毫秒数
      *
@@ -236,14 +295,14 @@ public class LocalDateUtils {
     }
 
     /**
-     * 计算两个LocalDate 之间的毫秒数
+     * 计算两个 LocalDate 之间的月份
      *
      * @param time1 time1
      * @param time2 time2
      * @return Long
      */
     public static Long minusToMillsLocalDate(LocalDate time1, LocalDate time2) {
-        return Duration.between(time1, time2).toMillis();
+        return Period.between(time1, time2).toTotalMonths();
     }
 
     /**
@@ -258,6 +317,45 @@ public class LocalDateUtils {
     }
 
     /**
+     * 将日期字符串(形如 {@code 2022-11-09} )转为 Instant，结果：{@code 2022-11-09T16:00:00Z}
+     *
+     * @param source 日期字符串，如 {@code 2022-11-09}
+     * @return Instant {@code 2022-11-08T16:00:00Z}
+     */
+    public static Instant parseInstant(String source) {
+        return LocalDate.parse(source)
+                .atStartOfDay(ZoneId.systemDefault()).toInstant();
+    }
+
+    /**
+     * 将 时间字符串 转为 Instant
+     *
+     * @param source  时间字符串
+     * @param pattern 格式
+     * @return Instant
+     */
+    public static Instant parseInstant(String source, String pattern) {
+        return LocalDateTime.parse(source,
+                        DateTimeFormatter.ofPattern(pattern))
+                .atZone(ZoneOffset.systemDefault()).toInstant();
+    }
+
+    /**
+     * 比较两个时间大小，简言之，{@code before < after} 是否成立
+     * <p>
+     * 假定有两个时间，before和after，如果before小于after，返回 {@code true }，
+     * 反之，返回 {@code false}
+     * </p>
+     *
+     * @param before 小的是
+     * @param after  大的时间
+     * @return {@code before < after} 是否成立
+     */
+    public static Boolean isBefore(LocalDateTime before, LocalDateTime after) {
+        return before.isBefore(after);
+    }
+
+    /**
      * 计算两个Date 之间的Period
      *
      * @param date1 date1
@@ -268,15 +366,18 @@ public class LocalDateUtils {
         return periodLocalDate(toLocalDate(date1), toLocalDate(date2));
     }
 
+
     /**
-     * 计算两个Date之间的 Period
+     * 时间戳（毫秒）转为 LocalDateTime
      *
-     * @param time1 time1
-     * @param time2 time2
-     * @return Long
+     * @param timestamp 时间戳（毫秒）
+     * @return {@link LocalDateTime}
      */
-    public static Long minusToMillsDate(Date time1, Date time2) {
-        return minusToMillsLocalDateTime(toLocalDateTime(time1), toLocalDateTime(time2));
+    public static LocalDateTime toLocalDateTime(Long timestamp) {
+        if (Objects.isNull(timestamp)) {
+            return null;
+        }
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneId.systemDefault());
     }
 
     /**
@@ -285,17 +386,8 @@ public class LocalDateUtils {
      * @return LocalDateTime
      */
     public static LocalDateTime getServerStartDate() {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ManagementFactory.getRuntimeMXBean().getStartTime()), ZoneId.systemDefault());
-    }
-
-    /**
-     * 获取指定日期的毫秒
-     *
-     * @param time time
-     * @return Long
-     */
-    public static Long getMillisecondValue(LocalDateTime time) {
-        return time.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(
+                ManagementFactory.getRuntimeMXBean().getStartTime()), ZoneId.systemDefault());
     }
 
     /**
@@ -309,17 +401,6 @@ public class LocalDateUtils {
     }
 
     /**
-     * 获取指定时间的指定格式
-     *
-     * @param time    time
-     * @param pattern pattern
-     * @return String
-     */
-    public static String toFormat(LocalDateTime time, String pattern) {
-        return time.format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    /**
      * 获取当前时间的指定格式
      *
      * @param pattern pattern
@@ -330,7 +411,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 日期加上一个数,根据field不同加不同值,field 为 ChronoUnit.*
+     * 日期加上一个数,根据field不同加不同值,field 为 ChronosUnit.*
      *
      * @param time   LocalDateTime
      * @param number long
@@ -342,23 +423,23 @@ public class LocalDateUtils {
     }
 
     /**
-     * 日期减去一个数,根据field不同减不同值,field参数为ChronoUnit.*
+     * 日期减去一个数,根据field不同减不同值,field参数为ChronosUnit.*
      *
      * @param time   LocalDateTime
      * @param number long
      * @param field  TemporalUnit
      * @return LocalDateTime
      */
-    public static LocalDateTime minu(LocalDateTime time, long number, TemporalUnit field) {
+    public static LocalDateTime minus(LocalDateTime time, long number, TemporalUnit field) {
         return time.minus(number, field);
     }
 
     /**
-     * 获取两个日期的差  field参数为ChronoUnit.*
+     * 获取两个日期的差  field参数为ChronosUnit.*
      *
      * @param startTime LocalDateTime
      * @param endTime   LocalDateTime
-     * @param field     ChronoUnit 单位(年月日时分秒)
+     * @param field     ChronosUnit 单位(年月日时分秒)
      * @return long
      */
     public static long betweenTwoTime(LocalDateTime startTime, LocalDateTime endTime, ChronoUnit field) {
@@ -542,5 +623,100 @@ public class LocalDateUtils {
     public static boolean isLeapYearDate(Date date) {
         int year = Integer.parseInt(String.format("%tY", date));
         return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+
+    /**
+     * long 转 （yyyy-MM-dd HH:mm:ss）字符串日期格式
+     *
+     * @param time 时间
+     * @return 时间字符串
+     */
+    public static String longToString(Long time) {
+        // 要转换的时间格式
+        SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS);
+        try {
+            Date date = sdf.parse(sdf.format(time));
+            return sdf.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    /**
+     * 获取当前月的开始时间
+     *
+     * @param localDate 当前日期
+     * @return 当前月的开始时间
+     */
+    public static LocalDateTime getStartOfMonth(LocalDate localDate) {
+        LocalDateTime nowDateTime = localDate.atStartOfDay();
+        return nowDateTime
+                .with(TemporalAdjusters.firstDayOfMonth())
+                .with(LocalTime.MIN);
+    }
+
+    /**
+     * 判断是否在指定时间区间内
+     *
+     * @param time      检测时间
+     * @param startTime 开始时间
+     * @param endTime   结束时间
+     * @return true-在区间内；false-不在区间内
+     * @since 2.2.1
+     */
+    public static boolean judgeInTimeDuration(LocalTime time, LocalTime startTime, LocalTime endTime) {
+        if (endTime.isAfter(startTime)) {
+            return time.isAfter(startTime) && time.isBefore(endTime);
+        }
+        return time.isAfter(startTime) || time.isBefore(endTime);
+    }
+
+    /**
+     * 判断是否在指定时间区间内，含边界
+     *
+     * @param time      检测时间
+     * @param startTime 开始时间
+     * @param endTime   结束时间
+     * @return true-在区间内；false-不在区间内
+     * @since 2.2.1
+     */
+    public static boolean judgeInTimeDurationWithBoundary(LocalTime time, LocalTime startTime, LocalTime endTime) {
+        if (endTime.isAfter(startTime)) {
+            return time.compareTo(startTime) >= 0 && time.compareTo(endTime) <= 0;
+        }
+        return time.compareTo(startTime) >= 0 || time.compareTo(endTime) <= 0;
+    }
+
+    /**
+     * 获取当前年
+     *
+     * @return yyyy
+     */
+    public static int curYear() {
+        return getYear(0);
+    }
+
+    /**
+     * 获取指定年份
+     *
+     * @param minus 偏移量
+     * @return 年
+     */
+    public static int getYear(int minus) {
+        return LocalDate.now().minusYears(minus).getYear();
+    }
+
+    /**
+     * 获取月；格式 yyyy-MM
+     *
+     * @param minus   前几个月
+     * @param pattern 格
+     * @return 格式化月份
+     */
+    public static String getYearOfMonth(int minus, String pattern) {
+        LocalDate localDate = LocalDate.now().minusMonths(1);
+        return localDate.format(DateTimeFormatter.ofPattern(pattern));
     }
 }

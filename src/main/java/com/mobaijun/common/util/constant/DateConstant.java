@@ -24,17 +24,43 @@ package com.mobaijun.common.util.constant;
  */
 public class DateConstant {
 
+    /**
+     * 时分秒
+     */
+    public static final String TIME = "HH:mm:ss";
+
+    /**
+     * 年
+     */
     public static final String YYYY = "yyyy";
 
+    /**
+     * 年月
+     */
     public static final String YYYY_MM = "yyyy-MM";
 
+    /**
+     * 年月日
+     */
     public static final String YYYY_MM_DD = "yyyy-MM-dd";
 
+    /**
+     * 年月日 时分秒
+     */
     public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";
 
+    /**
+     * 年月日
+     */
     public static final String YY_YY_MM_DD = "yyyyMMdd";
 
+    /**
+     * 年月日
+     */
     public static final String YMD = "yyyy年MM月dd日";
 
+    /**
+     * 格式化数组
+     */
     public static final String[] PARSE_PATTERNS = {"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"};
 }

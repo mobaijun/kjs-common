@@ -26,7 +26,9 @@ public class Constant {
 
     /**
      * UTF_8 编码
+     * 推荐使用：{@link java.nio.charset.StandardCharsets}
      */
+    @Deprecated
     public static final String UTF_8 = "UTF-8";
 
     /**

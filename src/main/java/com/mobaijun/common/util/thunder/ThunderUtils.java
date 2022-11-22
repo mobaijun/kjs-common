@@ -16,7 +16,6 @@
 package com.mobaijun.common.util.thunder;
 
 import cn.hutool.log.Log;
-import com.mobaijun.common.util.constant.Constant;
 import lombok.SneakyThrows;
 
 import java.net.URLDecoder;
@@ -71,7 +70,7 @@ public class ThunderUtils {
         // base 64 转换
         url = new String(Base64.getDecoder().decode(url.getBytes()), UTF8);
         // url 解码
-        url = URLDecoder.decode(url, Constant.UTF_8);
+        url = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
 
         // 去头去尾
         if (url.startsWith(STARTS_WITH)) {

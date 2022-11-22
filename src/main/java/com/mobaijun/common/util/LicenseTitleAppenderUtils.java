@@ -53,7 +53,7 @@ public class LicenseTitleAppenderUtils {
     }
 
     public static void main(String[] args) {
-        append("F:\\IdeaProjects\\kjs-project\\kjs-common\\src\\main\\java\\com\\mobaijun\\common","/*\n" +
+        append("F:\\ideaProject\\kjs-project\\kjs-common\\src\\main\\java\\com\\mobaijun\\common","/*\n" +
                 " * Copyright (C) 2022 www.mobaijun.com\n" +
                 " *\n" +
                 " * Licensed under the Apache License, Version 2.0 (the \"License\");\n" +

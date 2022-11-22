@@ -71,6 +71,26 @@ public class CollectionUtils {
     }
 
     /**
+     * 判断数组是空数组
+     *
+     * @param array 待判断的数据
+     * @return true：空 / false：非空
+     */
+    public static boolean isEmpty(String[] array) {
+        return array == null || array.length == 0;
+    }
+
+    /**
+     * 判断数组不是空数组
+     *
+     * @param array 待判断的数据
+     * @return true：非空 / false：空
+     */
+    public static boolean isNotEmpty(String[] array) {
+        return !isEmpty(array);
+    }
+
+    /**
      * 判断list是否为 null
      *
      * @param data 集合对象
@@ -103,6 +123,7 @@ public class CollectionUtils {
     public static <K, V> boolean isNull(Map<K, V> data) {
         return isEmpty(data);
     }
+
 
     /**
      * 将以“,”分隔的字符串转成为Collection
@@ -248,26 +269,26 @@ public class CollectionUtils {
     /**
      * 切取部分数据
      *
-     * @param <T>             集合元素类型
-     * @param surplusAlaDatas 原数据
-     * @param partSize        每部分数据的长度
+     * @param <T>            集合元素类型
+     * @param surplusAlaData 原数据
+     * @param partSize       每部分数据的长度
      * @return 切取出的数据或null
      */
-    public static <T> List<T> popPart(Stack<T> surplusAlaDatas, int partSize) {
-        if (surplusAlaDatas == null || surplusAlaDatas.size() <= 0) {
+    public static <T> List<T> popPart(Stack<T> surplusAlaData, int partSize) {
+        if (surplusAlaData == null || surplusAlaData.size() == 0) {
             return null;
         }
 
         final List<T> currentAlaData = new ArrayList<>();
-        int size = surplusAlaDatas.size();
+        int size = surplusAlaData.size();
         // 切割
         if (size > partSize) {
             for (int i = 0; i < partSize; i++) {
-                currentAlaData.add(surplusAlaDatas.pop());
+                currentAlaData.add(surplusAlaData.pop());
             }
         } else {
             for (int i = 0; i < size; i++) {
-                currentAlaData.add(surplusAlaDatas.pop());
+                currentAlaData.add(surplusAlaData.pop());
             }
         }
         return currentAlaData;
