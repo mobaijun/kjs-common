@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.code;
+package com.mobaijun.common.test.code;
 
 import com.mobaijun.common.code.UnicodeUtils;
 import com.mobaijun.common.util.PrintUtils;

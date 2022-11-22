@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.cache;
+package com.mobaijun.common.test.cache;
 
 import com.mobaijun.common.cache.map.HashMapSingletonCacheUtils;
 import com.mobaijun.common.util.PrintUtils;

@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test;
+package com.mobaijun.common.test;
 
 import com.mobaijun.common.MoBaiJun;
 

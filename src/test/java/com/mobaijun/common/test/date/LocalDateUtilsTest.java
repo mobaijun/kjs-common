@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.date;
+package com.mobaijun.common.test.date;
 
 import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.util.constant.DateConstant;

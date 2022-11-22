@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.tree;
+package com.mobaijun.common.test.tree;
 
 /**
  * software：IntelliJ IDEA 2022.2.3

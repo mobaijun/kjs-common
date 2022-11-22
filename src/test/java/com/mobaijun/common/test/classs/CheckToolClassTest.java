@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.classs;
+package com.mobaijun.common.test.classs;
 
 import com.mobaijun.common.util.classs.CheckToolClass;
 import com.mobaijun.common.util.collection.CollectionUtils;

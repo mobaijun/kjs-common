@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.classs;
+package com.mobaijun.common.test.classs;
 
 /**
  * software：IntelliJ IDEA 2022.2.3

@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.download;
+package com.mobaijun.common.test.download;
 
 import cn.hutool.core.lang.UUID;
 import com.mobaijun.common.download.DownloadUtils;

@@ -1,4 +1,4 @@
-package com.mobaijun.common.util.test.function;
+package com.mobaijun.common.test.function;
 
 import com.mobaijun.common.function.VoidMethod;
 import com.mobaijun.common.function.impl.IfFunction;
