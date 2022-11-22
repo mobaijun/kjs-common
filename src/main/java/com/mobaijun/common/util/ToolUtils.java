@@ -19,6 +19,7 @@ import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.constant.DateConstant;
+import com.mobaijun.common.util.constant.StringConstant;
 import com.mobaijun.common.util.regx.RegxConstant;
 
 import java.io.IOException;
@@ -239,7 +240,7 @@ public class ToolUtils {
             return true;
         }
         if (o instanceof String) {
-            return o.toString().trim().equals("");
+            return StringConstant.BLANK.equals(o.toString().trim());
         } else if (o instanceof List) {
             return ((List) o).size() == 0;
         } else if (o instanceof Map) {
@@ -411,11 +412,11 @@ public class ToolUtils {
     /**
      * 创建StringBuilder对象
      *
-     * @param sb   StringBuilder
-     * @param strs String...
+     * @param sb  StringBuilder
+     * @param sts String...
      */
-    public static void builder(StringBuilder sb, String... strs) {
-        for (String str : strs) {
+    public static void builder(StringBuilder sb, String... sts) {
+        for (String str : sts) {
             sb.append(str);
         }
     }
@@ -494,10 +495,10 @@ public class ToolUtils {
      */
     public static String getWebRootPath(String filePath) {
         try {
-            String path = Objects.requireNonNull(ToolUtils.class.getClassLoader().getResource("")).toURI().getPath();
-            path = path.replace("/WEB-INF/classes/", "");
-            path = path.replace("/target/classes/", "");
-            path = path.replace("file:/", "");
+            String path = Objects.requireNonNull(ToolUtils.class.getClassLoader().getResource(StringConstant.BLANK)).toURI().getPath();
+            path = path.replace("/WEB-INF/classes/", StringConstant.BLANK);
+            path = path.replace("/target/classes/", StringConstant.BLANK);
+            path = path.replace("file:/", StringConstant.BLANK);
             if (ToolUtils.isEmpty(filePath)) {
                 return path;
             } else {
@@ -514,7 +515,7 @@ public class ToolUtils {
      * @return String
      */
     public static String uuid() {
-        return UUID.randomUUID().toString().replaceAll("-", "");
+        return UUID.randomUUID().toString().replaceAll(StringConstant.HIPHEN, StringConstant.BLANK);
     }
 
     /**
@@ -554,7 +555,7 @@ public class ToolUtils {
      * @return 结果
      */
     public static Integer[] toIntArray(String str) {
-        return toIntArray(",", str);
+        return toIntArray(StringConstant.COMMA, str);
     }
 
     /**
@@ -569,12 +570,12 @@ public class ToolUtils {
             return new Integer[]{};
         }
         String[] arr = str.split(split);
-        final Integer[] ints = new Integer[arr.length];
+        final Integer[] its = new Integer[arr.length];
         for (int i = 0; i < arr.length; i++) {
             final Integer v = toInt(arr[i], 0);
-            ints[i] = v;
+            its[i] = v;
         }
-        return ints;
+        return its;
     }
 
     /**
@@ -588,8 +589,8 @@ public class ToolUtils {
         if (hashCodeV < 0) { //有可能是负数
             hashCodeV = -hashCodeV;
         }
-        // 0 代表前面补充0     
-        // 4 代表长度为4     
+        // 0 代表前面补充0
+        // 4 代表长度为4
         // d 代表参数为正数型
         return userId + String.format("%015d", hashCodeV);
     }
