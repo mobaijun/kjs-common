@@ -17,27 +17,26 @@
 		<img src="https://img.shields.io/github/stars/mobaijun/kjs-common.svg?style=social" alt="github star"></img>
 	</a>
 </p>
-
 ## 概述
 
 kjs-common ，是一个Java开发基础工具类库，对项目开发中常用的工具进行封装，如：加密、http 请求、API 接口等。 目的是帮助开发者更快速、更快捷的开发。
 
-目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
-
-> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
-
-## kjs-common 发展
-
-> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
-> JDK 17 以内项目推荐使用 2.0 以内版本
-
-本项目集成了项目中常用的工具类：
+本项目集成了项目中常用的优秀开源工具类：
 
 * hutool-all （最全工具类）
 * lombok （简化实体类）
 * mapstruct （简化参数传递）
 
-## 源码目录结构
+目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+
+> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
+
+## 发展
+
+> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
+> JDK 17 以内项目推荐使用 2.0 以内版本
+
+## 目录
 
 ~~~bash
 --------------------------------------------------------------------------------------------
@@ -328,12 +327,9 @@ com
 
 ## 快速开始
 
-本仓库已经同步发布 [maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，内置自定义工具类，欢迎使用，欢迎
-star
-
-<iframe height=850 width=90% src="https://search.maven.org/search?q=mobaijun" frameborder=0 allowfullscreen></iframe>
-
 如需使用，引入如下依赖即可
+
+### maven
 
 ```xml
 <dependency>
@@ -342,6 +338,19 @@ star
     <version>${latest.version}</version>
 </dependency>
 ```
+
+### Gradle
+
+~~~xml
+implementation 'com.mobaijun:kjs-common:latest.version'
+~~~
+
+### 中央仓库
+
+本仓库已经同步发布 [maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，欢迎使用，欢迎 start
+
+<iframe height=850 width=90% src="https://search.maven.org/search?q=mobaijun" frameborder=0 allowfullscreen></iframe>
+
 
 ## 贡献
 
