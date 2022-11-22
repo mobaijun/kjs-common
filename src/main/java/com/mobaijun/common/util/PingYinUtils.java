@@ -15,8 +15,7 @@
  */
 package com.mobaijun.common.util;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import cn.hutool.log.Log;
 import lombok.NoArgsConstructor;
 
 import java.util.Random;
@@ -32,9 +31,9 @@ import java.util.Random;
 public final class PingYinUtils {
 
     /**
-     * logger
+     * tools log
      */
-    private static final Logger log = LoggerFactory.getLogger(PingYinUtils.class);
+    private static final Log log = Log.get(PingYinUtils.class);
 
     /**
      * 返回首字母

@@ -14,7 +14,7 @@
 
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.1.8</version>
+    <version>1.1.9</version>
 
     <name>kjs-common</name>
     <inceptionYear>2022</inceptionYear>
@@ -72,6 +72,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <lombok.version>[1.+,)</lombok.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
         <hutool-all.version>[5.+,)</hutool-all.version>
@@ -194,6 +195,15 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- maven 打包时跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>
