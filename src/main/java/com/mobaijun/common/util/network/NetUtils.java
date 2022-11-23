@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.network;
 
-import com.mobaijun.common.util.constant.JdkConstant;
+import com.mobaijun.common.constant.JdkConstant;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;

@@ -20,8 +20,8 @@ import cn.hutool.core.io.StreamProgress;
 import cn.hutool.core.lang.Console;
 import cn.hutool.core.lang.UUID;
 import cn.hutool.http.HttpUtil;
-import com.mobaijun.common.util.constant.DateConstant;
-import com.mobaijun.common.util.constant.FileConstant;
+import com.mobaijun.common.constant.DateConstant;
+import com.mobaijun.common.constant.FileConstant;
 import com.mobaijun.common.util.date.LocalDateUtils;
 
 import java.io.File;

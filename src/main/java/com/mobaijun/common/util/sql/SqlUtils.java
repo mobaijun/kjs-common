@@ -19,7 +19,7 @@ import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

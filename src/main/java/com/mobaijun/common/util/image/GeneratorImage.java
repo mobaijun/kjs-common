@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util.image;
 
-import com.mobaijun.common.util.constant.FileConstant;
-import com.mobaijun.common.util.constant.NumberConstant;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.FileConstant;
+import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.util;
 
 import com.mobaijun.common.util.LicenseTitleAppenderUtils;
-import com.mobaijun.common.util.constant.LicenseConstant;
+import com.mobaijun.common.constant.LicenseConstant;
 
 /**
  * software：IntelliJ IDEA 2022.2.3

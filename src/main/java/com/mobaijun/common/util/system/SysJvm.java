@@ -16,7 +16,7 @@
 package com.mobaijun.common.util.system;
 
 import cn.hutool.core.date.DateTime;
-import com.mobaijun.common.util.constant.DateConstant;
+import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.util.date.LocalDateUtils;
 
 import java.lang.management.ManagementFactory;

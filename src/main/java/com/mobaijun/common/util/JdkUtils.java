@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.constant.JdkConstant;
+import com.mobaijun.common.constant.JdkConstant;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2

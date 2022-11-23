@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.system;
 
-import com.mobaijun.common.util.constant.JdkConstant;
+import com.mobaijun.common.constant.JdkConstant;
 import lombok.Getter;
 import lombok.Setter;
 

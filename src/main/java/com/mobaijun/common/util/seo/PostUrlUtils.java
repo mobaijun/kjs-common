@@ -18,10 +18,9 @@ package com.mobaijun.common.util.seo;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.mobaijun.common.util.ObjectUtils;
-import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.constant.NumberConstant;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,20 +48,6 @@ public class PostUrlUtils {
     private final static int ERROR_401 = 401;
     private final static int ERROR_404 = 404;
     private final static int ERROR_500 = 500;
-
-    /**
-     * 示例 demo
-     *
-     * @param args args
-     * @throws IOException io 异常
-     */
-    public static void main(String[] args) throws IOException {
-        Vector<String> urls = new Vector<>();
-        urls.addElement("https://www.mobaijun.com");
-        urls.addElement("https://www.mobaijun.com/tags/");
-        urls.addElement("https://www.mobaijun.com/posts/2902111757.html");
-        PrintUtils.print(postUrl(urls, "http://data.zz.baidu.com/urls?site=https://www.mobaijun.com&token=IICsd5lPpvqZp6ztH15"));
-    }
 
     /**
      * 提交链接到百度站长

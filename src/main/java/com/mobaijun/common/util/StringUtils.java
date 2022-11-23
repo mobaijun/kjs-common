@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.util.Arrays;
 import java.util.Collection;

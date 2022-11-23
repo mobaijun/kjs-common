@@ -16,7 +16,7 @@
 package com.mobaijun.common.util.http;
 
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.constant.NumberConstant;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

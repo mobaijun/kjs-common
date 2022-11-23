@@ -16,8 +16,8 @@
 package com.mobaijun.common.util;
 
 import cn.hutool.core.util.StrUtil;
-import com.mobaijun.common.util.constant.NumberConstant;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;

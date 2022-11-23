@@ -19,7 +19,7 @@ import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.result.enums.HttpStatus;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;

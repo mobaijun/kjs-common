@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.date;
 
 import com.mobaijun.common.util.PrintUtils;
-import com.mobaijun.common.util.constant.DateConstant;
+import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.util.date.LocalDateUtils;
 
 import java.time.Instant;

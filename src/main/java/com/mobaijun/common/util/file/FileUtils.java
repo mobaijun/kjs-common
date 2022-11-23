@@ -17,8 +17,8 @@ package com.mobaijun.common.util.file;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.io.FileUtil;
-import com.mobaijun.common.util.constant.Constant;
-import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.constant.Constant;
+import com.mobaijun.common.constant.NumberConstant;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

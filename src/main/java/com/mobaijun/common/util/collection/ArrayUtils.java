@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.collection;
 
-import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.constant.NumberConstant;
 
 /**
  * software：IntelliJ IDEA 2022.1

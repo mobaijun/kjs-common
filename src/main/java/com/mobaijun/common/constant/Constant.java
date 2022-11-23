@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.constant;
+package com.mobaijun.common.constant;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2

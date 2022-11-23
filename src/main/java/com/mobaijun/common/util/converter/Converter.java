@@ -17,7 +17,7 @@ package com.mobaijun.common.util.converter;
 
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.text.CharsetKit;
 
 import java.math.BigDecimal;

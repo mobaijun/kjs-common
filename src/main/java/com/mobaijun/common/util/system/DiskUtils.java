@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.system;
 
-import com.mobaijun.common.util.constant.NumberConstant;
+import com.mobaijun.common.constant.NumberConstant;
 import com.sun.management.OperatingSystemMXBean;
 
 import java.io.File;

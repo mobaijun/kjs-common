@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.date;
 
-import com.mobaijun.common.util.constant.DateConstant;
+import com.mobaijun.common.constant.DateConstant;
 
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;

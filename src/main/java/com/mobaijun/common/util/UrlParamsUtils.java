@@ -16,8 +16,8 @@
 package com.mobaijun.common.util;
 
 import com.mobaijun.common.util.collection.CollectionUtils;
-import com.mobaijun.common.util.constant.NumberConstant;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.util.Map;
 

@@ -18,7 +18,7 @@ package com.mobaijun.common.util.thread;
 
 import cn.hutool.log.Log;
 import com.mobaijun.common.util.PrintUtils;
-import com.mobaijun.common.util.constant.ThreadConstant;
+import com.mobaijun.common.constant.ThreadConstant;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;

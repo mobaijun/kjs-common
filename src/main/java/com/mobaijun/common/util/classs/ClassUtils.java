@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.classs;
 
 import cn.hutool.core.util.ClassUtil;
-import com.mobaijun.common.util.constant.DateConstant;
-import com.mobaijun.common.util.constant.NumberConstant;
-import com.mobaijun.common.util.constant.StringConstant;
+import com.mobaijun.common.constant.DateConstant;
+import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.constant.StringConstant;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
