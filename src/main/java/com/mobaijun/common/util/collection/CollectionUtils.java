@@ -354,7 +354,7 @@ public class CollectionUtils {
     /**
      * 新建一个ArrayList
      *
-     * @param values 未定义
+     * @param values 数据列表
      * @param <T>    ArrayList对象
      * @return ArrayList对象
      */
