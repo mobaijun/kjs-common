@@ -230,4 +230,16 @@ public class IpUtils {
                 leftPad.append(StringUtils.leftPad(temp, 3, '0')));
         return leftPad.toString();
     }
+
+    /**
+     * 判断是网络地址还是本地地址（不知道这样准不准确）
+     *
+     * @param source 源地址
+     */
+    public static boolean isOnLineSource(String source) {
+        return (source.toLowerCase().startsWith("http://")
+                || source.toLowerCase().startsWith("https://"))
+                || source.toLowerCase().startsWith("rtmp://")
+                && !source.toLowerCase().startsWith("file:///");
+    }
 }

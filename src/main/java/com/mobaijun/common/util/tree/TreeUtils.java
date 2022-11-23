@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.tree;
 
 import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.lang.tree.TreeUtil;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ import java.util.List;
  *
  * @author MoBaiJun 2022/11/6 0:23
  */
-public class TreeUtils {
+public class TreeUtils extends TreeUtil {
 
     /**
      * 使用默认参数

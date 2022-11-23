@@ -15,7 +15,11 @@
  */
 package com.mobaijun.common.util.collection;
 
+import cn.hutool.core.util.ArrayUtil;
 import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.enhance.EnhanceAssert;
+
+import java.util.Arrays;
 
 /**
  * software：IntelliJ IDEA 2022.1
@@ -24,7 +28,7 @@ import com.mobaijun.common.constant.NumberConstant;
  *
  * @author MoBaiJun 2022/6/6 9:35
  */
-public class ArrayUtils {
+public class ArrayUtils extends ArrayUtil {
 
     /**
      * write specified bytes to a byte array start from offset
@@ -151,5 +155,49 @@ public class ArrayUtils {
             }
         }
         return true;
+    }
+
+    /**
+     * 将数组转成字符串
+     *
+     * @param object 必须确保是数组，否则会抛出异常
+     * @return String
+     */
+    public static String toString(Object object) {
+        if (object == null) {
+            return null;
+        } else {
+            EnhanceAssert.isTrue(isArray(object), "请确保实参是数组类型");
+            Class<?> targetClass = object.getClass();
+            if (targetClass == int[].class) {
+                return Arrays.toString((int[]) object);
+            } else if (targetClass == byte[].class) {
+                return Arrays.toString((byte[]) object);
+            } else if (targetClass == short[].class) {
+                return Arrays.toString((short[]) object);
+            } else if (targetClass == long[].class) {
+                return Arrays.toString((long[]) object);
+            } else if (targetClass == char[].class) {
+                return Arrays.toString((char[]) object);
+            } else if (targetClass == boolean[].class) {
+                return Arrays.toString((boolean[]) object);
+            } else if (targetClass == float[].class) {
+                return Arrays.toString((float[]) object);
+            } else if (targetClass == double[].class) {
+                return Arrays.toString((double[]) object);
+            } else {
+                return Arrays.toString((Object[]) object);
+            }
+        }
+    }
+
+    /**
+     * 获取数组第一个元素
+     *
+     * @param array 数组
+     * @return 元素
+     */
+    public static <T> T getFirst(T[] array) {
+        return isNotEmpty(array) ? array[0] : null;
     }
 }

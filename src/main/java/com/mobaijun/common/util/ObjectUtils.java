@@ -16,6 +16,8 @@
 package com.mobaijun.common.util;
 
 
+import cn.hutool.core.util.ObjectUtil;
+
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
@@ -28,7 +30,7 @@ import java.util.Optional;
  *
  * @author MoBaiJun 2022/4/22 16:17
  */
-public class ObjectUtils {
+public class ObjectUtils extends ObjectUtil {
 
     /**
      * * 判断一个对象是否为空

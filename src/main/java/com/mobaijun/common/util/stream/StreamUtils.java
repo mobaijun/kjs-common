@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.stream;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.stream.StreamUtil;
 import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.util.collection.CollectionUtils;
 
@@ -40,7 +41,7 @@ import java.util.stream.Collectors;
  *
  * @author MoBaiJun 2022/4/24 11:27
  */
-public class StreamUtils {
+public class StreamUtils extends StreamUtil {
 
     /**
      * 映射

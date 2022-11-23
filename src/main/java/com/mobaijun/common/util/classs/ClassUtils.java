@@ -15,25 +15,32 @@
  */
 package com.mobaijun.common.util.classs;
 
+import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.ClassUtil;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.security.InvalidParameterException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * software：IntelliJ IDEA NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO.1
- * class name: ClassUtil
- * class description： 反射操作工具类
+ * class name: ClassUtils
+ * class description： 类处理工具
  * 这个类是方便控制台输出object，主要应用java反射机制。 因为考虑到使用性和美观性，没有使用无限递归。
  * 而是在toStr方法中加入一个boolean recursion ，是否递归。
  * 当然我们也可以将boolean recursion换成int recursion，控制递归次数。
@@ -61,7 +68,21 @@ public class ClassUtils extends ClassUtil {
      * return sum;
      * }
      */
-    private static final String MY_SIGN = "KLG_print";// 默認標記
+    private static final String MY_SIGN = "KLG_print";
+
+    private static final char PACKAGE_SEPARATOR = '.';
+
+    /**
+     * 代理 class 的名称
+     */
+    private static final List<String> PROXY_CLASS_NAMES = Arrays.asList("net.sf.cglib.proxy.Factory"
+            // cglib
+            , "org.springframework.cglib.proxy.Factory"
+            , "javassist.util.proxy.ProxyObject"
+            // javassist
+            , "org.apache.ibatis.javassist.util.proxy.ProxyObject");
+
+    private static ClassLoader systemClassLoader;
 
     /**
      * 将集合类型toString方法
@@ -434,6 +455,113 @@ public class ClassUtils extends ClassUtil {
         } catch (Exception ex) {
             CACHE.put(className, false);
             return false;
+        }
+    }
+
+    /**
+     * 获取对象的泛型
+     *
+     * @param src   待获取泛型对象
+     * @param index 泛型的位置
+     * @param <T>   泛型
+     * @return 泛型Class类
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getInstance(Object src, int index) {
+        if (src == null || index < 0) {
+            return null;
+        }
+        Class<?> aClass = src.getClass();
+        Type gSuperclass = aClass.getGenericSuperclass();
+        if (gSuperclass instanceof ParameterizedType) {
+            try {
+                ParameterizedType pType = (ParameterizedType) gSuperclass;
+                Type[] types = pType.getActualTypeArguments();
+                if (index < types.length) {
+                    Class<?> desClass = (Class<T>) types[index];
+                    return (Class<T>) desClass;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+
+    /**
+     * 判断传入的类型是否是布尔类型
+     *
+     * @param type 类型
+     * @return 如果是原生布尔或者包装类型布尔，均返回 true
+     */
+    public static boolean isBoolean(Class<?> type) {
+        return type == boolean.class || Boolean.class == type;
+    }
+
+    /**
+     * 判断是否为代理对象
+     *
+     * @param clazz 传入 class 对象
+     * @return 如果对象class是代理 class，返回 true
+     */
+    public static boolean isProxy(Class<?> clazz) {
+        if (clazz != null) {
+            for (Class<?> cls : clazz.getInterfaces()) {
+                if (PROXY_CLASS_NAMES.contains(cls.getName())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * <p>
+     * 获取当前对象的 class
+     * </p>
+     *
+     * @param clazz 传入
+     * @return 如果是代理的class，返回父 class，否则返回自身
+     */
+    public static Class<?> getUserClass(Class<?> clazz) {
+        Assert.notNull(clazz, "Class must not be null");
+        return isProxy(clazz) ? clazz.getSuperclass() : clazz;
+    }
+
+    /**
+     * <p>
+     * 获取当前对象的class
+     * </p>
+     *
+     * @param object 对象
+     * @return 返回对象的 user class
+     */
+    public static Class<?> getUserClass(Object object) {
+        Assert.notNull(object, "Instance must not be null");
+        return getUserClass(object.getClass());
+    }
+
+    /**
+     * <p>
+     * 根据指定的 class ， 实例化一个对象，根据构造参数来实例化
+     * </p>
+     * <p>
+     * 在 java9 及其之后的版本 Class.newInstance() 方法已被废弃
+     * </p>
+     *
+     * @param clazz 需要实例化的对象
+     * @param <T>   类型，由输入类型决定
+     * @return 返回新的实例
+     */
+    public static <T> T newInstance(Class<T> clazz) {
+        try {
+            Constructor<T> constructor = clazz.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            return constructor.newInstance();
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
+                 NoSuchMethodException e) {
+            throw new InvalidParameterException("实例化对象时出现错误,请尝试给 %s 添加无参的构造方法");
         }
     }
 }

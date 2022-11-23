@@ -28,7 +28,7 @@ import cn.hutool.log.Log;
  *
  * @author MoBaiJun 2022/7/18 10:05
  */
-public class HttpUtils {
+public class HttpUtils extends HttpUtil {
 
     /**
      * tools log
@@ -56,5 +56,15 @@ public class HttpUtils {
      */
     public static String createGet(String url, String hostname, Integer port) {
         return HttpUtil.createGet(url).setHttpProxy(hostname, port).execute().body();
+    }
+
+    /**
+     * 检测是否http或者https
+     *
+     * @param url URL
+     * @return 是否 http
+     */
+    public static boolean isHttpOrHttps(String url) {
+        return isHttp(url) || isHttps(url);
     }
 }

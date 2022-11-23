@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.util;
 
+import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.StringConstant;
 
 import java.util.Arrays;
@@ -28,7 +29,8 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/4/22 16:47
  */
-public class StringUtils {
+public class StringUtils extends StrUtil {
+
     /**
      * The maximum size to which the padding constant(s) can expand.
      */

@@ -1,0 +1,71 @@
+package com.mobaijun.common.enhance;
+
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
+import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.ObjectUtils;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * software：IntelliJ IDEA 2022.2.3
+ * class name: EnhanceObjectUtils
+ * class description: 增强
+ *
+ * @author MoBaiJun 2022/11/23 21:23
+ */
+public class EnhanceObjectUtils extends ObjectUtils {
+
+    /**
+     * 获取层级value  【每个层级Key会下划线、驼峰都查】
+     *
+     * @param targetObj 目标元素  支持Bean以及Map
+     * @param key       键值  通过分割符获取第几层的键值  使用英文句号进行分割
+     * @return Object
+     */
+    public static Object getValue(Object targetObj, String key) {
+        return getValue(targetObj, key, StrUtil.DOT);
+    }
+
+    /**
+     * 获取层级value 【每个层级Key会下划线、驼峰都查】
+     *
+     * @param targetObj 目标元素支持 Bean 以及 Map
+     * @param key       键值  通过分割符获取第几层的键值  分割 separator
+     * @param separator 分割符 空则默认英文句号.
+     * @return Object
+     */
+    @SuppressWarnings("all")
+    public static Object getValue(Object targetObj, String key, String separator) {
+        separator = StrUtil.blankToDefault(separator, StrUtil.DOT);
+        Object result = null;
+        if (isAllNotEmpty(targetObj, key)) {
+            List<String> sonKeys = StrUtil.split(key, StringConstant.DOT);
+            int index = 0;
+            Object tempResult = targetObj;
+            for (String sonKey : sonKeys) {
+                if (tempResult == null) {
+                    break;
+                }
+                Object columnValue1 = null;
+                Object columnValue2 = null;
+                if (tempResult instanceof Map) {
+                    columnValue1 = ((Map) tempResult).get(sonKey);
+                    columnValue2 = ((Map) tempResult).get(sonKey);
+                } else {
+                    columnValue1 = ReflectUtil.getFieldValue(tempResult, sonKey);
+                    columnValue2 = ReflectUtil.getFieldValue(tempResult, sonKey);
+                }
+                tempResult = ObjectUtil.defaultIfNull(columnValue1, columnValue2);
+                index++;
+            }
+            // 层级字段获取到结果
+            if (sonKeys.size() == index) {
+                result = tempResult;
+            }
+        }
+        return result;
+    }
+}

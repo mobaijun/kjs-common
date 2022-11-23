@@ -17,6 +17,7 @@ package com.mobaijun.common.util.sql;
 
 import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.db.sql.SqlUtil;
 import cn.hutool.log.Log;
 import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.constant.StringConstant;
@@ -36,7 +37,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/4/22 17:06
  */
-public class SqlUtils {
+public class SqlUtils extends SqlUtil {
 
     /**
      * tools log

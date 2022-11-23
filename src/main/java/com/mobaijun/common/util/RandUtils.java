@@ -24,7 +24,7 @@ import cn.hutool.core.util.RandomUtil;
  *
  * @author MoBaiJun 2022/5/31 11:14
  */
-public class RandUtils {
+public class RandUtils extends RandomUtil {
 
     /**
      * 在给定的区间内产生随机数
