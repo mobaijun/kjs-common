@@ -56,7 +56,7 @@ public class RandUtils {
      */
     public static String getEmail(int lMin, int lMax) {
         int length = getNum(lMin, lMax);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             int number = (int) (Math.random() * RandomUtil.BASE_CHAR_NUMBER.length());
             sb.append(RandomUtil.BASE_CHAR_NUMBER.charAt(number));
@@ -100,13 +100,9 @@ public class RandUtils {
         String str = BOY;
         int length = BOY.length();
         // 返回中文姓名
-        String nameSex = "";
         if (sex == 0) {
             str = GIRL;
             length = GIRL.length();
-            nameSex = "女";
-        } else {
-            nameSex = "男";
         }
         index = getNum(0, length - 1);
         String second = str.substring(index, index + 1);

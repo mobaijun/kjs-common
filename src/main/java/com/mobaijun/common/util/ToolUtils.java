@@ -18,6 +18,7 @@ package com.mobaijun.common.util;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.util.constant.DateConstant;
 import com.mobaijun.common.util.constant.StringConstant;
 import com.mobaijun.common.util.regx.RegxConstant;
@@ -27,12 +28,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Array;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -369,7 +367,7 @@ public class ToolUtils {
      * @return Map 返回值Map
      */
     public static Map<String, Object> caseInsensitiveMap(Map<String, Object> map) {
-        Map<String, Object> tempMap = new HashMap<>();
+        Map<String, Object> tempMap = CollectionUtils.newHashMap();
         for (String key : map.keySet()) {
             tempMap.put(key.toLowerCase(), map.get(key));
         }
@@ -398,12 +396,12 @@ public class ToolUtils {
     /**
      * 创建StringBuilder对象
      *
-     * @param strs String...
+     * @param sts String...
      * @return StringBuilder对象
      */
-    public static StringBuilder builder(String... strs) {
+    public static StringBuilder builder(String... sts) {
         final StringBuilder sb = new StringBuilder();
-        for (String str : strs) {
+        for (String str : sts) {
             sb.append(str);
         }
         return sb;
@@ -515,7 +513,7 @@ public class ToolUtils {
      * @return String
      */
     public static String uuid() {
-        return UUID.randomUUID().toString().replaceAll(StringConstant.HIPHEN, StringConstant.BLANK);
+        return UUID.randomUUID().toString().replaceAll(StringConstant.HYPHEN, StringConstant.BLANK);
     }
 
     /**
@@ -643,7 +641,7 @@ public class ToolUtils {
      * @return List
      */
     public static <T> List<T> castList(Object obj, Class<T> clazz) {
-        List<T> result = new ArrayList<T>();
+        List<T> result = CollectionUtils.newArrayList();
         if (obj instanceof List<?>) {
             for (Object o : (List<?>) obj) {
                 result.add(clazz.cast(o));
@@ -662,7 +660,7 @@ public class ToolUtils {
      * @return Set
      */
     public static <T> Set<T> castSet(Object obj, Class<T> clazz) {
-        Set<T> result = new HashSet<>();
+        Set<T> result = CollectionUtils.newHashSet();
         if (obj instanceof Set<?>) {
             for (Object o : (Set<?>) obj) {
                 result.add(clazz.cast(o));

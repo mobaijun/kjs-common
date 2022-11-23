@@ -15,10 +15,10 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.util.constant.NumberConstant;
 import com.mobaijun.common.util.constant.StringConstant;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -75,7 +75,7 @@ public class UrlParamsUtils {
         if (paramsItems.length == 0) {
             return null;
         }
-        Map<String, String> result = new HashMap<>(10);
+        Map<String, String> result = CollectionUtils.newHashMap();
         for (String item : paramsItems) {
             if (item == null || item.length() == 0 || !item.contains(separator)) {
                 continue;
@@ -99,7 +99,7 @@ public class UrlParamsUtils {
         if (keyValues == null || keyValues.length == 0) {
             return null;
         }
-        Map<String, String> result = new HashMap<>(10);
+        Map<String, String> result = CollectionUtils.newHashMap();
         for (int i = 0; i < keyValues.length; i += NumberConstant.TWO) {
             result.put(keyValues[i], keyValues[i + 1]);
         }

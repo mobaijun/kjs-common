@@ -1,5 +1,7 @@
 package com.mobaijun.common.test.util;
 
+import com.mobaijun.common.util.BrowserUtils;
+
 /**
  * software：IntelliJ IDEA 2022.2.3
  * class name: BrowserUtilsTest
@@ -9,6 +11,7 @@ package com.mobaijun.common.test.util;
  */
 public class BrowserUtilsTest {
     public static void main(String[] args) {
-
+        // Invoke the default browser to open the specified webpage
+        BrowserUtils.openUrl("https://www.mobaijun.com");
     }
 }

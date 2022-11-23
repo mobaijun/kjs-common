@@ -56,7 +56,7 @@ public class NamingUtils {
         Matcher matcher = RegxConstant.HUMP_PATTERN.matcher(name);
         StringBuffer buffer = new StringBuffer();
         while (matcher.find()) {
-            matcher.appendReplacement(buffer, StringConstant.HIPHEN + matcher.group(0).toLowerCase());
+            matcher.appendReplacement(buffer, StringConstant.HYPHEN + matcher.group(0).toLowerCase());
         }
         matcher.appendTail(buffer);
         return buffer.toString();

@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util.number;
 
+import com.mobaijun.common.util.constant.DateConstant;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
@@ -75,7 +77,7 @@ public class NumberUtils {
             day = idNumber.substring(10, 12);
         }
         Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat(DateConstant.YYYY_MM_DD);
         String fyear = format.format(date).substring(0, 4);
         String fyue = format.format(date).substring(5, 7);
         String fday = format.format(date).substring(8, 10);
@@ -110,7 +112,7 @@ public class NumberUtils {
         if (scale < 0) {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }
-        BigDecimal b = new BigDecimal(Double.toString(v));
+        BigDecimal b = new BigDecimal(v);
         BigDecimal one = new BigDecimal("1");
         return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
     }

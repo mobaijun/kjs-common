@@ -52,7 +52,7 @@ public class StringUtils {
     }
 
     /**
-     * * 判断一个Collection是否为空， 包含List，Set，Queue
+     * 判断一个Collection是否为空， 包含List，Set，Queue
      *
      * @param coll 要判断的Collection
      * @return true：为空 false：非空
@@ -211,9 +211,9 @@ public class StringUtils {
         // 前置字符是否大写
         boolean preCharIsUpperCase;
         // 当前字符是否大写
-        boolean curreCharIsUpperCase;
+        boolean cureCharIsUpperCase;
         // 下一字符是否大写
-        boolean nexteCharIsUpperCase = true;
+        boolean nextCharIsUpperCase = true;
         for (int i = 0; i < str.length(); i++) {
             char c = str.charAt(i);
             if (i > 0) {
@@ -222,15 +222,15 @@ public class StringUtils {
                 preCharIsUpperCase = false;
             }
 
-            curreCharIsUpperCase = Character.isUpperCase(c);
+            cureCharIsUpperCase = Character.isUpperCase(c);
 
             if (i < (str.length() - 1)) {
-                nexteCharIsUpperCase = Character.isUpperCase(str.charAt(i + 1));
+                nextCharIsUpperCase = Character.isUpperCase(str.charAt(i + 1));
             }
 
-            if (preCharIsUpperCase && curreCharIsUpperCase && !nexteCharIsUpperCase) {
+            if (preCharIsUpperCase && cureCharIsUpperCase && !nextCharIsUpperCase) {
                 sb.append(StringConstant.UNDERLINE);
-            } else if ((i != 0 && !preCharIsUpperCase) && curreCharIsUpperCase) {
+            } else if ((i != 0 && !preCharIsUpperCase) && cureCharIsUpperCase) {
                 sb.append(StringConstant.UNDERLINE);
             }
             sb.append(Character.toLowerCase(c));

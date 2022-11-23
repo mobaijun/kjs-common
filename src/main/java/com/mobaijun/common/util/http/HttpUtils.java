@@ -50,7 +50,7 @@ public class HttpUtils {
      * 创建 git 请求
      *
      * @param url      url 地址
-     * @param hostname 代理idiz
+     * @param hostname 代理地址
      * @param port     代理端口
      * @return 主体 body
      */

@@ -141,11 +141,11 @@ public class ClassUtils extends ClassUtil {
     private static String simpleMapToStr(Map<String, Object> map) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         if (!i.hasNext()) {
-            return StringConstant.BIG_PARANTHESES;
+            return StringConstant.BIG_PARENTHESES;
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append(StringConstant.LEFT_BIG_PARANTHESES);
+        sb.append(StringConstant.LEFT_BIG_PARENTHESES);
         for (int t = NumberConstant.ONE; ; t++) {
             Entry<String, Object> e = i.next();
             sb.append(e.getKey())
@@ -154,7 +154,7 @@ public class ClassUtils extends ClassUtil {
                     .append(StringConstant.EMPTY_STRING)
                     .append(e.getValue());
             if (!i.hasNext()) {
-                return sb.append(StringConstant.RIGHT_BIG_PARANTHESES).toString();
+                return sb.append(StringConstant.RIGHT_BIG_PARENTHESES).toString();
             }
             sb.append(StringConstant.COMMA).append(StringConstant.EMPTY_STRING);
             if (t % NumberConstant.TEN == NumberConstant.ZERO && t != NumberConstant.ZERO) {
@@ -175,7 +175,7 @@ public class ClassUtils extends ClassUtil {
             return StringConstant.NULL;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(StringConstant.LEFT_BIG_PARANTHESES);
+        sb.append(StringConstant.LEFT_BIG_PARENTHESES);
         for (int t = NumberConstant.ONE; ; t++) {
             Entry<String, Object> e = i.next();
             String key = String.valueOf(e.getKey());

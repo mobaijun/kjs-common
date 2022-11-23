@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.util.collection.CollectionUtils;
+
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
@@ -42,11 +44,11 @@ public class MacAddressUtils {
     public static List<String> getMacList() throws Exception {
         java.util.Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
         StringBuilder sb = new StringBuilder();
-        ArrayList<String> tmpMacList = new ArrayList<>();
+        ArrayList<String> tmpMacList = CollectionUtils.newArrayList();
         while (en.hasMoreElements()) {
-            NetworkInterface iface = en.nextElement();
-            List<InterfaceAddress> addrs = iface.getInterfaceAddresses();
-            for (InterfaceAddress addr : addrs) {
+            NetworkInterface face = en.nextElement();
+            List<InterfaceAddress> adds = face.getInterfaceAddresses();
+            for (InterfaceAddress addr : adds) {
                 InetAddress ip = addr.getAddress();
                 NetworkInterface network = NetworkInterface.getByInetAddress(ip);
                 if (network == null) {

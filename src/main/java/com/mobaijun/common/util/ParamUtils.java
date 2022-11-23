@@ -15,12 +15,12 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.util.constant.StringConstant;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -65,7 +65,7 @@ public class ParamUtils {
      * @return 参数Map
      */
     public static Map<String, String> getUrlParams(String param) {
-        Map<String, String> map = new HashMap<>(10);
+        Map<String, String> map = CollectionUtils.newHashMap();
         if (StringUtils.isEmpty(param)) {
             return map;
         }

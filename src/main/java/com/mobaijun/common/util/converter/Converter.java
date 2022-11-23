@@ -828,7 +828,7 @@ public class Converter {
      */
     public static String digitUppercase(double n) {
         String[] fraction = StringConstant.FRACTION;
-        String[] digit = StringConstant.CHINESE_CHARACTERES;
+        String[] digit = StringConstant.CHINESE_CHARACTERS;
         String[][] unit = StringConstant.UNIT;
 
         String head = n < 0 ? "负" : "";

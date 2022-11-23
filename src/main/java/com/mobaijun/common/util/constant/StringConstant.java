@@ -23,47 +23,281 @@ package com.mobaijun.common.util.constant;
  * @author MoBaiJun 2022/5/18 9:49
  */
 public class StringConstant {
-    public static final String UTF8 = "utf-8";
+
+    /**
+     * VERTICAL_BAR
+     */
     public static final String VERTICAL_BAR = "|";
+
+    /**
+     * DOT
+     */
     public static final String DOT = ".";
+
+    /**
+     * PERIOD
+     */
     public static final String PERIOD = "。";
+
+    /**
+     * ASTERISK
+     */
     public static final String ASTERISK = "*";
+
+    /**
+     * COMMA
+     */
     public static final String COMMA = ",";
+
+    /**
+     * COLON
+     */
     public static final String COLON = ":";
+
+    /**
+     * QUESTION_MARK
+     */
     public static final String QUESTION_MARK = "?";
+
+    /**
+     * SEMICOLON
+     */
     public static final String SEMICOLON = ";";
-    public static final String SPRIT = "/";
-    public static final String HIPHEN = "-";
+
+    /**
+     * HYPHEN
+     */
+    public static final String HYPHEN = "-";
+
+    /**
+     * UNDERLINE
+     */
     public static final String UNDERLINE = "_";
+
+    /**
+     * BLANK
+     */
     public static final String BLANK = "";
+
+    /**
+     * AND
+     */
     public static final String AND = "&";
-    public static final String X_AUTH_TOKEN = "X-Auth-Token";
-    public static final String X_PAGE_NUM = "X-Page-Num";
-    public static final String X_PAGE_SIZE = "X-Page-Size";
-    public static final String X_TOTAL = "X-Total-Count";
-    public static final String COOKIE = "Cookie";
-    public static final String SET_COOKIE = "Set-Cookie";
+
+    /**
+     * EMPTY_STRING
+     */
+    public static final String EMPTY_STRING = " ";
+
+    /**
+     * EQUAL
+     */
     public static final String EQUAL = "=";
-    public static final String EMPTY_STRING = "";
-    public static final String LEFT_BIG_PARANTHESES = "{";
-    public static final String RIGHT_BIG_PARANTHESES = "}";
-    public static final String BIG_PARANTHESES = "{}";
+
+    /**
+     * LEFT_BIG_PARENTHESES
+     */
+    public static final String LEFT_BIG_PARENTHESES = "{";
+
+    /**
+     * RIGHT_BIG_PARENTHESES
+     */
+    public static final String RIGHT_BIG_PARENTHESES = "}";
+
+    /**
+     * BIG_PARENTHESES
+     */
+    public static final String BIG_PARENTHESES = "{}";
+
+    /**
+     * SQUARE_BRACKETS
+     */
     public static final String SQUARE_BRACKETS = "[]";
+
+    /**
+     * LEFT_SQUARE_BRACKETS
+     */
     public static final String LEFT_SQUARE_BRACKETS = "[";
+
+    /**
+     * RIGHT_SQUARE_BRACKETS
+     */
     public static final String RIGHT_SQUARE_BRACKETS = "]";
 
+    /**
+     * PARENTHESES
+     */
     public static final String PARENTHESES = "()";
+
+    /**
+     * LEFT_PARENTHESES
+     */
     public static final String LEFT_PARENTHESES = "(";
+
+    /**
+     * RIGHT_PARENTHESES
+     */
     public static final String RIGHT_PARENTHESES = ")";
+
+    /**
+     * LEFT_ARROW
+     */
     public static final String LEFT_ARROW = " -> ";
+
+    /**
+     * AT
+     */
     public static final String AT = "@";
+
+    /**
+     * NULL
+     */
     public static final String NULL = "null";
+
+    /**
+     * PACKAGE_NAME
+     */
     public static final String PACKAGE_NAME = "com.mobaijun";
-    public static final String[] CHINESE_CHARACTERES = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
+
+    /**
+     * CHINESE_CHARACTERS
+     */
+    public static final String[] CHINESE_CHARACTERS = {"零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"};
+
+    /**
+     * UNIT
+     */
     public static final String[][] UNIT = {{"元", "万", "亿"}, {"拾", "佰", "仟"}};
+
+    /**
+     * FRACTION
+     */
     public static final String[] FRACTION = {"角", "分"};
+
+    /**
+     * HTTP_PREFIX
+     */
     public static final String HTTP_PREFIX = "http://";
+
+    /**
+     * HTTPS_PREFIX
+     */
     public static final String HTTPS_PREFIX = "https://";
+
+    /**
+     * DOLLAR
+     */
+    public static final String DOLLAR = "$";
+
+    /**
+     * PERCENT
+     */
+    public static final String PERCENT = "%";
+
+    /**
+     * SLASH
+     */
+    public static final String SLASH = "/";
+
+    /**
+     * BACK_SLASH
+     */
+    public static final String BACK_SLASH = "\\";
+
+    /**
+     * FULL_WIDTH_LESS
+     */
+    public static String FULL_WIDTH_LESS = "＜";
+
+    /**
+     * FULL_WIDTH_GREATER
+     */
+    public static String FULL_WIDTH_GREATER = "＞";
+
+    /**
+     * HALF_WIDTH_LESS
+     */
+    public static String HALF_WIDTH_LESS = "<";
+
+    /**
+     * HALF_WIDTH_GREATER
+     */
+    public static String HALF_WIDTH_GREATER = ">";
+
+    /**
+     * INDEX_NOT_FOUND
+     */
+    public static final int INDEX_NOT_FOUND = -1;
+
+    /**
+     * TAB
+     */
+    public static final String TAB = "\t";
+
+    /**
+     * DOUBLE_DOT
+     */
+    public static final String DOUBLE_DOT = "..";
+
+    /**
+     * CR
+     */
+    public static final String CR = "\r";
+
+    /**
+     * LF
+     */
+    public static final String LF = "\n";
+
+    /**
+     * v
+     */
+    public static final String CRLF = "\r\n";
+
+    /**
+     * HTML_NBSP
+     */
+    public static final String HTML_NBSP = "&nbsp;";
+
+    /**
+     * HTML_AMP
+     */
+    public static final String HTML_AMP = "&amp;";
+
+    /**
+     * HTML_QUOTE
+     */
+    public static final String HTML_QUOTE = "&quot;";
+
+    /**
+     * HTML_APOS
+     */
+    public static final String HTML_APOS = "&apos;";
+
+    /**
+     * HTML_LT
+     */
+    public static final String HTML_LT = "&lt;";
+
+    /**
+     * HTML_GT
+     */
+    public static final String HTML_GT = "&gt;";
+
+    /**
+     * ISO_8859_1
+     */
+    private final static String ISO_8859_1 = "ISO-8859-1";
+
+    /**
+     * GB2312
+     */
+    private final static String GB2312 = "GB2312";
+
+    /**
+     * UTF_8
+     */
+    private final static String UTF_8 = "UTF-8";
 
     /**
      * // (浓汤)乳脂,番茄等-------// 薄雾玫瑰-------// 金---// 纯绿 ---------// 适中的绿宝石-----------// 爱丽丝蓝--// 板岩暗蓝灰色//  深粉色
@@ -112,4 +346,5 @@ public class StringConstant {
             "255,218,185", "244,164,96", "210,105,30", "139,69,19", "255,245,238", "160,82,45", "255,160,122", "255,127,80", "255,69,0",
             "233,150,122", "255,99,71", "255,228,225", "250,128,114", "255,250,250", "240,128,128", "188,143,143", "205,92,92", "205,133,63",
             "165,42,42", "178,34,34", "139,0,0", "128,0,0", "245,245,245", "211,211,211", "192,192,192", "105,105,105", "0,0,0", "255,0,0",};
+
 }

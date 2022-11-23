@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.util.image;
 
+import com.mobaijun.common.util.constant.FileConstant;
 import com.mobaijun.common.util.constant.NumberConstant;
 import com.mobaijun.common.util.constant.StringConstant;
 
@@ -68,7 +69,7 @@ public class GeneratorImage {
             }
         }
 
-        String filename = outputPath + File.separator + outputName + ".jpg";
+        String filename = outputPath + File.separator + outputName + FileConstant.IMAGE_JPG;
         File file = new File(filename);
         // Font font = new Font("微软雅黑", Font.PLAIN, 30);
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -116,7 +117,7 @@ public class GeneratorImage {
 
         }
         BufferedImage rounded = makeRoundedCorner(bi, fillet);
-        ImageIO.write(rounded, "png", file);
+        ImageIO.write(rounded, FileConstant.IMAGE_PNG, file);
     }
 
     /**
@@ -141,7 +142,7 @@ public class GeneratorImage {
         String[] beautifulColors = StringConstant.COLOR_LIST;
         int len = beautifulColors.length;
         Random random = new Random();
-        String[] color = beautifulColors[random.nextInt(len)].split(",");
+        String[] color = beautifulColors[random.nextInt(len)].split(StringConstant.COMMA);
         return new Color(Integer.parseInt(color[0]), Integer.parseInt(color[1]),
                 Integer.parseInt(color[2]));
     }

@@ -19,6 +19,7 @@ import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.exception.CustomException;
 import com.mobaijun.common.result.enums.HttpStatus;
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.constant.StringConstant;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -36,6 +37,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -135,7 +137,7 @@ public class CollectionUtils {
         if (StringUtils.isEmpty(str)) {
             return null;
         } else {
-            String[] strArray = str.split(",");
+            String[] strArray = str.split(StringConstant.COMMA);
             final Long[] longs = new Long[strArray.length];
             for (int i = 0; i < strArray.length; i++) {
                 longs[i] = strToLong(strArray[i], 0L);
@@ -151,7 +153,7 @@ public class CollectionUtils {
      * @return Collection
      */
     public static Collection<? extends Serializable> arrayToCollection(Long[] longArray) {
-        Collection<? extends Serializable> collection = new ArrayList<>();
+        Collection<? extends Serializable> collection = newArrayList();
         CollectionUtils.addAll(Collections.singleton(collection), longArray);
         return collection;
     }
@@ -279,7 +281,7 @@ public class CollectionUtils {
             return null;
         }
 
-        final List<T> currentAlaData = new ArrayList<>();
+        final List<T> currentAlaData = newArrayList();
         int size = surplusAlaData.size();
         // 切割
         if (size > partSize) {
@@ -303,6 +305,29 @@ public class CollectionUtils {
      */
     public static <T, K> HashMap<T, K> newHashMap() {
         return new HashMap<>();
+    }
+
+    /**
+     * 新建一个ConcurrentHashMap
+     *
+     * @param <T> 未定义
+     * @param <K> 未定义
+     * @return ConcurrentHashMap对象
+     */
+    public static <T, K> ConcurrentHashMap<T, K> newConcurrentHashMap() {
+        return new ConcurrentHashMap<>();
+    }
+
+    /**
+     * 新建一个ConcurrentHashMap
+     *
+     * @param size 初始大小，由于默认负载因子0.75，传入的size会实际初始大小为size / 0.75
+     * @param <T>  未定义
+     * @param <K>  未定义
+     * @return ConcurrentHashMap对象
+     */
+    public static <T, K> ConcurrentHashMap<T, K> newConcurrentHashMap(int size) {
+        return new ConcurrentHashMap<>((int) (size / 0.75));
     }
 
     /**
@@ -631,7 +656,7 @@ public class CollectionUtils {
         }
 
         final int size = Math.min(keys.length, values.length);
-        final Map<T, K> map = new HashMap<>((int) (size / 0.75));
+        final Map<T, K> map = newHashMap();
         for (int i = 0; i < size; i++) {
             map.put(keys[i], values[i]);
         }
@@ -697,10 +722,10 @@ public class CollectionUtils {
      * @return 是否包含
      */
     public static <T> boolean contains(T[] array, T value) {
-        final Class<?> componetType = array.getClass().getComponentType();
+        final Class<?> componentType = array.getClass().getComponentType();
         boolean isPrimitive = false;
-        if (null != componetType) {
-            isPrimitive = componetType.isPrimitive();
+        if (null != componentType) {
+            isPrimitive = componentType.isPrimitive();
         }
         for (T t : array) {
             if (t == value) {
@@ -721,7 +746,7 @@ public class CollectionUtils {
      * @return Map
      */
     public static <T, K> HashMap<T, K> toMap(Collection<Entry<T, K>> entryCollection) {
-        HashMap<T, K> map = new HashMap<>();
+        HashMap<T, K> map = newHashMap();
         for (Entry<T, K> entry : entryCollection) {
             map.put(entry.getKey(), entry.getValue());
         }
@@ -756,8 +781,7 @@ public class CollectionUtils {
         return list;
     }
 
-
-    //------------------------------------------------------------------- 基本类型的数组转换为包装类型数组
+    // ------------------------------------------------------------------- 基本类型的数组转换为包装类型数组
 
     /**
      * 将基本类型数组包装为包装类型
@@ -969,7 +993,7 @@ public class CollectionUtils {
      * @return 分段列表
      */
     public static <T> List<List<T>> split(Collection<T> collection, int size) {
-        final List<List<T>> result = new ArrayList<>();
+        final List<List<T>> result = newArrayList();
         if (isEmpty(collection)) {
             return result;
         }

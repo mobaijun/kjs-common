@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util.io;
 
+import com.mobaijun.common.util.constant.StringConstant;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -113,7 +115,7 @@ public class ZipUtils {
 
     private static void zip(File file, ZipOutputStream zos, String base) {
         if (file.isDirectory()) {
-            base += file.getName() + "/";
+            base += file.getName() + StringConstant.SLASH;
             try {
                 zos.putNextEntry(new ZipEntry(base));
             } catch (IOException e) {

@@ -63,7 +63,7 @@ public class SysCpu {
     }
 
     public double getTotal() {
-        return Arith.round(Arith.mul(total, 100), 2);
+        return Arity.round(Arity.mul(total, 100), 2);
     }
 
     public void setTotal(double total) {
@@ -71,7 +71,7 @@ public class SysCpu {
     }
 
     public double getSys() {
-        return Arith.round(Arith.mul(sys / total, 100), 2);
+        return Arity.round(Arity.mul(sys / total, 100), 2);
     }
 
     public void setSys(double sys) {
@@ -79,7 +79,7 @@ public class SysCpu {
     }
 
     public double getUsed() {
-        return Arith.round(Arith.mul(used / total, 100), 2);
+        return Arity.round(Arity.mul(used / total, 100), 2);
     }
 
     public void setUsed(double used) {
@@ -87,7 +87,7 @@ public class SysCpu {
     }
 
     public double getWait() {
-        return Arith.round(Arith.mul(wait / total, 100), 2);
+        return Arity.round(Arity.mul(wait / total, 100), 2);
     }
 
     public void setWait(double wait) {
@@ -95,7 +95,7 @@ public class SysCpu {
     }
 
     public double getFree() {
-        return Arith.round(Arith.mul(free / total, 100), 2);
+        return Arity.round(Arity.mul(free / total, 100), 2);
     }
 
     public void setFree(double free) {

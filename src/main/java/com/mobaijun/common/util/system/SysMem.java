@@ -39,7 +39,7 @@ public class SysMem {
     private double free;
 
     public double getTotal() {
-        return Arith.div(total, (1024 * 1024 * 1024), 2);
+        return Arity.div(total, (1024 * 1024 * 1024), 2);
     }
 
     public void setTotal(long total) {
@@ -47,7 +47,7 @@ public class SysMem {
     }
 
     public double getUsed() {
-        return Arith.div(used, (1024 * 1024 * 1024), 2);
+        return Arity.div(used, (1024 * 1024 * 1024), 2);
     }
 
     public void setUsed(long used) {
@@ -55,7 +55,7 @@ public class SysMem {
     }
 
     public double getFree() {
-        return Arith.div(free, (1024 * 1024 * 1024), 2);
+        return Arity.div(free, (1024 * 1024 * 1024), 2);
     }
 
     public void setFree(long free) {
@@ -63,6 +63,6 @@ public class SysMem {
     }
 
     public double getUsage() {
-        return Arith.mul(Arith.div(used, total, 4), 100);
+        return Arity.mul(Arity.div(used, total, 4), 100);
     }
 }

@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
@@ -25,6 +26,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/5/12 11:21
  */
 @Getter
+@AllArgsConstructor
 public enum StatusEnum {
     /**
      * 启用
@@ -36,12 +38,13 @@ public enum StatusEnum {
      */
     DISABLE(2, "禁用");
 
+    /**
+     * 状态码
+     */
     private final Integer code;
 
+    /**
+     * 消息
+     */
     private final String message;
-
-    StatusEnum(Integer code, String message) {
-        this.code = code;
-        this.message = message;
-    }
 }

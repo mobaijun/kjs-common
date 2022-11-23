@@ -19,6 +19,7 @@ import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
 import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.constant.StringConstant;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -101,7 +102,7 @@ public class SqlUtils {
     public static String parse(List<?> list) {
         StringBuilder str = new StringBuilder();
         if (list != null && list.size() > 0) {
-            str.append("?");
+            str.append(StringConstant.QUESTION_MARK);
             for (int i = 1; i < list.size(); i++) {
                 str.append(",?");
             }

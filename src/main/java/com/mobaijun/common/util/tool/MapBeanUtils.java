@@ -16,10 +16,10 @@
 package com.mobaijun.common.util.tool;
 
 import cn.hutool.log.Log;
+import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -43,7 +43,7 @@ public class MapBeanUtils {
      * @return Map String, Object
      */
     public static Map<String, Object> objectToMap(Object obj) {
-        Map<String, Object> map = new HashMap<>(1000);
+        Map<String, Object> map = CollectionUtils.newHashMap();
         if (obj == null) {
             return map;
         }

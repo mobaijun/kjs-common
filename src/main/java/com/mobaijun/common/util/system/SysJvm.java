@@ -56,7 +56,7 @@ public class SysJvm {
     private String home;
 
     public double getTotal() {
-        return Arith.div(total, (1024 * 1024), 2);
+        return Arity.div(total, (1024 * 1024), 2);
     }
 
     public void setTotal(double total) {
@@ -64,7 +64,7 @@ public class SysJvm {
     }
 
     public double getMax() {
-        return Arith.div(max, (1024 * 1024), 2);
+        return Arity.div(max, (1024 * 1024), 2);
     }
 
     public void setMax(double max) {
@@ -72,7 +72,7 @@ public class SysJvm {
     }
 
     public double getFree() {
-        return Arith.div(free, (1024 * 1024), 2);
+        return Arity.div(free, (1024 * 1024), 2);
     }
 
     public void setFree(double free) {
@@ -80,11 +80,11 @@ public class SysJvm {
     }
 
     public double getUsed() {
-        return Arith.div(total - free, (1024 * 1024), 2);
+        return Arity.div(total - free, (1024 * 1024), 2);
     }
 
     public double getUsage() {
-        return Arith.mul(Arith.div(total - free, total, 4), 100);
+        return Arity.mul(Arity.div(total - free, total, 4), 100);
     }
 
     /**

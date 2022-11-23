@@ -30,11 +30,6 @@ import java.nio.charset.StandardCharsets;
 public class CharsetKit {
 
     /**
-     * GBK
-     */
-    public static final String GBK = "GBK";
-
-    /**
      * UTF-8
      */
     public static final Charset CHARSET_UTF_8 = StandardCharsets.UTF_8;
