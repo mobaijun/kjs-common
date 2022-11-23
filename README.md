@@ -5,17 +5,21 @@
 <p align="center">
 	<strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
 </p>
-
 <p align="center">
-	<a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
-		<img src="https://img.shields.io/:license-apache-blue.svg" ></img>
-	</a>
-	<a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
-		<img src="https://img.shields.io/badge/JDK-1.8+-green.svg" ></img>
-	</a>
-	<a target="_blank" href='https://github.com/mobaijun/kjs-common'>
-		<img src="https://img.shields.io/github/stars/mobaijun/kjs-common.svg?style=social" alt="github star"></img>
-	</a>
+    <a target="_blank" href="https://search.maven.org/artifact/com.mobaijun/kjs-common">
+        <img src="https://img.shields.io/maven-central/v/com.mobaijun/kjs-common.svg?style=flat&logo=Apache Maven"
+             alt="kjs-common"/>
+    </a>
+    <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0.html">
+        <img src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat&logo=apache" alt="apache">
+    </a>
+    <a target="_blank" href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">
+        <img src="https://img.shields.io/badge/JDK-1.8+-green.svg?style=flat&logo=Oracle" alt="jdk">
+    </a>
+    <a target="_blank" href='https://github.com/mobaijun/kjs-common'>
+        <img src="https://img.shields.io/github/stars/mobaijun/kjs-common.svg?style=flat&logo=GitHub"
+             alt="github star">
+    </a>
 </p>
 
 ## 概述
