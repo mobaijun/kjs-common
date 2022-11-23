@@ -26,13 +26,13 @@ import com.mobaijun.common.util.converter.Converter;
  */
 public class StrFormatter {
 
-    public static final String EMPTY_JSON = "{}";
+    private static final String EMPTY_JSON = "{}";
 
-    public static final char C_BACKSLASH = '\\';
+    private static final char C_BACKSLASH = '\\';
 
-    public static final char C_DELIM_START = '{';
+    private static final char C_DELIM_START = '{';
 
-    public static final char C_DELIM_END = '}';
+    private static final char C_DELIM_END = '}';
 
     /**
      * 格式化字符串
