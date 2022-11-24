@@ -158,7 +158,7 @@ public class LocalDateUtils {
     /**
      * 获取 LocalDateTime的毫秒数
      *
-     * @param localDateTime 时间 {@link LocalDateTime}
+     * @param localDateTime 时间 LocalDateTime
      * @return 毫秒数
      */
     public static Long toMillisecond(LocalDateTime localDateTime) {
@@ -171,7 +171,7 @@ public class LocalDateUtils {
     /**
      * 获取 LocalDate 的毫秒数
      *
-     * @param localDate 时间 {@link LocalDate}
+     * @param localDate 时间 LocalDate
      * @return 毫秒数
      */
     public static Long toMillisecond(LocalDate localDate) {
@@ -184,8 +184,8 @@ public class LocalDateUtils {
     /**
      * 将 Instant 转换成 LocalDateTime
      *
-     * @param instant {@link Instant}
-     * @return {@link LocalDateTime}
+     * @param instant Instant
+     * @return LocalDateTime
      */
     public static LocalDateTime toLocalDateTime(Instant instant) {
         return instant.atZone(ZoneId.systemDefault()).toLocalDateTime();
@@ -194,8 +194,8 @@ public class LocalDateUtils {
     /**
      * 将 Date 转换成 Instant
      *
-     * @param date {@link Date}
-     * @return {@link Instant}
+     * @param date Date
+     * @return Instant
      */
     public static Instant toInstant(Date date) {
         return date.toInstant();
@@ -204,7 +204,7 @@ public class LocalDateUtils {
     /**
      * 获取 LocalDateTime的秒数
      *
-     * @param localDateTime 时间 {@link LocalDateTime}
+     * @param localDateTime 时间 LocalDateTime
      * @return 时间戳（秒数）
      */
     public static Long toSecond(LocalDateTime localDateTime) {
@@ -371,7 +371,7 @@ public class LocalDateUtils {
      * 时间戳（毫秒）转为 LocalDateTime
      *
      * @param timestamp 时间戳（毫秒）
-     * @return {@link LocalDateTime}
+     * @return LocalDateTime
      */
     public static LocalDateTime toLocalDateTime(Long timestamp) {
         if (Objects.isNull(timestamp)) {
@@ -483,7 +483,7 @@ public class LocalDateUtils {
      * 一周的第一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate firstDayOfWeek(LocalDate localDate) {
         return localDate.with(DayOfWeek.MONDAY);
@@ -493,7 +493,7 @@ public class LocalDateUtils {
      * 一周的最后一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate lastDayOfWeek(LocalDate localDate) {
         return localDate.with(DayOfWeek.SUNDAY);
@@ -503,7 +503,7 @@ public class LocalDateUtils {
      * 月的第一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate firstDayOfMonth(LocalDate localDate) {
         return localDate.with(TemporalAdjusters.firstDayOfMonth());
@@ -513,7 +513,7 @@ public class LocalDateUtils {
      * 月的最后一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate lastDayOfMonth(LocalDate localDate) {
         return localDate.with(TemporalAdjusters.lastDayOfMonth());
@@ -523,7 +523,7 @@ public class LocalDateUtils {
      * 每年的第一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate firstDayOfYear(LocalDate localDate) {
         return localDate.with(TemporalAdjusters.firstDayOfYear());
@@ -533,7 +533,7 @@ public class LocalDateUtils {
      * 每年的最后一天
      *
      * @param localDate 当地日期
-     * @return {@link LocalDate}
+     * @return LocalDate
      */
     public static LocalDate lastDayOfYear(LocalDate localDate) {
         return localDate.with(TemporalAdjusters.lastDayOfYear());
@@ -543,7 +543,7 @@ public class LocalDateUtils {
      * 每周的所有日期  即周一到周日
      *
      * @param localDate 当地日期
-     * @return {@link List<LocalDate>}
+     * @return List<LocalDate>
      */
     public static List<LocalDate> allDaysOfWeek(LocalDate localDate) {
         List<LocalDate> allDays = new ArrayList<>();
@@ -561,7 +561,7 @@ public class LocalDateUtils {
      * 每月的所有日期  即1日到31日
      *
      * @param localDate 当地日期
-     * @return {@link List<LocalDate>}
+     * @return List<LocalDate>
      */
     public static List<LocalDate> allDaysOfMonth(LocalDate localDate) {
         List<LocalDate> allDays = new ArrayList<>();
