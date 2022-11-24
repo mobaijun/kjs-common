@@ -1,9 +1,8 @@
 <h1 align="center">
     kjs-common
 </h1>
-
 <p align="center">
-	<strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
+    <strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
 </p>
 <p align="center">
     <a target="_blank" href="https://search.maven.org/artifact/com.mobaijun/kjs-common">
@@ -19,6 +18,9 @@
     <a target="_blank" href='https://github.com/mobaijun/kjs-common'>
         <img src="https://img.shields.io/github/stars/mobaijun/kjs-common.svg?style=flat&logo=GitHub"
              alt="github star">
+    </a>
+    <a target="_blank" href='https://github.com/mobaijun/kjs-common'>
+        <img src="https://komarev.com/ghpvc/?username=mobaijun&color=orange" alt="profile">
     </a>
 </p>
 
