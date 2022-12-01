@@ -89,7 +89,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 将 localDateTime 按照一定的格式转换成String
+     * 将 localDateTime 按照一定的格式转换成 String
      *
      * @param localDateTime localDateTime
      * @param pattern       pattern
@@ -100,7 +100,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 将date转换成String
+     * 将 date 转换成 String
      *
      * @param date    date
      * @param pattern pattern
@@ -144,7 +144,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 将 Date 转换成LocalDateTime
+     * 将 Date 转换成 LocalDateTime
      * atZone()方法返回在指定时区从此Instant生成的ZonedDateTime。
      *
      * @param date date
@@ -156,7 +156,7 @@ public class LocalDateUtils {
 
 
     /**
-     * 获取 LocalDateTime的毫秒数
+     * 获取 LocalDateTime 的毫秒数
      *
      * @param localDateTime 时间 LocalDateTime
      * @return 毫秒数
@@ -247,8 +247,7 @@ public class LocalDateUtils {
      * @return 满足指定格式的时间字符串
      */
     public static String format(Instant instant, String pattern) {
-        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
-                .format(DateTimeFormatter.ofPattern(pattern));
+        return LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern(pattern));
     }
 
     /**
@@ -273,7 +272,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 计算两个LocalDateTime 之间的毫秒数
+     * 计算两个 LocalDateTime 之间的毫秒数
      *
      * @param time1 time1
      * @param time2 time2
@@ -284,7 +283,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 计算两个LocalTime 之间的毫秒数
+     * 计算两个 LocalTime 之间的毫秒数
      *
      * @param time1 time1
      * @param time2 time2
@@ -306,7 +305,7 @@ public class LocalDateUtils {
     }
 
     /**
-     * 计算两个LocalDate 之间的Period
+     * 计算两个 LocalDate 之间的Period
      *
      * @param time1 time1
      * @param time2 time2
@@ -323,21 +322,18 @@ public class LocalDateUtils {
      * @return Instant {@code 2022-11-08T16:00:00Z}
      */
     public static Instant parseInstant(String source) {
-        return LocalDate.parse(source)
-                .atStartOfDay(ZoneId.systemDefault()).toInstant();
+        return LocalDate.parse(source).atStartOfDay(ZoneId.systemDefault()).toInstant();
     }
 
     /**
-     * 将 时间字符串 转为 Instant
+     * 将时间字符串 转为 Instant
      *
      * @param source  时间字符串
      * @param pattern 格式
      * @return Instant
      */
     public static Instant parseInstant(String source, String pattern) {
-        return LocalDateTime.parse(source,
-                        DateTimeFormatter.ofPattern(pattern))
-                .atZone(ZoneOffset.systemDefault()).toInstant();
+        return LocalDateTime.parse(source, DateTimeFormatter.ofPattern(pattern)).atZone(ZoneOffset.systemDefault()).toInstant();
     }
 
     /**
@@ -366,7 +362,6 @@ public class LocalDateUtils {
         return periodLocalDate(toLocalDate(date1), toLocalDate(date2));
     }
 
-
     /**
      * 时间戳（毫秒）转为 LocalDateTime
      *
@@ -386,8 +381,7 @@ public class LocalDateUtils {
      * @return LocalDateTime
      */
     public static LocalDateTime getServerStartDate() {
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(
-                ManagementFactory.getRuntimeMXBean().getStartTime()), ZoneId.systemDefault());
+        return LocalDateTime.ofInstant(Instant.ofEpochMilli(ManagementFactory.getRuntimeMXBean().getStartTime()), ZoneId.systemDefault());
     }
 
     /**
@@ -460,10 +454,7 @@ public class LocalDateUtils {
      * @return LocalDateTime
      */
     public static LocalDateTime getDayStart(LocalDateTime time) {
-        return time.withHour(0)
-                .withMinute(0)
-                .withSecond(0)
-                .withNano(0);
+        return time.withHour(0).withMinute(0).withSecond(0).withNano(0);
     }
 
     /**
@@ -473,10 +464,7 @@ public class LocalDateUtils {
      * @return LocalDateTime
      */
     public static LocalDateTime getDayEnd(LocalDateTime time) {
-        return time.withHour(23)
-                .withMinute(59)
-                .withSecond(59)
-                .withNano(999999999);
+        return time.withHour(23).withMinute(59).withSecond(59).withNano(999999999);
     }
 
     /**
@@ -643,7 +631,6 @@ public class LocalDateUtils {
         }
     }
 
-
     /**
      * 获取当前月的开始时间
      *
@@ -652,9 +639,7 @@ public class LocalDateUtils {
      */
     public static LocalDateTime getStartOfMonth(LocalDate localDate) {
         LocalDateTime nowDateTime = localDate.atStartOfDay();
-        return nowDateTime
-                .with(TemporalAdjusters.firstDayOfMonth())
-                .with(LocalTime.MIN);
+        return nowDateTime.with(TemporalAdjusters.firstDayOfMonth()).with(LocalTime.MIN);
     }
 
     /**
@@ -699,6 +684,24 @@ public class LocalDateUtils {
     }
 
     /**
+     * 获取当前月
+     *
+     * @return mm
+     */
+    public static int curMonth() {
+        return getMonth(0);
+    }
+
+    /**
+     * 获取当前天
+     *
+     * @return y
+     */
+    public static int curDay() {
+        return getDayOfYear(0);
+    }
+
+    /**
      * 获取指定年份
      *
      * @param minus 偏移量
@@ -709,14 +712,33 @@ public class LocalDateUtils {
     }
 
     /**
+     * 获取指定月份
+     *
+     * @param minus 偏移量
+     * @return 月份
+     */
+    public static int getMonth(int minus) {
+        return LocalDate.now().minusMonths(minus).getDayOfMonth();
+    }
+
+    /**
+     * 获取一年中的某天
+     *
+     * @param minus 偏移量
+     * @return 天
+     */
+    public static int getDayOfYear(int minus) {
+        return LocalDate.now().minusWeeks(minus).getDayOfYear();
+    }
+
+    /**
      * 获取月；格式 yyyy-MM
      *
-     * @param minus   前几个月
+     * @param minus   偏移量
      * @param pattern 格
      * @return 格式化月份
      */
     public static String getYearOfMonth(int minus, String pattern) {
-        LocalDate localDate = LocalDate.now().minusMonths(1);
-        return localDate.format(DateTimeFormatter.ofPattern(pattern));
+        return LocalDate.now().minusMonths(minus).format(DateTimeFormatter.ofPattern(pattern));
     }
 }

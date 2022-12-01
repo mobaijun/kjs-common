@@ -36,20 +36,6 @@ public class NamingUtils {
      * @return 转换后的名称
      */
     public static String humpToMidline(String name) {
-        return getString(name);
-    }
-
-    /**
-     * 驼峰转中划线
-     *
-     * @param name 待转换的名称
-     * @return 转换后的名称
-     */
-    public static String humpToUnderline(String name) {
-        return getString(name);
-    }
-
-    private static String getString(String name) {
         if (StringUtils.isEmpty(name)) {
             return StringConstant.BLANK;
         }
@@ -60,6 +46,29 @@ public class NamingUtils {
         }
         matcher.appendTail(buffer);
         return buffer.toString();
+    }
+
+    /**
+     * 驼峰转下划线
+     *
+     * @param name 待转换的名称
+     * @return 转换后的名称
+     */
+    public static String humpToUnderline(String name) {
+        StringBuilder buf = new StringBuilder();
+        for (int i = 0; i < name.length(); ++i) {
+            char ch = name.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                char chars = (char) (ch + 32);
+                if (i > 0) {
+                    buf.append(StringConstant.UNDERLINE);
+                }
+                buf.append(chars);
+            } else {
+                buf.append(ch);
+            }
+        }
+        return buf.toString();
     }
 
     /**
