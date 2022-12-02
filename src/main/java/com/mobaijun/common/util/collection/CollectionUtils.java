@@ -16,10 +16,8 @@
 package com.mobaijun.common.util.collection;
 
 import cn.hutool.core.util.StrUtil;
-import com.mobaijun.common.exception.CustomException;
-import com.mobaijun.common.result.enums.HttpStatus;
-import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.StringUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -946,7 +944,7 @@ public class CollectionUtils {
                     case "double":
                         return Arrays.toString((double[]) obj);
                     default:
-                        throw new CustomException(HttpStatus.ERROR.getCode(), e.getMessage());
+                        throw new ClassCastException(e.getMessage());
                 }
             }
         }
