@@ -76,6 +76,7 @@
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.12</nexus-staging-maven-plugin.version>
         <lombok.version>[1.+,)</lombok.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
         <hutool-all.version>[5.+,)</hutool-all.version>
@@ -125,6 +126,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <!-- maven-source-plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
@@ -139,6 +141,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- Javadoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -162,6 +165,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- GPG -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -175,7 +179,14 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <gpgArguments>
+                        <argument>--pinentry-mode</argument>
+                        <argument>loopback</argument>
+                    </gpgArguments>
+                </configuration>
             </plugin>
+
             <!-- copy -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -201,6 +212,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <!-- maven packaging skips tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -208,6 +220,19 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <!--  oss Officially recommended release plugin -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>${nexus-staging-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
