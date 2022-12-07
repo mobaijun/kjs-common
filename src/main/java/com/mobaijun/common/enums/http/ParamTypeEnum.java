@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.http;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: ParamTypeEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: ParamTypeEnum<br>
  * enum description：请求参数类型
  *
  * @author MoBaiJun 2022/5/12 13:27

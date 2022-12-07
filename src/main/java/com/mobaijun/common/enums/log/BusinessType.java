@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.log;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: BusinessType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: BusinessType<br>
  * enum description： 业务操作类型
  *
  * @author MoBaiJun 2022/5/12 9:18

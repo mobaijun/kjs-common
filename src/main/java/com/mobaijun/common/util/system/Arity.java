@@ -19,9 +19,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: Arity
- * class description： 内存算法
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: Arity<br>
+ * class description： 内存算法<br>
  *
  * @author MoBaiJun 2022/5/11 14:54
  */

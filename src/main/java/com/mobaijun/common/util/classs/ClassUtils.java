@@ -38,12 +38,12 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * software：IntelliJ IDEA NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO.1
- * class name: ClassUtils
- * class description： 类处理工具
- * 这个类是方便控制台输出object，主要应用java反射机制。 因为考虑到使用性和美观性，没有使用无限递归。
- * 而是在toStr方法中加入一个boolean recursion ，是否递归。
- * 当然我们也可以将boolean recursion换成int recursion，控制递归次数。
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ClassUtils<br>
+ * class description： 类处理工具<br>
+ * 这个类是方便控制台输出object，主要应用java反射机制。 因为考虑到使用性和美观性，没有使用无限递归。<br>
+ * 而是在toStr方法中加入一个boolean recursion ，是否递归。<br>
+ * 当然我们也可以将boolean recursion换成int recursion，控制递归次数。<br>
  * 其实就我使用经验来看，复杂数据 toString，用 json 工具转化成 json 输出是一个不错的方式。
  *
  * @author MoBaiJun NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO/5/18 9:19
@@ -517,7 +517,7 @@ public class ClassUtils extends ClassUtil {
     }
 
     /**
-     * <p>
+     * <br>
      * 获取当前对象的 class
      * </p>
      *
@@ -530,7 +530,7 @@ public class ClassUtils extends ClassUtil {
     }
 
     /**
-     * <p>
+     * <br>
      * 获取当前对象的class
      * </p>
      *
@@ -543,10 +543,10 @@ public class ClassUtils extends ClassUtil {
     }
 
     /**
-     * <p>
+     * <br>
      * 根据指定的 class ， 实例化一个对象，根据构造参数来实例化
      * </p>
-     * <p>
+     * <br>
      * 在 java9 及其之后的版本 Class.newInstance() 方法已被废弃
      * </p>
      *

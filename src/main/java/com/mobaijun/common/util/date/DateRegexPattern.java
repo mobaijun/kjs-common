@@ -18,8 +18,8 @@ package com.mobaijun.common.util.date;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: DateRegexPattern
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: DateRegexPattern<br>
  * class description: 时间正则表达式
  *
  * @author MoBaiJun 2022/11/23 13:47

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.database;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: DataSourceStatusEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: DataSourceStatusEnum<br>
  * enum description：数据库连接的状态枚举
  *
  * @author MoBaiJun 2022/5/12 13:15

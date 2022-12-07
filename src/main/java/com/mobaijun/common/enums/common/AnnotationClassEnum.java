@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: AnnotationClassEnums
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: AnnotationClassEnums<br>
  * enum description: 注解枚举
  *
  * @author MoBaiJun 2022/12/5 9:11

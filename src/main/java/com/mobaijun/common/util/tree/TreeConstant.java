@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.tree;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TreeConstant
- * description: tree 属性常量
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TreeConstant<br>
+ * description: tree 属性常量<br>
  *
  * @author MoBaiJun 2022/11/5 23:48
  */

@@ -16,8 +16,8 @@
 package com.mobaijun.common.util.date;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: DatePattern
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: DatePattern<br>
  * class description: 日期格式
  *
  * @author MoBaiJun 2022/11/23 13:46

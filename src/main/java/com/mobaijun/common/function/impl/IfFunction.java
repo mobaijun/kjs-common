@@ -20,8 +20,8 @@ import com.mobaijun.common.function.JudgeFunction;
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: IfFunction
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: IfFunction<br>
  * class description：代替'if else' 和 'switch'的方法
  *
  * @param <K> 限定的参数类型

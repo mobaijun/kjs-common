@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: EPlatformEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: EPlatformEnum<br>
  * enum description： 操作系统枚举
  *
  * @author MoBaiJun 2022/10/28 9:47

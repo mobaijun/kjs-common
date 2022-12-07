@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: ConstantThread
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: ConstantThread<br>
  * 类描述： 线程常量
  *
  * @author MoBaiJun 2022/4/25 12:20

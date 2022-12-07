@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.file;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: FileLocationEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: FileLocationEnum<br>
  * enum description：文件存储位置
  *
  * @author MoBaiJun 2022/5/12 13:18

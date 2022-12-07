@@ -26,8 +26,8 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: R
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: R<br>
  * class description：返回体结构
  *
  * @author MoBaiJun 2022/6/30 15:01

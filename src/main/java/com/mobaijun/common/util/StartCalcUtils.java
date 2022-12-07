@@ -21,9 +21,9 @@ import cn.hutool.core.date.DateUtil;
 import java.util.Date;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: StartCalcUtil
- * class description：开始时间的计时工具
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: StartCalcUtil<br>
+ * class description：开始时间的计时工具<br>
  *
  * @author MoBaiJun 2022/5/12 14:05
  */

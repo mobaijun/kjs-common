@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.dict;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: DictTypeClassEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: DictTypeClassEnum<br>
  * enum description：字典类型的分类枚举
  *
  * @author MoBaiJun 2022/5/12 14:06

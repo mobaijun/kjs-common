@@ -23,9 +23,9 @@ import cn.hutool.core.util.URLUtil;
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: RedirectUrlBuildUtil
- * class description：构建redirect url的工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: RedirectUrlBuildUtil<br>
+ * class description：构建redirect url的工具类<br>
  *
  * @author MoBaiJun 2022/5/12 11:38
  */

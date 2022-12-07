@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util.http;
 
-import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.util.StringUtils;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -27,8 +27,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: IpUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: IpUtils<br>
  * class description： IP工具类
  *
  * @author MoBaiJun 2022/5/12 10:17

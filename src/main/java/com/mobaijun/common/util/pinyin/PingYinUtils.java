@@ -21,8 +21,8 @@ import lombok.NoArgsConstructor;
 import java.util.Random;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: PingYinUtils
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: PingYinUtils<br>
  * class description: 拼音工具类
  *
  * @author MoBaiJun 2022/11/22 12:16

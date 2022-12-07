@@ -18,8 +18,8 @@ package com.mobaijun.common.common;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: CommonPattern
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: CommonPattern<br>
  * class description: 公共正则匹配器
  *
  * @author MoBaiJun 2022/11/23 13:44

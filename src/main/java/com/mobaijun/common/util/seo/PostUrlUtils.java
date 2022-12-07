@@ -17,10 +17,10 @@ package com.mobaijun.common.util.seo;
 
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.mobaijun.common.util.ObjectUtils;
-import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.ObjectUtils;
+import com.mobaijun.common.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,9 +32,9 @@ import java.net.URLConnection;
 import java.util.Vector;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: PostUrlUtils
- * class description：Java implements batch submission of web links on Baidu webmaster platform
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: PostUrlUtils<br>
+ * class description：Java implements batch submission of web links on Baidu webmaster platform<br>
  *
  * @author MoBaiJun 2022/5/25 11:29
  */

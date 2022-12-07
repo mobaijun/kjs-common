@@ -20,9 +20,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TreeNodeMap
- * description: 树节点包装
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TreeNodeMap<br>
+ * description: 树节点包装<br>
  *
  * @author MoBaiJun 2022/11/6 0:19
  */

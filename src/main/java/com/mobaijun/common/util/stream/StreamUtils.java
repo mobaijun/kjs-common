@@ -35,9 +35,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: StreamUtils
- * 类描述： Stream工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: StreamUtils<br>
+ * 类描述： Stream工具类<br>
  *
  * @author MoBaiJun 2022/4/24 11:27
  */

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.log;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: LoginType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: LoginType<br>
  * enum description： 登录类型
  *
  * @author MoBaiJun 2022/5/12 9:26

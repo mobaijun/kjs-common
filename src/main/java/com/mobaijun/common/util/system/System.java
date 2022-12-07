@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.system;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: System
- * class description：系统相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: System<br>
+ * class description：系统相关信息<br>
  *
  * @author MoBaiJun 2022/5/11 14:53
  */

@@ -23,9 +23,9 @@ import java.lang.reflect.Modifier;
 import java.util.Map;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: MapBeanUtil
- * 类描述： 实体对象转map
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: MapBeanUtil<br>
+ * 类描述： 实体对象转map<br>
  *
  * @author MoBaiJun 2022/4/24 10:53
  */

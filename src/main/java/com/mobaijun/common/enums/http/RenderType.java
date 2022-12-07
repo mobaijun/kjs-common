@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.http;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: RenderType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: RenderType<br>
  * enum description： 呈现类型
  *
  * @author MoBaiJun 2022/10/31 13:55

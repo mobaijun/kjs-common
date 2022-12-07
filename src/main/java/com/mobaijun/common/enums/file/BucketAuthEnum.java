@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.file;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: BucketAuthEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: BucketAuthEnum<br>
  * enum description：桶的权限策略枚举
  *
  * @author MoBaiJun 2022/5/12 13:18
@@ -40,7 +40,7 @@ public enum BucketAuthEnum {
 
     /**
      * 只写 （其他客户端只有写入文件权限，无读取文件权限）
-     * <p>
+     * <br>
      * 即公有写，私有读（ owner 可以读写， 其他客户可以写）
      */
     MINIO_WRITE_ONLY,

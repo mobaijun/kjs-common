@@ -24,9 +24,9 @@ import java.net.URLClassLoader;
 import java.util.Objects;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ExtensionLoader
- * class description： 扩展加载器
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ExtensionLoader<br>
+ * class description： 扩展加载器<br>
  *
  * @author MoBaiJun 2022/5/27 11:38
  */

@@ -16,9 +16,9 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: StringConstant
- * class description： 字符串常量
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: StringConstant<br>
+ * class description： 字符串常量<br>
  *
  * @author MoBaiJun 2022/5/18 9:49
  */

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.database;
 import lombok.Getter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: DataSourceType
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: DataSourceType<br>
  * 类描述： 数据源类型
  *
  * @author MoBaiJun 2022/4/25 15:18

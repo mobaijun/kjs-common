@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.client;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: SourceEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: SourceEnum<br>
  * enum description：客户端类型枚举
  *
  * @author MoBaiJun 2022/5/12 13:41

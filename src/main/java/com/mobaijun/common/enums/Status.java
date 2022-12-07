@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * EnumName: Status
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * EnumName: Status<br>
  * 枚举描述： 通用状态字段
  *
  * @author MoBaiJun 2022/4/25 14:43

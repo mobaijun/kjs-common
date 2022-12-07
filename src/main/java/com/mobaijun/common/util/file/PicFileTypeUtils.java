@@ -21,8 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: PicFileTypeUtil
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: PicFileTypeUtil<br>
  * class description： 文件类型识别工具类
  *
  * @author MoBaiJun 2022/5/12 13:21

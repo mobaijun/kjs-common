@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: UserAgentConstant
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: UserAgentConstant<br>
  * class description: 用户代理常量
  *
  * @author MoBaiJun 2022/11/22 11:24

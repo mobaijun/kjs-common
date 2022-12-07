@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.dict;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: DictSelectTagHead
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: DictSelectTagHead<br>
  * enum description：字典下拉选头类型
  *
  * @author MoBaiJun 2022/5/12 14:13

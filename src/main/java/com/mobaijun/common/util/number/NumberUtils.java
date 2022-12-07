@@ -24,8 +24,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: NumberUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: NumberUtils<br>
  * class description：数字处理工具类
  *
  * @author MoBaiJun 2022/5/12 14:27

@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.tree;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TreeNodeConfig
- * description: 树节点配置类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TreeNodeConfig<br>
+ * description: 树节点配置类<br>
  *
  * @author MoBaiJun 2022/11/5 23:47
  */

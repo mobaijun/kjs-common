@@ -18,8 +18,8 @@ package com.mobaijun.common.util.cron;
 import cn.hutool.log.Log;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: CronUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: CronUtils<br>
  * class description： Cron 表达式工具类
  *
  * @author MoBaiJun 2022/8/8 17:04

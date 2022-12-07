@@ -34,8 +34,8 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: DownloadUtils
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: DownloadUtils<br>
  * 类描述： 文件下载
  *
  * @author MoBaiJun 2022/5/5 8:59

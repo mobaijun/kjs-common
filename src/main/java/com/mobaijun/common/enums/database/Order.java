@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: Order
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: Order<br>
  * enum description： 排序
  *
  * @author MoBaiJun 2022/5/12 9:31

@@ -27,9 +27,9 @@ import static com.mobaijun.common.util.converter.Converter.getNumber;
 import static com.mobaijun.common.util.converter.Converter.getaShort;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: StrConvert
- * 类描述： 字符串转换器
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: StrConvert<br>
+ * 类描述： 字符串转换器<br>
  *
  * @author MoBaiJun 2022/4/22 18:49
  */

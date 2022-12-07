@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: LicenseTitleAppenderUtil
- * class description：一键添加开源协议头
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: LicenseTitleAppenderUtil<br>
+ * class description：一键添加开源协议头<br>
  *
  * @author MoBaiJun 2022/5/12 11:35
  */

@@ -20,8 +20,8 @@ import cn.hutool.core.date.format.FastDateFormat;
 import java.util.Locale;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: DateFormat
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: DateFormat<br>
  * class description: 日期格式化
  *
  * @author MoBaiJun 2022/11/23 13:45

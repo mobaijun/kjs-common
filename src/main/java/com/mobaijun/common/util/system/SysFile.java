@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.system;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: SysFile
- * class description： 系统文件相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: SysFile<br>
+ * class description： 系统文件相关信息<br>
  *
  * @author MoBaiJun 2022/5/11 14:49
  */

@@ -38,8 +38,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: LocalDateUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: LocalDateUtils<br>
  * class description： local date 日期工具类
  *
  * @author MoBaiJun 2022/10/28 8:42
@@ -227,7 +227,7 @@ public class LocalDateUtils {
 
     /**
      * 将时间格式化成字符串
-     * <p>
+     * <br>
      * 提示：不能转换秒
      * </p>
      *
@@ -338,7 +338,7 @@ public class LocalDateUtils {
 
     /**
      * 比较两个时间大小，简言之，{@code before < after} 是否成立
-     * <p>
+     * <br>
      * 假定有两个时间，before和after，如果before小于after，返回 {@code true }，
      * 反之，返回 {@code false}
      * </p>

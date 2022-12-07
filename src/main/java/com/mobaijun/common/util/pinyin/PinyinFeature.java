@@ -16,15 +16,15 @@
 package com.mobaijun.common.util.pinyin;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: PinyinFeature
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: PinyinFeature<br>
  * class description:
  * 拼音特性，决定着拼音工具类的处理方式，“_ALWAYS”结尾的总是生效
- * <p>
+ * <br>
  * 默认值：<br>
  * 第一个单词首字母是否大写：false<br>
  * 第二个单词首字母是否大写：false<br>
- * 非拼音前后是否需要分隔符：false
+ * 非拼音前后是否需要分隔符：false<br>
  *
  * @author MoBaiJun 2022/11/23 17:45
  */

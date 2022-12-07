@@ -26,8 +26,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: DesUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: DesUtils<br>
  * class description：
  *
  * @author MoBaiJun 2022/5/18 10:20

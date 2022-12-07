@@ -21,9 +21,9 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ThreadPrint
- * class description： 打印线程池状态
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ThreadPrint<br>
+ * class description： 打印线程池状态<br>
  *
  * @author MoBaiJun 2022/9/13 14:13
  */

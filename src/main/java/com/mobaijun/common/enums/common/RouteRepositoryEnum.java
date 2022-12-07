@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.common;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: RouteRepositoryEnum
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: RouteRepositoryEnum<br>
  * enum description: 路由存储枚举
  *
  * @author MoBaiJun 2022/12/5 8:59

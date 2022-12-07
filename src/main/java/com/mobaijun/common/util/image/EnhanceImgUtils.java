@@ -45,8 +45,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: EnhanceImgUtils
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: EnhanceImgUtils<br>
  * class description: 增强图片处理工具类
  *
  * @author MoBaiJun 2022/11/23 21:16

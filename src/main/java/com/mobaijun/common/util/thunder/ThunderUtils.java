@@ -24,9 +24,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ThunderUtils
- * class description： 迅雷工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ThunderUtils<br>
+ * class description： 迅雷工具类<br>
  *
  * @author MoBaiJun 2022/7/18 10:20
  */

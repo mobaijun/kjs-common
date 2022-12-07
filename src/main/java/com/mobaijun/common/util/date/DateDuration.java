@@ -18,8 +18,8 @@ package com.mobaijun.common.util.date;
 import java.time.temporal.ChronoUnit;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: DateDuration
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: DateDuration<br>
  * class description: 日期时间
  *
  * @author MoBaiJun 2022/11/23 13:53

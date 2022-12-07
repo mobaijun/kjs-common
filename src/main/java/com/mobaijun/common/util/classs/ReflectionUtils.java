@@ -25,8 +25,8 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ReflectionUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ReflectionUtils<br>
  * class description： 反射工具类
  *
  * @author MoBaiJun 2022/5/31 10:53

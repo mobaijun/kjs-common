@@ -23,8 +23,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: RedisLimiting
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: RedisLimiting<br>
  * annotation description： Redis 接口限流注解
  *
  * @author MoBaiJun 2022/5/17 10:42

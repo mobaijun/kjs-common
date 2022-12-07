@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ShiroConstants
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ShiroConstants<br>
  * class description：Shiro通用常量
  *
  * @author MoBaiJun 2022/5/12 9:16

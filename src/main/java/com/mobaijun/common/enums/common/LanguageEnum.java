@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: LanguageEnums
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: LanguageEnums<br>
  * enum description: 语言枚举
  *
  * @author MoBaiJun 2022/12/5 9:15

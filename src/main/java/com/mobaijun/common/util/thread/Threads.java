@@ -17,8 +17,8 @@ package com.mobaijun.common.util.thread;
 
 
 import cn.hutool.log.Log;
-import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.constant.ThreadConstant;
+import com.mobaijun.common.util.PrintUtils;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -27,9 +27,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: Threads
- * 类描述： 线程工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: Threads<br>
+ * 类描述： 线程工具类<br>
  *
  * @author MoBaiJun 2022/4/22 18:57
  */

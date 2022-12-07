@@ -16,8 +16,8 @@
 package com.mobaijun.common.util.file;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: MimeTypeUtils
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: MimeTypeUtils<br>
  * 类描述： 媒体类型文件工具类
  *
  * @author MoBaiJun 2022/5/6 16:43

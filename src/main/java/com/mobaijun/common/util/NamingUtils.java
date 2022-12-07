@@ -21,9 +21,9 @@ import com.mobaijun.common.util.regx.RegxConstant;
 import java.util.regex.Matcher;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: NamingUtils
- * class description: 命名工具类
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: NamingUtils<br>
+ * class description: 命名工具类<br>
  *
  * @author MoBaiJun 2022/11/22 11:33
  */

@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: ListUtils
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: ListUtils<br>
  * class description: list 工具类
  *
  * @author MoBaiJun 2022/11/23 9:42

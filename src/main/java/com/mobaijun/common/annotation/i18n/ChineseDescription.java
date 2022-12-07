@@ -22,9 +22,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: ChineseDescription
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: ChineseDescription<br>
  * annotation description：加在字段上，描述字段的中文名称
+ * <br>
  * 用来解决资源扫描时候，扫描的类的字段上的中文注释获取的问题
  *
  * @author MoBaiJun 2022/5/12 11:18

@@ -21,9 +21,9 @@ import cn.hutool.core.lang.tree.TreeUtil;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TreeUtils
- * description: 树工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TreeUtils<br>
+ * description: 树工具类<br>
  *
  * @author MoBaiJun 2022/11/6 0:23
  */

@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: Constant
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: Constant<br>
  * 类描述： 通用常量
  *
  * @author MoBaiJun 2022/5/5 9:01

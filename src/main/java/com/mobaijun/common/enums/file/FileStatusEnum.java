@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.file;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: FileStatusEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: FileStatusEnum<br>
  * enum description：文件状态
  *
  * @author MoBaiJun 2022/5/12 13:19
@@ -28,7 +28,7 @@ import lombok.Getter;
 public enum FileStatusEnum {
     /**
      * 新文件
-     * <p>
+     * <br>
      * 如果code相同，每次版本号替换都会把当前文件设置成最新文件
      */
     NEW("1"),

@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: MenuStatus
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: MenuStatus<br>
  * enum description： 菜单状态
  *
  * @author MoBaiJun 2022/5/12 9:30
@@ -29,8 +29,19 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum MenuStatus {
 
+    /**
+     * 删除
+     */
     DELETE(-1, "删除"),
+
+    /**
+     * 启用
+     */
     ENABLE(1, "启用"),
+
+    /**
+     * 禁用
+     */
     DISABLE(2, "禁用");
 
     private final int code;

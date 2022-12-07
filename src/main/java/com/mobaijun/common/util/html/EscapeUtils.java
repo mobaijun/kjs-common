@@ -18,8 +18,8 @@ package com.mobaijun.common.util.html;
 import cn.hutool.core.util.StrUtil;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: EscapeUtil
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: EscapeUtil<br>
  * class description： 转义和反转义工具类
  *
  * @author MoBaiJun 2022/5/12 9:33

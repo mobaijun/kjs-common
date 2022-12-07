@@ -22,9 +22,9 @@ import com.mobaijun.common.util.date.LocalDateUtils;
 import java.lang.management.ManagementFactory;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: Jvm
- * class description：JVM相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: Jvm<br>
+ * class description：JVM相关信息<br>
  *
  * @author MoBaiJun 2022/5/11 14:55
  */

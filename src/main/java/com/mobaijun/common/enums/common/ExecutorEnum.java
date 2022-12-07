@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.common;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: ExecutorEnum
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: ExecutorEnum<br>
  * enum description: http 执行器枚举
  *
  * @author MoBaiJun 2022/12/5 9:00

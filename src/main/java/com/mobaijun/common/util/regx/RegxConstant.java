@@ -18,9 +18,9 @@ package com.mobaijun.common.util.regx;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: Regx
- * class description： 正则表达式
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: Regx<br>
+ * class description： 正则表达式<br>
  *
  * @author MoBaiJun 2022/5/18 10:07
  */

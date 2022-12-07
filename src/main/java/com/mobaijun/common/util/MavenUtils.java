@@ -21,9 +21,9 @@ import java.time.Instant;
 import java.util.Objects;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: MavenClear
- * 类描述： maven 清理工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: MavenClear<br>
+ * 类描述： maven 清理工具类<br>
  *
  * @author MoBaiJun 2022/4/22 18:14
  */

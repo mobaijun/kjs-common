@@ -22,8 +22,8 @@ import cn.hutool.http.HttpUtil;
 import cn.hutool.log.Log;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: HttpUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: HttpUtils<br>
  * class description： http 工具类
  *
  * @author MoBaiJun 2022/7/18 10:05

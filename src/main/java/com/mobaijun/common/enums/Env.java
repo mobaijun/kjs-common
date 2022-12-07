@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: Env
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: Env<br>
  * enum description： 环境枚举
  *
  * @author MoBaiJun 2022/5/18 9:50

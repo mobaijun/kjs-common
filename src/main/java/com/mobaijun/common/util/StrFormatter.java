@@ -18,9 +18,9 @@ package com.mobaijun.common.util;
 import com.mobaijun.common.util.converter.Converter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: StrFormatter
- * 类描述： 字符串格式化
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: StrFormatter<br>
+ * 类描述： 字符串格式化<br>
  *
  * @author MoBaiJun 2022/4/25 15:24
  */

@@ -21,8 +21,8 @@ import lombok.Getter;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: FlagsEnum
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: FlagsEnum<br>
  * enum description: 正则匹配模式枚举
  *
  * @author MoBaiJun 2022/11/23 17:46
@@ -38,21 +38,21 @@ public enum FlagsEnum {
 
     /**
      * 不区分大小写
-     * <p>
+     * <br>
      * {@link java.util.regex.Pattern}
      */
     CASE_INSENSITIVE(Pattern.CASE_INSENSITIVE),
 
     /**
      * 忽略空白字符，可以多行书写，并使用 # 进行注释说明
-     * <p>
+     * <br>
      * {@link java.util.regex.Pattern}
      */
     COMMENTS(Pattern.COMMENTS),
 
     /**
      * 多行模式，此模式下 ^ 和 $ 可以分别匹配行首和行尾
-     * <p>
+     * <br>
      * {@link java.util.regex.Pattern}
      */
     MULTILINE(Pattern.MULTILINE),

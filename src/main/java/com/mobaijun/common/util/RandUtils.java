@@ -18,9 +18,9 @@ package com.mobaijun.common.util;
 import cn.hutool.core.util.RandomUtil;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: RandUtils
- * class description： 生成随机数
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: RandUtils<br>
+ * class description： 生成随机数<br>
  *
  * @author MoBaiJun 2022/5/31 11:14
  */

@@ -29,9 +29,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ReflectUtils
- * class description：反射工具类 2.0
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ReflectUtils<br>
+ * class description：反射工具类 2.0<br>
  *
  * @author MoBaiJun 2022/5/31 11:21
  */

@@ -39,8 +39,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: CollectionUtil
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: CollectionUtil<br>
  * 类描述： 集合工具类
  *
  * @author MoBaiJun 2022/4/22 16:16

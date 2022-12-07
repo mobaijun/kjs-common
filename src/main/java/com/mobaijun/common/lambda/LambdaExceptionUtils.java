@@ -24,8 +24,8 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: LambdaExceptionUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: LambdaExceptionUtils<br>
  * class description：Lambda异常处理工具类
  *
  * @author MoBaiJun 2022/7/11 10:48
@@ -73,7 +73,7 @@ public final class LambdaExceptionUtils {
 
     /**
      * 包装普通函数（Function）
-     * <p>
+     * <br>
      * 注：方法签名中的" throws E "编译器会提示多余，但其实是为了将具体的异常向外传递，如果不抛出的话：
      * 1.外层代码中编译器将无法提示有异常需要处理
      * 2.也无法主动在外层捕获具体的异常，如果尝试try一个具体的异常，编译器将提示：在try语句体中永远不会抛出相应异常（Exception 'XXX' is never thrown in the corresponding try block）

@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: StatusEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: StatusEnum<br>
  * enum description： 公共状态，一般用来表示开启和关闭
  *
  * @author MoBaiJun 2022/5/12 11:21

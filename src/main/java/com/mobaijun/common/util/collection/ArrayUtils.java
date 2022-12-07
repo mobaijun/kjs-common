@@ -22,8 +22,8 @@ import com.mobaijun.common.enhance.EnhanceAssert;
 import java.util.Arrays;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ArrayUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ArrayUtils<br>
  * class description： 数组工具类
  *
  * @author MoBaiJun 2022/6/6 9:35

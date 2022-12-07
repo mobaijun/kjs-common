@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: LicenseConstant
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: LicenseConstant<br>
  * class description： 开源协议头
  *
  * @author MoBaiJun 2022/7/18 15:56

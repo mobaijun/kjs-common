@@ -16,8 +16,8 @@
 package com.mobaijun.common.code;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: UnicodeUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: UnicodeUtils<br>
  * class description：Unicode 工具类
  *
  * @author MoBaiJun 2022/7/12 14:22

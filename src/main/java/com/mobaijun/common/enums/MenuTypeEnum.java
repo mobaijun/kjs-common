@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: MenuTypeEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: MenuTypeEnum<br>
  * enum description： 菜单类型
  *
  * @author MoBaiJun 2022/10/28 10:05

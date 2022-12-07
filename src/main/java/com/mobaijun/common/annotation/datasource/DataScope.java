@@ -22,9 +22,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: DataScope
- * annotation description： 数据权限过滤注解
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: DataScope<br>
+ * annotation description： <br>数据权限过滤注解
  *
  * @author MoBaiJun 2022/5/12 11:05
  */

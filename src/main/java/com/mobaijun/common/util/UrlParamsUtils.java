@@ -15,16 +15,16 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: UrlParamsUtil
- * class description： url 工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: UrlParamsUtil<br>
+ * class description： url 工具类<br>
  *
  * @author MoBaiJun 2022/9/13 14:19
  */

@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.thread;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * interface name: RemoveThreadLocalApi
- * interface description：对程序进行拓展，方便清除ThreadLocal
+ * software：IntelliJ IDEA 2022.1<br>
+ * interface name: RemoveThreadLocalApi<br>
+ * interface description：对程序进行拓展，方便清除ThreadLocal<br>
  *
  * @author MoBaiJun 2022/5/12 11:33
  */

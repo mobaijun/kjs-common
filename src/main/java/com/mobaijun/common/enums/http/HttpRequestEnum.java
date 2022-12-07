@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: HttpRequestEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: HttpRequestEnum<br>
  * enum description： http 请求标识
  *
  * @author MoBaiJun 2022/10/27 8:37

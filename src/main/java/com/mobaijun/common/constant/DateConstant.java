@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: ConstantDate
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: ConstantDate<br>
  * 类描述： 日期常量
  *
  * @author MoBaiJun 2022/4/22 18:52

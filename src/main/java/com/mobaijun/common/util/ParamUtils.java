@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -24,9 +24,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: ParamUtils
- * class description: 参数处理工具类
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: ParamUtils<br>
+ * class description: 参数处理工具类<br>
  *
  * @author MoBaiJun 2022/11/22 11:36
  */

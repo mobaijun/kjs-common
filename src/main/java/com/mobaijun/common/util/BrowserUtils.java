@@ -21,9 +21,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: BrowserUtils
- * class description：调用默认浏览器打开指定网页
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: BrowserUtils<br>
+ * class description：调用默认浏览器打开指定网页<br>
  *
  * @author MoBaiJun 2022/5/25 15:28
  */

@@ -26,8 +26,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: HtmlFilter
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: HtmlFilter<br>
  * class description：HTML过滤器，用于去除XSS漏洞隐患。
  *
  * @author MoBaiJun 2022/5/12 9:35

@@ -22,8 +22,8 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.ReflectUtil;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: EnumsUtils
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: EnumsUtils<br>
  * class description: 增强枚举工具类
  *
  * @author MoBaiJun 2022/11/23 21:01

@@ -20,8 +20,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TaskScheduleModel
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TaskScheduleModel<br>
  * class description： cron 表达式参数实体
  *
  * @author MoBaiJun 2022/8/8 17:06

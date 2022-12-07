@@ -18,8 +18,8 @@ package com.mobaijun.common.cache.map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: HashMapSingletonCacheUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: HashMapSingletonCacheUtils<br>
  * class description： hash map 单例缓存工具类
  *
  * @author MoBaiJun 2022/7/11 16:56

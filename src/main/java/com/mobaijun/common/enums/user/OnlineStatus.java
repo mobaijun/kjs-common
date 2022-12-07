@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.user;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: OnlineStatus
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: OnlineStatus<br>
  * enum description： 用户状态
  *
  * @author MoBaiJun 2022/5/12 9:19

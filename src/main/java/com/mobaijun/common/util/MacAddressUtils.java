@@ -25,9 +25,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: MacAddressUtil
- * class description：获取mac地址的工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: MacAddressUtil<br>
+ * class description：获取mac地址的工具类<br>
  *
  * @author MoBaiJun 2022/5/12 11:36
  */
@@ -35,7 +35,7 @@ public class MacAddressUtils {
 
     /**
      * 获取mac的地址信息列表
-     * <p>
+     * <br>
      * 一台机器不一定有多个网卡，所以返回的是数组
      *
      * @return 集合地址

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.message;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: MessageReadFlagEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: MessageReadFlagEnum<br>
  * enum description：消息阅读状态
  *
  * @author MoBaiJun 2022/5/12 14:07

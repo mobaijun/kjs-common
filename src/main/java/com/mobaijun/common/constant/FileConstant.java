@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ImageConstant
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ImageConstant<br>
  * class description： image 常量
  *
  * @author MoBaiJun 2022/6/10 13:54

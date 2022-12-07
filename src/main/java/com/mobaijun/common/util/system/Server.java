@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: Server
- * class description： 服务器相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: Server<br>
+ * class description： 服务器相关信息<br>
  *
  * @author MoBaiJun 2022/5/12 11:10
  */

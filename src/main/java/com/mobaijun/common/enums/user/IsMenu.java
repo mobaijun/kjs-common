@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.user;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: IsMenu
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: IsMenu<br>
  * enum description： 是否是菜单
  *
  * @author MoBaiJun 2022/5/12 9:23

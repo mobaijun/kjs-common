@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: LogType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: LogType<br>
  * enum description： 日志类型
  *
  * @author MoBaiJun 2022/5/12 9:28

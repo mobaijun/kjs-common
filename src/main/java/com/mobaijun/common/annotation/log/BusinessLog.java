@@ -22,8 +22,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: BusinessLog
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: BusinessLog<br>
  * annotation description：用来标记在控制器类或方法上，进行判断是否需要对接口进行日志记录
  *
  * @author MoBaiJun 2022/5/12 11:18

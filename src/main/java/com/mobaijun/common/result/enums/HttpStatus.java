@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * EnumName: BaseResultCode
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * EnumName: BaseResultCode<br>
  * 枚举描述： 返回状态码
  * <a href="https://www.runoob.com/http/http-status-codes.html">学习链接</a>
  *

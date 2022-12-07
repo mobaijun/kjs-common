@@ -21,8 +21,8 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: NetUtil
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: NetUtil<br>
  * class description： 网络工具类
  *
  * @author MoBaiJun 2022/5/18 10:05

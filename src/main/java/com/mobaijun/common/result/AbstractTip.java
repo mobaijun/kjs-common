@@ -19,8 +19,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: Tip
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: Tip<br>
  * 类描述： 返回给前台的提示（最终转化为json形式）
  *
  * @author MoBaiJun 2022/4/22 17:22

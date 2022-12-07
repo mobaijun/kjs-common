@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.tree;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * interface name: TreeNodeConverter
- * description: 树节点转换器
+ * software：IntelliJ IDEA 2022.1<br>
+ * interface name: TreeNodeConverter<br>
+ * description: 树节点转换器<br>
  *
  * @author MoBaiJun 2022/11/6 0:21
  */

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.log;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: BusinessStatus
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: BusinessStatus<br>
  * enum description： 操作状态
  *
  * @author MoBaiJun 2022/5/12 9:19

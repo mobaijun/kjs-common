@@ -16,9 +16,9 @@
 package com.mobaijun.common.util;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: HexUtils
- * class description: 进制转换
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: HexUtils<br>
+ * class description: 进制转换<br>
  *
  * @author MoBaiJun 2022/11/22 11:31
  */

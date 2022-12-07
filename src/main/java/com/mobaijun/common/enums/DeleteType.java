@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: DeleteType
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: DeleteType<br>
  * enum description: 逻辑删除
  *
  * @author MoBaiJun 2022/11/22 12:19

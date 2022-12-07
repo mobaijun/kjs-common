@@ -21,12 +21,12 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * Date: 2022/2/25 17:37
- * ClassName:PrintUtil
- * 类描述： 打印工具类
- * <a href="https://blog.51cto.com/u_15080022/3462878">...</a>
- * 解决【java: 非法字符: '\ufeff'】非法问题
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * Date: 2022/2/25 17:37<br>
+ * ClassName:PrintUtil<br>
+ * 类描述： 打印工具类<br>
+ * <a href="https://blog.51cto.com/u_15080022/3462878">...</a><br>
+ * 解决【java: 非法字符: '\ufeff'】非法问题<br>
  *
  * @author mobaijun
  */

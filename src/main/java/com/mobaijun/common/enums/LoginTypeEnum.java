@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: LoginTypeEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: LoginTypeEnum<br>
  * enum description： 登录类型
  *
  * @author MoBaiJun 2022/10/28 10:04

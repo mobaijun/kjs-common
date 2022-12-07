@@ -18,9 +18,9 @@ package com.mobaijun.common.util;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
-import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.util.regx.RegxConstant;
 
 import java.io.IOException;
@@ -43,9 +43,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: ToolUtil
- * 类描述： 高频方法集合类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: ToolUtil<br>
+ * 类描述： 高频方法集合类<br>
  *
  * @author MoBaiJun 2022/4/22 18:59
  */

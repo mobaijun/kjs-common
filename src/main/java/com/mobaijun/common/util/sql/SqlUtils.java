@@ -19,8 +19,8 @@ import cn.hutool.core.exceptions.UtilException;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.sql.SqlUtil;
 import cn.hutool.log.Log;
-import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.StringUtils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -31,9 +31,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: SqlUtils
- * 类描述： sql 工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: SqlUtils<br>
+ * 类描述： sql 工具类<br>
  *
  * @author MoBaiJun 2022/4/22 17:06
  */

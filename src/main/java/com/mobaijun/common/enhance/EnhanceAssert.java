@@ -22,8 +22,8 @@ import cn.hutool.core.util.StrUtil;
 import java.lang.annotation.Annotation;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: EnhanceAssert
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: EnhanceAssert<br>
  * class description: 增强断言
  *
  * @author MoBaiJun 2022/11/23 21:09

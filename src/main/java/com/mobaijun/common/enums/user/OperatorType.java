@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.user;
 import lombok.Getter;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * EnumName: OperatorType
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * EnumName: OperatorType<br>
  * 枚举描述： 用户类型
  *
  * @author MoBaiJun 2022/4/25 15:18

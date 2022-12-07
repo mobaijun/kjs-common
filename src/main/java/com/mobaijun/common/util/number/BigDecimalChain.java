@@ -21,8 +21,8 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: BigDecimalChain
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: BigDecimalChain<br>
  * description: 大数字类型工具类
  *
  * @author MoBaiJun 2022/11/6 1:21

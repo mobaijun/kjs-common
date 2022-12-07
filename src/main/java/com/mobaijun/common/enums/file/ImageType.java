@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.file;
 import java.net.URLConnection;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: ImageType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: ImageType<br>
  * enum description： 获取文件类型
  *
  * @author MoBaiJun 2022/6/10 14:02

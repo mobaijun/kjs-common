@@ -16,9 +16,9 @@
 package com.mobaijun.common.function;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * interface name: VoidMethod
- * interface description：
+ * software：IntelliJ IDEA 2022.1<br>
+ * interface name: VoidMethod<br>
+ * interface description：无返回值
  *
  * @author MoBaiJun 2022/9/2 14:14
  */

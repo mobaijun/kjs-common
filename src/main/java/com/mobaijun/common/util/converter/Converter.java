@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util.converter;
 
+import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.text.CharsetKit;
 
 import java.math.BigDecimal;
@@ -30,8 +30,8 @@ import java.util.Set;
 import static com.mobaijun.common.util.text.StrConvert.getaByte;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: Converter
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: Converter<br>
  * 类描述： 转换器
  *
  * @author MoBaiJun 2022/4/25 15:25

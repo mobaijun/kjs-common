@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.sms;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: SmsTypeEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: SmsTypeEnum<br>
  * enum description：
  *
  * @author MoBaiJun 2022/5/12 13:42

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.http;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: FieldMetadataTypeEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: FieldMetadataTypeEnum<br>
  * enum description：字段元数据类型
  *
  * @author MoBaiJun 2022/5/12 13:28

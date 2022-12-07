@@ -19,8 +19,8 @@ import com.mobaijun.common.util.StringUtils;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: ContentType
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: ContentType<br>
  * enum description：内容类型
  * <a href="https://www.runoob.com/http/http-content-type.html">内容类型</a>
  *

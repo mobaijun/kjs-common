@@ -22,9 +22,9 @@ import lombok.ToString;
 import java.util.List;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: TreeNode
- * description: 树节点
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: TreeNode<br>
+ * description: 树节点<br>
  *
  * @author MoBaiJun 2022/11/5 23:05
  */

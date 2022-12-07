@@ -18,9 +18,9 @@ package com.mobaijun.common.util;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: LanguageUtil
- * class description： 语言工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: LanguageUtil<br>
+ * class description： 语言工具类<br>
  *
  * @author MoBaiJun 2022/9/13 14:12
  */

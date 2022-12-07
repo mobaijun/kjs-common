@@ -30,8 +30,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: GeneratorImage
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: GeneratorImage<br>
  * class description： 生成文字图像
  *
  * @author MoBaiJun 2022/5/26 9:16

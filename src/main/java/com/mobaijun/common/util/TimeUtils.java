@@ -16,9 +16,9 @@
 package com.mobaijun.common.util;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: TimeUtils
- * 类描述： 时间工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: TimeUtils<br>
+ * 类描述： 时间工具类<br>
  *
  * @author MoBaiJun 2022/4/24 11:23
  */

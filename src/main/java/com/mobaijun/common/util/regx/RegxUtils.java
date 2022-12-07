@@ -21,9 +21,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: RegxUtil
- * class description：正则工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: RegxUtil<br>
+ * class description：正则工具类<br>
  *
  * @author MoBaiJun 2022/5/18 10:08
  */

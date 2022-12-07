@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: DataSourceConstants
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: DataSourceConstants<br>
  * class description: 数据源常量
  *
  * @author MoBaiJun 2022/11/23 13:41

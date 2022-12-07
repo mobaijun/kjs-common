@@ -24,9 +24,9 @@ import java.lang.annotation.Target;
 import java.util.concurrent.TimeUnit;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: RedisLock
- * annotation description： RedisLock
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: RedisLock<br>
+ * annotation description RedisLock
  *
  * @author MoBaiJun 2022/5/18 9:47
  */

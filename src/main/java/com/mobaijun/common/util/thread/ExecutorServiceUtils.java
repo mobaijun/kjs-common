@@ -28,9 +28,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ExecutorServiceUtil
- * class description：线程池工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ExecutorServiceUtil<br>
+ * class description：线程池工具类<br>
  *
  * @author MoBaiJun 2022/5/31 11:38
  */

@@ -18,9 +18,9 @@ package com.mobaijun.common.util.text;
 import java.util.regex.Pattern;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: WafUtil
- * class description： web 过滤工具类
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: WafUtil<br>
+ * class description： web 过滤工具类<br>
  *
  * @author MoBaiJun 2022/5/12 10:37
  */

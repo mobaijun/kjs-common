@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.sms;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: SendStatusEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: SendStatusEnum<br>
  * enum description：消息发送状态
  *
  * @author MoBaiJun 2022/5/12 13:41

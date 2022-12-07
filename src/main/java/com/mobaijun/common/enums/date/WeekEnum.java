@@ -19,8 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * enum name: WeekEnum
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * enum name: WeekEnum<br>
  * enum description: 日期枚举
  *
  * @author MoBaiJun 2022/11/22 10:58

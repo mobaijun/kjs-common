@@ -23,12 +23,11 @@ import com.mobaijun.common.util.ObjectUtils;
 import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.util.collection.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: CheckToolClass
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: CheckToolClass<br>
  * class description：对象判断工具类
  *
  * @author MoBaiJun 2022/10/17 17:16
@@ -54,7 +53,7 @@ public class CheckToolClass {
      * @param json    json 字符串
      * @param message 消息
      */
-    public static <T> void assertIsJsonArrayLegal(String json, String message) {
+    public static void assertIsJsonArrayLegal(String json, String message) {
         if (!JSONUtil.isTypeJSONArray(json)) {
             throw new ArrayIndexOutOfBoundsException(message);
         }
@@ -86,7 +85,7 @@ public class CheckToolClass {
     }
 
     /**
-     * 判断条件是否符合
+     * 判断条件是否不符合
      *
      * @param condition 判断条件
      * @param message   消息
@@ -102,7 +101,7 @@ public class CheckToolClass {
      */
     public static <T> Collection<T> assertListIsNull(Collection<T> list) {
         if (CollectionUtils.isEmpty(list)) {
-            return new ArrayList<>(10);
+            return CollectionUtils.newArrayList();
         }
         return list;
     }

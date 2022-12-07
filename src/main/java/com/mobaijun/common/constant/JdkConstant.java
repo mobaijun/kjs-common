@@ -16,8 +16,8 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: JdkConstant
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: JdkConstant<br>
  * class description： JDK 命令常量
  *
  * @author MoBaiJun 2022/5/18 14:10

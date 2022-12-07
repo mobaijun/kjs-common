@@ -19,8 +19,8 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: Sex
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: Sex<br>
  * enum description： 性别
  *
  * @author MoBaiJun 2022/5/11 11:36
@@ -37,7 +37,22 @@ public enum SexEnum {
     /**
      * 女
      */
-    F("F", "女");
+    F("F", "女"),
+
+    /**
+     * 非二元性别（gender non-binary）
+     */
+    G("G", "非二元性别"),
+
+    /**
+     * Trans/Transgender(跨性别者)
+     */
+    T("T", "跨性别者"),
+
+    /**
+     * 未知
+     */
+    N("N", "未知");
 
     private final String code;
 

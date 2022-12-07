@@ -18,8 +18,8 @@ package com.mobaijun.common.annotation.log;
 import com.mobaijun.common.enums.log.BusinessType;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: OpenLog
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: OpenLog<br>
  * annotation description： 操作日志注解，默认类型新增
  *
  * @author MoBaiJun 2022/5/17 10:51

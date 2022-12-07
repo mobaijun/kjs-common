@@ -31,8 +31,8 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: ZipUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: ZipUtils<br>
  * class description： 压缩工具类
  *
  * @author MoBaiJun 2022/5/18 10:27

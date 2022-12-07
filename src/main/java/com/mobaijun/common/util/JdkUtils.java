@@ -18,9 +18,9 @@ package com.mobaijun.common.util;
 import com.mobaijun.common.constant.JdkConstant;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: JdkUtils
- * 类描述： Jdk 工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: JdkUtils<br>
+ * 类描述： Jdk 工具类<br>
  *
  * @author MoBaiJun 2022/4/22 18:32
  */

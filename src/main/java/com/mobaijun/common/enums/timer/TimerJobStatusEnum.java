@@ -18,8 +18,8 @@ package com.mobaijun.common.enums.timer;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: TimerJobStatusEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: TimerJobStatusEnum<br>
  * enum description： 定时任务状态
  *
  * @author MoBaiJun 2022/5/12 13:43

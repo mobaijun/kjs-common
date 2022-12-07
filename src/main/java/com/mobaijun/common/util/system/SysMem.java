@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.system;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: SysMem
- * class description： 系统内存相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: SysMem<br>
+ * class description： 系统内存相关信息<br>
  *
  * @author MoBaiJun 2022/5/11 14:54
  */

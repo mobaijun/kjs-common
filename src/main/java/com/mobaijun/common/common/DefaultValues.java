@@ -16,8 +16,8 @@
 package com.mobaijun.common.common;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: DefaultValues
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: DefaultValues<br>
  * class description： 常用默认值
  *
  * @author MoBaiJun 2022/5/31 11:30

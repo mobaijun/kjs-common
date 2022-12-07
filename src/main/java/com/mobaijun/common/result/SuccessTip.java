@@ -22,8 +22,8 @@ import lombok.Setter;
 import java.io.Serializable;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: SuccessTip
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: SuccessTip<br>
  * 类描述： 成功提示
  *
  * @author MoBaiJun 2022/4/22 17:25

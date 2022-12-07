@@ -26,9 +26,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: DiskUtils
- * class description： 获取电脑磁盘分区信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: DiskUtils<br>
+ * class description： 获取电脑磁盘分区信息<br>
  *
  * @author MoBaiJun 2022/5/25 15:23
  */

@@ -18,8 +18,8 @@ package com.mobaijun.common.enums;
 import lombok.Getter;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * enum name: YesOrNotEnum
+ * software：IntelliJ IDEA 2022.1<br>
+ * enum name: YesOrNotEnum<br>
  * enum description：是或否的枚举，一般用在数据库字段，例如del_flag字段，char(1)，填写Y或N
  *
  * @author MoBaiJun 2022/5/12 11:23

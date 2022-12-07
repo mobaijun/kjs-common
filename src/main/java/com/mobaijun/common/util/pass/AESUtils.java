@@ -24,8 +24,8 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: AESUtil
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: AESUtil<br>
  * class description：AES 加密工具类
  *
  * @author MoBaiJun 2022/5/18 9:55

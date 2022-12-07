@@ -16,9 +16,9 @@
 package com.mobaijun.common.function;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * interface name: judgeFunction
- * interface description：公共判断方法
+ * software：IntelliJ IDEA 2022.1<br>
+ * interface name: judgeFunction<br>
+ * interface description：公共判断方法<br>
  *
  * @author MoBaiJun 2022/9/29 8:24
  */

@@ -16,8 +16,8 @@
 package com.mobaijun.common.util.pass;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: CRC16
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: CRC16<br>
  * class description：CRC-16-IBM (Uses irreducible polynomial: 1 + x^2 + x^15 + x^16)
  *
  * @author MoBaiJun 2022/5/18 10:19

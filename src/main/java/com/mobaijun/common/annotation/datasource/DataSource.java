@@ -25,8 +25,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * annotation name: DataSource
+ * software：IntelliJ IDEA 2022.1<br>
+ * annotation name: DataSource<br>
  * annotation description： 自定义多数据源切换
  *
  * @author MoBaiJun 2022/5/12 10:47

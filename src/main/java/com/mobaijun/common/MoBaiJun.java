@@ -22,10 +22,10 @@ import cn.hutool.core.util.StrUtil;
 import java.util.Set;
 
 /**
- * software：IntelliJ IDEA 2022.1
+ * software：IntelliJ IDEA 2022.1<br>
  * class name: MoBaiJun<br/>
- * class description：根类
- * <img src="https://tencent.cos.mobaijun.com/img/icon/avatar.jpg" alt="migrate" height="300" width="400">
+ * class description：根类<br>
+ * <img src="https://tencent.cos.mobaijun.com/img/icon/avatar.jpg" alt="migrate" height="300" width="400"><br>
  *
  * @author MoBaiJun 2022/7/13 16:15
  */

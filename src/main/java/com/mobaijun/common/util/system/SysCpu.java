@@ -16,9 +16,9 @@
 package com.mobaijun.common.util.system;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: Cpu
- * class description： CPU相关信息
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: Cpu<br>
+ * class description： CPU相关信息<br>
  *
  * @author MoBaiJun 2022/5/11 14:56
  */

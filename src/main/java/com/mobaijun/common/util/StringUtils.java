@@ -23,9 +23,9 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: StringUtils
- * 类描述： String 工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: StringUtils<br>
+ * 类描述： String 工具类<br>
  *
  * @author MoBaiJun 2022/4/22 16:47
  */

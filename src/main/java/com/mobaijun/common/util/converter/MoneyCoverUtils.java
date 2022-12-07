@@ -18,8 +18,8 @@ package com.mobaijun.common.util.converter;
 import cn.hutool.core.util.StrUtil;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: MoneyCoverUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: MoneyCoverUtils<br>
  * class description： 金额转换器
  *
  * @author MoBaiJun 2022/5/31 11:16

@@ -16,10 +16,10 @@
 package com.mobaijun.common.constant;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: NumberConstant
- * class description： 数字常量，避免在代码中写入魔法值
- * 推荐使用 jdk 原生数字常亮包
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: NumberConstant<br>
+ * class description： 数字常量，避免在代码中写入魔法值<br>
+ * 推荐使用 jdk 原生数字常亮包<br>
  * com.sun.java.accessibility.util.EventID
  *
  * @author MoBaiJun 2022/5/18 13:47

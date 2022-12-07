@@ -21,9 +21,9 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Software：IntelliJ IDEA 2021.3.2
- * ClassName: CharsetKit
- * 类描述： 字符集工具类
+ * Software：IntelliJ IDEA 2021.3.2<br>
+ * ClassName: CharsetKit<br>
+ * 类描述： 字符集工具类<br>
  *
  * @author MoBaiJun 2022/4/22 18:47
  */

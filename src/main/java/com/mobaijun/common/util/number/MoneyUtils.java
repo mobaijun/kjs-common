@@ -23,8 +23,8 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: MoneyUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: MoneyUtils<br>
  * class description：
  *
  * @author MoBaiJun 2022/7/11 10:20

@@ -36,8 +36,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * software：IntelliJ IDEA 2022.1
- * class name: RsaUtils
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: RsaUtils<br>
  * class description：
  *
  * @author MoBaiJun 2022/5/18 10:21
@@ -256,7 +256,7 @@ public class RsaUtils {
         return "<RSAKeyValue>" +
                 "<Modulus>" + Base64.encode(removeMSZero(privateK.getModulus().toByteArray())) + "</Modulus>" +
                 "<Exponent>" + Base64.encode(removeMSZero(privateK.getPublicExponent().toByteArray())) + "</Exponent>" +
-                "<P>" + Base64.encode(removeMSZero(privateK.getPrimeP().toByteArray())) + "</P>" +
+                "<br>" + Base64.encode(removeMSZero(privateK.getPrimeP().toByteArray())) + "</P>" +
                 "<Q>" + Base64.encode(removeMSZero(privateK.getPrimeQ().toByteArray())) + "</Q>" +
                 "<DP>" + Base64.encode(removeMSZero(privateK.getPrimeExponentP().toByteArray())) + "</DP>" +
                 "<DQ>" + Base64.encode(removeMSZero(privateK.getPrimeExponentQ().toByteArray())) + "</DQ>" +
