@@ -36,7 +36,7 @@ import java.util.Objects;
  * @author MoBaiJun 2022/5/31 11:21
  */
 public class ReflectUtils {
-    private static final Map<Class<?>, Class<?>> PRIMITIVE_AND_WRAP = new HashMap<>();
+    private static final Map<Class<?>, Class<?>> PRIMITIVE_AND_WRAP = new HashMap<>(10);
 
     static {
         PRIMITIVE_AND_WRAP.put(byte.class, Byte.class);

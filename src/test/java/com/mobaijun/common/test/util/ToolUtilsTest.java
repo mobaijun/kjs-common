@@ -16,9 +16,6 @@ import java.util.Date;
  */
 public class ToolUtilsTest {
     public static void main(String[] args) {
-        // 获取随机位数的字符串
-        PrintUtils.println(ToolUtils.getRandomString(10));
-
         // 判断一个对象是否是时间类型
         PrintUtils.println(ToolUtils.dateType(new Date().getTime()));
 

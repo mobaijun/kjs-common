@@ -16,8 +16,13 @@
 package com.mobaijun.common.util;
 
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.collection.CollectionUtils;
 import com.mobaijun.common.util.regx.RegxConstant;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 
 /**
@@ -89,5 +94,95 @@ public class NamingUtils {
         }
         matcher.appendTail(buffer);
         return buffer.toString();
+    }
+
+    /**
+     * 下划线转驼峰Map集
+     *
+     * @param map 源字符串
+     * @return 转换后的Map
+     */
+    public static Map<String, Object> underline2CamelMap(Map<String, Object> map) {
+        Map<String, Object> newMap = new HashMap<>(10);
+        for (String key : map.keySet()) {
+            String camel = underlineToHump(key);
+            // 存在 " " 转换为""
+            if (" ".equals(map.get(key))) {
+                newMap.put(camel, "");
+            } else {
+                newMap.put(camel, map.get(key));
+            }
+        }
+        return newMap;
+    }
+
+    /**
+     * Map集
+     * 驼峰转下划线
+     *
+     * @param map 源字符串
+     * @return 转换后的Map
+     */
+    public static Map<String, Object> camel2UnderlineMap(Map<String, Object> map) {
+        Map<String, Object> newMap = new HashMap<>(10);
+        for (String key : map.keySet()) {
+            String camel = humpToUnderline(key);
+            newMap.put(camel, map.get(key));
+        }
+        return newMap;
+    }
+
+    /**
+     * 驼峰法转下划线List套Map集
+     *
+     * @param list 源字符串
+     * @return 转换后的List套Map
+     */
+    public static List<Map<String, Object>> underline2CamelList(List<Map<String, Object>> list) {
+        Map<String, Object> newMap = new HashMap<>(10);
+        List<Map<String, Object>> returnList = new ArrayList<>(10);
+        for (Map<String, Object> map : list) {
+            for (String key : map.keySet()) {
+                String camel = humpToUnderline(key);
+                newMap.put(camel, map.get(key));
+            }
+            returnList.add(newMap);
+        }
+        return returnList;
+    }
+
+    /**
+     * 下划线转驼峰法List套Map集
+     *
+     * @param list 源字符串
+     * @return 转换后的List套Map
+     */
+    public static List<Map<String, Object>> underlineList(List<Map<String, Object>> list) {
+        Map<String, Object> newMap = CollectionUtils.newHashMap();
+        List<Map<String, Object>> returnList = CollectionUtils.newArrayList();
+        for (Map<String, Object> map : list) {
+            for (String key : map.keySet()) {
+                String camel = humpToUnderline(key);
+                newMap.put(camel, map.get(key));
+            }
+            returnList.add(newMap);
+        }
+        return returnList;
+    }
+
+    /**
+     * 下划线转驼峰法List
+     *
+     * @param list 源字符串
+     * @return 转换后的List套String
+     */
+    public static List<String> getList(List<String> list) {
+        List<String> returnList = new ArrayList<>();
+        System.out.println(list.get(0));
+        for (String key : list) {
+            String camel = humpToUnderline(key);
+            returnList.add(camel);
+        }
+        return returnList;
     }
 }

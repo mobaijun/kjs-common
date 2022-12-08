@@ -41,15 +41,6 @@ import java.util.Vector;
 public class PostUrlUtils {
 
     /**
-     * 返回状态码
-     */
-    private final static int SUCCESS_200 = 200;
-    private final static int ERROR_400 = 400;
-    private final static int ERROR_401 = 401;
-    private final static int ERROR_404 = 404;
-    private final static int ERROR_500 = 500;
-
-    /**
      * 提交链接到百度站长
      *
      * @param urls        链接集合
@@ -99,7 +90,7 @@ public class PostUrlUtils {
     private static StringBuilder bufferedReader(int code, URLConnection urlConnection) throws IOException {
         StringBuilder result = new StringBuilder();
         switch (code) {
-            case SUCCESS_200:
+            case HttpURLConnection.HTTP_OK:
                 //通过BufferedReader输入流来读取Url的响应
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                 String line;
@@ -121,16 +112,16 @@ public class PostUrlUtils {
                     result.append("提交成功");
                 }
                 break;
-            case ERROR_400:
+            case HttpURLConnection.HTTP_BAD_REQUEST:
                 result.append("站点未在站长平台验证");
                 break;
-            case ERROR_401:
+            case HttpURLConnection.HTTP_UNAUTHORIZED:
                 result.append("接口调用地址错误");
                 break;
-            case ERROR_404:
+            case HttpURLConnection.HTTP_NOT_FOUND:
                 result.append("接口地址填写错误");
                 break;
-            case ERROR_500:
+            case HttpURLConnection.HTTP_INTERNAL_ERROR:
                 result.append("服务器偶然异常，通常重试就会成功");
                 break;
             default:

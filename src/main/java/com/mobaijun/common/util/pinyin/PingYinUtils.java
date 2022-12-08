@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.pinyin;
 
 import cn.hutool.log.Log;
+import com.mobaijun.common.constant.Constant;
 import lombok.NoArgsConstructor;
 
 import java.util.Random;
@@ -42,7 +43,7 @@ public final class PingYinUtils {
         try {
             StringBuilder buffer = new StringBuilder();
             // 把中文转化成byte数组
-            byte[] chineseBytes = strChinese.getBytes("GBK");
+            byte[] chineseBytes = strChinese.getBytes(Constant.GBK);
             for (int i = 0; i < chineseBytes.length; i++) {
                 if ((chineseBytes[i] & 255) > 128) {
                     int char1 = chineseBytes[i++] & 255;

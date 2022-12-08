@@ -52,24 +52,6 @@ import java.util.regex.Pattern;
 public class ToolUtils {
 
     /**
-     * 获取随机位数的字符串
-     *
-     * @param length length
-     * @return String
-     */
-    public static String getRandomString(int length) {
-        String base = "abcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            int number = random.nextInt(base.length());
-            sb.append(base.charAt(number));
-        }
-        return sb.toString();
-    }
-
-
-    /**
      * 判断一个对象是否是时间类型
      *
      * @param o 对象
