@@ -1,54 +1,40 @@
-name: maven-release
-
+name: Publish package to the Maven Central Repository and GitHub Packages
 on:
-  # 支持手动触发构建
-  workflow_dispatch:
-  release:
-    # 创建 release 的时候触发
-    types: [ published ]
+  push:
+    branches:
+      - main
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
-      # 拉取源码
-      - uses: actions/checkout@v2
-      # 安装JDK环境
-      - name: Set up JDK 1.8
+      - uses: actions/checkout@v3
+      - name: Set up Java for publishing to GitHub Packages
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy -DskipTests -Prelease-github
+  release:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Java and Maven
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      # 设置 Maven 中央仓库配置
-      - name: Set up Apache Maven Central
-        uses: actions/setup-java@v1
+
+      - name: Release Maven package
+        uses: samuelmeuli/action-maven-publish@v1
         with:
-          java-version: 1.8
-          server-id: releases
-          # Nexus 用户名环境变量
-          server-username: ${{ secrets.NEXUS_USERNAME }}
-          # Nexus 密码环境变量
-          server-password: ${{ secrets.NEXUS_PASSWORD }}
-          # gpg 短密码环境变量
-          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-          # gpg 私钥
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-      # 推送 jar 包至 maven 中央仓库
-      - name: Publish to Apache Maven Central
-        # 执行 maven deploy 命令
-        run: mvn clean deploy -P release
-        # 环境变量设置
-        env:
-          # Nexus 用户名,如果觉得不想暴露也可以配置到secrets中
-          MAVEN_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-          # Nexus 密码
-          MAVEN_CENTRAL_TOKEN: ${{ secrets.NEXUS_PASSWORD }}
-          # gpg短密码
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-      # Nexus 自动部署
-      - name: Release on nexus
-        uses: monkeyWie/maven-nexus-release@v1.0.0
-        with:
-          # Nexus用户名
-          maven-repo-server-username: ${{ secrets.NEXUS_USERNAME }}
-          # Nexus密码
-          maven-repo-server-password: ${{ secrets.NEXUS_PASSWORD }}
+          maven_profiles: 'release-ossrh'
+          maven_args: '-DskipTests'
+          gpg_private_key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg_passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          nexus_username: ${{ secrets.NEXUS_USERNAME }}
+          nexus_password: ${{ secrets.NEXUS_PASSWORD }}
