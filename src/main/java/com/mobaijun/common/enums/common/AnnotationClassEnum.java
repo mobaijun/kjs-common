@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.enums.common;
 
-import com.mobaijun.common.util.collection.CollectionUtils;
+import com.mobaijun.common.util.collection.CollectionUtil;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -97,7 +97,7 @@ public enum AnnotationClassEnum {
      * @return 枚举列表
      */
     public static List<String> resolveResources(List<String> resources) {
-        if (!CollectionUtils.isEmpty(resources)) {
+        if (!CollectionUtil.isEmpty(resources)) {
             List<String> target = new ArrayList<>(10);
             AnnotationClassEnum[] annotationClassEnums = AnnotationClassEnum.values();
             for (String source : resources) {

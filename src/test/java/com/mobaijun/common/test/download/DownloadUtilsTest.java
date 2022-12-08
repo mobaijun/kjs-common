@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.download;
 
 import cn.hutool.core.lang.UUID;
-import com.mobaijun.common.download.DownloadUtils;
+import com.mobaijun.common.download.DownloadUtil;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -13,15 +13,15 @@ import com.mobaijun.common.download.DownloadUtils;
 public class DownloadUtilsTest {
     public static void main(String[] args) {
         // 进度条下载
-        DownloadUtils.downloadFile("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg",
+        DownloadUtil.downloadFile("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg",
                 "F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download");
 
         // 下载文件（uuid文件名）
-        DownloadUtils.downLoadJpg("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg", UUID.fastUUID().toString(),
+        DownloadUtil.downLoadJpg("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg", UUID.fastUUID().toString(),
                 "F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download");
 
         // 下载文件（uuid文件名）日期做目录
-        DownloadUtils.pictureStorage("F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download",
+        DownloadUtil.pictureStorage("F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download",
                 "https://tencent.cos.mobaijun.com/img/icon/avatar.jpg");
     }
 }

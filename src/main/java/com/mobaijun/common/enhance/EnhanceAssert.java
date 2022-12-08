@@ -34,7 +34,7 @@ public class EnhanceAssert extends Assert {
      * annotation字段值非空
      */
     public static <T extends Annotation> T annotationFieldValueNotEmpty(T annotation, String fieldName, String errorMsgTemplate, Object... params) {
-        Object annotationFieldValue = EnhanceAnnotationUtils.getAnnotationFieldValue(annotation, fieldName);
+        Object annotationFieldValue = EnhanceAnnotationUtil.getAnnotationFieldValue(annotation, fieldName);
         isTrue(ObjectUtil.isNotEmpty(annotationFieldValue), errorMsgTemplate, params);
         return annotation;
     }

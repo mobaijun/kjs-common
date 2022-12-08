@@ -16,7 +16,7 @@
 package com.mobaijun.common.result;
 
 import com.mobaijun.common.result.enums.HttpStatus;
-import com.mobaijun.common.util.ObjectUtils;
+import com.mobaijun.common.util.ObjectUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -51,7 +51,7 @@ public class ErrorTip<T> extends AbstractTip<T> implements Serializable {
      */
     public ErrorTip(T data) {
         super();
-        if (ObjectUtils.isEmpty(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             super.code = HttpStatus.ERROR.getCode();
             super.message = HttpStatus.ERROR.getMessage();
         }
@@ -78,7 +78,7 @@ public class ErrorTip<T> extends AbstractTip<T> implements Serializable {
      */
     public ErrorTip(int code, String message, T data) {
         super();
-        if (ObjectUtils.isEmpty(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             super.code = code;
             super.message = message;
             this.data = data;

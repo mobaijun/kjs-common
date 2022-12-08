@@ -1,6 +1,6 @@
 package com.mobaijun.common.test.util;
 
-import com.mobaijun.common.util.MavenUtils;
+import com.mobaijun.common.util.MavenUtil;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -12,6 +12,6 @@ import com.mobaijun.common.util.MavenUtils;
 public class MavenUtilsTest {
     public static void main(String[] args) {
         // maven 清理无效 jar 包
-        MavenUtils.mavenClear("F:\\repository");
+        MavenUtil.mavenClear("F:\\repository");
     }
 }

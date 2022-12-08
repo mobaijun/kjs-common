@@ -1,8 +1,8 @@
 package com.mobaijun.common.test.date;
 
-import com.mobaijun.common.util.PrintUtils;
 import com.mobaijun.common.constant.DateConstant;
-import com.mobaijun.common.util.date.LocalDateUtils;
+import com.mobaijun.common.util.PrintUtil;
+import com.mobaijun.common.util.date.LocalDateUtil;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -20,39 +20,39 @@ import java.util.Date;
 public class LocalDateUtilsTest {
 
     public static void main(String[] args) {
-        PrintUtils.println(LocalDateUtils.curYear());
-        PrintUtils.println(LocalDateUtils.toDate(LocalDate.now()));
-        PrintUtils.println(LocalDateUtils.toDate(LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.toTimestamp(LocalDate.now()));
-        PrintUtils.println(LocalDateUtils.toString(LocalDate.now(), DateConstant.YYYY_MM_DD));
-        PrintUtils.println(LocalDateUtils.toString(LocalDateTime.now(), DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.toString(new Date(), DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.toLocalDate("2022-11-22", DateConstant.YYYY_MM_DD));
-        PrintUtils.println(LocalDateUtils.toLocalDateTime("2022-11-22 13:53:07", DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.toLocalDate(new Date()));
-        PrintUtils.println(LocalDateUtils.toLocalDateTime(new Date()));
-        PrintUtils.println(LocalDateUtils.toMillisecond(LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.toMillisecond(LocalDate.now()));
-        PrintUtils.println(LocalDateUtils.toLocalDateTime(Instant.now()));
-        PrintUtils.println(LocalDateUtils.toInstant(new Date()));
-        PrintUtils.println(LocalDateUtils.toSecond(LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.toFormat(LocalDateTime.now(), DateConstant.YMD));
-        PrintUtils.println(LocalDateUtils.format(1669096646815L, DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.format(Instant.now(), DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.getFirstDayOfYear(2022));
-        PrintUtils.println(LocalDateUtils.getFirstDayOfMonthMinYear(2022, 11));
-        PrintUtils.println(LocalDateUtils.minusToMillsLocalDateTime(LocalDateTime.now(), LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.minusToMillsLocalTime(LocalTime.now(), LocalTime.now()));
-        PrintUtils.println(LocalDateUtils.minusToMillsLocalDate(LocalDate.now(), LocalDate.now()));
-        PrintUtils.println(LocalDateUtils.periodLocalDate(LocalDate.now(), LocalDate.now()));
-        PrintUtils.println(LocalDateUtils.parseInstant("2022-11-09"));
-        PrintUtils.println(LocalDateUtils.parseInstant("2022-11-22 13:57:26", DateConstant.YYYY_MM_DD_HH_MM_SS));
-        PrintUtils.println(LocalDateUtils.isBefore(LocalDateTime.now(), LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.periodDate(new Date(), new Date()));
-        PrintUtils.println(LocalDateUtils.toLocalDateTime(1669097261596L));
-        PrintUtils.println(LocalDateUtils.getServerStartDate());
-        PrintUtils.println(LocalDateUtils.getSecondValue(LocalDateTime.now()));
-        PrintUtils.println(LocalDateUtils.formatNow(DateConstant.YY_YY_MM_DD));
+        PrintUtil.println(LocalDateUtil.curYear());
+        PrintUtil.println(LocalDateUtil.toDate(LocalDate.now()));
+        PrintUtil.println(LocalDateUtil.toDate(LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.toTimestamp(LocalDate.now()));
+        PrintUtil.println(LocalDateUtil.toString(LocalDate.now(), DateConstant.YYYY_MM_DD));
+        PrintUtil.println(LocalDateUtil.toString(LocalDateTime.now(), DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.toString(new Date(), DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.toLocalDate("2022-11-22", DateConstant.YYYY_MM_DD));
+        PrintUtil.println(LocalDateUtil.toLocalDateTime("2022-11-22 13:53:07", DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.toLocalDate(new Date()));
+        PrintUtil.println(LocalDateUtil.toLocalDateTime(new Date()));
+        PrintUtil.println(LocalDateUtil.toMillisecond(LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.toMillisecond(LocalDate.now()));
+        PrintUtil.println(LocalDateUtil.toLocalDateTime(Instant.now()));
+        PrintUtil.println(LocalDateUtil.toInstant(new Date()));
+        PrintUtil.println(LocalDateUtil.toSecond(LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.toFormat(LocalDateTime.now(), DateConstant.YMD));
+        PrintUtil.println(LocalDateUtil.format(1669096646815L, DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.format(Instant.now(), DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.getFirstDayOfYear(2022));
+        PrintUtil.println(LocalDateUtil.getFirstDayOfMonthMinYear(2022, 11));
+        PrintUtil.println(LocalDateUtil.minusToMillsLocalDateTime(LocalDateTime.now(), LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.minusToMillsLocalTime(LocalTime.now(), LocalTime.now()));
+        PrintUtil.println(LocalDateUtil.minusToMillsLocalDate(LocalDate.now(), LocalDate.now()));
+        PrintUtil.println(LocalDateUtil.periodLocalDate(LocalDate.now(), LocalDate.now()));
+        PrintUtil.println(LocalDateUtil.parseInstant("2022-11-09"));
+        PrintUtil.println(LocalDateUtil.parseInstant("2022-11-22 13:57:26", DateConstant.YYYY_MM_DD_HH_MM_SS));
+        PrintUtil.println(LocalDateUtil.isBefore(LocalDateTime.now(), LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.periodDate(new Date(), new Date()));
+        PrintUtil.println(LocalDateUtil.toLocalDateTime(1669097261596L));
+        PrintUtil.println(LocalDateUtil.getServerStartDate());
+        PrintUtil.println(LocalDateUtil.getSecondValue(LocalDateTime.now()));
+        PrintUtil.println(LocalDateUtil.formatNow(DateConstant.YY_YY_MM_DD));
         // 太多了，希望有人加入测试
     }
 }

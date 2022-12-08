@@ -1,0 +1,306 @@
+/*
+ * Copyright (C) 2022 www.mobaijun.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.mobaijun.common.util.pass;
+
+import cn.hutool.core.codec.Base64;
+
+import javax.crypto.Cipher;
+import java.io.ByteArrayOutputStream;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.interfaces.RSAPrivateCrtKey;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * software：IntelliJ IDEA 2022.1<br>
+ * class name: RsaUtils<br>
+ * class description：
+ *
+ * @author MoBaiJun 2022/5/18 10:21
+ */
+public class RsaUtil {
+
+    private static final String RSA = "RSA";
+    /**
+     * 算法名/工作模式/填充模式
+     */
+    public static final String RSA_ECB_PKC_S5_PADDING = "RSA/ECB/PKCS1Padding";
+
+    /**
+     * 签名算法
+     */
+    public static final String SIGNATURE_ALGORITHM = "MD5withRSA";
+
+    private static final String PUBLIC_KEY = "public";
+    private static final String PRIVATE_KEY = "private";
+
+    /**
+     * RSA最大加密明文大小
+     */
+    private static final int MAX_ENCRYPT_BLOCK = 117;
+
+    /**
+     * RSA最大解密密文大小
+     */
+    private static final int MAX_DECRYPT_BLOCK = 128;
+
+    /**
+     * 生成密钥对
+     *
+     * @return Object
+     * @throws GeneralSecurityException Exception
+     */
+    public static Map<String, Object> getKeyMap() throws GeneralSecurityException {
+        KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(RSA);
+        keyPairGen.initialize(1024);
+        KeyPair keyPair = keyPairGen.generateKeyPair();
+        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+        Map<String, Object> keyMap = new HashMap<>();
+        keyMap.put(PUBLIC_KEY, publicKey);
+        keyMap.put(PRIVATE_KEY, privateKey);
+        return keyMap;
+    }
+
+    /**
+     * 用私钥对信息生成数字签名
+     *
+     * @param data       已加密数据
+     * @param privateKey 私钥(BASE64编码)
+     * @return String
+     * @throws Exception GeneralSecurityException
+     */
+    public static String sign(byte[] data, String privateKey) throws Exception {
+        byte[] keyBytes = Base64.decode(privateKey);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        PrivateKey privateK = keyFactory.generatePrivate(keySpec);
+        Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
+        signature.initSign(privateK);
+        signature.update(data);
+        return Base64.encode(signature.sign());
+    }
+
+    /**
+     * 校验数字签名
+     *
+     * @param data      已加密数据
+     * @param publicKey 公钥(BASE64编码)
+     * @param sign      数字签名
+     * @return byte
+     * @throws Exception GeneralSecurityException
+     */
+    public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {
+        byte[] keyBytes = Base64.decode(publicKey);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        PublicKey publicK = keyFactory.generatePublic(keySpec);
+        Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
+        signature.initVerify(publicK);
+        signature.update(data);
+        return signature.verify(Base64.decode(sign));
+    }
+
+    /**
+     * 私钥加密
+     *
+     * @param data       源数据
+     * @param privateKey 私钥(BASE64编码)
+     * @return byte
+     * @throws Exception GeneralSecurityException
+     */
+    public static byte[] encryptByPrivateKey(byte[] data, String privateKey) throws Exception {
+        byte[] keyBytes = Base64.decode(privateKey);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        Key privateK = keyFactory.generatePrivate(keySpec);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
+        cipher.init(Cipher.ENCRYPT_MODE, privateK);
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
+    }
+
+    /**
+     * 私钥解密
+     *
+     * @param data       已加密数据
+     * @param privateKey 私钥(BASE64编码)
+     * @return byte
+     * @throws Exception GeneralSecurityException
+     */
+    public static byte[] decryptByPrivateKey(byte[] data, String privateKey) throws Exception {
+        byte[] keyBytes = Base64.decode(privateKey);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        Key privateK = keyFactory.generatePrivate(keySpec);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
+        cipher.init(Cipher.DECRYPT_MODE, privateK);
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
+    }
+
+    /**
+     * 公钥加密
+     *
+     * @param data      源数据
+     * @param publicKey 公钥(BASE64编码)
+     * @return byte[]
+     * @throws Exception IOException
+     */
+    public static byte[] encryptByPublicKey(byte[] data, String publicKey) throws Exception {
+        byte[] keyBytes = Base64.decode(publicKey);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        Key publicK = keyFactory.generatePublic(keySpec);
+        // 对数据加密
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
+        cipher.init(Cipher.ENCRYPT_MODE, publicK);
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
+    }
+
+    /**
+     * 公钥解密
+     *
+     * @param data      已加密数据
+     * @param publicKey 公钥(BASE64编码)
+     * @return byte[]
+     * @throws Exception Exception
+     */
+    public static byte[] decryptByPublicKey(byte[] data, String publicKey) throws Exception {
+        byte[] keyBytes = Base64.decode(publicKey);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        Key publicK = keyFactory.generatePublic(keySpec);
+        Cipher cipher = Cipher.getInstance(RSA_ECB_PKC_S5_PADDING);
+        cipher.init(Cipher.DECRYPT_MODE, publicK);
+        int inputLen = data.length;
+        return encryptedData(data, inputLen, cipher);
+    }
+
+    /**
+     * 获取私钥
+     *
+     * @param keyMap 密钥对
+     * @return String
+     */
+    public static String getPrivateKey(Map<String, Object> keyMap) {
+        Key key = (Key) keyMap.get(PRIVATE_KEY);
+        return Base64.encode(key.getEncoded());
+    }
+
+    /**
+     * 获取公钥
+     *
+     * @param keyMap 密钥对
+     * @return String
+     */
+    public static String getPublicKey(Map<String, Object> keyMap) {
+        Key key = (Key) keyMap.get(PUBLIC_KEY);
+        return Base64.encode(key.getEncoded());
+    }
+
+    /**
+     * 移除微软前导0
+     *
+     * @param data data
+     * @return byte[]
+     */
+    private static byte[] removeMSZero(byte[] data) {
+        byte[] b;
+        if (data[0] == 0) {
+            b = new byte[data.length - 1];
+            System.arraycopy(data, 1, b, 0, data.length - 1);
+        } else {
+            b = data;
+        }
+        return b;
+    }
+
+    /**
+     * 获取私钥(C#格式)
+     *
+     * @param keyMap 密钥对
+     * @return String
+     * @throws GeneralSecurityException Exception
+     */
+    public static String getPrivateKey2CSharp(Map<String, Object> keyMap) throws GeneralSecurityException {
+        Key key = (Key) keyMap.get(PRIVATE_KEY);
+        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(key.getEncoded());
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        RSAPrivateCrtKey privateK = (RSAPrivateCrtKey) keyFactory.generatePrivate(keySpec);
+        return "<RSAKeyValue>" +
+                "<Modulus>" + Base64.encode(removeMSZero(privateK.getModulus().toByteArray())) + "</Modulus>" +
+                "<Exponent>" + Base64.encode(removeMSZero(privateK.getPublicExponent().toByteArray())) + "</Exponent>" +
+                "<br>" + Base64.encode(removeMSZero(privateK.getPrimeP().toByteArray())) + "</P>" +
+                "<Q>" + Base64.encode(removeMSZero(privateK.getPrimeQ().toByteArray())) + "</Q>" +
+                "<DP>" + Base64.encode(removeMSZero(privateK.getPrimeExponentP().toByteArray())) + "</DP>" +
+                "<DQ>" + Base64.encode(removeMSZero(privateK.getPrimeExponentQ().toByteArray())) + "</DQ>" +
+                "<InverseQ>" + Base64.encode(removeMSZero(privateK.getCrtCoefficient().toByteArray())) + "</InverseQ>" +
+                "<D>" + Base64.encode(removeMSZero(privateK.getPrivateExponent().toByteArray())) + "</D>" +
+                "</RSAKeyValue>";
+    }
+
+    /**
+     * 获取公钥(C#格式)
+     *
+     * @param keyMap 密钥对
+     * @return String
+     * @throws GeneralSecurityException Exception
+     */
+    public static String getPublicKey2CSharp(Map<String, Object> keyMap) throws GeneralSecurityException {
+        Key key = (Key) keyMap.get(PUBLIC_KEY);
+        X509EncodedKeySpec keySpec = new X509EncodedKeySpec(key.getEncoded());
+        KeyFactory keyFactory = KeyFactory.getInstance(RSA);
+        RSAPublicKey publicK = (RSAPublicKey) keyFactory.generatePublic(keySpec);
+        return "<RSAKeyValue>" +
+                "<Modulus>" + Base64.encode(removeMSZero(publicK.getModulus().toByteArray())) + "</Modulus>" +
+                "<Exponent>" + Base64.encode(removeMSZero(publicK.getPublicExponent().toByteArray())) + "</Exponent>" +
+                "</RSAKeyValue>";
+    }
+
+    private static byte[] encryptedData(byte[] data, int inputLen, Cipher cipher) throws Exception {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        int offSet = 0;
+        byte[] cache;
+        int i = 0;
+        // 对数据分段加密
+        while (inputLen - offSet > 0) {
+            if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
+                cache = cipher.doFinal(data, offSet, MAX_ENCRYPT_BLOCK);
+            } else {
+                cache = cipher.doFinal(data, offSet, inputLen - offSet);
+            }
+            out.write(cache, 0, cache.length);
+            i++;
+            offSet = i * MAX_ENCRYPT_BLOCK;
+        }
+        byte[] encryptedData = out.toByteArray();
+        out.close();
+        return encryptedData;
+    }
+}

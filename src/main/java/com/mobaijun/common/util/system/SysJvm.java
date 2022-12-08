@@ -17,7 +17,7 @@ package com.mobaijun.common.util.system;
 
 import cn.hutool.core.date.DateTime;
 import com.mobaijun.common.constant.DateConstant;
-import com.mobaijun.common.util.date.LocalDateUtils;
+import com.mobaijun.common.util.date.LocalDateUtil;
 
 import java.lang.management.ManagementFactory;
 
@@ -118,7 +118,7 @@ public class SysJvm {
      * @return DateTime
      */
     public String getStartTime() {
-        return LocalDateUtils.toString(LocalDateUtils.getServerStartDate(), DateConstant.YYYY_MM_DD_HH_MM_SS);
+        return LocalDateUtil.toString(LocalDateUtil.getServerStartDate(), DateConstant.YYYY_MM_DD_HH_MM_SS);
     }
 
     /**
@@ -127,6 +127,6 @@ public class SysJvm {
      * @return DateTime
      */
     public String getRunTime() {
-        return LocalDateUtils.getDatePoor(DateTime.now(), LocalDateUtils.toDate(LocalDateUtils.getServerStartDate()));
+        return LocalDateUtil.getDatePoor(DateTime.now(), LocalDateUtil.toDate(LocalDateUtil.getServerStartDate()));
     }
 }

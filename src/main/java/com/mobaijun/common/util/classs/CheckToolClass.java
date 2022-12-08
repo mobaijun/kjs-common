@@ -19,9 +19,9 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONException;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import com.mobaijun.common.util.ObjectUtils;
-import com.mobaijun.common.util.StringUtils;
-import com.mobaijun.common.util.collection.CollectionUtils;
+import com.mobaijun.common.util.ObjectUtil;
+import com.mobaijun.common.util.StringUtil;
+import com.mobaijun.common.util.collection.CollectionUtil;
 
 import java.util.Collection;
 import java.util.Map;
@@ -42,7 +42,7 @@ public class CheckToolClass {
      * @param message 消息
      */
     public static <T> void assertNotNull(T data, String message) {
-        if (ObjectUtils.isEmpty(data)) {
+        if (ObjectUtil.isEmpty(data)) {
             throw new NullPointerException(message);
         }
     }
@@ -80,7 +80,7 @@ public class CheckToolClass {
      * @param message 消息
      */
     public static void assertNotEmpty(String str, String message) {
-        if (StringUtils.isEmpty(str)) {
+        if (StringUtil.isEmpty(str)) {
             throw new NullPointerException(message);
         }
     }
@@ -101,8 +101,8 @@ public class CheckToolClass {
      * 集合是否为 null,返回空集合
      */
     public static <T> Collection<T> assertListIsNull(Collection<T> list) {
-        if (CollectionUtils.isEmpty(list)) {
-            return CollectionUtils.newArrayList();
+        if (CollectionUtil.isEmpty(list)) {
+            return CollectionUtil.newArrayList();
         }
         return list;
     }
@@ -114,7 +114,7 @@ public class CheckToolClass {
      * @return 是否正确
      */
     private static boolean assertIfJsonIsLegal(String json) {
-        if (StringUtils.isEmpty(json)) {
+        if (StringUtil.isEmpty(json)) {
             return false;
         }
         Object parse;
@@ -147,8 +147,8 @@ public class CheckToolClass {
      * @return map
      */
     public static <K, V> Map<K, V> assertIsMapNull(Map<K, V> map) {
-        if (CollectionUtils.isEmpty(map)) {
-            return CollectionUtils.newHashMap(10);
+        if (CollectionUtil.isEmpty(map)) {
+            return CollectionUtil.newHashMap(10);
         }
         return map;
     }

@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.util;
 
-import com.mobaijun.common.util.NamingUtils;
-import com.mobaijun.common.util.PrintUtils;
+import com.mobaijun.common.util.NamingUtil;
+import com.mobaijun.common.util.PrintUtil;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -13,10 +13,10 @@ import com.mobaijun.common.util.PrintUtils;
 public class NamingUtilsTest {
     public static void main(String[] args) {
         // 驼峰转中划线
-        PrintUtils.println(NamingUtils.humpToMidline("userName"));
+        PrintUtil.println(NamingUtil.humpToMidline("userName"));
         // 驼峰转下划线
-        PrintUtils.println(NamingUtils.humpToUnderline("userName"));
+        PrintUtil.println(NamingUtil.humpToUnderline("userName"));
         // 下划线转驼峰
-        PrintUtils.println(NamingUtils.underlineToHump("user_name"));
+        PrintUtil.println(NamingUtil.underlineToHump("user_name"));
     }
 }

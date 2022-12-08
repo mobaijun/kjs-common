@@ -16,8 +16,8 @@
 package com.mobaijun.common.util.converter;
 
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.ObjectUtils;
-import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.ObjectUtil;
+import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.text.CharsetKit;
 
 import java.math.BigDecimal;
@@ -79,7 +79,7 @@ public class Converter {
      * @return 结果
      */
     public static Character toChar(Object value, Character defaultValue) {
-        if (ObjectUtils.isEmpty(value)) {
+        if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Character) {
@@ -87,7 +87,7 @@ public class Converter {
         }
 
         final String valueStr = toStr(value, null);
-        return StringUtils.isEmpty(valueStr) ? defaultValue : valueStr.charAt(0);
+        return StringUtil.isEmpty(valueStr) ? defaultValue : valueStr.charAt(0);
     }
 
     /**
@@ -112,7 +112,7 @@ public class Converter {
      * @return 结果
      */
     public static Byte toByte(Object value, Byte defaultValue) {
-        if (ObjectUtils.isEmpty(value)) {
+        if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         return getaByte(value, defaultValue, toStr(value, null));
@@ -140,7 +140,7 @@ public class Converter {
      * @return 结果
      */
     public static Short toShort(Object value, Short defaultValue) {
-        if (ObjectUtils.isEmpty(value)) {
+        if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         return getaShort(value, defaultValue, toStr(value, null));
@@ -153,7 +153,7 @@ public class Converter {
         if (value instanceof Number) {
             return ((Number) value).shortValue();
         }
-        if (StringUtils.isEmpty(s)) {
+        if (StringUtil.isEmpty(s)) {
             return defaultValue;
         }
         try {
@@ -185,7 +185,7 @@ public class Converter {
      * @return 结果
      */
     public static Number toNumber(Object value, Number defaultValue) {
-        if (ObjectUtils.isEmpty(value)) {
+        if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         return getNumber(value, defaultValue, toStr(value, null));
@@ -195,7 +195,7 @@ public class Converter {
         if (value instanceof Number) {
             return (Number) value;
         }
-        if (StringUtils.isEmpty(s)) {
+        if (StringUtil.isEmpty(s)) {
             return defaultValue;
         }
         try {
@@ -227,7 +227,7 @@ public class Converter {
      * @return 结果
      */
     public static Integer toInt(Object value, Integer defaultValue) {
-        if (ObjectUtils.isEmpty(value)) {
+        if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         if (value instanceof Integer) {
@@ -237,7 +237,7 @@ public class Converter {
             return ((Number) value).intValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -287,7 +287,7 @@ public class Converter {
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
-        if (StringUtils.isEmpty(str)) {
+        if (StringUtil.isEmpty(str)) {
             return new Integer[]{};
         }
         String[] arr = str.split(split);
@@ -307,7 +307,7 @@ public class Converter {
      * @return 结果
      */
     public static Long[] toLongArray(String split, String str) {
-        if (StringUtils.isEmpty(str)) {
+        if (StringUtil.isEmpty(str)) {
             return new Long[]{};
         }
         String[] arr = str.split(split);
@@ -360,7 +360,7 @@ public class Converter {
             return ((Number) value).longValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -403,7 +403,7 @@ public class Converter {
             return ((Number) value).doubleValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -446,7 +446,7 @@ public class Converter {
             return ((Number) value).floatValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -485,7 +485,7 @@ public class Converter {
             return (Boolean) value;
         }
         String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         valueStr = valueStr.trim().toLowerCase();
@@ -536,7 +536,7 @@ public class Converter {
             return myE;
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -579,7 +579,7 @@ public class Converter {
             return BigInteger.valueOf((Long) value);
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -627,7 +627,7 @@ public class Converter {
             return new BigDecimal((Integer) value);
         }
         final String valueStr = toStr(value, null);
-        if (StringUtils.isEmpty(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {
@@ -681,7 +681,7 @@ public class Converter {
      * @return 字符串
      */
     public static String str(Object obj, Charset charset) {
-        if (ObjectUtils.isEmpty(obj)) {
+        if (ObjectUtil.isEmpty(obj)) {
             return null;
         }
 
@@ -708,7 +708,7 @@ public class Converter {
      * @return 字符串
      */
     public static String str(byte[] bytes, String charset) {
-        return str(bytes, StringUtils.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset));
+        return str(bytes, StringUtil.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset));
     }
 
     /**

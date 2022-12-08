@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.seo;
 
-import com.mobaijun.common.util.PrintUtils;
-import com.mobaijun.common.util.seo.PostUrlUtils;
+import com.mobaijun.common.util.PrintUtil;
+import com.mobaijun.common.util.seo.PostUrlUtil;
 
 import java.io.IOException;
 import java.util.Vector;
@@ -26,6 +26,6 @@ public class PostUrlUtilsTest {
         urls.addElement("https://www.mobaijun.com");
         urls.addElement("https://www.mobaijun.com/tags/");
         urls.addElement("https://www.mobaijun.com/posts/2902111757.html");
-        PrintUtils.print(PostUrlUtils.postUrl(urls, "http://data.zz.baidu.com/urls?site=https://www.mobaijun.com&token=IICsd5lPpvqZp6ztH15"));
+        PrintUtil.print(PostUrlUtil.postUrl(urls, "http://data.zz.baidu.com/urls?site=https://www.mobaijun.com&token=IICsd5lPpvqZp6ztH15"));
     }
 }

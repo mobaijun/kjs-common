@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.text;
 
-import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.StringUtil;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -41,7 +41,7 @@ public class CharsetKit {
      * @return Charset
      */
     public static Charset charset(String charset) {
-        return StringUtils.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset);
+        return StringUtil.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset);
     }
 
     /**
@@ -73,7 +73,7 @@ public class CharsetKit {
             srcCharset = StandardCharsets.UTF_8;
         }
 
-        if (StringUtils.isEmpty(source) || srcCharset.equals(destCharset)) {
+        if (StringUtil.isEmpty(source) || srcCharset.equals(destCharset)) {
             return source;
         }
         assert destCharset != null;

@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.enums.http;
 
-import com.mobaijun.common.util.StringUtils;
+import com.mobaijun.common.util.StringUtil;
 import lombok.Getter;
 
 /**
@@ -431,7 +431,7 @@ public enum ContentTypeEnum {
     }
 
     public static ContentTypeEnum findByExtension(String extension) {
-        if (StringUtils.isEmpty(extension)) {
+        if (StringUtil.isEmpty(extension)) {
             return null;
         }
         for (ContentTypeEnum typesEnum : ContentTypeEnum.values()) {
