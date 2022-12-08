@@ -35,7 +35,7 @@ jobs:
       # 推送 jar 包至 maven 中央仓库
       - name: Publish to Apache Maven Central
         # 执行 maven deploy 命令
-        run: mvn clean deploy
+        run: mvn clean deploy -P release
         # 环境变量设置
         env:
           # Nexus 用户名,如果觉得不想暴露也可以配置到secrets中
