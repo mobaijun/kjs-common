@@ -110,10 +110,9 @@ public class DownloadUtils {
      * 下载
      *
      * @param url 下载地址
-     * @return 操作数
      */
-    public static Long downloadFile(String url, String filePath) {
-        return HttpUtil.downloadFile(url, new File(filePath), new StreamProgress() {
+    public static void downloadFile(String url, String filePath) {
+        HttpUtil.downloadFile(url, new File(filePath), new StreamProgress() {
             @Override
             public void start() {
                 Console.log("start download file：。。。。。。。。。。。。。。。。。。。。。。。。。。。。");
