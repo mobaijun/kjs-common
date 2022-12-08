@@ -61,13 +61,13 @@ public class CollectionUtils {
     /**
      * 判断 map 是否为 null
      *
-     * @param <K>  未定义
-     * @param <V>  未定义
-     * @param data map集合数据
+     * @param <K> 键
+     * @param <V> 值
+     * @param map map集合数据
      * @return boolean
      */
-    public static <K, V> boolean isEmpty(Map<K, V> data) {
-        return data == null || data.isEmpty();
+    public static <K, V> boolean isEmpty(Map<K, V> map) {
+        return map == null || map.isEmpty();
     }
 
     /**

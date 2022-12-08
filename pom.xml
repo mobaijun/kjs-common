@@ -15,7 +15,7 @@
     <!-- Package Description -->
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.1.9</version>
+    <version>1.1.10</version>
 
     <!-- Project Introduction -->
     <name>kjs-common</name>

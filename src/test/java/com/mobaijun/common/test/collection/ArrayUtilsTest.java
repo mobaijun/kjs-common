@@ -8,4 +8,7 @@ package com.mobaijun.common.test.collection;
  * @author MoBaiJun 2022/11/22 15:19
  */
 public class ArrayUtilsTest {
+    public static void main(String[] args) {
+
+    }
 }

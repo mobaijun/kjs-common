@@ -4,6 +4,7 @@ import com.mobaijun.common.util.classs.CheckToolClass;
 import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -32,6 +33,10 @@ public class CheckToolClassTest {
         CheckToolClass.assertNotEmpty("", "参数为空！");
 
         // 数据空校验
-        CheckToolClass.assertNotNull("", "参数是空的！");
+        // CheckToolClass.assertNotNull("", "参数是空的！");
+
+        // 判断 map 是否为 null ，返回空 map
+        Map<String, String> map = CollectionUtils.newHashMap();
+        Map<String, String> isMapNull = CheckToolClass.assertIsMapNull(map);
     }
 }

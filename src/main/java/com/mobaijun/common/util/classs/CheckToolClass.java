@@ -24,6 +24,7 @@ import com.mobaijun.common.util.StringUtils;
 import com.mobaijun.common.util.collection.CollectionUtils;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -135,5 +136,20 @@ public class CheckToolClass {
         if (assertIfJsonIsLegal(json)) {
             throw new ArrayIndexOutOfBoundsException(message);
         }
+    }
+
+    /**
+     * 判断 map 是否为 null ，返回空 map
+     *
+     * @param map map集合
+     * @param <K> 键
+     * @param <V> 值
+     * @return map
+     */
+    public static <K, V> Map<K, V> assertIsMapNull(Map<K, V> map) {
+        if (CollectionUtils.isEmpty(map)) {
+            return CollectionUtils.newHashMap(10);
+        }
+        return map;
     }
 }
