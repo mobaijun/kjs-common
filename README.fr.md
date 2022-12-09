@@ -24,7 +24,7 @@
     </a>
 </p>
 
-## Aperçu
+## 概述
 
 kjs-common ，是一个Java开发基础工具类库，对项目开发中常用的工具进行封装，如：加密、http 请求、API 接口等。 目的是帮助开发者更快速、更快捷的开发。
 
@@ -32,7 +32,7 @@ Ce projet intègre les excellents outils open source couramment utilisés dans l
 
 -   hutool-all (la classe d'outils la plus complète)
 -   lombok (classes d'entités simplifiées)
--   mapstruct (simplifie le passage des paramètres)
+-   mapstruct （简化参数传递）
 
 Cible:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
@@ -136,7 +136,7 @@ Cible:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 --------------------------------------------------------------------------------------------
 ```
 
-> Toutes les dépendances seront mises à jour vers la dernière version de manière synchrone
+> 所有依赖会同步更新最新版本
 
 ## démarrage rapide
 
@@ -160,13 +160,13 @@ implementation 'com.mobaijun:kjs-common:latest.version'
 
 ### entrepôt central
 
-Cet entrepôt a été libéré de manière synchrone[entrepôt central maven](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), bienvenue à utiliser, bienvenue pour commencer
+Cet entrepôt a été libéré de manière synchrone[entrepôt central maven](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，欢迎使用，欢迎 start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
 ## contribuer
 
--   Si vous souhaitez également participer à ce projet, veuillez bifurquer cet entrepôt, soumettre le pr après la modification, et il sera synchronisé avec cet entrepôt après examen.
+-   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
