@@ -23,7 +23,8 @@
         <img src="https://komarev.com/ghpvc/?username=mobaijun&color=orange" alt="profile">
     </a>
 </p>
-## 其他语言
+
+## 其他語言
 
 -   [英語](README.en.md)
 -   [繁體中文](README.zh-TW.md)
@@ -170,7 +171,7 @@ implementation 'com.mobaijun:kjs-common:latest.version'
 
 ## 貢獻
 
--   如果你也想參加這個項目，請 fork 本倉庫，修改完畢提交 pr ，審核後會同步至本倉庫。
+-   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
