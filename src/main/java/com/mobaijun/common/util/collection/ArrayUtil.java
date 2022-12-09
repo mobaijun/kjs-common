@@ -19,6 +19,8 @@ import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.enhance.EnhanceAssert;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -198,5 +200,16 @@ public class ArrayUtil extends cn.hutool.core.util.ArrayUtil {
      */
     public static <T> T getFirst(T[] array) {
         return isNotEmpty(array) ? array[0] : null;
+    }
+
+    /**
+     * 数组转换为 list 集合,安全的，可增删改查的
+     *
+     * @param data 数据
+     * @param <T>  类型
+     * @return 集合
+     */
+    public static <T> List<T> arrayList(T[] data) {
+        return Arrays.stream(data).collect(Collectors.toList());
     }
 }
