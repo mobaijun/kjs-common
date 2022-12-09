@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
  * software：IntelliJ IDEA 2022.2.3<br/>
  * class name: HostUtil<br/>
  * class description: host 工具类<br/>
+ * > Linux 下和 Mac Os 待完善
  * 如果遇到 host 文件没有权限写入，请先右键host文件 -> 安全 -> 当前用户 -> 编辑 -> 当前用户 -> 勾选完全控制，如下图<br/>
  * <img src="https://tencent.cos.mobaijun.com//xxbj_img/image-20221210004329990.png"/>
  *
