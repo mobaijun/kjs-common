@@ -620,7 +620,7 @@ public class StrConvert {
      * @return 字符串
      */
     public static String utf8Str(Object obj) {
-        return str(obj, CharsetKit.CHARSET_UTF_8);
+        return str(obj, Charsets.UTF_8);
     }
 
     /**
