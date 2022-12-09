@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.number;
 
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.util.date.LocalDateUtil;

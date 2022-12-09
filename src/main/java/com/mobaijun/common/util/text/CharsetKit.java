@@ -18,7 +18,6 @@ package com.mobaijun.common.util.text;
 import com.mobaijun.common.util.StringUtil;
 
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -28,11 +27,6 @@ import java.nio.charset.StandardCharsets;
  * @author MoBaiJun 2022/4/22 18:47
  */
 public class CharsetKit {
-
-    /**
-     * UTF-8
-     */
-    public static final Charset CHARSET_UTF_8 = StandardCharsets.UTF_8;
 
     /**
      * 转换为Charset对象
@@ -66,11 +60,11 @@ public class CharsetKit {
      */
     public static String convert(String source, Charset srcCharset, Charset destCharset) {
         if (null == srcCharset) {
-            srcCharset = StandardCharsets.ISO_8859_1;
+            srcCharset = Charsets.ISO_8859_1;
         }
 
         if (null == destCharset) {
-            srcCharset = StandardCharsets.UTF_8;
+            srcCharset = Charsets.UTF_8;
         }
 
         if (StringUtil.isEmpty(source) || srcCharset.equals(destCharset)) {

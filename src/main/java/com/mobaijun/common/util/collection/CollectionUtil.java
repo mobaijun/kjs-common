@@ -1009,19 +1009,6 @@ public class CollectionUtil {
     }
 
     /**
-     * 取得Collection的第一个元素，如果collection为空返回null.
-     */
-    public static <T> T getFirst(Collection<T> collection) {
-        if (isEmpty(collection)) {
-            return null;
-        }
-        if (collection instanceof List) {
-            return ((List<T>) collection).get(0);
-        }
-        return collection.iterator().next();
-    }
-
-    /**
      * 返回无序集合中的最小值，使用元素默认排序
      */
     public static <T extends Object & Comparable<? super T>> T min(Collection<? extends T> coll) {

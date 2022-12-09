@@ -15,12 +15,18 @@
  */
 package com.mobaijun.common.util.reflect;
 
+import cn.hutool.log.Log;
+
 import java.beans.PropertyDescriptor;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -36,6 +42,11 @@ import java.util.Objects;
  * @author MoBaiJun 2022/5/31 11:21
  */
 public class ReflectUtil {
+    /**
+     * tools log
+     */
+    private static final Log log = Log.get(ReflectUtil.class);
+
     private static final Map<Class<?>, Class<?>> PRIMITIVE_AND_WRAP = new HashMap<>(10);
 
     static {
@@ -297,5 +308,132 @@ public class ReflectUtil {
             clazz = clazz.getSuperclass();
         }
         return fieldList.toArray(new Field[0]);
+    }
+
+    /**
+     * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T getFieldValue(Object object, String fieldName) {
+        Field field = getDeclaredField(object, fieldName);
+        if (field == null) {
+            throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
+        }
+        makeAccessible(field);
+        Object result = null;
+        try {
+            result = field.get(object);
+        } catch (IllegalAccessException e) {
+            log.error(e, "getFieldValue:{}", e.getMessage());
+        }
+        return (T) result;
+    }
+
+    /**
+     * 直接设置对象属性值, 忽略 private/protected 修饰符, 也不经过 setter
+     */
+    public static void setFieldValue(Object object, String fieldName, Object value) {
+        Field field = getDeclaredField(object, fieldName);
+
+        if (field == null) {
+            throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
+        }
+        makeAccessible(field);
+        try {
+            field.set(object, value);
+        } catch (IllegalAccessException e) {
+            log.error(e, "setFieldValue:{}", e.getMessage());
+        }
+    }
+
+
+    /**
+     * 通过反射, 获得定义 Class 时声明的父类的泛型参数的类型
+     * 如: public EmployeeDao extends BaseDao<Employee, String>
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getSuperClassGenericType(Class<T> clazz, int index) {
+        Type genType = clazz.getGenericSuperclass();
+
+        if (!(genType instanceof ParameterizedType)) {
+            return (Class<T>) Object.class;
+        }
+
+        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
+
+        if (index >= params.length || index < 0) {
+            return (Class<T>) Object.class;
+        }
+
+        if (!(params[index] instanceof Class)) {
+            return (Class<T>) Object.class;
+        }
+        return (Class<T>) params[index];
+    }
+
+    /**
+     * 通过反射, 获得 Class 定义中声明的父类的泛型参数类型
+     * 如: public EmployeeDao extends BaseDao
+     */
+    public static <T> Class<T> getSuperGenericType(Class<T> clazz) {
+        return getSuperClassGenericType(clazz, 0);
+    }
+
+    /**
+     * 循环向上转型, 获取对象的 DeclaredMethod
+     */
+    public static Method getDeclaredMethod(Object object, String methodName, Class<?>[] parameterTypes) {
+        for (Class<?> superClass = object.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
+            try {
+                return superClass.getDeclaredMethod(methodName, parameterTypes);
+            } catch (NoSuchMethodException e) {
+                // Method 不在当前类定义, 继续向上转型
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 使 filed 变为可访问
+     */
+    public static void makeAccessible(Field field) {
+        if (!Modifier.isPublic(field.getModifiers())) {
+            field.setAccessible(true);
+        }
+    }
+
+    /**
+     * 循环向上转型, 获取对象的 DeclaredField
+     */
+    public static Field getDeclaredField(Object object, String filedName) {
+
+        for (Class<?> superClass = object.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
+            try {
+                return superClass.getDeclaredField(filedName);
+            } catch (NoSuchFieldException e) {
+                // Field 不在当前类定义, 继续向上转型
+                log.error(e, "NoSuchFieldException:{}", e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 直接调用对象方法, 而忽略修饰符(private, protected)
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T invokeMethod(T object, String methodName, Class<T>[] parameterTypes, T[] parameters) throws InvocationTargetException {
+        Method method = getDeclaredMethod(object, methodName, parameterTypes);
+
+        if (method == null) {
+            throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + object + "]");
+        }
+        method.setAccessible(true);
+        try {
+            return (T) method.invoke(object, (Object) parameters);
+        } catch (IllegalAccessException e) {
+            log.error(e, "invokeMethod:{}", e.getMessage());
+        }
+        return null;
     }
 }

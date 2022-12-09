@@ -18,7 +18,7 @@ package com.mobaijun.common.util.converter;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.ObjectUtil;
 import com.mobaijun.common.util.StringUtil;
-import com.mobaijun.common.util.text.CharsetKit;
+import com.mobaijun.common.util.text.Charsets;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -657,7 +657,7 @@ public class Converter {
      * @return 字符串
      */
     public static String utf8Str(Object obj) {
-        return str(obj, CharsetKit.CHARSET_UTF_8);
+        return str(obj, Charsets.UTF_8);
     }
 
     /**
