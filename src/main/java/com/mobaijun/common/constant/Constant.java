@@ -22,14 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/5 9:01
  */
-public class Constant {
-
-    /**
-     * UTF_8 编码
-     * 推荐使用：{@link java.nio.charset.StandardCharsets}
-     */
-    @Deprecated
-    public static final String UTF_8 = "UTF-8";
+public final class Constant {
 
     /**
      * GBK 字符集
@@ -40,11 +33,6 @@ public class Constant {
      * MD5
      */
     public static final String MD5 = "MD5";
-
-    /**
-     * 正则
-     */
-    public static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";
 
     /**
      * 大写十六进制数

@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/18 14:10
  */
-public class JdkConstant {
+public final class JdkConstant {
     /**
      * 获取 jdk、 版本
      */

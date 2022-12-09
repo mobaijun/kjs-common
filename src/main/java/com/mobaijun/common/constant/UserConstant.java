@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/12 9:15
  */
-public class UserConstant {
+public final class UserConstant {
 
     /**
      * 系统默认的管理员密码

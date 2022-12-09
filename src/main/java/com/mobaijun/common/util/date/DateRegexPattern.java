@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/11/23 13:47
  */
-public class DateRegexPattern {
+public final class DateRegexPattern {
 
     /**
      * WEEK_OF_MONTH

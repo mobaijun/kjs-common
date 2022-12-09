@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/7/18 15:56
  */
-public class LicenseConstant {
+public final class LicenseConstant {
 
     /**
      * Apache 2.0

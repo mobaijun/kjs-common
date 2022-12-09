@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/5/18 10:07
  */
-public class RegxConstant {
+public final class RegxConstant {
     /**
      * 正则表达式：验证用户名
      */

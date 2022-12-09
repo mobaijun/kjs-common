@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/12 9:16
  */
-public class ShiroConstants {
+public final class ShiroConstants {
 
     /**
      * 当前登录的用户

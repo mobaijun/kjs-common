@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/4/25 12:20
  */
-public class ThreadConstant {
+public final class ThreadConstant {
 
     /**
      * 超时时间

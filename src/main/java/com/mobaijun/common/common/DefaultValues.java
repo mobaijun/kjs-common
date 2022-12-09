@@ -22,7 +22,7 @@ package com.mobaijun.common.common;
  *
  * @author MoBaiJun 2022/5/31 11:30
  */
-public class DefaultValues {
+public final class DefaultValues {
 
     /**
      * 默认分页条数

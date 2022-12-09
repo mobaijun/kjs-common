@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/6/10 13:54
  */
-public class FileConstant {
+public final class FileConstant {
 
     /**
      * jpg

@@ -22,7 +22,7 @@ package com.mobaijun.common.util.tree;
  *
  * @author MoBaiJun 2022/11/5 23:48
  */
-public class TreeConstant {
+public final class TreeConstant {
 
     /**
      * id

@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/11/22 11:24
  */
-public class UserAgentConstant {
+public final class UserAgentConstant {
 
     /**
      * mac Safari

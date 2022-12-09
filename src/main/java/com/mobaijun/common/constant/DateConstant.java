@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/4/22 18:52
  */
-public class DateConstant {
+public final class DateConstant {
 
     /**
      * 时分秒

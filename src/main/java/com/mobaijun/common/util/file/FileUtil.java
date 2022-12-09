@@ -16,7 +16,6 @@
 package com.mobaijun.common.util.file;
 
 import cn.hutool.core.codec.Base64;
-import com.mobaijun.common.constant.Constant;
 import com.mobaijun.common.constant.NumberConstant;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -54,6 +53,11 @@ public class FileUtil {
      * 存储文件列表
      */
     private static final ArrayList<String> FILE_LIST = new ArrayList<>();
+
+    /**
+     * 正则
+     */
+    private static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";
 
     /**
      * 系统的临时文件夹
@@ -123,7 +127,7 @@ public class FileUtil {
      * @return true 正常 false 非法
      */
     public static boolean isValidFilename(String filename) {
-        return filename.matches(Constant.FILENAME_PATTERN);
+        return filename.matches(FILENAME_PATTERN);
     }
 
     /**

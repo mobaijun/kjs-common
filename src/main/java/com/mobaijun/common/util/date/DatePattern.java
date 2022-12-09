@@ -22,7 +22,7 @@ package com.mobaijun.common.util.date;
  *
  * @author MoBaiJun 2022/11/23 13:46
  */
-public class DatePattern {
+public final class DatePattern {
 
     public static final String UUUU_MM_DD_HH_MM_SS = "uuuu-MM-dd HH:mm:ss";
 

@@ -12,7 +12,7 @@ import java.nio.charset.StandardCharsets;
  *
  * @author MoBaiJun 2022/12/9 8:54
  */
-public class Charsets {
+public final class Charsets {
 
     /**
      * UTF_8

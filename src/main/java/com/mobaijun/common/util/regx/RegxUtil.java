@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/5/18 10:08
  */
-public class RegxUtil extends RegxConstant {
+public class RegxUtil {
     /**
      * 校验用户名
      *
@@ -35,7 +35,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isUsername(String username) {
-        return Pattern.matches(REGEX_USERNAME, username);
+        return Pattern.matches(RegxConstant.REGEX_USERNAME, username);
     }
 
     /**
@@ -45,7 +45,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isPassword(String password) {
-        return Pattern.matches(REGEX_PASSWORD, password);
+        return Pattern.matches(RegxConstant.REGEX_PASSWORD, password);
     }
 
     /**
@@ -55,7 +55,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isMobile(String mobile) {
-        return Pattern.matches(REGEX_MOBILE, mobile);
+        return Pattern.matches(RegxConstant.REGEX_MOBILE, mobile);
     }
 
     /**
@@ -65,7 +65,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isEmail(String email) {
-        return Pattern.matches(REGEX_EMAIL, email);
+        return Pattern.matches(RegxConstant.REGEX_EMAIL, email);
     }
 
     /**
@@ -75,7 +75,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isChinese(String chinese) {
-        return Pattern.matches(REGEX_CHINESE, chinese);
+        return Pattern.matches(RegxConstant.REGEX_CHINESE, chinese);
     }
 
     /**
@@ -85,7 +85,7 @@ public class RegxUtil extends RegxConstant {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isIdCard(String idCard) {
-        return Pattern.matches(REGEX_ID_CARD, idCard);
+        return Pattern.matches(RegxConstant.REGEX_ID_CARD, idCard);
     }
 
     /**
@@ -95,7 +95,7 @@ public class RegxUtil extends RegxConstant {
      * @return true or false
      */
     public static boolean isIpAddress(String ipAddress) {
-        return Pattern.matches(REGEX_IP_ADDR, ipAddress);
+        return Pattern.matches(RegxConstant.REGEX_IP_ADDR, ipAddress);
     }
 
     /**
@@ -105,7 +105,7 @@ public class RegxUtil extends RegxConstant {
      * @return true or false
      */
     public static boolean isMac(String mac) {
-        return Pattern.matches(REGEX_MAC, mac);
+        return Pattern.matches(RegxConstant.REGEX_MAC, mac);
     }
 
     /**
@@ -146,7 +146,7 @@ public class RegxUtil extends RegxConstant {
         if (StringUtil.isEmpty(phone)) {
             return "";
         }
-        if (match(REGEX_PHONE, phone)) {
+        if (match(RegxConstant.REGEX_PHONE, phone)) {
             String begin = phone.substring(0, 3);
             String end = phone.substring(7);
             return begin + "****" + end;

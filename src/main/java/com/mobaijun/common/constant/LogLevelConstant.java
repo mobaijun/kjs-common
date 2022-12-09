@@ -33,7 +33,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/11/22 11:22
  */
-public class LogLevelConstant {
+public final class LogLevelConstant {
 
     /**
      * 各级包括自定义级别

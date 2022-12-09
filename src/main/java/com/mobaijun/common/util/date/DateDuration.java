@@ -24,7 +24,7 @@ import java.time.temporal.ChronoUnit;
  *
  * @author MoBaiJun 2022/11/23 13:53
  */
-public class DateDuration {
+public final class DateDuration {
 
     /**
      * MILLIS_1000

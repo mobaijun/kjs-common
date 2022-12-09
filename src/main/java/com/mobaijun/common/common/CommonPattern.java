@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/11/23 13:44
  */
-public class CommonPattern {
+public final class CommonPattern {
 
     /**
      * 左括号

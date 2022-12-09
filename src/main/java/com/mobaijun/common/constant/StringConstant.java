@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/18 9:49
  */
-public class StringConstant {
+public final class StringConstant {
 
     /**
      * VERTICAL_BAR

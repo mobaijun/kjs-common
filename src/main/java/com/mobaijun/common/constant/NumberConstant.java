@@ -24,7 +24,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/18 13:47
  */
-public class NumberConstant {
+public final class NumberConstant {
 
     /**
      * MINUS_ONE

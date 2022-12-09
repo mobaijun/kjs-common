@@ -26,7 +26,7 @@ import java.util.Locale;
  *
  * @author MoBaiJun 2022/11/23 13:45
  */
-public class DateFormat {
+public final class DateFormat {
 
     /**
      * YYYY_MM_DD_HH_MM_SS
