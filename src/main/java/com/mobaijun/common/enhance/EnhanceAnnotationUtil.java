@@ -16,10 +16,10 @@
 package com.mobaijun.common.enhance;
 
 import cn.hutool.core.annotation.AnnotationUtil;
-import cn.hutool.core.util.ArrayUtil;
-import cn.hutool.core.util.ReflectUtil;
 import com.mobaijun.common.util.ObjectUtil;
+import com.mobaijun.common.util.collection.ArrayUtil;
 import com.mobaijun.common.util.collection.CollectionUtil;
+import com.mobaijun.common.util.reflect.ReflectUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

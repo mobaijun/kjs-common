@@ -15,10 +15,8 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.util.CharsetUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
+import com.mobaijun.common.util.text.Charsets;
 
 import java.util.Map;
 
@@ -32,20 +30,20 @@ import java.util.Map;
 public class RedirectUrlBuildUtil {
 
     /**
-     * 构建redirect url
+     * 构建 redirect url
      *
      * @param originUrl 原始的url
      * @param paramsMap url上要拼接的参数信息
      * @return String
      */
     public static String createRedirectUrl(String originUrl, Map<String, ?> paramsMap) {
-        if (StrUtil.isBlank(originUrl)) {
+        if (StringUtil.isBlank(originUrl)) {
             return null;
         }
         if (ObjectUtil.isEmpty(paramsMap)) {
             return originUrl;
         } else {
-            return originUrl + "?" + URLUtil.buildQuery(paramsMap, CharsetUtil.CHARSET_UTF_8);
+            return originUrl + "?" + URLUtil.buildQuery(paramsMap, Charsets.UTF_8);
         }
     }
 }

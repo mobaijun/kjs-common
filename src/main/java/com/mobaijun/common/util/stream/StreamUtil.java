@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util.stream;
 
-
 import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.collection.CollectionUtil;
 

@@ -15,13 +15,11 @@
  */
 package com.mobaijun.common.util.tool;
 
-import cn.hutool.core.date.DateTime;
-import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.collection.CollectionUtil;
+import com.mobaijun.common.util.date.LocalDateUtil;
 import com.mobaijun.common.util.regx.RegxConstant;
 
 import java.io.IOException;
@@ -29,6 +27,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Array;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Enumeration;
@@ -60,7 +59,7 @@ public class ToolUtil {
      */
     public static String dateType(Object o) {
         if (o instanceof Date) {
-            return DateUtil.format((Date) o, DateConstant.YYYY_MM_DD_HH_MM_SS);
+            return LocalDateUtil.toString((Date) o, DateConstant.YYYY_MM_DD_HH_MM_SS);
         } else {
             return o.toString();
         }
@@ -305,7 +304,7 @@ public class ToolUtil {
      * @return 格式化后的文本
      */
     public static String format(String template, Object... values) {
-        return StrUtil.format(template, values);
+        return StringUtil.format(template, values);
     }
 
     /**
@@ -316,7 +315,7 @@ public class ToolUtil {
      * @return 格式化后的文本
      */
     public static String format(String template, Map<?, ?> map) {
-        return StrUtil.format(template, map);
+        return StringUtil.format(template, map);
     }
 
     /**
@@ -425,8 +424,8 @@ public class ToolUtil {
      *
      * @return String
      */
-    public static DateTime currentTime() {
-        return DateTime.now();
+    public static LocalDateTime currentTime() {
+        return LocalDateTime.now();
     }
 
     /**
@@ -519,7 +518,7 @@ public class ToolUtil {
             return ((Number) value).intValue();
         }
         final String valueStr = toStr(value, null);
-        if (StrUtil.isBlank(valueStr)) {
+        if (StringUtil.isBlank(valueStr)) {
             return defaultValue;
         }
         try {
@@ -547,7 +546,7 @@ public class ToolUtil {
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
-        if (StrUtil.isEmpty(str)) {
+        if (StringUtil.isEmpty(str)) {
             return new Integer[]{};
         }
         String[] arr = str.split(split);

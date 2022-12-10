@@ -15,10 +15,10 @@
  */
 package com.mobaijun.common.enhance;
 
-import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.ObjectUtil;
+import com.mobaijun.common.util.StringUtil;
+import com.mobaijun.common.util.reflect.ReflectUtil;
 
 import java.util.List;
 import java.util.Map;
@@ -40,7 +40,7 @@ public class EnhanceObjectUtil extends ObjectUtil {
      * @return Object
      */
     public static Object getValue(Object targetObj, String key) {
-        return getValue(targetObj, key, StrUtil.DOT);
+        return getValue(targetObj, key, StringConstant.DOT);
     }
 
     /**
@@ -53,10 +53,10 @@ public class EnhanceObjectUtil extends ObjectUtil {
      */
     @SuppressWarnings("all")
     public static Object getValue(Object targetObj, String key, String separator) {
-        separator = StrUtil.blankToDefault(separator, StrUtil.DOT);
+        separator = StringUtil.blankToDefault(separator, StringConstant.DOT);
         Object result = null;
         if (isAllNotEmpty(targetObj, key)) {
-            List<String> sonKeys = StrUtil.split(key, StringConstant.DOT);
+            List<String> sonKeys = StringUtil.split(key, StringConstant.DOT);
             int index = 0;
             Object tempResult = targetObj;
             for (String sonKey : sonKeys) {

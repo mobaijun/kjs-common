@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.enhance;
 
-
 import cn.hutool.core.lang.Assert;
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.util.ObjectUtil;
+import com.mobaijun.common.util.StringUtil;
 
 import java.lang.annotation.Annotation;
 
@@ -46,15 +45,15 @@ public class EnhanceAssert extends Assert {
      */
     public static int checkBetween(Integer value, Integer min, Integer max) {
         if ((min == null && max == null) || value == null) {
-            throw new IllegalArgumentException(StrUtil.format("【value parameter must not null】 and 【min and max parameter cannot be empty at the same time】"));
+            throw new IllegalArgumentException(StringUtil.format("【value parameter must not null】 and 【min and max parameter cannot be empty at the same time】"));
         }
         if (max == null) {
             if (value < min) {
-                throw new IllegalArgumentException(StrUtil.format("Length must greater or equal to {}.", min));
+                throw new IllegalArgumentException(StringUtil.format("Length must greater or equal to {}.", min));
             }
         } else if (min == null) {
             if (value > max) {
-                throw new IllegalArgumentException(StrUtil.format("Length must less than or equal to {}.", max));
+                throw new IllegalArgumentException(StringUtil.format("Length must less than or equal to {}.", max));
             }
         } else {
             Assert.checkBetween(value.intValue(), min.intValue(), max.intValue());

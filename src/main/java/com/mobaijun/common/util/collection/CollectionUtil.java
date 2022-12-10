@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util.collection;
 
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.StringUtil;
 
@@ -683,7 +682,7 @@ public class CollectionUtil {
      * @return Map
      */
     public static Map<String, String> zip(String keys, String values, String delimiter) {
-        return zip(StrUtil.split(keys, delimiter), StrUtil.split(values, delimiter));
+        return zip(StringUtil.split(keys, delimiter), StringUtil.split(values, delimiter));
     }
 
     /**

@@ -15,7 +15,8 @@
  */
 package com.mobaijun.common.util.html;
 
-import cn.hutool.core.util.StrUtil;
+import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.StringUtil;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -83,7 +84,7 @@ public class EscapeUtil {
     private static String encode(String text) {
         int len;
         if ((text == null) || ((len = text.length()) == 0)) {
-            return StrUtil.EMPTY;
+            return StringConstant.EMPTY_STRING;
         }
         StringBuilder buffer = new StringBuilder(len + (len >> 2));
         char c;
@@ -105,7 +106,7 @@ public class EscapeUtil {
      * @return 解码后的字符串
      */
     public static String decode(String content) {
-        if (StrUtil.isEmpty(content)) {
+        if (StringUtil.isEmpty(content)) {
             return content;
         }
 

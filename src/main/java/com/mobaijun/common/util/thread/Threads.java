@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util.thread;
 
-
 import cn.hutool.log.Log;
 import com.mobaijun.common.constant.ThreadConstant;
 import com.mobaijun.common.util.PrintUtil;

@@ -16,7 +16,6 @@
 package com.mobaijun.common.util.sql;
 
 import cn.hutool.core.exceptions.UtilException;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.log.Log;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.StringUtil;
@@ -85,9 +84,9 @@ public class SqlUtil extends cn.hutool.db.sql.SqlUtil {
         if (StringUtil.isEmpty(value)) {
             return;
         }
-        String[] sqlKeywords = StrUtil.splitToArray(SQL_REGEX, "\\|");
+        String[] sqlKeywords = StringUtil.splitToArray(SQL_REGEX, "\\|");
         for (String sqlKeyword : sqlKeywords) {
-            if (StrUtil.indexOfIgnoreCase(value, sqlKeyword) > -1) {
+            if (StringUtil.indexOfIgnoreCase(value, sqlKeyword) > -1) {
                 throw new UtilException("参数存在SQL注入风险");
             }
         }

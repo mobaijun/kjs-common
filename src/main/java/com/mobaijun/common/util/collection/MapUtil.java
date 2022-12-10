@@ -97,10 +97,9 @@ public class MapUtil {
      */
     public static <K, V> List<Model<K, V>> mapToList(Map<K, V> source) {
         Objects.requireNonNull(source);
-        List<Model<K, V>> result = source.entrySet().stream()
+        return source.entrySet().stream()
                 .map(e -> new Model<>(e.getKey(), e.getValue()))
                 .collect(Collectors.toList());
-        return result;
     }
 
 

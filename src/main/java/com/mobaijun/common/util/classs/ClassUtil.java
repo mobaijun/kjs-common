@@ -15,10 +15,10 @@
  */
 package com.mobaijun.common.util.classs;
 
-import cn.hutool.core.lang.Assert;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.enhance.EnhanceAssert;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -524,7 +524,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      * @return 如果是代理的class，返回父 class，否则返回自身
      */
     public static Class<?> getUserClass(Class<?> clazz) {
-        Assert.notNull(clazz, "Class must not be null");
+        EnhanceAssert.notNull(clazz, "Class must not be null");
         return isProxy(clazz) ? clazz.getSuperclass() : clazz;
     }
 
@@ -537,7 +537,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      * @return 返回对象的 user class
      */
     public static Class<?> getUserClass(Object object) {
-        Assert.notNull(object, "Instance must not be null");
+        EnhanceAssert.notNull(object, "Instance must not be null");
         return getUserClass(object.getClass());
     }
 

@@ -17,7 +17,7 @@ package com.mobaijun.common;
 
 import cn.hutool.core.lang.ConsoleTable;
 import cn.hutool.core.util.ClassUtil;
-import cn.hutool.core.util.StrUtil;
+import com.mobaijun.common.util.StringUtil;
 
 import java.util.Set;
 
@@ -33,7 +33,7 @@ public class MoBaiJun {
 
     private static Set<Class<?>> getAllUtils(String packageName, String suffix) {
         return ClassUtil.scanPackage(packageName,
-                (clazz) -> (!clazz.isInterface()) && StrUtil.endWith(clazz.getSimpleName(), suffix));
+                (clazz) -> (!clazz.isInterface()) && StringUtil.endWith(clazz.getSimpleName(), suffix));
     }
 
     /**

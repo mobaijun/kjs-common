@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
 
@@ -65,7 +64,7 @@ public class RunTimeUtil {
      */
     public static String getVmArguments() {
         List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
-        return StrUtil.join(StringConstant.BLANK, vmArguments);
+        return StringUtil.join(StringConstant.BLANK, vmArguments);
     }
 
 
