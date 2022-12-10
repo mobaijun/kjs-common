@@ -118,7 +118,7 @@ public class EntityUtil {
      * @param <T>    源数据类型
      * @param <R>    变换后数据类型
      * @param obj    源对象实例
-     * @param action 映射Lmabda表达式
+     * @param action 映射 Lambda 表达式
      * @return 变换后的类型，如果source为null,则返回null
      */
     public static <T, R> R toObj(final T obj, final Function<? super T, ? extends R> action) {
