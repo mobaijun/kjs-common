@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.tool;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.regx.RegxConstant;
 

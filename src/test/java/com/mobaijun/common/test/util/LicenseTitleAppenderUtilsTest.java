@@ -12,7 +12,7 @@ import com.mobaijun.common.util.LicenseTitleAppenderUtil;
  */
 public class LicenseTitleAppenderUtilsTest {
     public static void main(String[] args) {
-        LicenseTitleAppenderUtil.append("F:\\ideaProject\\kjs-project\\kjs-common\\src\\main\\java\\com\\mobaijun\\common"
+        LicenseTitleAppenderUtil.append("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\main\\java\\com\\mobaijun\\common"
                 , LicenseConstant.APACHE_2);
     }
 }

@@ -21,21 +21,26 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -213,8 +218,7 @@ public class FileUtil {
         File file;
         do {
             file = new File(tempDir, System.currentTimeMillis() + "." + name);
-        }
-        while (!file.createNewFile());
+        } while (!file.createNewFile());
         return file;
     }
 
@@ -240,11 +244,10 @@ public class FileUtil {
     public static List<String> imageToBase64(String path) {
         List<String> base64List = new LinkedList<>();
         // 转流处理
-        Arrays.stream(cn.hutool.core.io.FileUtil.ls(path))
-                .forEach(file -> {
-                    // 转 base64
-                    base64List.add(Base64.encode(cn.hutool.core.io.FileUtil.readBytes(file)));
-                });
+        Arrays.stream(cn.hutool.core.io.FileUtil.ls(path)).forEach(file -> {
+            // 转 base64
+            base64List.add(Base64.encode(cn.hutool.core.io.FileUtil.readBytes(file)));
+        });
         return base64List;
     }
 
@@ -256,5 +259,23 @@ public class FileUtil {
      */
     public static void base64ToImage(byte[] data, String fileName) {
         cn.hutool.core.io.FileUtil.writeBytes(Base64.decode(data), fileName);
+    }
+
+    /**
+     * 从路径中读取文件内容字符串
+     *
+     * @param path 相对于resource目录的相对路径
+     * @return 文件内容字符串
+     */
+    public static String readTemplate(String path) {
+        InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
+
+        if (inputStream == null) {
+            throw new RuntimeException("读取文件失败");
+        } else {
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            Stream<String> streamOfString = new BufferedReader(inputStreamReader).lines();
+            return streamOfString.collect(Collectors.joining());
+        }
     }
 }

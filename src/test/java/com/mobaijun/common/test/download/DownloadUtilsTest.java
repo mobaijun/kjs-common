@@ -1,6 +1,5 @@
 package com.mobaijun.common.test.download;
 
-import cn.hutool.core.lang.UUID;
 import com.mobaijun.common.download.DownloadUtil;
 
 /**
@@ -17,7 +16,7 @@ public class DownloadUtilsTest {
                 "F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download");
 
         // 下载文件（uuid文件名）
-        DownloadUtil.downLoadJpg("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg", UUID.fastUUID().toString(),
+        DownloadUtil.downLoadJpg("https://tencent.cos.mobaijun.com/img/icon/avatar.jpg",
                 "F:\\ideaProject\\kjs-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\util\\test\\download");
 
         // 下载文件（uuid文件名）日期做目录

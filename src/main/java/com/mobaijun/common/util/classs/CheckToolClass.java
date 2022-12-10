@@ -503,18 +503,6 @@ public class CheckToolClass {
     /**
      * 必须大于指定的值
      *
-     * @param actual   确切的值
-     * @param expected 预期值
-     */
-    @Deprecated
-    public static void gt(final long actual,
-                          final long expected) {
-        gt("", actual, expected);
-    }
-
-    /**
-     * 必须大于指定的值
-     *
      * @param paramName 参数名称
      * @param actual    确切的值
      * @param expected  预期值

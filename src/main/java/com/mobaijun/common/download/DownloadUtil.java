@@ -58,7 +58,7 @@ public class DownloadUtil {
             // 输出文件流
             FileUtil.mkdir(f);
         }
-        String fileName = downLoadJpg(picUrls, UUID.fastUUID().toString(), filePath);
+        String fileName = downLoadJpg(picUrls, filePath);
         return dataForm + "\\" + fileName;
     }
 
@@ -66,11 +66,11 @@ public class DownloadUtil {
      * 下载文件到本地
      *
      * @param urlString url
-     * @param uuid      uuid
      * @param localPath 存储路径
      * @return url path
      */
-    public static String downLoadJpg(String urlString, String uuid, String localPath) {
+    public static String downLoadJpg(String urlString, String localPath) {
+        String uuid = UUID.fastUUID().toString();
         try {
             // 网络URL
             URL url = new URL(urlString);

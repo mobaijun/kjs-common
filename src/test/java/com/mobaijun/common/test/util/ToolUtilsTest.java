@@ -2,7 +2,7 @@ package com.mobaijun.common.test.util;
 
 import com.mobaijun.common.cache.map.HashMapSingletonCacheUtils;
 import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.ToolUtil;
+import com.mobaijun.common.util.tool.ToolUtil;
 
 import java.time.LocalDate;
 import java.util.Date;

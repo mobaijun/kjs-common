@@ -32,11 +32,17 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -1016,13 +1022,6 @@ public class CollectionUtil {
     }
 
     /**
-     * 返回无序集合中的最小值
-     */
-    public static <T> T min(Collection<? extends T> coll, Comparator<? super T> comp) {
-        return Collections.min(coll, comp);
-    }
-
-    /**
      * 返回无序集合中的最大值，使用元素默认排序
      */
     public static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) {
@@ -1030,9 +1029,128 @@ public class CollectionUtil {
     }
 
     /**
-     * 返回无序集合中的最大值
+     * 将单个对象转化为集合
+     *
+     * @param e   对象实例
+     * @param <E> 对象类型
+     * @return 包含对象的集合实例
      */
-    public static <T> T max(Collection<? extends T> coll, Comparator<? super T> comp) {
-        return Collections.max(coll, comp);
+    public static <E> List<E> toCol(E e) {
+        return toCol(e, ArrayList::new);
+    }
+
+    /**
+     * 将单个对象转化为集合
+     *
+     * @param t        对象实例
+     * @param supplier 集合工厂
+     * @param <E>      对象类型
+     * @param <C>      集合类型
+     * @return 包含对象的集合实例
+     */
+    public static <E, C extends List<E>> List<E> toCol(E t, Supplier<C> supplier) {
+        if (t == null) {
+            return new ArrayList<>();
+        }
+        return Stream.of(t).collect(Collectors.toCollection(supplier));
+    }
+
+    /**
+     * 取出集合中第一个元素
+     *
+     * @param collection 集合实例
+     * @param <E>        集合中元素类型
+     * @return 泛型类型
+     */
+    public static <E> E toObj(Collection<E> collection) {
+        // 处理集合空指针异常
+        Collection<E> coll = Optional.ofNullable(collection).orElseGet(ArrayList::new);
+        // 此处可以对流进行排序，然后取出第一个元素
+        return coll.stream().findFirst().orElse(null);
+    }
+
+    /**
+     * 以指定列为排序规则 获取排序列最大值所对应的对象
+     *
+     * @param data   集合实例
+     * @param column 比较排序列
+     * @param <E>    集合中元素泛型
+     * @return 最大的元素对象
+     */
+    public static <E> E max(Collection<E> data, ToIntFunction<? super E> column) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().max(Comparator.comparingInt(column)).orElse(null);
+    }
+
+    /**
+     * @param data   集合实例
+     * @param column 比较排序列
+     * @param <E>    集合中元素泛型
+     * @param <U>    排序列对应的对象泛型 如果是非基础数据类型 需要实现{@code Comparable}
+     * @return 最大的元素对象
+     */
+    public static <E, U extends Comparable<? super U>> E max(Collection<E> data, Function<? super E, ? extends U> column) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().max(Comparator.comparing(column)).orElse(null);
+    }
+
+    /**
+     * @param data       集合实例
+     * @param comparator 比较排序列
+     * @param <E>        集合中元素泛型
+     * @return 最小的元素对象
+     */
+    public static <E> E max(Collection<E> data, Comparator<? super E> comparator) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().max(comparator).orElse(null);
+    }
+
+    /**
+     * 以指定列为排序规则 获取最小元素的对象
+     *
+     * @param data   集合实例
+     * @param column 比较排序列
+     * @param <E>    集合元素泛型
+     * @return 最小的元素对象
+     */
+    public static <E> E min(Collection<E> data, ToIntFunction<? super E> column) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().min(Comparator.comparingInt(column)).orElse(null);
+    }
+
+    /**
+     * @param data   集合实例
+     * @param column 比较排序列
+     * @param <E>    集合中元素泛型
+     * @param <U>    排序列对应的对象泛型 如果是非基础数据类型 需要实现{@code Comparable}
+     * @return 最小的元素对象
+     */
+    public static <E, U extends Comparable<? super U>> E min(Collection<E> data, Function<? super E, ? extends U> column) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().min(Comparator.comparing(column)).orElse(null);
+    }
+
+
+    /**
+     * @param data       集合实例
+     * @param comparator 比较排序列
+     * @param <E>        集合中元素泛型
+     * @return 最小的元素对象
+     */
+    public static <E> E min(Collection<E> data, Comparator<? super E> comparator) {
+        if (data == null) {
+            return null;
+        }
+        return data.stream().min(comparator).orElse(null);
     }
 }

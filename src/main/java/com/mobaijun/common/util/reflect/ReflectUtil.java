@@ -41,7 +41,7 @@ import java.util.Objects;
  *
  * @author MoBaiJun 2022/5/31 11:21
  */
-public class ReflectUtil {
+public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
     /**
      * tools log
      */
@@ -257,44 +257,6 @@ public class ReflectUtil {
     }
 
     /**
-     * 根据参数类型获取构造函数
-     */
-    private static Constructor<?> getConstructor(Class<?> type, Class<?>[] parameterTypes) {
-        try {
-            return type.getConstructor(parameterTypes);
-        } catch (Exception e) {
-            for (Constructor<?> constructor : type.getConstructors()) {
-                if (constructor.getParameterCount() == parameterTypes.length) {
-                    if (match(constructor.getParameterTypes(), parameterTypes)) {
-                        return constructor;
-                    }
-                }
-            }
-            throw new RuntimeException(String.format("Cannot find constructor of \"%s\" with parameter types %s.",
-                    type.getCanonicalName(), Arrays.toString(parameterTypes)), e);
-        }
-    }
-
-    /**
-     * 根据参数类型和方法名获取方法
-     */
-    private static Method getMethod(Class<?> type, String name, Class<?>[] parameterTypes) {
-        try {
-            return type.getMethod(name, parameterTypes);
-        } catch (Exception e) {
-            for (Method method : type.getMethods()) {
-                if (method.getName().equals(name) && method.getParameterCount() == parameterTypes.length) {
-                    if (match(method.getParameterTypes(), parameterTypes)) {
-                        return method;
-                    }
-                }
-            }
-            throw new RuntimeException(String.format("Cannot find method \"%s\" of \"%s\" with parameter types %s.",
-                    name, type.getCanonicalName(), Arrays.toString(parameterTypes)), e);
-        }
-    }
-
-    /**
      * 通过反射获取父类属性
      *
      * @param object 对象
@@ -308,25 +270,6 @@ public class ReflectUtil {
             clazz = clazz.getSuperclass();
         }
         return fieldList.toArray(new Field[0]);
-    }
-
-    /**
-     * 直接读取对象的属性值, 忽略 private/protected 修饰符, 也不经过 getter
-     */
-    @SuppressWarnings("unchecked")
-    public static <T> T getFieldValue(Object object, String fieldName) {
-        Field field = getDeclaredField(object, fieldName);
-        if (field == null) {
-            throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + object + "]");
-        }
-        makeAccessible(field);
-        Object result = null;
-        try {
-            result = field.get(object);
-        } catch (IllegalAccessException e) {
-            log.error(e, "getFieldValue:{}", e.getMessage());
-        }
-        return (T) result;
     }
 
     /**
@@ -351,6 +294,7 @@ public class ReflectUtil {
      * 通过反射, 获得定义 Class 时声明的父类的泛型参数的类型
      * 如: public EmployeeDao extends BaseDao<Employee, String>
      */
+
     @SuppressWarnings("unchecked")
     public static <T> Class<T> getSuperClassGenericType(Class<T> clazz, int index) {
         Type genType = clazz.getGenericSuperclass();
@@ -435,5 +379,52 @@ public class ReflectUtil {
             log.error(e, "invokeMethod:{}", e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * 通过Clazz对象创建实例
+     *
+     * @param clazz CLass对象
+     * @param <T>   泛型
+     * @return 泛型实例
+     */
+    public static <T> T newInstance(Class<T> clazz) {
+        try {
+            return clazz.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * <p>显示化获得{@code Class<T>}对象的类型</p>
+     * <p>本方法的作用时避免在显示强转时出现<i>未检查警告</i></p>
+     * <p>注意{@code Class<\?>}与{@code Class<T>}是同一个类型才能强转</p>
+     *
+     * @param clazz Class对象实例
+     * @param <T>   元素类型
+     * @return 如果参数<code>clazz</code>不为<code>null</code>，则返回强转后的对象，否则返回<code>null</code>
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> Class<T> getClass(Class<?> clazz) {
+        return (Class<T>) clazz;
+    }
+
+    /**
+     * 通过构造器创建对象
+     *
+     * @param constructor 以泛型{@code VO}为类型的构造器实例
+     * @param initargs    以泛型{@code DO}为类型的参数实例
+     * @param <DO>        {@code DO}泛型
+     * @param <VO>        {@code VO}泛型
+     * @return 以泛型{@code VO}为类型的对象实例
+     */
+    @SafeVarargs
+    public static <DO, VO extends DO> VO newInstance(Constructor<VO> constructor, DO... initargs) {
+        try {
+            return constructor.newInstance((Object) initargs);
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
