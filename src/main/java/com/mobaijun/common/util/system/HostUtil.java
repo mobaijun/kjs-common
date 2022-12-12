@@ -17,6 +17,7 @@ package com.mobaijun.common.util.system;
 
 import cn.hutool.core.io.FileUtil;
 import com.mobaijun.common.constant.JdkConstant;
+import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.text.Charsets;
 
 import java.io.IOException;
@@ -104,9 +105,9 @@ public class HostUtil {
         if (exists(ip, url)) {
             return false;
         }
-        List<String> sets = readHosts();
+        List<String> sets = CollectionUtil.newArrayList();
         sets.add(String.format("%s\t%s", ip, url));
-        return FileUtil.writeUtf8String(String.join(END, sets), getOsName()).exists() && flushDns();
+        return FileUtil.appendUtf8Lines(sets, getOsName()).exists() && flushDns();
     }
 
     /**

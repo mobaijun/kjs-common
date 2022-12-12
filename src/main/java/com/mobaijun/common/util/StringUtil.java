@@ -390,7 +390,6 @@ public class StringUtil extends StrUtil {
      * @param padChar the character to pad with
      * @return left padded String or original String if no padding is necessary,
      * {@code null} if null String input
-     * @since 2.0
      */
     public static String leftPad(final String str, final int size, final char padChar) {
         if (str == null) {

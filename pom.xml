@@ -183,12 +183,15 @@
                     <execution>
                         <id>copy-mapstruct-license</id>
                         <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/classes/META-INF</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${basedir}</directory>
-                                    <filtering>false</filtering>
+                                    <filtering>true</filtering>
                                     <include>*.txt</include>
                                 </resource>
                             </resources>

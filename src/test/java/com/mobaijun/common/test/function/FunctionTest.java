@@ -2,8 +2,7 @@ package com.mobaijun.common.test.function;
 
 import com.mobaijun.common.function.VoidMethod;
 import com.mobaijun.common.function.impl.IfFunction;
-
-import java.util.HashMap;
+import com.mobaijun.common.util.collection.CollectionUtil;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -16,7 +15,7 @@ public class FunctionTest {
     public static void main(String[] args) {
         VoidMethod voidMethod = FunctionTest::start;
 
-        IfFunction<String> ifFunction = new IfFunction<>(new HashMap<>(5));
+        IfFunction<String> ifFunction = new IfFunction<>(CollectionUtil.newHashMap(10));
         // 定义好要判断的条件和对应执行的方法
         ifFunction.add("1", () -> System.out.println("苹果"))
                 .add("2", () -> System.out.println("西瓜"))
