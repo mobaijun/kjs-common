@@ -248,4 +248,55 @@ public class StreamUtil {
     public static <T> Set<T> emptySet() {
         return Collections.emptySet();
     }
+
+    /**
+     * string 集合转 long
+     *
+     * @param list string集合
+     * @return long 集合
+     */
+    public static List<Long> strToLong(List<String> list) {
+        return list.stream()
+                .mapToLong(item -> Long.parseLong(item.trim()))
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 转 string 集合
+     *
+     * @param list long 集合
+     * @return string 集合
+     */
+    public static <T> List<String> toString(List<T> list) {
+        return list.stream()
+                .map(String::valueOf)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * string 转 double
+     *
+     * @param list string 集合
+     * @return double 集合
+     */
+    public static List<Double> doubleToString(List<String> list) {
+        return list.stream()
+                .mapToDouble(Double::valueOf)
+                .boxed()
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * string 转 integer
+     *
+     * @param list string 集合
+     * @return integer 集合
+     */
+    public static List<Integer> stringToInteger(List<String> list) {
+        return list.stream()
+                .mapToInt(Integer::valueOf)
+                .boxed()
+                .collect(Collectors.toList());
+    }
 }
