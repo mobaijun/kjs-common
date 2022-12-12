@@ -231,9 +231,7 @@ public class EntityUtil {
      * @param <T>       原始的数据类型（泛型）
      * @param <R>       目标类型（泛型）
      * @return 以{@code R}元素为类型数组实例
-     * @author 明日之春 赛泰
      * @see #toArray(List, Function, Class)
-     * @since 1.5.9.4
      */
     public static <T, R> R[] toArray(final List<T> data, final Function<? super T, ? extends R> action, IntFunction<R[]> generator) {
         Objects.requireNonNull(action);
@@ -256,8 +254,6 @@ public class EntityUtil {
      * @param <T>    原始的数据类型（泛型）
      * @param <R>    目标类型（泛型）
      * @return 以{@code R}元素为类型数组实例
-     * @author 明日之春 赛泰
-     * @since 1.5.9.4
      */
     @SuppressWarnings("unchecked")
     public static <T, R> R[] toArray(final List<T> data, final Function<? super T, ? extends R> action, final Class<R[]> clazz) {
@@ -292,7 +288,6 @@ public class EntityUtil {
      * @param <T>       集合实体类泛型
      * @param <K>       Key实体类型泛型
      * @return Map实例
-     * @since 1.5.9.3
      */
     public static <T, K> Map<K, T> toMap(final Collection<T> data, Function<? super T, ? extends K> keyAction) {
         Objects.requireNonNull(data);
@@ -344,7 +339,6 @@ public class EntityUtil {
      * @param <E>     集合元素泛型
      * @param <R>     分组列数据类型泛型
      * @return {@code Map}实例
-     * @since 1.5.9.1
      */
     public static <E, R> Map<R, List<E>> groupBy(final Collection<E> data, final Function<E, R> gColumn) {
         Objects.requireNonNull(gColumn);
@@ -365,7 +359,6 @@ public class EntityUtil {
      * @param <E>     集合元素泛型
      * @param <G>     分组列数据类型泛型
      * @return {@code Map}实例
-     * @since 1.5.9.3
      */
     public static <E, G, U> Map<G, List<U>> groupBy(final Collection<E> data, final Function<E, G> gColumn, final Function<E, U> action) {
         Objects.requireNonNull(gColumn);
