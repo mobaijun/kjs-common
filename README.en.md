@@ -31,12 +31,12 @@
 
 ## overview
 
-kjs-common ，是一个Java开发基础工具类库，对项目开发中常用的工具进行封装，如：加密、http 请求、API 接口等。 目的是帮助开发者更快速、更快捷的开发。
+kjs-common is a Java development basic tool class library that encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
 This project integrates the excellent open source tools commonly used in the project:
 
 -   hutool-all (the most comprehensive tool class)
--   lombok （简化实体类）
+-   lombok (simplified entity classes)
 -   mapstruct (simplifies parameter passing)
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
