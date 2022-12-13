@@ -131,14 +131,14 @@ public class CollectionUtil {
 
 
     /**
-     * 将以“,”分隔的字符串转成为Collection
+     * 将以“,”分隔的字符串转成为 Collection
      *
      * @param str String
-     * @return Collection
+     * @return 没有数据返回空集合
      */
     public static Collection<? extends Serializable> stringToCollection(String str) {
         if (StringUtil.isEmpty(str)) {
-            return null;
+            return newArrayList();
         } else {
             String[] strArray = str.split(StringConstant.COMMA);
             final Long[] longs = new Long[strArray.length];
@@ -150,7 +150,7 @@ public class CollectionUtil {
     }
 
     /**
-     * 将字组转换成Collection
+     * 将字组转换成 Collection
      *
      * @param longArray Long[]
      * @return Collection
@@ -281,7 +281,7 @@ public class CollectionUtil {
      */
     public static <T> List<T> popPart(Stack<T> surplusAlaData, int partSize) {
         if (surplusAlaData == null || surplusAlaData.size() == 0) {
-            return null;
+            return newArrayList();
         }
 
         final List<T> currentAlaData = newArrayList();
@@ -364,7 +364,7 @@ public class CollectionUtil {
      */
     @SafeVarargs
     public static <T> HashSet<T> newHashSet(T... ts) {
-        HashSet<T> set = new HashSet<>();
+        HashSet<T> set = newHashSet();
         Collections.addAll(set, ts);
         return set;
     }
@@ -598,7 +598,7 @@ public class CollectionUtil {
      */
     public static <T> List<T> sub(Collection<T> list, int start, int end) {
         if (list == null || list.isEmpty()) {
-            return null;
+            return newArrayList();
         }
 
         return sub(new ArrayList<>(list), start, end);
@@ -1049,7 +1049,7 @@ public class CollectionUtil {
      */
     public static <E, C extends List<E>> List<E> toCol(E t, Supplier<C> supplier) {
         if (t == null) {
-            return new ArrayList<>();
+            return newArrayList();
         }
         return Stream.of(t).collect(Collectors.toCollection(supplier));
     }

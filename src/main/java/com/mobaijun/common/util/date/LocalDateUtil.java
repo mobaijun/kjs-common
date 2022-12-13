@@ -649,7 +649,6 @@ public class LocalDateUtil {
      * @param startTime 开始时间
      * @param endTime   结束时间
      * @return true-在区间内；false-不在区间内
-     * @since 2.2.1
      */
     public static boolean judgeInTimeDuration(LocalTime time, LocalTime startTime, LocalTime endTime) {
         if (endTime.isAfter(startTime)) {
@@ -665,13 +664,12 @@ public class LocalDateUtil {
      * @param startTime 开始时间
      * @param endTime   结束时间
      * @return true-在区间内；false-不在区间内
-     * @since 2.2.1
      */
     public static boolean judgeInTimeDurationWithBoundary(LocalTime time, LocalTime startTime, LocalTime endTime) {
         if (endTime.isAfter(startTime)) {
-            return time.compareTo(startTime) >= 0 && time.compareTo(endTime) <= 0;
+            return !time.isBefore(startTime) && !time.isAfter(endTime);
         }
-        return time.compareTo(startTime) >= 0 || time.compareTo(endTime) <= 0;
+        return !time.isBefore(startTime) || !time.isAfter(endTime);
     }
 
     /**

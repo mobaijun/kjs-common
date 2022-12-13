@@ -21,6 +21,7 @@ import com.mobaijun.common.util.collection.CollectionUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -44,7 +45,7 @@ public class MapBeanUtil {
      */
     public static Map<String, Object> objectToMap(Object obj) {
         Map<String, Object> map = CollectionUtil.newHashMap();
-        if (obj == null) {
+        if (Objects.isNull(obj)) {
             return map;
         }
         Class<?> clazz = obj.getClass();

@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.util.regx;
 
+import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.StringUtil;
 
 import java.util.regex.Matcher;
@@ -144,7 +145,7 @@ public class RegxUtil {
      */
     public static String encodePhone(String phone) {
         if (StringUtil.isEmpty(phone)) {
-            return "";
+            return StringConstant.EMPTY_STRING;
         }
         if (match(RegxConstant.REGEX_PHONE, phone)) {
             String begin = phone.substring(0, 3);

@@ -46,7 +46,7 @@ public class ExtensionLoader<C> {
         for (File jar : Objects.requireNonNull(pluginsDir.listFiles())) {
             try {
                 ClassLoader loader = URLClassLoader.newInstance(
-                        new URL[]{jar.toURL()},
+                        new URL[]{jar.toURI().toURL()},
                         getClass().getClassLoader()
                 );
                 Class<?> clazz = Class.forName(classpath, true, loader);

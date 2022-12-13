@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.constant.StringConstant;
+
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * class name: HexUtils<br>
@@ -32,7 +34,7 @@ public class HexUtil {
      */
     public static String to216(byte[] bytes) {
         if (bytes == null || bytes.length == 0) {
-            return null;
+            return StringConstant.EMPTY_STRING;
         }
         StringBuilder sb = new StringBuilder();
         for (byte aByte : bytes) {
@@ -53,7 +55,7 @@ public class HexUtil {
      * @return byte[]
      */
     public static byte[] to162(String hexStr) {
-        if (StringUtil.isEmpty(hexStr)) {
+        if (hexStr.isEmpty()) {
             return null;
         }
         byte[] result = new byte[hexStr.length() / 2];

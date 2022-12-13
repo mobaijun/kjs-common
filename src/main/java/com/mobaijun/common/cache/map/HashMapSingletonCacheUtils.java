@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.cache.map;
 
+import com.mobaijun.common.util.collection.CollectionUtil;
+
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -24,13 +26,14 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author MoBaiJun 2022/7/11 16:56
  */
+@SuppressWarnings("all")
 public class HashMapSingletonCacheUtils {
 
     private static volatile HashMapSingletonCacheUtils cacheSingletonUtil;
     private static ConcurrentHashMap<String, Object> CACHE_SINGLETON_MAP = new ConcurrentHashMap<>(Double.SIZE);
 
     private HashMapSingletonCacheUtils() {
-        CACHE_SINGLETON_MAP = new ConcurrentHashMap<>();
+        CACHE_SINGLETON_MAP = CollectionUtil.newConcurrentHashMap();
     }
 
     /**
@@ -58,14 +61,13 @@ public class HashMapSingletonCacheUtils {
     /**
      * 添加到内存
      */
-    public void addCacheData(String key, Object obj) {
-        CACHE_SINGLETON_MAP.put(key, obj);
+    public <T> void addCacheData(String key, T data) {
+        CACHE_SINGLETON_MAP.put(key, data);
     }
 
     /**
      * 从内存中取出
      */
-    @SuppressWarnings("unchecked")
     public <T> T getCacheData(String key) {
         return (T) CACHE_SINGLETON_MAP.get(key);
     }

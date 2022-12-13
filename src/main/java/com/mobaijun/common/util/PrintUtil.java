@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.collection.CollectionUtil;
-
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -38,7 +37,7 @@ public class PrintUtil {
      * @param data data
      */
     public static <T> void print(T data) {
-        if (ObjectUtil.isEmpty(data)) {
+        if (Objects.isNull(data)) {
             return;
         }
         System.out.print(data);
@@ -50,7 +49,7 @@ public class PrintUtil {
      * @param data obj
      */
     public static <T> void println(T data) {
-        if (ObjectUtil.isEmpty(data)) {
+        if (Objects.isNull(data)) {
             return;
         }
         System.out.println(data);
@@ -62,7 +61,7 @@ public class PrintUtil {
      * @param collection collection
      */
     public static <T> void println(Collection<T> collection) {
-        if (CollectionUtil.isEmpty(collection)) {
+        if (Objects.isNull(collection)) {
             return;
         }
         collection.forEach(System.out::println);
@@ -93,7 +92,7 @@ public class PrintUtil {
      * @param obj    obj
      */
     public static <T> void printf(String format, T obj) {
-        if (ObjectUtil.isEmpty(obj)) {
+        if (Objects.isNull(obj)) {
             return;
         }
         System.out.printf(format, obj);
@@ -105,7 +104,7 @@ public class PrintUtil {
      * @param map map
      */
     public static <K, V> void println(Map<K, V> map) {
-        if (map.size() == 0) {
+        if (map.isEmpty()) {
             return;
         }
         map.entrySet().forEach(System.out::println);
@@ -117,7 +116,7 @@ public class PrintUtil {
      * @param map map
      */
     public static <K, V> void mapValue(Map<K, V> map) {
-        if (map.size() == 0) {
+        if (map.isEmpty()) {
             return;
         }
         map.values().forEach(System.out::println);
@@ -129,7 +128,7 @@ public class PrintUtil {
      * @param map map
      */
     public static <K, V> void mapKey(Map<K, V> map) {
-        if (map.size() == 0) {
+        if (map.isEmpty()) {
             return;
         }
         map.keySet().forEach(System.out::println);

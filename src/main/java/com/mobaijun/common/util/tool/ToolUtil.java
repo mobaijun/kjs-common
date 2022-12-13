@@ -28,6 +28,7 @@ import java.io.StringWriter;
 import java.lang.reflect.Array;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Enumeration;
@@ -244,8 +245,8 @@ public class ToolUtil {
      * @return boolean
      */
     public static boolean isOneEmpty(Object... os) {
-        for (Object o : os) {
-            if (isEmpty(o)) {
+        for (Object data : os) {
+            if (Objects.isNull(data)) {
                 return true;
             }
         }
@@ -259,12 +260,7 @@ public class ToolUtil {
      * @return boolean
      */
     public static boolean isAllEmpty(Object... os) {
-        for (Object o : os) {
-            if (!isEmpty(o)) {
-                return false;
-            }
-        }
-        return true;
+        return !isOneEmpty(os);
     }
 
     /**
@@ -290,7 +286,7 @@ public class ToolUtil {
      * @return Object
      */
     public static Object getValue(Object str, Object defaultValue) {
-        if (isEmpty(str)) {
+        if (Objects.isNull(str)) {
             return defaultValue;
         }
         return str;
@@ -336,7 +332,7 @@ public class ToolUtil {
      * @return String
      */
     public static String toStr(Object str, String defaultValue) {
-        if (null == str) {
+        if (Objects.isNull(str)) {
             return defaultValue;
         }
         return str.toString().trim();
@@ -396,9 +392,7 @@ public class ToolUtil {
      * @param sts String...
      */
     public static void builder(StringBuilder sb, String... sts) {
-        for (String str : sts) {
-            sb.append(str);
-        }
+        Arrays.stream(sts).forEach(sb::append);
     }
 
     /**
@@ -409,7 +403,7 @@ public class ToolUtil {
      * @return 切掉后的字符串，若后缀不是 suffix， 返回原字符串
      */
     public static String removeSuffix(String str, String suffix) {
-        if (isEmpty(str) || isEmpty(suffix)) {
+        if (str.isEmpty() || suffix.isEmpty()) {
             return str;
         }
 
@@ -479,7 +473,7 @@ public class ToolUtil {
             path = path.replace("/WEB-INF/classes/", StringConstant.BLANK);
             path = path.replace("/target/classes/", StringConstant.BLANK);
             path = path.replace("file:/", StringConstant.BLANK);
-            if (ToolUtil.isEmpty(filePath)) {
+            if (isEmpty(filePath)) {
                 return path;
             } else {
                 return path + "/" + filePath;
@@ -546,7 +540,7 @@ public class ToolUtil {
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
-        if (StringUtil.isEmpty(str)) {
+        if (Objects.isNull(str)) {
             return new Integer[]{};
         }
         String[] arr = str.split(split);

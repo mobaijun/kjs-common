@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util.stream;
 
-import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.collection.CollectionUtil;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -52,7 +50,7 @@ public class StreamUtil {
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
         if (CollectionUtil.isNull(data)) {
-            return null;
+            return CollectionUtil.newArrayList();
         }
         return data.stream().map(fun).collect(Collectors.toList());
     }
@@ -66,8 +64,8 @@ public class StreamUtil {
      * @return data为空返回data
      */
     public static <T> List<T> filter(List<T> data, Predicate<T> pre) {
-        if (CollectionUtil.isNull(data)) {
-            return null;
+        if (data.isEmpty()) {
+            return CollectionUtil.newArrayList();
         }
         return data.stream().filter(pre).collect(Collectors.toList());
     }
@@ -81,8 +79,8 @@ public class StreamUtil {
      * @return data为空返回data
      */
     public static <T> List<T> sorted(List<T> data, Comparator<T> comparator) {
-        if (CollectionUtil.isNull(data)) {
-            return null;
+        if (data.isEmpty()) {
+            return CollectionUtil.newArrayList();
         }
         return data.stream().sorted(comparator).collect(Collectors.toList());
     }
@@ -95,8 +93,8 @@ public class StreamUtil {
      * @return data为空返回data
      */
     public static <T> List<T> distinct(List<T> data) {
-        if (CollectionUtil.isNull(data)) {
-            return null;
+        if (data.isEmpty()) {
+            return CollectionUtil.newArrayList();
         }
         return data.stream().distinct().collect(Collectors.toList());
     }
@@ -109,7 +107,7 @@ public class StreamUtil {
      * @return 去重后的值
      */
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-        Map<Object, Boolean> seen = new ConcurrentHashMap<>(10);
+        Map<Object, Boolean> seen = CollectionUtil.newConcurrentHashMap(1);
         // putIfAbsent方法添加键值对，如果map集合中没有该key对应的值，则直接添加，并返回null，如果已经存在对应的值，则依旧为原来的值。
         // 如果返回null表示添加数据成功(不重复)，不重复(null==null :TRUE)
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
@@ -124,7 +122,7 @@ public class StreamUtil {
      * @return boolean
      */
     public static <T> boolean anyMatch(List<T> data, Predicate<T> pre) {
-        if (CollectionUtil.isNull(data)) {
+        if (data.isEmpty()) {
             return false;
         }
         return data.parallelStream().anyMatch(pre);
@@ -137,8 +135,8 @@ public class StreamUtil {
      * @param join join
      * @return 返回join之后的字符串, data为空返回null
      */
-    public static <T> String join(List<String> data, String join) {
-        if (CollectionUtil.isNull(data)) {
+    public static String join(List<String> data, String join) {
+        if (data.isEmpty()) {
             return null;
         }
         return data.stream().collect(Collectors.joining(join == null ? "" : join));
@@ -165,7 +163,7 @@ public class StreamUtil {
 
     @SafeVarargs
     public static <T> List<T> toList(T... elements) {
-        List<T> list = new ArrayList<>();
+        List<T> list = CollectionUtil.newArrayList();
         if (Objects.nonNull(elements)) {
             Arrays.stream(elements).forEach(item -> {
                 if (Objects.nonNull(item)) {
@@ -184,7 +182,7 @@ public class StreamUtil {
      * @param <T>        未定义类型
      */
     public static <T> void addAll(Collection<T> collection, Collection<T> add) {
-        if (StringUtil.isNotEmpty(add)) {
+        if (!add.isEmpty() && !collection.isEmpty()) {
             collection.addAll(add);
         }
     }
@@ -198,7 +196,7 @@ public class StreamUtil {
      * @param <V> 值泛型
      */
     public static <K, V> void addAll(Map<K, V> map, Map<K, V> add) {
-        if (!CollectionUtil.isEmpty(add) && !CollectionUtil.isEmpty(map)) {
+        if (!add.isEmpty() && !map.isEmpty()) {
             map.putAll(add);
         }
     }
@@ -211,7 +209,7 @@ public class StreamUtil {
      * @return list 集合
      */
     public static <T> List<T> setToList(Set<T> set) {
-        if (!CollectionUtil.isEmpty(set)) {
+        if (!set.isEmpty()) {
             return new ArrayList<>(set);
         } else {
             return CollectionUtil.newArrayList();

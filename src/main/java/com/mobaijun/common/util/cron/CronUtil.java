@@ -16,6 +16,9 @@
 package com.mobaijun.common.util.cron;
 
 import cn.hutool.log.Log;
+import com.mobaijun.common.constant.NumberConstant;
+
+import java.util.Objects;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -38,10 +41,8 @@ public class CronUtil {
      * @return String cron 表达式
      */
     public static String createCronExpression(TaskScheduleModel taskScheduleModel) {
-        StringBuilder cronExp = new StringBuilder("");
-        if (null == taskScheduleModel.getJobType()) {
-            log.error("执行周期未配置");
-        }
+        StringBuilder cronExp = new StringBuilder();
+        Objects.requireNonNull(taskScheduleModel.getJobType(), "Execution period is not configured");
         if (null != taskScheduleModel.getSecond()
                 && null != taskScheduleModel.getMinute()
                 && null != taskScheduleModel.getHour()) {
@@ -75,7 +76,7 @@ public class CronUtil {
             }
 
             // 按每周
-            else if (taskScheduleModel.getJobType() == 3) {
+            else if (taskScheduleModel.getJobType() == NumberConstant.THREE) {
                 // 一个月中第几天
                 cronExp.append("? ");
                 // 月份
@@ -133,7 +134,7 @@ public class CronUtil {
      * @return String 表达式
      */
     public static String createDescription(TaskScheduleModel taskScheduleModel) {
-        StringBuilder description = new StringBuilder("");
+        StringBuilder description = new StringBuilder();
         if (null != taskScheduleModel.getSecond()
                 && null != taskScheduleModel.getMinute()
                 && null != taskScheduleModel.getHour()) {

@@ -92,7 +92,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      */
     private static String collectionToStr(Object object, boolean recursion) {
         if (object == null) {
-            return StringConstant.NULL;
+            return StringConstant.EMPTY_STRING;
         }
         Object[] a;
         // 将集合类型转换成数组类型
@@ -113,7 +113,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      */
     private static String complexArrToStr(Object[] a) {
         if (a == null) {
-            return StringConstant.NULL;
+            return StringConstant.EMPTY_STRING;
         }
         int iMax = a.length - NumberConstant.ONE;
         if (iMax == NumberConstant.MINUS_ONE) {
@@ -143,7 +143,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      */
     private static String mapToStr(Map<String, Object> map, boolean recursion) {
         if (map == null) {
-            return StringConstant.NULL;
+            return StringConstant.EMPTY_STRING;
         }
         if (isSimpleMap(map) || !recursion) {
             return simpleMapToStr(map);
@@ -192,7 +192,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
     private static String complexMapToStr(Map<String, Object> map) {
         Iterator<Entry<String, Object>> i = map.entrySet().iterator();
         if (!i.hasNext()) {
-            return StringConstant.NULL;
+            return StringConstant.EMPTY_STRING;
         }
         StringBuilder sb = new StringBuilder();
         sb.append(StringConstant.LEFT_BIG_PARENTHESES);
@@ -216,7 +216,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
 
     private static String beanToStr(Object object, boolean recursion) {
         if (object == null) {
-            return "null";
+            return StringConstant.EMPTY_STRING;
         }
         Class<?> clazz = object.getClass();
         StringBuilder sb = new StringBuilder();
@@ -398,7 +398,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
     @SuppressWarnings("all")
     private static String objToStr(Object object, boolean recursion) {
         if (object == null) {
-            return "null";
+            return StringConstant.EMPTY_STRING;
         }
         if (isDateType(object)) {
             return new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS).format((Date) object);

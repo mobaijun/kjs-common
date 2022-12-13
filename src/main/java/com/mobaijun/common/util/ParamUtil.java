@@ -17,10 +17,10 @@ package com.mobaijun.common.util;
 
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.collection.CollectionUtil;
+import com.mobaijun.common.util.text.Charsets;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -49,7 +49,7 @@ public class ParamUtil {
 
             sb.append(i.getKey())
                     .append(StringConstant.EQUAL)
-                    .append(URLEncoder.encode(i.getValue(), StandardCharsets.UTF_8.name()))
+                    .append(URLEncoder.encode(i.getValue(), Charsets.UTF_8.name()))
                     .append(StringConstant.AND);
 
         }
@@ -66,7 +66,7 @@ public class ParamUtil {
      */
     public static Map<String, String> getUrlParams(String param) {
         Map<String, String> map = CollectionUtil.newHashMap();
-        if (StringUtil.isEmpty(param)) {
+        if (param.isEmpty()) {
             return map;
         }
         String[] params = param.split(StringConstant.AND);

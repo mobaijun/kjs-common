@@ -37,10 +37,10 @@ public class RedirectUrlBuildUtil {
      * @return String
      */
     public static String createRedirectUrl(String originUrl, Map<String, ?> paramsMap) {
-        if (StringUtil.isBlank(originUrl)) {
+        if (originUrl.isEmpty()) {
             return null;
         }
-        if (ObjectUtil.isEmpty(paramsMap)) {
+        if (paramsMap.isEmpty()) {
             return originUrl;
         } else {
             return originUrl + "?" + URLUtil.buildQuery(paramsMap, Charsets.UTF_8);

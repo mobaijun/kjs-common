@@ -21,6 +21,7 @@ import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,7 +43,7 @@ public class MacAddressUtil {
      * @throws Exception Exception
      */
     public static List<String> getMacList() throws Exception {
-        java.util.Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
+        Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
         StringBuilder sb = new StringBuilder();
         ArrayList<String> tmpMacList = CollectionUtil.newArrayList();
         while (en.hasMoreElements()) {

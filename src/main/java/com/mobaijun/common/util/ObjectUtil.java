@@ -18,6 +18,7 @@ package com.mobaijun.common.util;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -36,7 +37,7 @@ public class ObjectUtil extends cn.hutool.core.util.ObjectUtil {
      * @return true：为空 false：非空
      */
     public static boolean isNull(Object object) {
-        return object == null;
+        return Objects.isNull(object);
     }
 
     /**

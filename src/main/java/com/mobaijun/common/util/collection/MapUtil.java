@@ -18,10 +18,8 @@ package com.mobaijun.common.util.collection;
 import com.mobaijun.common.model.Model;
 import com.mobaijun.common.util.converter.EntityUtil;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -63,7 +61,7 @@ public class MapUtil {
      * @return value的泛型的集合
      */
     public static <K, V> List<V> getCollection(Map<K, V> source, Iterable<K> keys) {
-        List<V> result = new ArrayList<>();
+        List<V> result = CollectionUtil.newArrayList();
         if (source != null && !source.isEmpty() && keys != null) {
             keys.forEach(key -> Optional.ofNullable(source.get(key)).ifPresent(result::add));
         }
@@ -116,7 +114,7 @@ public class MapUtil {
     public static <K, V, T> Map<K, T> transMap(Map<K, V> map, Function<? super V, ? extends T> valueAction) {
         Objects.requireNonNull(map);
         Objects.requireNonNull(valueAction);
-        Map<K, T> hashMap = new HashMap<>();
+        Map<K, T> hashMap = CollectionUtil.newHashMap();
         for (Map.Entry<K, V> entry : map.entrySet()) {
             hashMap.put(entry.getKey(), EntityUtil.toObj(entry.getValue(), valueAction));
         }

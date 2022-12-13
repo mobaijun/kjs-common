@@ -46,12 +46,8 @@ public class MoneyCoverUtil {
      *
      * @param money int
      * @return String
-     * @throws Exception Exception
      */
-    public static String converseChinese(int money) throws Exception {
-        if (money < 0) {
-            throw new Exception("请核对金额，金额不能小于0");
-        }
+    public static String converseChinese(int money) {
         StringBuffer converseResult = new StringBuffer();
         StringBuilder moneyStr = new StringBuilder(String.valueOf(money));
         for (int i = 0, j = moneyStr.length() - 1; i < moneyStr.length() && j >= 0; i++, j--) {
@@ -68,12 +64,8 @@ public class MoneyCoverUtil {
      *
      * @param money double
      * @return String
-     * @throws Exception Exception
      */
-    public static String converseChinese(double money) throws Exception {
-        if (money < 0) {
-            throw new Exception("请核对金额，金额不能小于0");
-        }
+    public static String converseChinese(double money) {
         String moneyStr = String.valueOf(money);
         StringBuffer converseResult = new StringBuffer();
         String[] moneys = moneyStr.split("\\.");

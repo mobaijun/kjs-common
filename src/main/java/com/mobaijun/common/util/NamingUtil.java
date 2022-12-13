@@ -19,8 +19,6 @@ import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.regx.RegxConstant;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -41,7 +39,7 @@ public class NamingUtil {
      * @return 转换后的名称
      */
     public static String humpToMidline(String name) {
-        if (StringUtil.isEmpty(name)) {
+        if (name.isEmpty()) {
             return StringConstant.BLANK;
         }
         Matcher matcher = RegxConstant.HUMP_PATTERN.matcher(name);
@@ -83,7 +81,7 @@ public class NamingUtil {
      * @return 转换后的名称
      */
     public static String underlineToHump(String name) {
-        if (StringUtil.isEmpty(name)) {
+        if (name.isEmpty()) {
             return StringConstant.BLANK;
         }
         name = name.toLowerCase();
@@ -103,7 +101,7 @@ public class NamingUtil {
      * @return 转换后的Map
      */
     public static Map<String, Object> underline2CamelMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>(10);
+        Map<String, Object> newMap = CollectionUtil.newHashMap();
         for (String key : map.keySet()) {
             String camel = underlineToHump(key);
             // 存在 " " 转换为""
@@ -124,7 +122,7 @@ public class NamingUtil {
      * @return 转换后的Map
      */
     public static Map<String, Object> camel2UnderlineMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>(10);
+        Map<String, Object> newMap = CollectionUtil.newHashMap();
         for (String key : map.keySet()) {
             String camel = humpToUnderline(key);
             newMap.put(camel, map.get(key));
@@ -139,8 +137,8 @@ public class NamingUtil {
      * @return 转换后的List套Map
      */
     public static List<Map<String, Object>> underline2CamelList(List<Map<String, Object>> list) {
-        Map<String, Object> newMap = new HashMap<>(10);
-        List<Map<String, Object>> returnList = new ArrayList<>(10);
+        Map<String, Object> newMap = CollectionUtil.newHashMap();
+        List<Map<String, Object>> returnList = CollectionUtil.newArrayList();
         for (Map<String, Object> map : list) {
             for (String key : map.keySet()) {
                 String camel = humpToUnderline(key);
@@ -177,7 +175,7 @@ public class NamingUtil {
      * @return 转换后的List套String
      */
     public static List<String> getList(List<String> list) {
-        List<String> returnList = new ArrayList<>();
+        List<String> returnList = CollectionUtil.newArrayList();
         System.out.println(list.get(0));
         for (String key : list) {
             String camel = humpToUnderline(key);

@@ -67,13 +67,13 @@ public class UrlParamsUtil {
     public static Map<String, String> split(String paramsPath, String separator) {
         if (paramsPath == null || !paramsPath.contains(StringConstant.QUESTION_MARK)
                 || !paramsPath.contains(separator)) {
-            return null;
+            return CollectionUtil.newHashMap();
         }
         String[] paramsArr = paramsPath.split("\\?");
         String paramsStr = paramsArr[paramsArr.length - 1];
         String[] paramsItems = paramsStr.split(StringConstant.AND);
         if (paramsItems.length == 0) {
-            return null;
+            return CollectionUtil.newHashMap();
         }
         Map<String, String> result = CollectionUtil.newHashMap();
         for (String item : paramsItems) {
@@ -84,7 +84,7 @@ public class UrlParamsUtil {
             result.put(keyValue[0], keyValue[1]);
         }
         if (result.isEmpty()) {
-            return null;
+            return CollectionUtil.newHashMap();
         }
         return result;
     }
@@ -97,7 +97,7 @@ public class UrlParamsUtil {
      */
     public static Map<String, String> build(String... keyValues) {
         if (keyValues == null || keyValues.length == 0) {
-            return null;
+            return CollectionUtil.newHashMap();
         }
         Map<String, String> result = CollectionUtil.newHashMap();
         for (int i = 0; i < keyValues.length; i += NumberConstant.TWO) {

@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.system;
 
 import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.util.collection.CollectionUtil;
 import com.sun.management.OperatingSystemMXBean;
 
 import java.io.File;
@@ -35,18 +36,22 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DiskUtil {
 
     /**
-     * @return disks 返回ArrayList形式的硬盘分区
+     * disks 返回 ArrayList 形式的硬盘分区
+     *
+     * @return list 集合分区详情
      */
     public static ArrayList<File> diskInformation() {
         File[] disks = File.listRoots();
         if (disks.length == NumberConstant.ZERO) {
-            return null;
+            return CollectionUtil.newArrayList();
         }
         return new ArrayList<>(Arrays.asList(disks));
     }
 
     /**
-     * @return 获取内存使用情况
+     * 获取内存使用情况
+     *
+     * @return map 集合
      */
     public static Map<String, String> getMemoryInfo() {
         Map<String, String> map = new ConcurrentHashMap<>(1);
