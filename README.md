@@ -27,7 +27,6 @@
 ## 其他语言
 
 - [English](README.en.md)
-- [繁体中文](README.zh-TW.md)
 
 ## 概述
 
@@ -48,100 +47,11 @@ kjs-common ，是一个Java开发基础工具类库，对项目开发中常用�
 > 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
 > JDK 17 以内项目推荐使用 2.0 以内版本
 
-## 目录
+## 示例
 
-~~~bash
---------------------------------------------------------------------------------------------
-├─.github
-│  └─workflows
-├─src
-│  ├─main
-│  │  └─java
-│  │      └─com
-│  │          └─mobaijun
-│  │              └─common
-│  │                  ├─algorithm
-│  │                  ├─annotation
-│  │                  │  ├─datasource
-│  │                  │  ├─i18n
-│  │                  │  ├─log
-│  │                  │  └─redis
-│  │                  ├─cache
-│  │                  │  └─map
-│  │                  ├─common
-│  │                  ├─constant
-│  │                  ├─download
-│  │                  ├─enhance
-│  │                  ├─enums
-│  │                  │  ├─client
-│  │                  │  ├─common
-│  │                  │  ├─database
-│  │                  │  ├─date
-│  │                  │  ├─dict
-│  │                  │  ├─file
-│  │                  │  ├─http
-│  │                  │  ├─log
-│  │                  │  ├─message
-│  │                  │  ├─redis
-│  │                  │  ├─regex
-│  │                  │  ├─sms
-│  │                  │  ├─timer
-│  │                  │  └─user
-│  │                  ├─function
-│  │                  │  └─impl
-│  │                  ├─lambda
-│  │                  ├─result
-│  │                  │  └─enums
-│  │                  └─util
-│  │                      ├─classs
-│  │                      ├─collection
-│  │                      ├─concurrent
-│  │                      ├─converter
-│  │                      ├─cron
-│  │                      ├─date
-│  │                      ├─enums
-│  │                      ├─file
-│  │                      ├─html
-│  │                      ├─http
-│  │                      ├─image
-│  │                      ├─io
-│  │                      ├─jdbc
-│  │                      ├─network
-│  │                      ├─number
-│  │                      ├─pass
-│  │                      ├─pinyin
-│  │                      ├─reflect
-│  │                      ├─regx
-│  │                      ├─seo
-│  │                      ├─sql
-│  │                      ├─stream
-│  │                      ├─system
-│  │                      ├─text
-│  │                      ├─thread
-│  │                      ├─thunder
-│  │                      ├─tool
-│  │                      └─tree
-│  └─test
-│      └─java
-│          └─com
-│              └─mobaijun
-│                  └─common
-│                      └─test 
-│                          ├─cache
-│                          ├─classs
-│                          ├─collection
-│                          ├─converter
-│                          ├─cron
-│                          ├─date
-│                          ├─download
-│                          ├─function
-│                          ├─seo
-│                          ├─tree
-│                          └─util
---------------------------------------------------------------------------------------------
-~~~
+测试用例地址：[测试用例地址](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> 所有依赖会同步更新最新版本
+> 所有依赖模块会同步更新最新版本
 
 ## 快速开始
 
