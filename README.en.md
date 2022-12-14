@@ -27,7 +27,6 @@
 ## other languages
 
 -   [English](README.en.md)
--   [traditional Chinese](README.zh-TW.md)
 
 ## overview
 
@@ -48,100 +47,11 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 > This project plans to support JDK 17 and above in version 2.0, and versions below 2.0 use JDK 8 as the cornerstone, which means that future 2.X versions will not be compatible with projects below JDK 17.
 > Projects within JDK 17 are recommended to use versions within 2.0
 
-## Table of contents
+## example
 
-```bash
---------------------------------------------------------------------------------------------
-├─.github
-│  └─workflows
-├─src
-│  ├─main
-│  │  └─java
-│  │      └─com
-│  │          └─mobaijun
-│  │              └─common
-│  │                  ├─algorithm
-│  │                  ├─annotation
-│  │                  │  ├─datasource
-│  │                  │  ├─i18n
-│  │                  │  ├─log
-│  │                  │  └─redis
-│  │                  ├─cache
-│  │                  │  └─map
-│  │                  ├─common
-│  │                  ├─constant
-│  │                  ├─download
-│  │                  ├─enhance
-│  │                  ├─enums
-│  │                  │  ├─client
-│  │                  │  ├─common
-│  │                  │  ├─database
-│  │                  │  ├─date
-│  │                  │  ├─dict
-│  │                  │  ├─file
-│  │                  │  ├─http
-│  │                  │  ├─log
-│  │                  │  ├─message
-│  │                  │  ├─redis
-│  │                  │  ├─regex
-│  │                  │  ├─sms
-│  │                  │  ├─timer
-│  │                  │  └─user
-│  │                  ├─function
-│  │                  │  └─impl
-│  │                  ├─lambda
-│  │                  ├─result
-│  │                  │  └─enums
-│  │                  └─util
-│  │                      ├─classs
-│  │                      ├─collection
-│  │                      ├─concurrent
-│  │                      ├─converter
-│  │                      ├─cron
-│  │                      ├─date
-│  │                      ├─enums
-│  │                      ├─file
-│  │                      ├─html
-│  │                      ├─http
-│  │                      ├─image
-│  │                      ├─io
-│  │                      ├─jdbc
-│  │                      ├─network
-│  │                      ├─number
-│  │                      ├─pass
-│  │                      ├─pinyin
-│  │                      ├─reflect
-│  │                      ├─regx
-│  │                      ├─seo
-│  │                      ├─sql
-│  │                      ├─stream
-│  │                      ├─system
-│  │                      ├─text
-│  │                      ├─thread
-│  │                      ├─thunder
-│  │                      ├─tool
-│  │                      └─tree
-│  └─test
-│      └─java
-│          └─com
-│              └─mobaijun
-│                  └─common
-│                      └─test 
-│                          ├─cache
-│                          ├─classs
-│                          ├─collection
-│                          ├─converter
-│                          ├─cron
-│                          ├─date
-│                          ├─download
-│                          ├─function
-│                          ├─seo
-│                          ├─tree
-│                          └─util
---------------------------------------------------------------------------------------------
-```
+Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> All dependencies will be updated to the latest version synchronously
+> 所有依赖模块会同步更新最新版本
 
 ## quick start
 
