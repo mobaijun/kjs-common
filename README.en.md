@@ -27,9 +27,9 @@
 ## other languages
 
 -   [English](README.en.md)
--   [traditional Chinese](README.zh-TW.md)
+-   [繁体中文](README.zh-TW.md)
 
-## overview
+## 概述
 
 kjs-common is a basic tool library for Java development, which encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
@@ -163,9 +163,9 @@ If you need to use it, just introduce the following dependencies
 implementation 'com.mobaijun:kjs-common:latest.version'
 ```
 
-### central warehouse
+### 中央仓库
 
-This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common)，欢迎使用，欢迎 start
+This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
