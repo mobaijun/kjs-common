@@ -14,11 +14,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      # ISO Langusge Codes: https://cloud.google.com/translate/docs/languages
-      - name: Adding README - Chinese Traditional
-        uses: dephraiim/translate-readme@main
-        with:
-          LANG: zh-TW
       - name: Adding README - English
         uses: dephraiim/translate-readme@main
         with:
