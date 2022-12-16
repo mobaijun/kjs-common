@@ -81,7 +81,7 @@ This warehouse has been released synchronously[maven central warehouse](https://
 
 ## contribute
 
--   If you also want to participate in this project, please fork this warehouse, submit the pr after the modification, and it will be synchronized to this warehouse after review.
+-   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
