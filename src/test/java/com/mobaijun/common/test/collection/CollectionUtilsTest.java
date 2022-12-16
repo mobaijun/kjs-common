@@ -1,8 +1,5 @@
 package com.mobaijun.common.test.collection;
 
-import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.collection.CollectionUtil;
-
 /**
  * software：IntelliJ IDEA 2022.2.3
  * class name: CollectionUtilsTest
@@ -12,7 +9,5 @@ import com.mobaijun.common.util.collection.CollectionUtil;
  */
 public class CollectionUtilsTest {
     public static void main(String[] args) {
-        PrintUtil.println(CollectionUtil.isEmpty(CollectionUtil.newArrayList()));
-        PrintUtil.println(CollectionUtil.isEmpty(CollectionUtil.newHashMap()));
     }
 }

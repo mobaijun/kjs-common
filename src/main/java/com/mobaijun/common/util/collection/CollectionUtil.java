@@ -53,84 +53,6 @@ import java.util.stream.Stream;
 public class CollectionUtil {
 
     /**
-     * 判断单列集合是否为 null
-     *
-     * @param collection collection
-     * @param <T>        未定义
-     * @return boolean
-     */
-    public static <T> boolean isEmpty(Collection<T> collection) {
-        return collection == null || collection.isEmpty();
-    }
-
-    /**
-     * 判断 map 是否为 null
-     *
-     * @param <K> 键
-     * @param <V> 值
-     * @param map map集合数据
-     * @return boolean
-     */
-    public static <K, V> boolean isEmpty(Map<K, V> map) {
-        return map == null || map.isEmpty();
-    }
-
-    /**
-     * 判断数组是空数组
-     *
-     * @param array 待判断的数据
-     * @return true：空 / false：非空
-     */
-    public static boolean isEmpty(String[] array) {
-        return array == null || array.length == 0;
-    }
-
-    /**
-     * 判断数组不是空数组
-     *
-     * @param array 待判断的数据
-     * @return true：非空 / false：空
-     */
-    public static boolean isNotEmpty(String[] array) {
-        return !isEmpty(array);
-    }
-
-    /**
-     * 判断list是否为 null
-     *
-     * @param data 集合对象
-     * @param <T>  泛型参数
-     * @return boolean
-     */
-    public static <T> boolean isNull(List<T> data) {
-        return isEmpty(data);
-    }
-
-    /**
-     * 判断Set集合是否为null
-     *
-     * @param data 集合对象
-     * @param <T>  泛型参数
-     * @return boolean
-     */
-    public static <T> boolean isNull(Set<T> data) {
-        return isEmpty(data);
-    }
-
-    /**
-     * 判断 map 是否为 null
-     *
-     * @param data 集合对象
-     * @param <K>  未定义参数
-     * @param <V>  未定义参数
-     * @return boolean
-     */
-    public static <K, V> boolean isNull(Map<K, V> data) {
-        return isEmpty(data);
-    }
-
-
-    /**
      * 将以“,”分隔的字符串转成为 Collection
      *
      * @param str String
@@ -605,41 +527,6 @@ public class CollectionUtil {
     }
 
     /**
-     * 数组是否为空
-     *
-     * @param array 数组
-     * @param <T>   数组
-     * @return 是否为空
-     */
-    public static <T> boolean isEmpty(T[] array) {
-        return array == null || array.length == 0;
-    }
-
-    /**
-     * 数组是否为非空
-     *
-     * @param array 数组
-     * @param <T>   数组
-     * @return 是否为非空
-     */
-    public static <T> boolean isNotEmpty(T[] array) {
-        return !isEmpty(array);
-    }
-
-
-    /**
-     * Map是否为非空
-     *
-     * @param map 集合
-     * @param <V> 值列表
-     * @param <K> 键列表
-     * @return 是否为非空
-     */
-    public static <K, V> boolean isNotEmpty(Map<K, V> map) {
-        return !isEmpty(map);
-    }
-
-    /**
      * 映射键值（参考Python的zip()函数）<br>
      * 例如：<br>
      * keys = [a,b,c,d]<br>
@@ -654,7 +541,7 @@ public class CollectionUtil {
      * @return Map
      */
     public static <T, K> Map<T, K> zip(T[] keys, K[] values) {
-        if (isEmpty(keys) || isEmpty(values)) {
+        if (keys.length == 0 || values.length == 0) {
             return null;
         }
 
@@ -700,7 +587,7 @@ public class CollectionUtil {
      * @return Map
      */
     public static <T, K> Map<T, K> zip(Collection<T> keys, Collection<K> values) {
-        if (isEmpty(keys) || isEmpty(values)) {
+        if (keys.isEmpty() || values.isEmpty()) {
             return null;
         }
 
@@ -997,7 +884,7 @@ public class CollectionUtil {
      */
     public static <T> List<List<T>> split(Collection<T> collection, int size) {
         final List<List<T>> result = newArrayList();
-        if (isEmpty(collection)) {
+        if (collection.isEmpty()) {
             return result;
         }
 

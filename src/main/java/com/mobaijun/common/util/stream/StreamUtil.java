@@ -49,7 +49,7 @@ public class StreamUtil {
      * @return data为空抛出异常IllegalArgumentException
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
-        if (CollectionUtil.isNull(data)) {
+        if (data.isEmpty()) {
             return CollectionUtil.newArrayList();
         }
         return data.stream().map(fun).collect(Collectors.toList());

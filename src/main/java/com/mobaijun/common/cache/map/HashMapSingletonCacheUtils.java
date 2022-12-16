@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.cache.map;
 
-import com.mobaijun.common.util.collection.CollectionUtil;
-
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -33,7 +31,7 @@ public class HashMapSingletonCacheUtils {
     private static ConcurrentHashMap<String, Object> CACHE_SINGLETON_MAP = new ConcurrentHashMap<>(Double.SIZE);
 
     private HashMapSingletonCacheUtils() {
-        CACHE_SINGLETON_MAP = CollectionUtil.newConcurrentHashMap();
+        CACHE_SINGLETON_MAP = new ConcurrentHashMap<>(Double.SIZE);
     }
 
     /**

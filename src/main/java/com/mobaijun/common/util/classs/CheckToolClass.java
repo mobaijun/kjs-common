@@ -21,10 +21,10 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.mobaijun.common.util.ObjectUtil;
 import com.mobaijun.common.util.StringUtil;
-import com.mobaijun.common.util.collection.CollectionUtil;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -102,8 +102,8 @@ public class CheckToolClass {
      * 集合是否为 null,返回空集合
      */
     public static <T> Collection<T> assertListIsNull(Collection<T> list) {
-        if (CollectionUtil.isEmpty(list)) {
-            return CollectionUtil.newArrayList();
+        if (list.isEmpty()) {
+            return Collections.emptyList();
         }
         return list;
     }
@@ -148,8 +148,8 @@ public class CheckToolClass {
      * @return map
      */
     public static <K, V> Map<K, V> assertIsMapNull(Map<K, V> map) {
-        if (CollectionUtil.isEmpty(map)) {
-            return CollectionUtil.newHashMap(10);
+        if (map.isEmpty()) {
+            return Collections.emptyMap();
         }
         return map;
     }
@@ -187,7 +187,7 @@ public class CheckToolClass {
      * @param name   字符串的名称
      */
     public static void notEmpty(String string, String name) {
-        if (StringUtil.isEmpty(string)) {
+        if (string.isEmpty()) {
             throw new IllegalArgumentException(name + " can not be null!");
         }
     }
@@ -474,7 +474,7 @@ public class CheckToolClass {
      */
     public static void notEmpty(final Object[] array,
                                 final String name) {
-        if (CollectionUtil.isEmpty(array)) {
+        if (array.length == 0) {
             throw new IllegalArgumentException(name + " excepted is not empty!");
         }
 
@@ -491,7 +491,7 @@ public class CheckToolClass {
      */
     public static void notEmpty(final Collection<?> collection,
                                 final String name) {
-        if (CollectionUtil.isEmpty(collection)) {
+        if (collection.isEmpty()) {
             throw new IllegalArgumentException(name + " excepted is not empty!");
         }
 

@@ -19,6 +19,8 @@ import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.regx.RegxConstant;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -115,8 +117,7 @@ public class NamingUtil {
     }
 
     /**
-     * Map集
-     * 驼峰转下划线
+     * Map集 驼峰转下划线
      *
      * @param map 源字符串
      * @return 转换后的Map
@@ -139,14 +140,7 @@ public class NamingUtil {
     public static List<Map<String, Object>> underline2CamelList(List<Map<String, Object>> list) {
         Map<String, Object> newMap = CollectionUtil.newHashMap();
         List<Map<String, Object>> returnList = CollectionUtil.newArrayList();
-        for (Map<String, Object> map : list) {
-            for (String key : map.keySet()) {
-                String camel = humpToUnderline(key);
-                newMap.put(camel, map.get(key));
-            }
-            returnList.add(newMap);
-        }
-        return returnList;
+        return getMaps(list, newMap, returnList);
     }
 
     /**
@@ -157,7 +151,13 @@ public class NamingUtil {
      */
     public static List<Map<String, Object>> underlineList(List<Map<String, Object>> list) {
         Map<String, Object> newMap = CollectionUtil.newHashMap();
-        List<Map<String, Object>> returnList = CollectionUtil.newArrayList();
+        List<Map<String, Object>> returnList = new ArrayList<>(Collections.emptyList());
+        return getMaps(list, newMap, returnList);
+    }
+
+    private static List<Map<String, Object>> getMaps(List<Map<String, Object>> list,
+                                                     Map<String, Object> newMap,
+                                                     List<Map<String, Object>> returnList) {
         for (Map<String, Object> map : list) {
             for (String key : map.keySet()) {
                 String camel = humpToUnderline(key);
