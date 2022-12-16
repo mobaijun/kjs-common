@@ -30,7 +30,7 @@
 
 ## overview
 
-kjs-common is a basic tool library for Java development, which encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
+kjs-common is a Java development basic tool class library that encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
 This project integrates the excellent open source tools commonly used in the project:
 
@@ -51,7 +51,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> 所有依赖模块会同步更新最新版本
+> All dependent modules will be updated to the latest version synchronously
 
 ## quick start
 
