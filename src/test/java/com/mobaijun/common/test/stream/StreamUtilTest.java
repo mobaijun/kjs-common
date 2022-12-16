@@ -1,9 +1,9 @@
 package com.mobaijun.common.test.stream;
 
 
+import com.mobaijun.common.collection.CollectionUtil;
+import com.mobaijun.common.collection.StreamUtil;
 import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.collection.CollectionUtil;
-import com.mobaijun.common.util.stream.StreamUtil;
 
 import java.util.List;
 import java.util.Map;

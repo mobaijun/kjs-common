@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.collection.CollectionUtil;
+import com.mobaijun.common.constant.RegxConstant;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.collection.CollectionUtil;
-import com.mobaijun.common.util.regx.RegxConstant;
 
 import java.util.ArrayList;
 import java.util.Collections;

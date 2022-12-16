@@ -16,9 +16,9 @@
 package com.mobaijun.common.enhance;
 
 import cn.hutool.core.annotation.AnnotationUtil;
+import com.mobaijun.common.collection.ArrayUtil;
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.util.ObjectUtil;
-import com.mobaijun.common.util.collection.ArrayUtil;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.reflect.ReflectUtil;
 
 import java.lang.annotation.Annotation;

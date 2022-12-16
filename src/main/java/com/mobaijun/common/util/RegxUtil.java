@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.regx;
+package com.mobaijun.common.util;
 
+import com.mobaijun.common.constant.RegxConstant;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.StringUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -16,8 +16,8 @@
 package com.mobaijun.common.util.system;
 
 import cn.hutool.core.io.FileUtil;
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.JdkConstant;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.text.Charsets;
 
 import java.io.IOException;

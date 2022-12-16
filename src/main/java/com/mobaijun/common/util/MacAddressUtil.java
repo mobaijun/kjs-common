@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.util.collection.CollectionUtil;
+import com.mobaijun.common.collection.CollectionUtil;
 
 import java.net.InetAddress;
 import java.net.InterfaceAddress;

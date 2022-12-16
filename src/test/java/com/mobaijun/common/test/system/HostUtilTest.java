@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.system;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.system.HostUtil;
 
 import java.util.Map;

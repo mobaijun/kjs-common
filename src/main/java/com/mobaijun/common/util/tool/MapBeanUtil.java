@@ -16,7 +16,7 @@
 package com.mobaijun.common.util.tool;
 
 import cn.hutool.log.Log;
-import com.mobaijun.common.util.collection.CollectionUtil;
+import com.mobaijun.common.collection.CollectionUtil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

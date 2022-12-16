@@ -1,8 +1,8 @@
 package com.mobaijun.common.test.function;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.function.VoidMethod;
 import com.mobaijun.common.function.impl.IfFunction;
-import com.mobaijun.common.util.collection.CollectionUtil;
 
 /**
  * software：IntelliJ IDEA 2022.2.3

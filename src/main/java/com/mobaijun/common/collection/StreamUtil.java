@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.stream;
-
-import com.mobaijun.common.util.collection.CollectionUtil;
+package com.mobaijun.common.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;

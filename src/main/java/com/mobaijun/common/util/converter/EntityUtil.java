@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util.converter;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.lang.ArrayCollector;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.reflect.ReflectUtil;
 
 import java.lang.reflect.Array;

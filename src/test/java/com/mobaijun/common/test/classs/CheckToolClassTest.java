@@ -1,7 +1,7 @@
 package com.mobaijun.common.test.classs;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.util.classs.CheckToolClass;
-import com.mobaijun.common.util.collection.CollectionUtil;
 
 import java.util.Collection;
 import java.util.Map;

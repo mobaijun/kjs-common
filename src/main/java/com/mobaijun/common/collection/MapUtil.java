@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.collection;
+package com.mobaijun.common.collection;
 
 import com.mobaijun.common.model.Model;
 import com.mobaijun.common.util.converter.EntityUtil;

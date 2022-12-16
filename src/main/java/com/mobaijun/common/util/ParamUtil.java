@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.mobaijun.common.util.text.Charsets;
 
 import java.io.UnsupportedEncodingException;
