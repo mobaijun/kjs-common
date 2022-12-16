@@ -30,7 +30,8 @@ import java.util.function.Supplier;
  *
  * @author MoBaiJun 2022/7/11 10:48
  */
-public final class LambdaExceptionUtils {
+@SuppressWarnings("all")
+public final class LambdaExceptionUtil {
     @FunctionalInterface
     public interface ConsumerWithExceptions<T, E extends Exception> {
         void accept(T t) throws E;
@@ -128,7 +129,6 @@ public final class LambdaExceptionUtils {
             }
         };
     }
-
 
     /**
      * 包装生产函数（Supplier）

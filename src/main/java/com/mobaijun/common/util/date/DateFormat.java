@@ -15,8 +15,7 @@
  */
 package com.mobaijun.common.util.date;
 
-import cn.hutool.core.date.format.FastDateFormat;
-
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 /**
@@ -31,60 +30,60 @@ public final class DateFormat {
     /**
      * YYYY_MM_DD_HH_MM_SS
      */
-    public static final FastDateFormat YYYY_MM_DD_HH_MM_SS = FastDateFormat.getInstance(DatePattern.YYYY_MM_DD_HH_MM_SS);
+    public static final DateTimeFormatter YYYY_MM_DD_HH_MM_SS = DateTimeFormatter.ofPattern(DatePattern.YYYY_MM_DD_HH_MM_SS);
 
     /**
      * YYYY_MM_DD
      */
-    public static final FastDateFormat YYYY_MM_DD = FastDateFormat.getInstance(DatePattern.YYYY_MM_DD);
+    public static final DateTimeFormatter YYYY_MM_DD = DateTimeFormatter.ofPattern(DatePattern.YYYY_MM_DD);
 
     /**
      * HH_MM_SS
      */
-    public static final FastDateFormat HH_MM_SS = FastDateFormat.getInstance(DatePattern.HH_MM_SS);
+    public static final DateTimeFormatter HH_MM_SS = DateTimeFormatter.ofPattern(DatePattern.HH_MM_SS);
 
     /**
      * MM_US
      */
-    public static final FastDateFormat MM_US = FastDateFormat.getInstance("MM", Locale.US);
+    public static final DateTimeFormatter MM_US = DateTimeFormatter.ofPattern("MM", Locale.US);
 
     /**
      * MMM_US
      */
-    public static final FastDateFormat MMM_US = FastDateFormat.getInstance("MMM", Locale.US);
+    public static final DateTimeFormatter MMM_US = DateTimeFormatter.ofPattern("MMM", Locale.US);
 
     /**
      * MMMM_US
      */
-    public static final FastDateFormat MMMM_US = FastDateFormat.getInstance("MMMM", Locale.US);
+    public static final DateTimeFormatter MMMM_US = DateTimeFormatter.ofPattern("MMMM", Locale.US);
 
     /**
      * MM_ZH_CN
      */
-    public static final FastDateFormat MM_ZH_CN = FastDateFormat.getInstance("MM", Locale.SIMPLIFIED_CHINESE);
+    public static final DateTimeFormatter MM_ZH_CN = DateTimeFormatter.ofPattern("MM", Locale.SIMPLIFIED_CHINESE);
 
     /**
      * MMM_ZH_CN
      */
-    public static final FastDateFormat MMM_ZH_CN = FastDateFormat.getInstance("MMM", Locale.SIMPLIFIED_CHINESE);
+    public static final DateTimeFormatter MMM_ZH_CN = DateTimeFormatter.ofPattern("MMM", Locale.SIMPLIFIED_CHINESE);
 
     /**
      * MMMM_ZH_CN
      */
-    public static final FastDateFormat MMMM_ZH_CN = FastDateFormat.getInstance("MMMM", Locale.SIMPLIFIED_CHINESE);
+    public static final DateTimeFormatter MMMM_ZH_CN = DateTimeFormatter.ofPattern("MMMM", Locale.SIMPLIFIED_CHINESE);
 
     /**
      * MM_ZH_TW
      */
-    public static final FastDateFormat MM_ZH_TW = FastDateFormat.getInstance("MM", Locale.TRADITIONAL_CHINESE);
+    public static final DateTimeFormatter MM_ZH_TW = DateTimeFormatter.ofPattern("MM", Locale.TRADITIONAL_CHINESE);
 
     /**
      * MMM_ZH_TW
      */
-    public static final FastDateFormat MMM_ZH_TW = FastDateFormat.getInstance("MMM", Locale.TRADITIONAL_CHINESE);
+    public static final DateTimeFormatter MMM_ZH_TW = DateTimeFormatter.ofPattern("MMM", Locale.TRADITIONAL_CHINESE);
 
     /**
      * MMMM_ZH_TW
      */
-    public static final FastDateFormat MMMM_ZH_TW = FastDateFormat.getInstance("MMMM", Locale.TRADITIONAL_CHINESE);
+    public static final DateTimeFormatter MMMM_ZH_TW = DateTimeFormatter.ofPattern("MMMM", Locale.TRADITIONAL_CHINESE);
 }

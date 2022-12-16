@@ -28,6 +28,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum StatusEnum {
+
     /**
      * 启用
      */

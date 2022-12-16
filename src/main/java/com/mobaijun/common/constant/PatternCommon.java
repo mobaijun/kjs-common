@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.common;
+package com.mobaijun.common.constant;
 
 import java.util.regex.Pattern;
 
@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/11/23 13:44
  */
-public final class CommonPattern {
+public final class PatternCommon {
 
     /**
      * 左括号

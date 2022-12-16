@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.result;
 
-import com.mobaijun.common.result.enums.HttpStatus;
+import com.mobaijun.common.enums.http.HttpStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -55,27 +55,65 @@ public class R<T> implements Serializable {
      */
     private T data;
 
+    /**
+     * 默认成功返回
+     *
+     * @return R<T>
+     */
     public static <T> R<T> ok() {
         return ok(null);
     }
 
+    /**
+     * 成功返回数据
+     *
+     * @param data 数据
+     * @return R<T>
+     */
     public static <T> R<T> ok(T data) {
         return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data)
                 .setMessage(HttpStatus.OK.getMessage());
     }
 
+    /**
+     * 自定义返回消息内容
+     *
+     * @param data    数据
+     * @param message 消息
+     * @return R<T>
+     */
     public static <T> R<T> ok(T data, String message) {
         return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data).setMessage(message);
     }
 
+    /**
+     * 自定义错误状态码和返回消息
+     *
+     * @param code    状态码
+     * @param message 消息
+     * @return R<T>
+     */
     public static <T> R<T> failed(int code, String message) {
         return new R<T>().setCode(code).setMessage(message);
     }
 
+    /**
+     * 自定义错误状态码
+     *
+     * @param failMsg 状态码
+     * @return R<T>
+     */
     public static <T> R<T> failed(HttpStatus failMsg) {
         return new R<T>().setCode(failMsg.getCode()).setMessage(failMsg.getMessage());
     }
 
+    /**
+     * 返回指定状态码和错误信息
+     *
+     * @param failMsg 状态码
+     * @param message 错误信息
+     * @return R<T>
+     */
     public static <T> R<T> failed(HttpStatus failMsg, String message) {
         return new R<T>().setCode(failMsg.getCode()).setMessage(message);
     }

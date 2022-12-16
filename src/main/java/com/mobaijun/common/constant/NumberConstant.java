@@ -90,4 +90,14 @@ public final class NumberConstant {
      * FIRST_CLASS
      */
     public final static int FIRST_CLASS = 1024;
+
+    /**
+     * 用于随机选的数字
+     */
+    public static final String BASE_NUMBER = "0123456789";
+
+    /**
+     * 用于随机选的字符
+     */
+    public static final String BASE_CHAR = "abcdefghijklmnopqrstuvwxyz";
 }

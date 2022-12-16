@@ -17,12 +17,12 @@ package com.mobaijun.common.enums;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
- * enum name: Env<br>
- * enum description： 环境枚举
+ * enum name: EnvEnum<br>
+ * enum description：环境枚举<br>
  *
  * @author MoBaiJun 2022/5/18 9:50
  */
-public enum Env {
+public enum EnvEnum {
 
     /**
      * Development environment

@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.thunder;
 
-import cn.hutool.log.Log;
+import com.mobaijun.common.util.PrintUtil;
 import lombok.SneakyThrows;
 
 import java.net.URLDecoder;
@@ -31,10 +31,6 @@ import java.util.Base64;
  * @author MoBaiJun 2022/7/18 10:20
  */
 public class ThunderUtil {
-    /**
-     * log
-     */
-    private static final Log log = Log.get(ThunderUtil.class);
 
     /**
      * 迅雷前缀
@@ -65,7 +61,7 @@ public class ThunderUtil {
         if (!isThunderLink(url)) {
             return url;
         }
-        log.info("The current link is the Thunder link, start the conversion...");
+        PrintUtil.println("The current link is the Thunder link, start the conversion...");
         url = url.replaceFirst(THUNDER, "");
         // base 64 转换
         url = new String(Base64.getDecoder().decode(url.getBytes()), UTF8);
@@ -80,7 +76,7 @@ public class ThunderUtil {
         if (url.endsWith(ENDS_WITH)) {
             url = url.substring(0, url.length() - 2);
         }
-        log.info("The current link is the Thunder link, the conversion result:{}", url);
+        PrintUtil.println(String.format("The current link is the Thunder link, the conversion result:%s", url));
         return url;
     }
 }

@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util.cron;
 
-import cn.hutool.log.Log;
 import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.util.PrintUtil;
 
 import java.util.Objects;
 
@@ -28,11 +28,6 @@ import java.util.Objects;
  * @author MoBaiJun 2022/8/8 17:04
  */
 public class CronUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(CronUtil.class);
 
     /**
      * 方法摘要：构建Cron表达式
@@ -122,7 +117,7 @@ public class CronUtil {
                 cronExp.append("?");
             }
         } else {
-            log.error("时或分或秒参数未配置");
+            PrintUtil.println("时或分或秒参数未配置");
         }
         return cronExp.toString();
     }
@@ -195,7 +190,7 @@ public class CronUtil {
      * @return cron 表达式
      */
     public static String createLoopCronExpression(int rate, int cycle) {
-        String cron = "";
+        String cron;
         switch (rate) {
             // 每cycle秒执行一次
             case 0:

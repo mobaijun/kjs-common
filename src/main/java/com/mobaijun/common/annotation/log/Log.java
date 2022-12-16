@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.annotation.log;
 
+import com.mobaijun.common.enums.log.BusinessType;
+import com.mobaijun.common.enums.log.LogType;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -40,4 +43,32 @@ public @interface Log {
      * @return String
      */
     String value() default "";
+
+    /**
+     * 操作类型  ， 默认新增
+     *
+     * @return 操作类型
+     */
+    BusinessType type() default BusinessType.INSERT;
+
+    /**
+     * 日志类型
+     *
+     * @return 默认业务日志
+     */
+    LogType logType() default LogType.BUSSINESS;
+
+    /**
+     * 是否保存方法入参
+     *
+     * @return boolean
+     */
+    boolean recordParams() default true;
+
+    /**
+     * 是否保存方法返回值
+     *
+     * @return boolean
+     */
+    boolean recordResult() default true;
 }

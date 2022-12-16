@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.common;
+package com.mobaijun.common.constant;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -96,6 +96,11 @@ public final class DefaultValues {
     }
 
     public static class Thread {
+
+        /**
+         * 超时时间
+         */
+        public static final int TIME_OUT = 120;
 
         /**
          * 要保留的空闲线程数。

@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.thread;
 
-import com.mobaijun.common.common.DefaultValues;
+import com.mobaijun.common.constant.DefaultValues;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

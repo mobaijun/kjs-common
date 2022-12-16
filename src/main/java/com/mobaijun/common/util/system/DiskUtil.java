@@ -16,13 +16,13 @@
 package com.mobaijun.common.util.system;
 
 import com.mobaijun.common.constant.NumberConstant;
-import com.mobaijun.common.util.collection.CollectionUtil;
 import com.sun.management.OperatingSystemMXBean;
 
 import java.io.File;
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -43,7 +43,7 @@ public class DiskUtil {
     public static ArrayList<File> diskInformation() {
         File[] disks = File.listRoots();
         if (disks.length == NumberConstant.ZERO) {
-            return CollectionUtil.newArrayList();
+            return new ArrayList<>(Collections.emptyList());
         }
         return new ArrayList<>(Arrays.asList(disks));
     }

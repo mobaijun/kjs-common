@@ -27,7 +27,14 @@ import lombok.Getter;
 @Getter
 public enum OnlineStatus {
 
+    /**
+     * 在线
+     */
     ON_LINE("在线"),
+
+    /**
+     * 离线
+     */
     OFF_LINE("离线");
 
     private final String info;

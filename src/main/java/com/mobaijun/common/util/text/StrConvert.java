@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.util.text;
 
-import com.mobaijun.common.util.StringUtil;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -84,7 +82,7 @@ public class StrConvert {
         }
 
         final String valueStr = toStr(value, null);
-        return StringUtil.isEmpty(valueStr) ? defaultValue : valueStr.charAt(0);
+        return valueStr.isEmpty() ? defaultValue : valueStr.charAt(0);
     }
 
     /**
@@ -122,7 +120,7 @@ public class StrConvert {
         if (value instanceof Number) {
             return ((Number) value).byteValue();
         }
-        if (StringUtil.isEmpty(s)) {
+        if (s.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -220,7 +218,7 @@ public class StrConvert {
             return ((Number) value).intValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -250,7 +248,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Integer[] toIntArray(String split, String str) {
-        if (StringUtil.isEmpty(str)) {
+        if (str.isEmpty()) {
             return new Integer[]{};
         }
         String[] arr = str.split(split);
@@ -270,7 +268,7 @@ public class StrConvert {
      * @return 结果
      */
     public static Long[] toLongArray(String split, String str) {
-        if (StringUtil.isEmpty(str)) {
+        if (str.isEmpty()) {
             return new Long[]{};
         }
         String[] arr = str.split(split);
@@ -323,7 +321,7 @@ public class StrConvert {
             return ((Number) value).longValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -366,7 +364,7 @@ public class StrConvert {
             return ((Number) value).doubleValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -409,7 +407,7 @@ public class StrConvert {
             return ((Number) value).floatValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -448,7 +446,7 @@ public class StrConvert {
             return (Boolean) value;
         }
         String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         valueStr = valueStr.trim().toLowerCase();
@@ -499,7 +497,7 @@ public class StrConvert {
             return myE;
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -515,7 +513,7 @@ public class StrConvert {
      *
      * @param clazz Enum的Class
      * @param value 值
-     * @param <E> Enum的Class
+     * @param <E>   Enum的Class
      * @return Enum
      */
     public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value) {
@@ -542,7 +540,7 @@ public class StrConvert {
             return BigInteger.valueOf((Long) value);
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -590,7 +588,7 @@ public class StrConvert {
             return new BigDecimal((Integer) value);
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isEmpty(valueStr)) {
+        if (valueStr.isEmpty()) {
             return defaultValue;
         }
         try {
@@ -667,7 +665,7 @@ public class StrConvert {
      * @return 字符串
      */
     public static String str(byte[] bytes, String charset) {
-        return str(bytes, StringUtil.isEmpty(charset) ? Charset.defaultCharset() : Charset.forName(charset));
+        return str(bytes, charset.isEmpty() ? Charset.defaultCharset() : Charset.forName(charset));
     }
 
     /**
