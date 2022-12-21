@@ -28,6 +28,21 @@ import lombok.Getter;
 public enum BusinessType {
 
     /**
+     * 登入
+     */
+    LOGIN,
+
+    /**
+     * 登出
+     */
+    EXIT,
+
+    /**
+     * 查询
+     */
+    READ,
+
+    /**
      * 其它
      */
     OTHER,

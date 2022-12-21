@@ -49,7 +49,7 @@ public @interface Log {
      *
      * @return 操作类型
      */
-    BusinessType type() default BusinessType.INSERT;
+    BusinessType businessType() default BusinessType.INSERT;
 
     /**
      * 日志类型
@@ -57,6 +57,13 @@ public @interface Log {
      * @return 默认业务日志
      */
     LogType logType() default LogType.BUSSINESS;
+
+    /**
+     * 操作模块
+     *
+     * @return 业务模块
+     */
+    String module() default "";
 
     /**
      * 是否保存方法入参
