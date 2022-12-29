@@ -509,4 +509,37 @@ public class StringUtil extends StrUtil {
         }
         return str;
     }
+
+    /**
+     * 将某字符串置于给定大小的中间.
+     *
+     * @param str     字符串
+     * @param size    总大小
+     * @param padChar 填充字符
+     * @return 字符串结果
+     */
+    private static String center(String str, int size, char padChar) {
+        if (str != null && size > 0) {
+            int strLen = str.length();
+            int pads = size - strLen;
+            if (pads > 0) {
+                str = leftPad(str, strLen + pads / 2, padChar);
+                str = rightPad(str, size, padChar);
+            }
+        }
+        return str;
+    }
+
+    /**
+     * 对给定的字符串和大小进行右填充.
+     *
+     * @param str     字符串
+     * @param size    填充的总大小
+     * @param padChar 填充字符
+     * @return 填充结果
+     */
+    private static String rightPad(final String str, int size, char padChar) {
+        int pads = size - str.length();
+        return pads <= 0 ? str : str.concat(repeat(padChar, pads));
+    }
 }
