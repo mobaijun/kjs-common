@@ -18,6 +18,11 @@ package com.mobaijun.common.util.http;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.util.StringUtil;
 
+import javax.management.MBeanServer;
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+import javax.management.Query;
+import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -241,5 +246,23 @@ public class IpUtil {
                 || source.toLowerCase().startsWith("https://"))
                 || source.toLowerCase().startsWith("rtmp://")
                 && !source.toLowerCase().startsWith("file:///");
+    }
+
+    /**
+     * 获取服务端口
+     *
+     * @return 端口号
+     */
+    public static String getServicePort() {
+        try {
+            MBeanServer beanServer = ManagementFactory.getPlatformMBeanServer();
+            Set<ObjectName> objectNames = beanServer.queryNames(new ObjectName("*:type=Connector,*"),
+                    Query.match(Query.attr("protocol"), Query.value("HTTP/1.1")));
+            return objectNames.iterator().next().getKeyProperty("port");
+        } catch (MalformedObjectNameException e) {
+            e.printStackTrace();
+            System.out.println("获取端口异常");
+            return "";
+        }
     }
 }
