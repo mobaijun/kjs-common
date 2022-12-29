@@ -40,7 +40,7 @@ This project integrates the excellent open source tools commonly used in the pro
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
-> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
+> Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
 ## develop
 
@@ -81,7 +81,7 @@ This warehouse has been released synchronously[maven central warehouse](https://
 
 ## contribute
 
--   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
+-   If you also want to participate in this project, please fork this warehouse, submit the pr after the modification, and it will be synchronized to this warehouse after review.
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
