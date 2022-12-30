@@ -90,3 +90,7 @@ $ mvn clean deploy -DskipTests -P sonatype-release
 ## 趋势
 
 ![](https://starchart.cc/mobaijun/kjs-common.svg)
+
+## 状态
+
+![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
