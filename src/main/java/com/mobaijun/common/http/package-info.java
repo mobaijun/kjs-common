@@ -20,4 +20,4 @@
  *
  * @author MoBaiJun 2022/9/14 13:45
  */
-package com.mobaijun.common.util.http;
+package com.mobaijun.common.http;

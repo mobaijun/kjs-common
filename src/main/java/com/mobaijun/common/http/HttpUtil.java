@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.http;
+package com.mobaijun.common.http;
 
 import cn.hutool.http.GlobalHeaders;
 import cn.hutool.http.Header;
