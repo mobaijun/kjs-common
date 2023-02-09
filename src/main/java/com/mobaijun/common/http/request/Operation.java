@@ -16,15 +16,11 @@ public abstract class Operation<V> implements Callable<V> {
      * Run operation
      *
      * @return result
-     * @throws RequestException
-     * @throws IOException
      */
     protected abstract V run() throws RequestException, IOException;
 
     /**
      * Operation complete callback
-     *
-     * @throws IOException
      */
     protected abstract void done() throws IOException;
 
@@ -42,8 +38,9 @@ public abstract class Operation<V> implements Callable<V> {
             try {
                 done();
             } catch (IOException e) {
-                if (!thrown)
+                if (!thrown) {
                     throw new RequestException(e);
+                }
             }
         }
     }

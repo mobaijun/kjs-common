@@ -2,8 +2,8 @@ package com.mobaijun.common.test.minitable;
 
 import com.mobaijun.common.minitable.MiniTable;
 import com.mobaijun.common.util.PrintUtil;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class MiniTableTest {
                 .addData(rowDatas)
                 .render();
         PrintUtil.println(table);
-        Assertions.assertEquals(TABLE, table);
+        Assert.assertEquals(TABLE, table);
     }
 
     /**
@@ -81,7 +81,7 @@ public class MiniTableTest {
         String table = new MiniTable("This is a too long title.")
                 .addHeaders(headers)
                 .render();
-        Assertions.assertEquals(""
+        Assert.assertEquals(""
                 + "+---------------+\n"
                 + "| This is a too |\n"
                 + "+-------+-------+\n"

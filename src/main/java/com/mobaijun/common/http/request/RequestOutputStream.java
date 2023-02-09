@@ -24,9 +24,6 @@ class RequestOutputStream extends BufferedOutputStream {
     /**
      * Create request output stream
      *
-     * @param stream
-     * @param charset
-     * @param bufferSize
      */
     RequestOutputStream(final OutputStream stream, final String charset, final int bufferSize) {
         super(stream, bufferSize);
@@ -36,7 +33,6 @@ class RequestOutputStream extends BufferedOutputStream {
     /**
      * Write string to stream
      *
-     * @param value
      * @return this stream
      * @throws IOException
      */
@@ -48,10 +44,11 @@ class RequestOutputStream extends BufferedOutputStream {
     }
 
     private static String getValidCharset(final String charset) {
-        if (charset != null && charset.length() > 0)
+        if (charset != null && charset.length() > 0) {
             return charset;
-        else
+        } else {
             return Charsets.UTF_8_NAME;
+        }
     }
 
     CharsetEncoder getEncoder() {

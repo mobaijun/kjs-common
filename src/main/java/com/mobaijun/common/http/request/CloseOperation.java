@@ -20,8 +20,6 @@ public abstract class CloseOperation<V> extends Operation<V> {
     /**
      * Create closer for operation
      *
-     * @param closeable
-     * @param ignoreCloseExceptions
      */
     CloseOperation(final Closeable closeable,
                    final boolean ignoreCloseExceptions) {
@@ -31,16 +29,18 @@ public abstract class CloseOperation<V> extends Operation<V> {
 
     @Override
     protected void done() throws IOException {
-        if (closeable instanceof Flushable)
+        if (closeable instanceof Flushable) {
             ((Flushable) closeable).flush();
-        if (ignoreCloseExceptions)
+        }
+        if (ignoreCloseExceptions) {
             try {
                 closeable.close();
             } catch (IOException e) {
                 // Ignored
             }
-        else
+        } else {
             closeable.close();
+        }
     }
 
 }

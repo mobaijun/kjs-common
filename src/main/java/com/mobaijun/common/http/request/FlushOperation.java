@@ -17,7 +17,6 @@ public abstract class FlushOperation<V> extends Operation<V> {
     /**
      * Create flush operation
      *
-     * @param flushable
      */
     protected FlushOperation(final Flushable flushable) {
         this.flushable = flushable;

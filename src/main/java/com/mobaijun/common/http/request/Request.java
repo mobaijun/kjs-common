@@ -96,7 +96,7 @@ import static java.net.Proxy.Type.HTTP;
  * class name: RequestOutputStream<br>
  * class description:
  * A fluid interface for making HTTP requests using an underlying<br>
- * {@link HttpURLConnection} (or sub-class).<br>
+ * {@link HttpURLConnection} (or subclass).<br>
  * <p>
  * Each instance supports making a single request and cannot be reused for<br>
  * further requests.<br>
@@ -136,10 +136,11 @@ public final class Request {
     private UploadProgress progress = UploadProgress.DEFAULT;
 
     private static String getValidCharset(final String charset) {
-        if (charset != null && charset.length() > 0)
+        if (charset != null && charset.length() > 0) {
             return charset;
-        else
+        } else {
             return Charsets.UTF_8_NAME;
+        }
     }
 
     private static SSLSocketFactory getTrustedFactory()

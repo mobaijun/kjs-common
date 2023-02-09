@@ -20,8 +20,8 @@ public class Utils {
 
     public static byte[] toBytes(InputStream is) throws IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int                   nRead;
-        byte[]                data   = new byte[4096];
+        int nRead;
+        byte[] data = new byte[4096];
         while ((nRead = is.read(data, 0, data.length)) != -1) {
             buffer.write(data, 0, nRead);
         }
@@ -36,27 +36,45 @@ public class Utils {
      * @return list with the same elements
      */
     private static List<Object> arrayToList(final Object array) {
-        if (array instanceof Object[])
+        if (array instanceof Object[]) {
             return Arrays.asList((Object[]) array);
+        }
 
         List<Object> result = new ArrayList<Object>();
         // Arrays of the primitive types can't be cast to array of Object, so this:
-        if (array instanceof int[])
-            for (int value : (int[]) array) result.add(value);
-        else if (array instanceof boolean[])
-            for (boolean value : (boolean[]) array) result.add(value);
-        else if (array instanceof long[])
-            for (long value : (long[]) array) result.add(value);
-        else if (array instanceof float[])
-            for (float value : (float[]) array) result.add(value);
-        else if (array instanceof double[])
-            for (double value : (double[]) array) result.add(value);
-        else if (array instanceof short[])
-            for (short value : (short[]) array) result.add(value);
-        else if (array instanceof byte[])
-            for (byte value : (byte[]) array) result.add(value);
-        else if (array instanceof char[])
-            for (char value : (char[]) array) result.add(value);
+        if (array instanceof int[]) {
+            for (int value : (int[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof boolean[]) {
+            for (boolean value : (boolean[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof long[]) {
+            for (long value : (long[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof float[]) {
+            for (float value : (float[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof double[]) {
+            for (double value : (double[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof short[]) {
+            for (short value : (short[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof byte[]) {
+            for (byte value : (byte[]) array) {
+                result.add(value);
+            }
+        } else if (array instanceof char[]) {
+            for (char value : (char[]) array) {
+                result.add(value);
+            }
+        }
         return result;
     }
 
@@ -69,9 +87,7 @@ public class Utils {
      * the {@link Request} constructors and so if URL encoding is needed this
      * method should be called before calling the {@link Request} constructor.
      *
-     * @param url
      * @return encoded URL
-     * @throws RequestException
      */
     public static String encode(final CharSequence url)
             throws RequestException {
@@ -83,17 +99,19 @@ public class Utils {
         }
 
         String host = parsed.getHost();
-        int    port = parsed.getPort();
-        if (port != -1)
+        int port = parsed.getPort();
+        if (port != -1) {
             host = host + ':' + port;
+        }
 
         try {
             String encoded = new URI(parsed.getProtocol(), host, parsed.getPath(),
                     parsed.getQuery(), null).toASCIIString();
             int paramsStart = encoded.indexOf('?');
-            if (paramsStart > 0 && paramsStart + 1 < encoded.length())
+            if (paramsStart > 0 && paramsStart + 1 < encoded.length()) {
                 encoded = encoded.substring(0, paramsStart + 1)
                         + encoded.substring(paramsStart + 1).replace("+", "%2B");
+            }
             return encoded;
         } catch (URISyntaxException e) {
             IOException io = new IOException("Parsing URI failed", e);
@@ -107,14 +125,13 @@ public class Utils {
      * Each map entry's key will be a parameter name and the value's
      * {@link Object#toString()} will be the parameter value.
      *
-     * @param url
-     * @param params
      * @return URL with appended query params
      */
     public static String append(final CharSequence url, final Map<?, ?> params) {
         final String baseUrl = url.toString();
-        if (params == null || params.isEmpty())
+        if (params == null || params.isEmpty()) {
             return baseUrl;
+        }
 
         final StringBuilder result = new StringBuilder(baseUrl);
 
@@ -122,7 +139,7 @@ public class Utils {
         addParamPrefix(baseUrl, result);
 
         Map.Entry<?, ?> entry;
-        Iterator<?>     iterator = params.entrySet().iterator();
+        Iterator<?> iterator = params.entrySet().iterator();
         entry = (Map.Entry<?, ?>) iterator.next();
         addParam(entry.getKey().toString(), entry.getValue(), result);
 
@@ -141,18 +158,19 @@ public class Utils {
      * The params argument is interpreted as a sequence of name/value pairs so the
      * given number of params must be divisible by 2.
      *
-     * @param url
      * @param params name/value pairs
      * @return URL with appended query params
      */
     public static String append(final CharSequence url, final Object... params) {
         final String baseUrl = url.toString();
-        if (params == null || params.length == 0)
+        if (params == null || params.length == 0) {
             return baseUrl;
+        }
 
-        if (params.length % 2 != 0)
+        if (params.length % 2 != 0) {
             throw new IllegalArgumentException(
                     "Must specify an even number of parameter names/values");
+        }
 
         final StringBuilder result = new StringBuilder(baseUrl);
 
@@ -175,8 +193,9 @@ public class Utils {
         //
         // The following test is checking for the last slash not being part of
         // the protocol to host separator: '://'.
-        if (baseUrl.indexOf(':') + 2 == baseUrl.lastIndexOf('/'))
+        if (baseUrl.indexOf(':') + 2 == baseUrl.lastIndexOf('/')) {
             result.append('/');
+        }
         return result;
     }
 
@@ -184,18 +203,20 @@ public class Utils {
                                                 final StringBuilder result) {
         // Add '?' if missing and add '&' if params already exist in base url
         final int queryStart = baseUrl.indexOf('?');
-        final int lastChar   = result.length() - 1;
-        if (queryStart == -1)
+        final int lastChar = result.length() - 1;
+        if (queryStart == -1) {
             result.append('?');
-        else if (queryStart < lastChar && baseUrl.charAt(lastChar) != '&')
+        } else if (queryStart < lastChar && baseUrl.charAt(lastChar) != '&') {
             result.append('&');
+        }
         return result;
     }
 
     private static StringBuilder addParam(final Object key, Object value,
                                           final StringBuilder result) {
-        if (value != null && value.getClass().isArray())
+        if (value != null && value.getClass().isArray()) {
             value = arrayToList(value);
+        }
 
         if (value instanceof Iterable<?>) {
             Iterator<?> iterator = ((Iterable<?>) value).iterator();
@@ -203,19 +224,20 @@ public class Utils {
                 result.append(key);
                 result.append("[]=");
                 Object element = iterator.next();
-                if (element != null)
+                if (element != null) {
                     result.append(element);
-                if (iterator.hasNext())
+                }
+                if (iterator.hasNext()) {
                     result.append("&");
+                }
             }
         } else {
             result.append(key);
             result.append("=");
-            if (value != null)
+            if (value != null) {
                 result.append(value);
+            }
         }
-
         return result;
     }
-
 }

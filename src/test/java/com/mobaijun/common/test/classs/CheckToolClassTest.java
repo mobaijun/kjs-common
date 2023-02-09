@@ -21,7 +21,7 @@ public class CheckToolClassTest {
 
         // 结果正确
         String name = "s";
-        CheckToolClass.assertTrue(name != null, "非空字符串 ！！！");
+        CheckToolClass.assertTrue(true, "非空字符串 ！！！");
 
         // json 是否合法
         CheckToolClass.assertIsJsonLegal("{\"name\":\"Bill Gates\",\"age\":62,\"cars\":[\"Porsche\",\"BMW\",\"Volvo\"]}", "json 不合法！");
