@@ -30,7 +30,7 @@
 
 ## overview
 
-kjs-common is a basic tool library for Java development, which encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
+kjs-common is a Java development basic tool class library that encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
 This project integrates the excellent open source tools commonly used in the project:
 
@@ -87,7 +87,7 @@ This warehouse has been released synchronously[maven central warehouse](https://
 $ mvn clean deploy -DskipTests -P sonatype-release
 ```
 
-## trend
+## 趋势
 
 ![](https://starchart.cc/mobaijun/kjs-common.svg)
 
