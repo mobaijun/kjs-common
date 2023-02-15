@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.cache;
 
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -24,56 +25,50 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author MoBaiJun 2022/7/11 16:56
  */
-@SuppressWarnings("all")
 public class HashMapSingletonCacheUtils {
 
-    private static volatile HashMapSingletonCacheUtils cacheSingletonUtil;
-    private static ConcurrentHashMap<String, Object> CACHE_SINGLETON_MAP = new ConcurrentHashMap<>(Double.SIZE);
+    private static volatile HashMapSingletonCacheUtils INSTANCE;
+    private static ConcurrentHashMap<String, Object> CACHE_SINGLETON_MAP;
 
     private HashMapSingletonCacheUtils() {
         CACHE_SINGLETON_MAP = new ConcurrentHashMap<>(Double.SIZE);
     }
 
     /**
-     * 懒汉式单例模式
-     * 单例模式有两种类型
-     * 懒汉式：在真正需要使用对象时才去创建该单例类对象
-     * 饿汉式：在类加载时已经创建好该单例对象，等待被程序使用
+     * 单例模式，懒汉式
      *
      * @return HashMapSingletonCacheUtils
      */
-    public static HashMapSingletonCacheUtils getInstance() {
-        // 线程A和线程B同时看到cacheSingletonUtil = null，如果不为null，则直接返回cacheSingletonUtil
-        if (cacheSingletonUtil == null) {
-            // 线程A或线程B获得该锁进行初始化
-            synchronized (HashMapSingletonCacheUtils.class) {
-                // 其中一个线程进入该分支，另外一个线程则不会进入该分支
-                if (cacheSingletonUtil == null) {
-                    cacheSingletonUtil = new HashMapSingletonCacheUtils();
-                }
-            }
+    public static synchronized HashMapSingletonCacheUtils getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HashMapSingletonCacheUtils();
         }
-        return cacheSingletonUtil;
+        return INSTANCE;
     }
 
     /**
      * 添加到内存
      */
-    public <T> void addCacheData(String key, T data) {
+    public <T> void add(String key, T data) {
         CACHE_SINGLETON_MAP.put(key, data);
     }
 
     /**
-     * 从内存中取出
+     * 获取缓存值
+     *
+     * @param key 缓存 key
+     * @return 缓存值，如果 key 不存在则返回 Optional.empty()
      */
-    public <T> T getCacheData(String key) {
-        return (T) CACHE_SINGLETON_MAP.get(key);
+    public <T> Optional<T> get(String key) {
+        @SuppressWarnings("unchecked")
+        T data = (T) CACHE_SINGLETON_MAP.get(key);
+        return Optional.ofNullable(data);
     }
 
     /**
      * 从内存中清除
      */
-    public void removeCacheData(String key) {
+    public void remove(String key) {
         CACHE_SINGLETON_MAP.remove(key);
     }
 
@@ -104,6 +99,6 @@ public class HashMapSingletonCacheUtils {
         ConcurrentHashMap<K, V> hashMap = new ConcurrentHashMap<>(Double.SIZE);
         // 获取所有缓存数据
         CACHE_SINGLETON_MAP.keySet().forEach(k -> hashMap.put((K) k, (V) CACHE_SINGLETON_MAP.get(k)));
-        return (ConcurrentHashMap<K, V>) hashMap;
+        return hashMap;
     }
 }
