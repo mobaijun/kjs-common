@@ -39,7 +39,7 @@ public class BubbleSort {
      * @param array 数组
      * @return 排序后的数组
      */
-    public static int[] bubbleSort(int[] array) {
+    public static int[] bubbleSort1(int[] array) {
         if (array.length == 0) {
             return array;
         }
@@ -51,6 +51,38 @@ public class BubbleSort {
                     array[j] = temp;
                 }
             }
+        }
+        return array;
+    }
+
+    /**
+     * 1.对于已经排好序的部分，不需要再比较和交换。可以加入一个标志位来表示是否有交换操作，如果没有则直接返回，优化排序时间。
+     * 2.可以在每一轮排序中记录最后一次交换的位置，因为该位置之后的数据已经有序了，下一轮排序时可以不必再次比较。
+     *
+     * @param array 数组
+     * @return 排序后的数组
+     */
+    public static int[] bubbleSort2(int[] array) {
+        if (array.length == 0) {
+            return array;
+        }
+        for (int i = 0; i < array.length; i++) {
+            boolean hasSwap = false;
+            int lastSwapIndex = 0;
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j + 1] < array[j]) {
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                    hasSwap = true;
+                    lastSwapIndex = j;
+                }
+            }
+            if (!hasSwap) {
+                // 没有发生交换，说明已经有序，直接返回
+                return array;
+            }
+            i = array.length - 2 - lastSwapIndex;
         }
         return array;
     }

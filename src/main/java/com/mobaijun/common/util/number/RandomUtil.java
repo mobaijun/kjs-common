@@ -21,6 +21,7 @@ import com.mobaijun.common.util.date.LocalDateUtil;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -590,5 +591,22 @@ public class RandomUtil extends cn.hutool.core.util.RandomUtil {
         String second = randomNumber(11, 150) + "号";
         String third = "-" + randomNumber(1, 20) + "-" + randomNumber(1, 10);
         return first + second + third;
+    }
+
+    /**
+     * 生成指定长度、元素范围在 [min, max] 之间的随机数组
+     *
+     * @param size 数组长度
+     * @param min  数组元素最小值
+     * @param max  数组元素最大值
+     * @return 生成的随机数组
+     */
+    public static int[] generateRandomArray(int size, int min, int max) {
+        int[] array = new int[size];
+        Random random = new Random();
+        for (int i = 0; i < size; i++) {
+            array[i] = random.nextInt(max - min + 1) + min;
+        }
+        return array;
     }
 }
