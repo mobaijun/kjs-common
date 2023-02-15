@@ -19,6 +19,7 @@ import com.mobaijun.common.model.Model;
 import com.mobaijun.common.util.converter.EntityUtil;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -48,7 +50,9 @@ public class MapUtil {
     @SafeVarargs
     public static <K, V> List<V> getCollection(Map<K, V> source, K... keys) {
         Objects.requireNonNull(keys);
-        return getCollection(source, Arrays.asList(keys));
+        return Arrays.stream(keys)
+                .map(source::get)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -61,12 +65,15 @@ public class MapUtil {
      * @return value的泛型的集合
      */
     public static <K, V> List<V> getCollection(Map<K, V> source, Iterable<K> keys) {
-        List<V> result = CollectionUtil.newArrayList();
-        if (source != null && !source.isEmpty() && keys != null) {
-            keys.forEach(key -> Optional.ofNullable(source.get(key)).ifPresent(result::add));
+        if (source == null || source.isEmpty() || keys == null) {
+            return Collections.emptyList();
         }
-        return result;
+        return StreamSupport.stream(keys.spliterator(), false)
+                .map(source::get)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
+
 
     /**
      * 批量取出Map中的值
@@ -79,10 +86,14 @@ public class MapUtil {
      * @return value的泛型的集合
      */
     public static <K, V> List<V> getCollection(Map<K, V> source, Iterable<K> keys, Comparator<V> comparator) {
-        Objects.requireNonNull(comparator);
-        List<V> result = getCollection(source, keys);
-        result.sort(comparator);
-        return result;
+        Objects.requireNonNull(source, "source map cannot be null");
+        Objects.requireNonNull(keys, "keys iterable cannot be null");
+        Objects.requireNonNull(comparator, "comparator cannot be null");
+        return StreamSupport.stream(keys.spliterator(), false)
+                .map(source::get)
+                .filter(Objects::nonNull)
+                .sorted(comparator)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -100,9 +111,27 @@ public class MapUtil {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 将Map转化成List/自定义排序
+     *
+     * @param source 原始Map实例
+     * @param <K>    Key类型
+     * @param <V>    Value类型
+     * @return 返回KVModel类型集合
+     */
+    public static <K, V> List<Model<K, V>> mapToList(Map<K, V> source, Comparator<Model<K, V>> comparator) {
+        Objects.requireNonNull(source);
+        List<Model<K, V>> list = source.entrySet().stream()
+                .map(e -> new Model<>(e.getKey(), e.getValue()))
+                .collect(Collectors.toList());
+        if (comparator != null) {
+            list.sort(comparator);
+        }
+        return list;
+    }
 
     /**
-     * 讲Map中 value进行转换
+     * 将 Map 中 value 进行转换
      *
      * @param map         原始Map实例
      * @param valueAction value转换的行为
@@ -114,39 +143,21 @@ public class MapUtil {
     public static <K, V, T> Map<K, T> transMap(Map<K, V> map, Function<? super V, ? extends T> valueAction) {
         Objects.requireNonNull(map);
         Objects.requireNonNull(valueAction);
-        Map<K, T> hashMap = CollectionUtil.newHashMap();
-        for (Map.Entry<K, V> entry : map.entrySet()) {
-            hashMap.put(entry.getKey(), EntityUtil.toObj(entry.getValue(), valueAction));
-        }
-        return hashMap;
-    }
-
-
-    /**
-     * <p>从{@code Map}实例中取值 防止因{@code Map}实例为<code>null</code>而发生运行时空指针异常</p>
-     * <p>如果{@code Map}实例为<code>null</code>，则返回<code>null</code></p>
-     *
-     * @param map {@code Map}实例 允许为<code>null</code>
-     * @param key Key的值 允许为<code>null</code>
-     * @param <K> Key的类型
-     * @param <V> Value的类型
-     * @return 从{@code Map}实例通过Key取出的Value值
-     */
-    public static <K, V> V getObj(Map<K, V> map, K key) {
-        return getObj(map, key, null);
+        return map.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> EntityUtil.toObj(e.getValue(), valueAction)));
     }
 
     /**
-     * <p>从{@code Map}实例中取值 防止因{@code Map}实例为<code>null</code>而发生运行时空指针异常</p>
+     * 从给定的 Map 实例中获取指定 key 的值，如果 Map 为 null 或 key 不存在则返回默认值。
      *
-     * @param map          {@code Map}实例 允许为<code>null</code>
-     * @param key          Key的值 允许为<code>null</code>
-     * @param defaultValue 默认值 允许为<code>null</code>
-     * @param <K>          Key的类型
-     * @param <V>          Value的类型
-     * @return 从{@code Map}实例通过Key取出的Value值
+     * @param map          给定的 Map 实例，允许为 null
+     * @param key          要获取的 key，允许为 null
+     * @param defaultValue 默认值，如果 Map 为 null 或 key 不存在则返回该值，允许为 null
+     * @param <K>          key 的类型
+     * @param <V>          value 的类型
+     * @return Map 中指定 key 的 value，如果 Map 为 null 或 key 不存在则返回默认值
      */
     public static <K, V> V getObj(Map<K, V> map, K key, V defaultValue) {
-        return Optional.ofNullable(map).map(e -> e.get(key)).orElse(defaultValue);
+        return Optional.ofNullable(map).map(e -> e.getOrDefault(key, defaultValue)).orElse(defaultValue);
     }
 }
