@@ -55,7 +55,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 ## quick start
 
-If you need to use it, just introduce the following dependencies
+如需使用，引入如下依赖即可
 
 ### maven
 
