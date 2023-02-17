@@ -44,8 +44,8 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## develop
 
-> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
-> JDK 17 以内项目推荐使用 2.0 以内版本
+> This project plans to support JDK 17 and above in version 2.0, and versions below 2.0 use JDK 8 as the cornerstone, which means that future 2.X versions will not be compatible with projects below JDK 17.
+> Projects within JDK 17 are recommended to use versions within 2.0
 
 ## example
 
@@ -73,7 +73,7 @@ If you need to use it, just introduce the following dependencies
 implementation 'com.mobaijun:kjs-common:latest.version'
 ```
 
-### central warehouse
+### 中央仓库
 
 This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
