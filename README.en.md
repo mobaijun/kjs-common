@@ -2,7 +2,7 @@
     kjs-common
 </h1>
 <p align="center">
-    <strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
+    <strong>JAVA开发，常用工具集(默认集成Lombok，MapStruct ) </strong>
 </p>
 <p align="center">
     <a target="_blank" href="https://search.maven.org/artifact/com.mobaijun/kjs-common">
@@ -30,11 +30,10 @@
 
 ## overview
 
-kjs-common is a Java development basic tool class library that encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
+kjs-common is a basic tool library for Java development, which encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
-This project integrates the excellent open source tools commonly used in the project:
+本项目集成了项目中常用的优秀开源工具类：
 
--   hutool-all (the most comprehensive tool class)
 -   lombok (simplified entity classes)
 -   mapstruct (simplifies parameter passing)
 
@@ -73,7 +72,7 @@ If you need to use it, just introduce the following dependencies
 implementation 'com.mobaijun:kjs-common:latest.version'
 ```
 
-### 中央仓库
+### central warehouse
 
 This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
@@ -81,7 +80,7 @@ This warehouse has been released synchronously[maven central warehouse](https://
 
 ## contribute
 
--   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
+-   If you also want to participate in this project, please fork this warehouse, submit the pr after the modification, and it will be synchronized to this warehouse after review.
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
