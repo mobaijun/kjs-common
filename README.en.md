@@ -44,8 +44,8 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## develop
 
-> This project plans to support JDK 17 and above in version 2.0, and versions below 2.0 use JDK 8 as the cornerstone, which means that future 2.X versions will not be compatible with projects below JDK 17.
-> Projects within JDK 17 are recommended to use versions within 2.0
+> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
+> JDK 17 以内项目推荐使用 2.0 以内版本
 
 ## example
 
@@ -55,7 +55,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 ## quick start
 
-如需使用，引入如下依赖即可
+If you need to use it, just introduce the following dependencies
 
 ### maven
 
@@ -81,7 +81,7 @@ This warehouse has been released synchronously[maven central warehouse](https://
 
 ## contribute
 
--   If you also want to participate in this project, please fork this warehouse, submit the pr after the modification, and it will be synchronized to this warehouse after review.
+-   如果你也想参加这个项目，请 fork 本仓库，修改完毕提交 pr ，审核后会同步至本仓库。
 
 ```bash
 $ mvn clean deploy -DskipTests -P sonatype-release
