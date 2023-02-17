@@ -16,7 +16,7 @@
 package com.mobaijun.common.collection;
 
 import com.mobaijun.common.constant.NumberConstant;
-import com.mobaijun.common.enhance.EnhanceAssert;
+import com.mobaijun.common.util.classs.CheckToolClass;
 
 import java.util.Arrays;
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  *
  * @author MoBaiJun 2022/6/6 9:35
  */
-public class ArrayUtil extends cn.hutool.core.util.ArrayUtil {
+public class ArrayUtil {
 
     /**
      * write specified bytes to a byte array start from offset
@@ -168,7 +168,7 @@ public class ArrayUtil extends cn.hutool.core.util.ArrayUtil {
         if (object == null) {
             return null;
         } else {
-            EnhanceAssert.isTrue(isArray(object), "请确保实参是数组类型");
+            CheckToolClass.assertTrue(CollectionUtil.isArray(object), "请确保实参是数组类型");
             Class<?> targetClass = object.getClass();
             if (targetClass == int[].class) {
                 return Arrays.toString((int[]) object);
@@ -199,7 +199,7 @@ public class ArrayUtil extends cn.hutool.core.util.ArrayUtil {
      * @return 元素
      */
     public static <T> T getFirst(T[] array) {
-        return isNotEmpty(array) ? array[0] : null;
+        return !CollectionUtil.isArray(array) ? array[0] : null;
     }
 
     /**

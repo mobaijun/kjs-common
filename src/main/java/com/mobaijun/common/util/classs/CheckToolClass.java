@@ -15,10 +15,6 @@
  */
 package com.mobaijun.common.util.classs;
 
-import cn.hutool.json.JSONArray;
-import cn.hutool.json.JSONException;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import com.mobaijun.common.util.ObjectUtil;
 import com.mobaijun.common.util.StringUtil;
 
@@ -45,32 +41,6 @@ public class CheckToolClass {
     public static <T> void assertNotNull(T data, String message) {
         if (ObjectUtil.isEmpty(data)) {
             throw new NullPointerException(message);
-        }
-    }
-
-    /**
-     * json 数组是否合法的校验{是否为JSONObject类型字符串，首尾都为大括号判定为JSONObject字符串}，
-     * 本方法不全面，但会在 json 解析是自动校验
-     *
-     * @param json    json 字符串
-     * @param message 消息
-     */
-    public static void assertIsJsonArrayLegal(String json, String message) {
-        if (!JSONUtil.isTypeJSONArray(json)) {
-            throw new ArrayIndexOutOfBoundsException(message);
-        }
-    }
-
-    /**
-     * json 是否合法的校验{是否为JSONObject类型字符串，首尾都为大括号判定为JSONObject字符串}，
-     * 本方法不全面，但会在 json 解析是自动校验
-     *
-     * @param json    json 字符串
-     * @param message 消息
-     */
-    public static void assertIsJsonLegal(String json, String message) {
-        if (!JSONUtil.isTypeJSONObject(json)) {
-            throw new ArrayIndexOutOfBoundsException(message);
         }
     }
 
@@ -106,37 +76,6 @@ public class CheckToolClass {
             return Collections.emptyList();
         }
         return list;
-    }
-
-    /**
-     * 校验 json 格式是否正确，严格模式
-     *
-     * @param json json 字符串
-     * @return 是否正确
-     */
-    private static boolean assertIfJsonIsLegal(String json) {
-        if (StringUtil.isEmpty(json)) {
-            return false;
-        }
-        Object parse;
-        try {
-            parse = JSONUtil.parse(json);
-        } catch (JSONException e) {
-            return false;
-        }
-        return parse instanceof JSONObject || parse instanceof JSONArray;
-    }
-
-    /**
-     * 校验 json 是否合法 严格模式
-     *
-     * @param json    json 字符串
-     * @param message 返回内容
-     */
-    public static void assertIsJsonLegals(String json, String message) {
-        if (assertIfJsonIsLegal(json)) {
-            throw new ArrayIndexOutOfBoundsException(message);
-        }
     }
 
     /**

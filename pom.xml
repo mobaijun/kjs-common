@@ -79,74 +79,47 @@
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
         <lombok.version>[1.+,)</lombok.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
-        <hutool-all.version>[5.+,)</hutool-all.version>
-        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <junit.version>4.13.2</junit.version>
+        <slf4j-api.version>2.0.4</slf4j-api.version>
         <maven.test.skip>true</maven.test.skip>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <!-- Simplified entity class -->
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-
-            <!-- type converter -->
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct-processor</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <!-- tools -->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool-all.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <!-- Simplified entity class -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <scope>compile</scope>
+            <version>${lombok.version}</version>
         </dependency>
 
         <!-- type converter -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <scope>compile</scope>
+            <version>${mapstruct.version}</version>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
-            <scope>compile</scope>
+            <version>${mapstruct.version}</version>
         </dependency>
 
-        <!-- tools -->
+        <!-- log -->
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
+        <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 
     <!-- snapshots -->
     <repositories>

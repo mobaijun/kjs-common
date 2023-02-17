@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.http;
 
-import cn.hutool.http.GlobalHeaders;
-import cn.hutool.http.Header;
-import cn.hutool.http.HttpConnection;
-import cn.hutool.log.Log;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -27,12 +26,7 @@ import cn.hutool.log.Log;
  *
  * @author MoBaiJun 2022/7/18 10:05
  */
-public class HttpUtil extends cn.hutool.http.HttpUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(HttpUtil.class);
+public class HttpUtil {
 
     /**
      * 获取 http 链接
@@ -40,30 +34,45 @@ public class HttpUtil extends cn.hutool.http.HttpUtil {
      * @param url url
      * @return HttpConnection
      */
-    public static HttpConnection getHttpConnection(String url) {
-        return HttpConnection.create(url, null).header(Header.USER_AGENT.getValue(),
-                GlobalHeaders.INSTANCE.header(Header.USER_AGENT.getValue()), false);
+    public static HttpURLConnection getHttpConnection(String url, String requestMethod) throws IOException {
+        URL requestUrl = new URL(url);
+        HttpURLConnection connection = (HttpURLConnection) requestUrl.openConnection();
+        connection.setRequestMethod(requestMethod);
+        connection.connect();
+        return connection;
     }
 
     /**
-     * 创建 git 请求
+     * 判断是否为http链接
      *
-     * @param url      url 地址
-     * @param hostname 代理地址
-     * @param port     代理端口
-     * @return 主体 body
+     * @param urlString url链接
+     * @return 是|否
      */
-    public static String createGet(String url, String hostname, Integer port) {
-        return cn.hutool.http.HttpUtil.createGet(url).setHttpProxy(hostname, port).execute().body();
+    public static boolean isHttp(String urlString) {
+        try {
+            URL url = new URL(urlString);
+            String protocol = url.getProtocol();
+            return "http".equals(protocol);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
-     * 检测是否http或者https
+     * 判断是否为https链接
      *
-     * @param url URL
-     * @return 是否 http
+     * @param urlString url链接
+     * @return 是|否
      */
-    public static boolean isHttpOrHttps(String url) {
-        return isHttp(url) || isHttps(url);
+    public static boolean isHttps(String urlString) {
+        try {
+            URL url = new URL(urlString);
+            String protocol = url.getProtocol();
+            return "https".equals(protocol);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

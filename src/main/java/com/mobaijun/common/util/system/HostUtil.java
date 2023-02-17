@@ -15,11 +15,12 @@
  */
 package com.mobaijun.common.util.system;
 
-import cn.hutool.core.io.FileUtil;
 import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.JdkConstant;
+import com.mobaijun.common.util.file.FileUtil;
 import com.mobaijun.common.util.text.Charsets;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -84,7 +85,7 @@ public class HostUtil {
      * @return list 集合
      */
     public static List<String> readHosts() {
-        return FileUtil.readLines(getOsName(), Charsets.UTF_8)
+        return FileUtil.readLines(new File(getOsName()), Charsets.UTF_8)
                 .stream()
                 .filter(it -> !it.trim().matches("(^#.*)|(\\s*)"))
                 .map(it -> it.replaceAll("#.*", "").trim()
@@ -107,7 +108,7 @@ public class HostUtil {
         }
         List<String> sets = CollectionUtil.newArrayList();
         sets.add(String.format("%s\t%s", ip, url));
-        return FileUtil.appendUtf8Lines(sets, getOsName()).exists() && flushDns();
+        return FileUtil.appendToFile(sets, getOsName(), true) && flushDns();
     }
 
     /**

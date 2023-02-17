@@ -15,7 +15,8 @@
  */
 package com.mobaijun.common.collection;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/11/23 9:42
  */
-public class ListUtil extends cn.hutool.core.collection.ListUtil {
+public class ListUtil {
 
     /**
      * map 数组添加到 list
@@ -38,8 +39,8 @@ public class ListUtil extends cn.hutool.core.collection.ListUtil {
      */
     @SafeVarargs
     public static <K, V> List<Map<K, V>> mapList(Map<K, V>... map) {
-        List<Map<K, V>> mapList = CollectionUtil.newArrayList();
-        mapList.addAll(Arrays.asList(map));
+        List<Map<K, V>> mapList = new ArrayList<>(map.length);
+        Collections.addAll(mapList, map);
         return mapList;
     }
 }

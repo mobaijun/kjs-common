@@ -20,7 +20,6 @@ import com.mobaijun.common.lang.ArrayCollector;
 import com.mobaijun.common.util.reflect.ReflectUtil;
 
 import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -173,25 +172,6 @@ public class EntityUtil {
         Objects.requireNonNull(action);
         if (Objects.nonNull(data)) {
             return data.stream().map(action).collect(Collectors.toList());
-        }
-        return new ArrayList<>();
-    }
-
-    /**
-     * <p>使用反射将元素{@code T}类型的集合转化为元素{@code VO}类型的集合</p>
-     * <p>使用本方法的限制条件是泛型{@code VO}类包含以泛型{@code T}类为参数的构造器</p>
-     *
-     * @param data    元素{@code T}类型的集合实例
-     * @param voClazz 泛型{@code VO}实例类Class对象
-     * @param <T>     DO为{@code T}实体类泛型
-     * @param <VO>    VO为{@code VO}实体类泛型
-     * @return 以元素{@code VO}为类型的集合实例 如果获取不到指定类型的构造器或者发生异常 则返回空集合
-     */
-    public static <T, VO> List<VO> toList(final Collection<T> data, Class<VO> voClazz) {
-        if (data != null && data.size() > 0) {
-            T obj = CollectionUtil.toObj(data);
-            Constructor<VO> constructor = ReflectUtil.getConstructor(voClazz, obj.getClass());
-            return toList(data, e -> ReflectUtil.newInstance(constructor, e));
         }
         return new ArrayList<>();
     }

@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util.pinyin;
 
-import cn.hutool.log.Log;
 import com.mobaijun.common.constant.Constant;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 
@@ -28,13 +28,9 @@ import java.util.Random;
  *
  * @author MoBaiJun 2022/11/22 12:16
  */
+@Slf4j
 @NoArgsConstructor
 public final class PingYinUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(PingYinUtil.class);
 
     /**
      * 返回首字母

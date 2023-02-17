@@ -16,13 +16,17 @@
 package com.mobaijun.common.util.number;
 
 import com.mobaijun.common.constant.DateConstant;
+import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.date.LocalDateUtil;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static com.mobaijun.common.constant.NumberConstant.BASE_NUMBER;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -31,7 +35,7 @@ import java.util.concurrent.ThreadLocalRandom;
  *
  * @author MoBaiJun 2022/5/31 11:14
  */
-public class RandomUtil extends cn.hutool.core.util.RandomUtil {
+public class RandomUtil {
 
     /**
      * 城市编码
@@ -398,7 +402,7 @@ public class RandomUtil extends cn.hutool.core.util.RandomUtil {
      * @param length 字符串的长度
      */
     public static String randomString(int length) {
-        return randomString(BASE_CHAR_NUMBER, length);
+        return randomString(Arrays.toString(StringConstant.ALPHANUMERIC), length);
     }
 
     /**
@@ -446,7 +450,7 @@ public class RandomUtil extends cn.hutool.core.util.RandomUtil {
      * 随机字母或数字，小写
      */
     public static char randomChar() {
-        return randomChar(BASE_CHAR_NUMBER);
+        return randomChar(Arrays.toString(StringConstant.ALPHANUMERIC));
     }
 
     /**

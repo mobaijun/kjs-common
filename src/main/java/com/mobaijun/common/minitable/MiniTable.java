@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 www.mobaijun.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.mobaijun.common.minitable;
 
 import com.mobaijun.common.util.StringUtil;
@@ -121,11 +136,11 @@ public class MiniTable {
             }
 
             // 遍历传入的数据集合，并将其存入到行数据对象中.
-            List<String> datas = new ArrayList<>();
+            List<String> data = new ArrayList<>();
             for (int i = 0; i < len; i++) {
                 Object o = objects[i];
                 String value = o == null ? "null" : o.toString();
-                datas.add(value);
+                data.add(value);
 
                 // 获取第 i 列的最大长度值，如果该列数据不存在，就存储起来.
                 Integer maxColSize = this.maxColMap.get(i);
@@ -139,7 +154,7 @@ public class MiniTable {
                     this.maxColMap.put(i, value.length());
                 }
             }
-            this.rows.add(new Row(rowType, datas));
+            this.rows.add(new Row(rowType, data));
         }
         return this;
     }
@@ -187,21 +202,21 @@ public class MiniTable {
 
         // 遍历每行的数据，生成表格的行数据.
         for (int i = 0, len = this.rows.size(); i < len; i++) {
-            List<String> datas = this.rows.get(i).getData();
+            List<String> data = this.rows.get(i).getData();
             switch (this.rows.get(i).getRowType()) {
                 // 如果当前行是表头，则需要考虑生成上下边框.
                 case HEADER:
                     if (this.lastRowType != RowType.HEADER) {
-                        this.buildRowBorder(datas);
+                        this.buildRowBorder(data);
                     }
-                    this.buildRowData(datas);
-                    this.buildRowBorder(datas);
+                    this.buildRowData(data);
+                    this.buildRowBorder(data);
                     break;
                 // 如果当前行是普通数据行，则需要考虑在最后一行处追加下边框.
                 case DATA:
-                    this.buildRowData(datas);
+                    this.buildRowData(data);
                     if (i == len - 1) {
-                        this.buildRowBorder(datas);
+                        this.buildRowBorder(data);
                     }
                     break;
                 default:
@@ -229,12 +244,12 @@ public class MiniTable {
     /**
      * 构建数据行的方法.
      *
-     * @param datas 行数据
+     * @param data 行数据
      */
-    private void buildRowData(List<String> datas) {
+    private void buildRowData(List<String> data) {
         this.join.append("|");
-        for (int i = 0, len = datas.size(); i < len; i++) {
-            this.join.append(StringUtil.center(datas.get(i), this.maxColMap.get(i) + 2, ' '))
+        for (int i = 0, len = data.size(); i < len; i++) {
+            this.join.append(StringUtil.center(data.get(i), this.maxColMap.get(i) + 2, ' '))
                     .append("|");
         }
         this.join.append("\n");

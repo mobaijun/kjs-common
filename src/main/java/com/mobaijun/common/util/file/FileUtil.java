@@ -15,30 +15,32 @@
  */
 package com.mobaijun.common.util.file;
 
-import cn.hutool.core.codec.Base64;
 import com.mobaijun.common.constant.NumberConstant;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -236,32 +238,6 @@ public class FileUtil {
     }
 
     /**
-     * 根据图片地址获取所有图片 base 编码
-     *
-     * @param path 图片地址
-     * @return base64 集合
-     */
-    public static List<String> imageToBase64(String path) {
-        List<String> base64List = new LinkedList<>();
-        // 转流处理
-        Arrays.stream(cn.hutool.core.io.FileUtil.ls(path)).forEach(file -> {
-            // 转 base64
-            base64List.add(Base64.encode(cn.hutool.core.io.FileUtil.readBytes(file)));
-        });
-        return base64List;
-    }
-
-    /**
-     * base64 转指定格式文件
-     *
-     * @param data     base64s数据
-     * @param fileName 文件名称
-     */
-    public static void base64ToImage(byte[] data, String fileName) {
-        cn.hutool.core.io.FileUtil.writeBytes(Base64.decode(data), fileName);
-    }
-
-    /**
      * 从路径中读取文件内容字符串
      *
      * @param path 相对于resource目录的相对路径
@@ -276,6 +252,99 @@ public class FileUtil {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             Stream<String> streamOfString = new BufferedReader(inputStreamReader).lines();
             return streamOfString.collect(Collectors.joining());
+        }
+    }
+
+    /**
+     * 获取目录下所有文件
+     *
+     * @param directoryPath 目录地址
+     * @return 文件列表
+     */
+    public static List<File> getAllFilesInDirectory(String directoryPath) {
+        List<File> fileList = new ArrayList<>();
+        File directory = new File(directoryPath);
+        if (!directory.isDirectory()) {
+            throw new IllegalArgumentException(directoryPath + " is not a directory");
+        }
+        for (File file : Objects.requireNonNull(directory.listFiles())) {
+            if (file.isDirectory()) {
+                fileList.addAll(getAllFilesInDirectory(file.getAbsolutePath()));
+            } else {
+                fileList.add(file);
+            }
+        }
+        return fileList;
+    }
+
+    /**
+     * 读取文件内容并指定文件和编码
+     *
+     * @param file    文件
+     * @param charset 字符编码
+     * @return 文本列表
+     */
+    public static List<String> readLines(File file, Charset charset) {
+        List<String> lines = new ArrayList<>();
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file.toPath()), charset))) {
+                String line;
+                while (true) {
+                    try {
+                        if ((line = reader.readLine()) == null) {
+                            break;
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    lines.add(line);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return lines;
+    }
+
+    /**
+     * 内容写入文件
+     *
+     * @param newLines 文本列表
+     * @param file     文件
+     */
+    public static void writeUtf8Lines(ArrayList<Object> newLines, File file) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            for (Object line : newLines) {
+                writer.write(line.toString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 追加写入文件
+     *
+     * @param lines    文件列表
+     * @param fileName 文件名
+     * @param isAppend 是否链接
+     */
+    public static boolean appendToFile(Collection<?> lines, String fileName, boolean isAppend) {
+        try {
+            File file = new File(fileName);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, isAppend));
+            for (Object line : lines) {
+                writer.write(line + System.lineSeparator());
+            }
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

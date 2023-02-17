@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.reflect;
 
-import cn.hutool.log.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.beans.PropertyDescriptor;
 import java.io.File;
@@ -41,11 +41,8 @@ import java.util.Objects;
  *
  * @author MoBaiJun 2022/5/31 11:21
  */
-public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(ReflectUtil.class);
+@Slf4j
+public class ReflectUtil {
 
     private static final Map<Class<?>, Class<?>> PRIMITIVE_AND_WRAP = new HashMap<>(10);
 
@@ -84,64 +81,6 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
         return (Class<T>) PRIMITIVE_AND_WRAP.get(type);
     }
 
-    /**
-     * 调用构造函数创建对象
-     *
-     * @param type   要创建对象的类型
-     * @param params 参数
-     * @param <T>    返回类型
-     * @return 调用构造函数创建的对象
-     */
-    public static <T> T create(Class<T> type, Object... params) {
-        try {
-            return type.cast(getConstructor(type, getTypes(params)).newInstance(params));
-        } catch (Exception e) {
-            throw new RuntimeException(String.format("Cannot invoke constructor of \"%s\" with parameters %s.",
-                    type.getCanonicalName(), Arrays.toString(params)), e);
-        }
-    }
-
-    /**
-     * 调用静态方法
-     *
-     * @param type       类型
-     * @param methodName 方法名
-     * @param params     参数
-     * @param <T>        返回类型
-     * @return 静态方法的返回值
-     */
-    @SuppressWarnings("unchecked")
-    public static <T> T call(Class<?> type, String methodName, Object... params) {
-        try {
-            Method method = getMethod(type, methodName, getTypes(params));
-            method.setAccessible(true);
-            return (T) method.invoke(null, params);
-        } catch (Exception e) {
-            throw new RuntimeException(String.format("Cannot invoke static method \"%s\" of \"%s\" with parameters %s.",
-                    methodName, type.getCanonicalName(), Arrays.toString(params)), e);
-        }
-    }
-
-    /**
-     * 调用实例方法
-     *
-     * @param obj        实例对象
-     * @param methodName 方法名
-     * @param params     参数
-     * @param <T>        返回类型
-     * @return 实例方法的返回值
-     */
-    @SuppressWarnings("unchecked")
-    public static <T> T call(Object obj, String methodName, Object... params) {
-        try {
-            Method method = getMethod(obj.getClass(), methodName, getTypes(params));
-            method.setAccessible(true);
-            return (T) method.invoke(obj, params);
-        } catch (Exception e) {
-            throw new RuntimeException(String.format("Cannot invoke method \"%s\" of \"%s\" with parameters %s.",
-                    methodName, obj.getClass().getCanonicalName(), Arrays.toString(params)), e);
-        }
-    }
 
     /**
      * 设置JavaBean的属性
@@ -160,18 +99,6 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
         }
     }
 
-    /**
-     * 获取方法返回值类型
-     *
-     * @param type           方法所属的类
-     * @param methodName     方法名
-     * @param parameterTypes 参数类型数组
-     * @return 方法返回值类型
-     */
-    @SuppressWarnings("unchecked")
-    public static <T> Class<T> getReturnType(Class<T> type, String methodName, Class<?>... parameterTypes) {
-        return (Class<T>) getMethod(type, methodName, parameterTypes).getReturnType();
-    }
 
     /**
      * 创建数组
@@ -285,7 +212,7 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
         try {
             field.set(object, value);
         } catch (IllegalAccessException e) {
-            log.error(e, "setFieldValue:{}", e.getMessage());
+            log.error("setFieldValue:{}", e.getMessage());
         }
     }
 
@@ -356,7 +283,7 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
                 return superClass.getDeclaredField(filedName);
             } catch (NoSuchFieldException e) {
                 // Field 不在当前类定义, 继续向上转型
-                log.error(e, "NoSuchFieldException:{}", e.getMessage());
+                log.error("NoSuchFieldException:{}", e.getMessage());
             }
         }
         return null;
@@ -376,7 +303,7 @@ public class ReflectUtil extends cn.hutool.core.util.ReflectUtil {
         try {
             return (T) method.invoke(object, (Object) parameters);
         } catch (IllegalAccessException e) {
-            log.error(e, "invokeMethod:{}", e.getMessage());
+            log.error("invokeMethod:{}", e.getMessage());
         }
         return null;
     }

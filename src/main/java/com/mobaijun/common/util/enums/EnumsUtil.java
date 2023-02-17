@@ -15,11 +15,10 @@
  */
 package com.mobaijun.common.util.enums;
 
-import cn.hutool.core.lang.func.Func1;
-import cn.hutool.core.lang.func.LambdaUtil;
-import cn.hutool.core.util.EnumUtil;
-import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.ReflectUtil;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -28,45 +27,64 @@ import cn.hutool.core.util.ReflectUtil;
  *
  * @author MoBaiJun 2022/11/23 21:01
  */
-public class EnumsUtil extends EnumUtil {
+public final class EnumsUtil {
 
     /**
-     * 通过 某字段对应值 获取 枚举，获取不到时为 {@code defaultEnum}
+     * 获取枚举类中指定名称的枚举值
      *
-     * @param condition   条件字段
-     * @param value       条件字段值
-     * @param defaultEnum 条件找不到则返回结果使用这个
-     * @return 对应枚举 ，获取不到时为 {@code null}
+     * @param clazz 枚举类
+     * @param name  枚举名称
+     * @return 枚举值，如果不存在则返回 null
      */
-    public static <E extends Enum<E>, C> E getBy(Func1<E, C> condition, C value, E defaultEnum) {
-        return ObjectUtil.defaultIfNull(getBy(condition, value), defaultEnum);
+    public static <T extends Enum<T>> T getEnumByName(Class<T> clazz, String name) {
+        return Arrays.stream(clazz.getEnumConstants())
+                .filter(e -> e.name().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
-     * 判断某个字段值是否存在枚举中
+     * 获取枚举类中指定属性值的枚举值
      *
-     * @param condition 条件字段
-     * @param value     枚举属性值
-     * @return 是否存在
+     * @param clazz        枚举类
+     * @param propertyName 属性名称
+     * @param value        属性值
+     * @return 枚举值，如果不存在则返回 null
      */
-    public static <E extends Enum<E>, C> boolean contains(Func1<E, C> condition, C value) {
-        return getBy(condition, value) != null;
+    public static <T extends Enum<T>> T getEnumByProperty(Class<T> clazz, String propertyName, Object value) {
+        return Arrays.stream(clazz.getEnumConstants())
+                .filter(e -> getPropertyValue(e, propertyName).equals(value))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
-     * 判断目标枚举（targetEnum）的某个字段（condition）的值是否是入参value
+     * 获取枚举类中所有枚举值指定属性的值集合
      *
-     * @param targetEnum 目标枚举
-     * @param condition  条件字段
-     * @param value      枚举属性值
-     * @return 是否存在
+     * @param clazz        枚举类
+     * @param propertyName 属性名称
+     * @return 属性值集合
      */
-    @SuppressWarnings("unchecked")
-    public static <E extends Enum<E>, C> boolean contains(E targetEnum, Func1<E, C> condition, C value) {
-        if (ObjectUtil.isAllNotEmpty(targetEnum, condition)) {
-            C targetEnumFieldValue = (C) ReflectUtil.getFieldValue(targetEnum, LambdaUtil.getFieldName(condition));
-            return ObjectUtil.equal(targetEnumFieldValue, value);
+    public static <T extends Enum<T>, V> Set<V> getPropertyValues(Class<T> clazz, String propertyName) {
+        return (Set<V>) Arrays.stream(clazz.getEnumConstants())
+                .map(e -> getPropertyValue(e, propertyName))
+                .collect(Collectors.toSet());
+    }
+
+    /**
+     * 获取枚举值指定属性的值
+     *
+     * @param enumValue    枚举值
+     * @param propertyName 属性名称
+     * @return 属性值
+     */
+    public static <T extends Enum<T>, V> V getPropertyValue(T enumValue, String propertyName) {
+        try {
+            Field field = enumValue.getClass().getDeclaredField(propertyName);
+            field.setAccessible(true);
+            return (V) field.get(enumValue);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
-        return false;
     }
 }

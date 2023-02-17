@@ -15,12 +15,12 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.util.StrUtil;
 import com.mobaijun.common.constant.StringConstant;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/4/22 16:47
  */
-public class StringUtil extends StrUtil {
+public class StringUtil {
 
     /**
      * The maximum size to which the padding constant(s) can expand.
@@ -518,7 +518,7 @@ public class StringUtil extends StrUtil {
      * @param padChar 填充字符
      * @return 字符串结果
      */
-    private static String center(String str, int size, char padChar) {
+    public static String center(String str, int size, char padChar) {
         if (str != null && size > 0) {
             int strLen = str.length();
             int pads = size - strLen;
@@ -541,5 +541,46 @@ public class StringUtil extends StrUtil {
     private static String rightPad(final String str, int size, char padChar) {
         int pads = size - str.length();
         return pads <= 0 ? str : str.concat(repeat(padChar, pads));
+    }
+
+    /**
+     * 一个输入字符串和一个分隔符字符串。如果输入字符串为空或null，则返回一个空数组。如果分隔符为空或null，则返回包含输入字符串的单元素数组。
+     * 否则，该方法将使用Java正则表达式中的Pattern.quote()方法对分隔符字符串进行转义，并将其传递给输入字符串的split()方法，以便将输入字符串分割成一个字符串数组。
+     *
+     * @param input     输入字符串
+     * @param delimiter 分隔符
+     * @return 字符串数组
+     */
+    public static String[] split(String input, String delimiter) {
+        if (input == null || input.length() == 0) {
+            return new String[0];
+        }
+        if (delimiter == null || delimiter.length() == 0) {
+            return new String[]{input};
+        }
+        return input.split(Pattern.quote(delimiter));
+    }
+
+    /**
+     * 格式化字符串
+     *
+     * @param format 格式化字符串
+     * @param args   参数列表
+     * @return 字符串
+     */
+    public static String format(String format, Object... args) {
+        return String.format(format, args);
+    }
+
+    /**
+     * 替换字符串
+     */
+    public static String replace(StringBuffer sb, String from, String to) {
+        int index = sb.indexOf(from);
+        while (index != -1) {
+            sb.replace(index, index + from.length(), to);
+            index = sb.indexOf(from, index + to.length());
+        }
+        return sb.toString();
     }
 }

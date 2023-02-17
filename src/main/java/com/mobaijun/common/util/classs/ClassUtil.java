@@ -18,7 +18,6 @@ package com.mobaijun.common.util.classs;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.enhance.EnhanceAssert;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -47,7 +46,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * @author MoBaiJun NumberConstant.TWO0NumberConstant.TWONumberConstant.TWO/5/18 9:19
  */
-public class ClassUtil extends cn.hutool.core.util.ClassUtil {
+public class ClassUtil {
 
     /**
      * 这是我用的方式，boolean recursion是否递归
@@ -524,7 +523,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      * @return 如果是代理的class，返回父 class，否则返回自身
      */
     public static Class<?> getUserClass(Class<?> clazz) {
-        EnhanceAssert.notNull(clazz, "Class must not be null");
+        CheckToolClass.notNull(clazz, "Class must not be null");
         return isProxy(clazz) ? clazz.getSuperclass() : clazz;
     }
 
@@ -537,7 +536,7 @@ public class ClassUtil extends cn.hutool.core.util.ClassUtil {
      * @return 返回对象的 user class
      */
     public static Class<?> getUserClass(Object object) {
-        EnhanceAssert.notNull(object, "Instance must not be null");
+        CheckToolClass.notNull(object, "Instance must not be null");
         return getUserClass(object.getClass());
     }
 

@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util.number;
 
-import cn.hutool.log.Log;
 import com.mobaijun.common.constant.DateConstant;
+import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -30,12 +30,8 @@ import java.util.Date;
  *
  * @author MoBaiJun 2022/5/12 14:27
  */
+@Slf4j
 public class NumberUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(NumberUtil.class);
 
     private static final int CLASSIC_ID_LENGTH = 15;
     private static final int CURRENT_ID_LENGTH = 18;

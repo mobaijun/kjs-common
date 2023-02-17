@@ -2,6 +2,7 @@ package com.mobaijun.common.test.cache;
 
 import com.mobaijun.common.cache.HashMapSingletonCacheUtils;
 import com.mobaijun.common.util.PrintUtil;
+import org.junit.Test;
 
 import java.util.Optional;
 
@@ -13,7 +14,9 @@ import java.util.Optional;
  * @author MoBaiJun 2022/11/22 14:13
  */
 public class HashMapSingletonCacheUtilsTest {
-    public static void main(String[] args) {
+
+    @Test
+    public void hashMapSingletonCacheUtilsTest() {
         HashMapSingletonCacheUtils instance = HashMapSingletonCacheUtils.getInstance();
         instance.add("name", "mobaijun");
         PrintUtil.println(instance.getAll());

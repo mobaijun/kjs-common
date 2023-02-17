@@ -15,9 +15,8 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.util.URLUtil;
-import com.mobaijun.common.util.text.Charsets;
-
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Map;
 
 /**
@@ -37,13 +36,31 @@ public class RedirectUrlBuildUtil {
      * @return String
      */
     public static String createRedirectUrl(String originUrl, Map<String, ?> paramsMap) {
-        if (originUrl.isEmpty()) {
-            return null;
+        URI uri = null;
+        try {
+            uri = new URI(originUrl);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
-        if (paramsMap.isEmpty()) {
-            return originUrl;
+        String query = uri.getQuery();
+        StringBuilder sb = new StringBuilder(originUrl);
+
+        if (query == null) {
+            sb.append('?');
         } else {
-            return originUrl + "?" + URLUtil.buildQuery(paramsMap, Charsets.UTF_8);
+            sb.append('&');
         }
+
+        for (Map.Entry<String, ?> entry : paramsMap.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            sb.append(key);
+            sb.append('=');
+            sb.append(value.toString());
+            sb.append('&');
+        }
+
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
     }
 }

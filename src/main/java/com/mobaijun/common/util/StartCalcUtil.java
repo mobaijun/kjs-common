@@ -15,9 +15,6 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.date.DateUnit;
-import cn.hutool.core.date.DateUtil;
-
 import java.util.Date;
 
 /**
@@ -50,6 +47,8 @@ public class StartCalcUtil {
      * @return true启动 false 未启动
      */
     public static boolean calcEnable(Date date, long startInterValSeconds) {
-        return DateUtil.between(startDate, date, DateUnit.SECOND) > startInterValSeconds;
+        Date currentDate = new Date();
+        long interval = (currentDate.getTime() - date.getTime()) / 1000;
+        return interval >= startInterValSeconds;
     }
 }

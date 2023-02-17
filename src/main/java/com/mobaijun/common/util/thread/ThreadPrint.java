@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.thread;
 
-import cn.hutool.log.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -27,12 +27,8 @@ import java.util.concurrent.TimeUnit;
  *
  * @author MoBaiJun 2022/9/13 14:13
  */
+@Slf4j
 public class ThreadPrint {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(ThreadPrint.class);
 
     /**
      * 打印线程池状态

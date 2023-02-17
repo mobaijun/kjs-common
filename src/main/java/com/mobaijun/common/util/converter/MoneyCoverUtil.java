@@ -81,15 +81,15 @@ public class MoneyCoverUtil {
     }
 
     private static void handle(StringBuffer stringBuffer) {
-        StringUtil.replace(String.valueOf(stringBuffer), "零亿", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零万", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零仟", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零佰", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零十", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零零", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零元", "元");
-        StringUtil.replace(String.valueOf(stringBuffer), "零角", "零");
-        StringUtil.replace(String.valueOf(stringBuffer), "零分", "");
+        StringUtil.replace(stringBuffer, "零亿", "零");
+        StringUtil.replace(stringBuffer, "零万", "零");
+        StringUtil.replace(stringBuffer, "零仟", "零");
+        StringUtil.replace(stringBuffer, "零佰", "零");
+        StringUtil.replace(stringBuffer, "零十", "零");
+        StringUtil.replace(stringBuffer, "零零", "零");
+        StringUtil.replace(stringBuffer, "零元", "元");
+        StringUtil.replace(stringBuffer, "零角", "零");
+        StringUtil.replace(stringBuffer, "零分", "");
     }
 
     private static void handleHeader(StringBuffer stringBuffer) {

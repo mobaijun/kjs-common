@@ -512,7 +512,7 @@ public class ToolUtil {
             return ((Number) value).intValue();
         }
         final String valueStr = toStr(value, null);
-        if (StringUtil.isBlank(valueStr)) {
+        if (StringUtil.isEmpty(valueStr)) {
             return defaultValue;
         }
         try {

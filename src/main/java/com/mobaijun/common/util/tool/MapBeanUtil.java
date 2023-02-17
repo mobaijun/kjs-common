@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util.tool;
 
-import cn.hutool.log.Log;
 import com.mobaijun.common.collection.CollectionUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -30,12 +30,8 @@ import java.util.Objects;
  *
  * @author MoBaiJun 2022/4/24 10:53
  */
+@Slf4j
 public class MapBeanUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(MapBeanUtil.class);
 
     /**
      * 实体对象转成Map
@@ -56,7 +52,7 @@ public class MapBeanUtil {
                 map.put(field.getName(), field.get(obj));
             }
         } catch (Exception e) {
-            log.error(e, e.getMessage());
+            log.error(e.getMessage());
         }
         return map;
     }
@@ -85,7 +81,7 @@ public class MapBeanUtil {
                 field.set(obj, map.get(field.getName()));
             }
         } catch (Exception e) {
-            log.error(e, e.getMessage());
+            log.error(e.getMessage());
         }
         return obj;
     }

@@ -15,12 +15,6 @@
  */
 package com.mobaijun.common;
 
-import cn.hutool.core.lang.ConsoleTable;
-import cn.hutool.core.util.ClassUtil;
-import com.mobaijun.common.util.StringUtil;
-
-import java.util.Set;
-
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: MoBaiJun<br/>
@@ -30,19 +24,4 @@ import java.util.Set;
  * @author MoBaiJun 2022/7/13 16:15
  */
 public class MoBaiJun {
-
-    private static Set<Class<?>> getAllUtils(String packageName, String suffix) {
-        return ClassUtil.scanPackage(packageName,
-                (clazz) -> (!clazz.isInterface()) && StringUtil.endWith(clazz.getSimpleName(), suffix));
-    }
-
-    /**
-     * 控制台打印所有工具类
-     */
-    public static void printAllUtils(String packageName, String suffix) {
-        final Set<Class<?>> allUtils = getAllUtils(packageName, suffix);
-        final ConsoleTable consoleTable = ConsoleTable.create().addHeader("工具类名", "所在包");
-        allUtils.forEach(temp -> consoleTable.addBody(temp.getSimpleName(), temp.getPackage().getName()));
-        consoleTable.print();
-    }
 }

@@ -28,7 +28,7 @@ import java.util.Optional;
  *
  * @author MoBaiJun 2022/4/22 16:17
  */
-public class ObjectUtil extends cn.hutool.core.util.ObjectUtil {
+public class ObjectUtil {
 
     /**
      * * 判断一个对象是否为空

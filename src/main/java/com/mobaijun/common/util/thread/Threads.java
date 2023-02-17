@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util.thread;
 
-import cn.hutool.log.Log;
 import com.mobaijun.common.constant.DefaultValues;
 import com.mobaijun.common.util.PrintUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -32,12 +32,8 @@ import java.util.concurrent.TimeUnit;
  *
  * @author MoBaiJun 2022/4/22 18:57
  */
+@Slf4j
 public class Threads {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(Threads.class);
 
     /**
      * sleep等待,单位为毫秒
@@ -99,7 +95,7 @@ public class Threads {
             }
         }
         if (t != null) {
-            log.error(t, "Thread Exception:{}", t.getMessage());
+            log.error("Thread Exception:{}", t.getMessage());
         }
     }
 }

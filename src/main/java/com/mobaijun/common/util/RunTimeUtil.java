@@ -64,7 +64,7 @@ public class RunTimeUtil {
      */
     public static String getVmArguments() {
         List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
-        return StringUtil.join(StringConstant.BLANK, vmArguments);
+        return String.join(StringConstant.BLANK, vmArguments);
     }
 
 

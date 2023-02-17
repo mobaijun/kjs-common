@@ -15,10 +15,10 @@
  */
 package com.mobaijun.common.util;
 
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.util.CharsetUtil;
+import com.mobaijun.common.util.file.FileUtil;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,10 +39,10 @@ public class LicenseTitleAppenderUtil {
      */
     @SuppressWarnings("all")
     public static void append(String codeDirectory, String licenseHeader) {
-        List<File> files = FileUtil.loopFiles(codeDirectory);
+        List<File> files = FileUtil.getAllFilesInDirectory(codeDirectory);
         files.stream().filter(file -> file.getName().endsWith(".java"))
                 .forEach(file -> {
-                    List<String> strings = FileUtil.readLines(file, CharsetUtil.UTF_8);
+                    List<String> strings = FileUtil.readLines(file, StandardCharsets.UTF_8);
                     if (!"/*".equals(strings.get(0))) {
                         ArrayList<Object> newLines = new ArrayList<>(32);
                         newLines.add(licenseHeader);

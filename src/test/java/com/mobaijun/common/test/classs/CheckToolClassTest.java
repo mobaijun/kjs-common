@@ -16,15 +16,7 @@ import java.util.Map;
 public class CheckToolClassTest {
 
     public static void main(String[] args) {
-        // json 数组是否合法
-        CheckToolClass.assertIsJsonArrayLegal("[\"Porsche\", \"BMW\", \"Volvo\"]", "json 数组异常！！！");
-
-        // 结果正确
-        String name = "s";
         CheckToolClass.assertTrue(true, "非空字符串 ！！！");
-
-        // json 是否合法
-        CheckToolClass.assertIsJsonLegal("{\"name\":\"Bill Gates\",\"age\":62,\"cars\":[\"Porsche\",\"BMW\",\"Volvo\"]}", "json 不合法！");
 
         // 集合非空校验,返回默认容量 10 ArrayList集合
         Collection<Object> objects = CheckToolClass.assertListIsNull(CollectionUtil.newArrayList());

@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.util.sql;
 
-import cn.hutool.core.exceptions.UtilException;
-import cn.hutool.log.Log;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -35,12 +34,8 @@ import java.util.Map;
  *
  * @author MoBaiJun 2022/4/22 17:06
  */
-public class SqlUtil extends cn.hutool.db.sql.SqlUtil {
-
-    /**
-     * tools log
-     */
-    private static final Log log = Log.get(SqlUtil.class);
+@Slf4j
+public class SqlUtil {
 
     /**
      * 定义常用的 sql关键字
@@ -60,7 +55,7 @@ public class SqlUtil extends cn.hutool.db.sql.SqlUtil {
      */
     public static String escapeOrderBySql(String value) {
         if (StringUtil.isNotEmpty(value) && !isValidOrderBySql(value)) {
-            throw new UtilException("参数不符合规范，不能进行查询");
+            throw new RuntimeException("参数不符合规范，不能进行查询");
         }
         return value;
     }
@@ -73,23 +68,6 @@ public class SqlUtil extends cn.hutool.db.sql.SqlUtil {
      */
     public static boolean isValidOrderBySql(String value) {
         return value.matches(SQL_PATTERN);
-    }
-
-    /**
-     * SQL关键字检查
-     *
-     * @param value void
-     */
-    public static void filterKeyword(String value) {
-        if (StringUtil.isEmpty(value)) {
-            return;
-        }
-        String[] sqlKeywords = StringUtil.splitToArray(SQL_REGEX, "\\|");
-        for (String sqlKeyword : sqlKeywords) {
-            if (StringUtil.indexOfIgnoreCase(value, sqlKeyword) > -1) {
-                throw new UtilException("参数存在SQL注入风险");
-            }
-        }
     }
 
     /**
