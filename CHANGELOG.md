@@ -1,5 +1,45 @@
 # CHANGELOG
 
+## [V1.1.12](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.12) - 2023-02-17 12:57:00
+
+1. 优化冒泡排序
+2. 优化 MapUtil 工具类性能
+3. 新增随机数组方法
+4. 优化依赖包
+5. 新增 mini-table 生成器
+6. 更新判空 api
+
+```xml
+<dependency>
+    <groupId>com.mobaijun</groupId>
+    <artifactId>kjs-common</artifactId>
+    <version>1.1.12</version>
+</dependency>
+```
+
+### Documentation
+
+- general:
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([6858025](https://github.com/mobaijun/kjs-common/commit/685802511d09f3f1b2fbdba0b7e48a2efec49334))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([bf74ab3](https://github.com/mobaijun/kjs-common/commit/bf74ab311b78a88be5b64365d3ee1069efd4e417))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([a21308f](https://github.com/mobaijun/kjs-common/commit/a21308f806ad4f61163d1c6a184f118aa8a64bd9))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([87a81b7](https://github.com/mobaijun/kjs-common/commit/87a81b7cd1fb6e6b1175896439383890bf274d2e))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([4134b39](https://github.com/mobaijun/kjs-common/commit/4134b397c555153af24ddcb8d74fd6fcc4a5297b))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([83ef1c0](https://github.com/mobaijun/kjs-common/commit/83ef1c0564f53c58afcd44fde961e9bdc86b0d9f))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([49417ce](https://github.com/mobaijun/kjs-common/commit/49417ce62306b228e3195c3c2e6e0d8c7da9c2f0))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([2a6bfb7](https://github.com/mobaijun/kjs-common/commit/2a6bfb7674df6b3e09c196f24a52b52f0f82b148))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([c2ee790](https://github.com/mobaijun/kjs-common/commit/c2ee7907c3e726fbe7452cdfa169856e512f4faa))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([8788d09](https://github.com/mobaijun/kjs-common/commit/8788d09b04fca162a9020d6562b2dc909a7ac224))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([f3e93c6](https://github.com/mobaijun/kjs-common/commit/f3e93c6857bcb9a0cebb04b4bf6a6803721a5bba))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([d340b98](https://github.com/mobaijun/kjs-common/commit/d340b98f222151e1508023c3b8337f5cd213e715))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([fb0e79a](https://github.com/mobaijun/kjs-common/commit/fb0e79a05e6e6bddd8ac7d4922fe256137e11177))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([fee1e0d](https://github.com/mobaijun/kjs-common/commit/fee1e0d12395001884a4ea0026cb29e778dd567e))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([b86b183](https://github.com/mobaijun/kjs-common/commit/b86b1837473881598bb75c766f7237197ad60c7c))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([a16c865](https://github.com/mobaijun/kjs-common/commit/a16c865e21c3dff3384fec808b0c34aa36e02161))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([b66d095](https://github.com/mobaijun/kjs-common/commit/b66d095c700eb3862ad9cc6dcf99120a511c357a))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([4919a19](https://github.com/mobaijun/kjs-common/commit/4919a196794e5f4a6d10b88836bf0719faa19e07))
+  - Added README."zh-TW".md translation via https://github.com/dephraiim/translate-readme ([b8d5931](https://github.com/mobaijun/kjs-common/commit/b8d5931b2004c24ab540e87e88c97065a1958d74))
+
 ## [V1.1.11](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.11) - 2022-12-12 08:36:24
 
 1. 添加 host 工具类
@@ -59,21 +99,6 @@
 ```
 
 ## [V1.1.9](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.9) - 2022-11-24 03:26:57
-
-## 稳定版本1.1.9系列，maven中央仓库可直接获取
-
-1. 添加增强工具类包（enhance）
-2. 新增日期常量，覆盖更加广
-3. 优化部分模块代码
-4. 添加测试代码
-
-```xml
-<dependency>
-    <groupId>com.mobaijun</groupId>
-    <artifactId>kjs-common</artifactId>
-    <version>1.1.9</version>
-</dependency>
-```
 
 ## [V1.1.8](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.8) - 2022-11-14 09:46:40
 
