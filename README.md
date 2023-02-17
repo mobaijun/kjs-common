@@ -2,7 +2,7 @@
     kjs-common
 </h1>
 <p align="center">
-    <strong>JAVA开发，常用工具集(默认集成 Hutool，Lombok，MapStruct ) </strong>
+    <strong>JAVA开发，常用工具集(默认集成Lombok，MapStruct ) </strong>
 </p>
 <p align="center">
     <a target="_blank" href="https://search.maven.org/artifact/com.mobaijun/kjs-common">
@@ -34,7 +34,6 @@ kjs-common ，是一个Java开发基础工具类库，对项目开发中常用�
 
 本项目集成了项目中常用的优秀开源工具类：
 
-* hutool-all （最全工具类）
 * lombok （简化实体类）
 * mapstruct （简化参数传递）
 
