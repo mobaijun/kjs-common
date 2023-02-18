@@ -1550,7 +1550,7 @@ public final class Request {
      * @return this request
      * @throws IOException
      */
-    protected Request copy(final InputStream input, final OutputStream output)
+    private Request copy(final InputStream input, final OutputStream output)
             throws IOException {
         return new CloseOperation<Request>(input, ignoreCloseExceptions) {
 
