@@ -20,13 +20,13 @@ package com.mobaijun.common.algorithm;
  * class name: BubbleSort<br>
  * class description: 冒泡排序<br>
  * 冒泡排序是一种简单的排序算法。<br>
- * 它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。<br>
- * 走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。<br>
- * 这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br>
+ * 1.它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。<br>
+ * 2.走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。<br>
+ * 3.这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。<br>
  *
  * @author MoBaiJun 2022/12/7 10:29
  */
-public class BubbleSort {
+public final class BubbleSort {
 
     /**
      * 冒泡排序<br>
@@ -39,7 +39,7 @@ public class BubbleSort {
      * @param array 数组
      * @return 排序后的数组
      */
-    public static int[] bubbleSort1(int[] array) {
+    public static int[] bubbleSort(int[] array) {
         if (array.length == 0) {
             return array;
         }
@@ -62,7 +62,7 @@ public class BubbleSort {
      * @param array 数组
      * @return 排序后的数组
      */
-    public static int[] bubbleSort2(int[] array) {
+    public static int[] bubbleSortWithOptimization(int[] array) {
         if (array.length == 0) {
             return array;
         }

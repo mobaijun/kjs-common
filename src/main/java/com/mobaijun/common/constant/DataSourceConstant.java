@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/11/23 13:41
  */
-public class DataSourceConstant {
+public final class DataSourceConstant {
 
     /**
      * 默认数据源名称（master）
