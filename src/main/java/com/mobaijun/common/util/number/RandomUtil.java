@@ -613,4 +613,45 @@ public class RandomUtil {
         }
         return array;
     }
+
+    /**
+     * 生成指定长度、自定义大小边界、不可重复的随机数数组
+     *
+     * @param length   数组长度
+     * @param minValue 随机数最小值
+     * @param maxValue 随机数最大值
+     * @return 不可重复的随机数数组
+     */
+    public static int[] generateRandomArrays(int length, int minValue, int maxValue) {
+        int[] result = new int[length];
+        int range = maxValue - minValue + 1;
+
+        // 生成初始数组，每个元素值等于最小值加上其索引值对最大值取模的结果
+        for (int i = 0; i < length; i++) {
+            result[i] = minValue + i % range;
+        }
+
+        // 使用 ThreadLocalRandom 生成不可重复的随机数组
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        for (int i = length - 1; i >= 1; i--) {
+            // 随机选择 i 及其之前的一个元素，交换它们的值
+            int j = random.nextInt(i + 1);
+            swap(result, i, j);
+        }
+
+        return result;
+    }
+
+    /**
+     * 交换数组中指定索引位置的元素
+     *
+     * @param array 数组
+     * @param i     索引位置 i
+     * @param j     索引位置 j
+     */
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 }

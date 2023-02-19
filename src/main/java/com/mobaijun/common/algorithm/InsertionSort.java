@@ -3,8 +3,8 @@ package com.mobaijun.common.algorithm;
 import java.util.Arrays;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: InsertionSort
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: InsertionSort<br>
  * class description: 插入排序<br/>
  * 插入排序是一种简单直观的排序算法，其基本思想是将待排序的元素按照大小顺序依次插入到已排序的序列中。
  * <p>
@@ -24,7 +24,7 @@ public final class InsertionSort {
      * 在代码中，我们使用了两个循环来实现插入排序。第一个循环从第二个元素开始遍历数组，
      * 第二个循环向前遍历已排序的元素，将大于新元素的元素向右移动一位，
      * 最终将新元素插入到正确的位置。该算法的时间复杂度为 O(n^2)，空间复杂度为 O(1)。
-     * <a href="https://images2018.cnblogs.com/blog/1391679/201806/1391679-20180618165919523-196396537.gif">插入排序</a>
+     * <img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015225645277-1151100000.gif"/>
      *
      * @param arr 待排序的数组
      */

@@ -1,8 +1,8 @@
 package com.mobaijun.common.algorithm;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: SelectionSort
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: SelectionSort<br>
  * class description: 选择排序算法<p>
  * 选择排序算法是一种简单的排序算法，其思想是每次从未排序的序列中选出最小的元素，将其放到已排序的序列的末尾。
  * 重复此过程，直到整个序列都有序。
@@ -23,6 +23,7 @@ public final class SelectionSort {
      * 外部循环控制已排序序列的末尾指针，内部循环用于查找未排序序列中的最小元素，并将其交换到已排序序列的末尾。
      * <p>
      * 选择排序算法的时间复杂度为O(n^2)，与冒泡排序算法相同，但是其常数项较小，因此在某些情况下会比冒泡排序更快。
+     * <img src="https://images2017.cnblogs.com/blog/849589/201710/849589-20171015224719590-1433219824.gif"/>
      *
      * @param arr 待排序的数组
      */

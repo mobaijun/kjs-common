@@ -1,8 +1,8 @@
 package com.mobaijun.common.test.algorithm;
 
 import com.mobaijun.common.algorithm.BubbleSort;
+import com.mobaijun.common.test.algorithm.constant.Constant;
 import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.number.RandomUtil;
 import org.junit.Test;
 
 /**
@@ -14,13 +14,11 @@ import org.junit.Test;
  */
 public class BubbleSortTest {
 
-    private static final int[] RANDOM_INT_ARRAY = RandomUtil.generateRandomArray(100000, 1, 100000);
-
     @Test
     public void bubbleSort1() {
         // 记录程序开始时间
         long startTime = System.currentTimeMillis();
-        int[] arrays = BubbleSort.bubbleSort(RANDOM_INT_ARRAY);
+        int[] arrays = BubbleSort.bubbleSort(Constant.RANDOM_INT_ARRAY);
         // 创建随机数组并排序
         for (int i : arrays) {
             PrintUtil.println(i);
@@ -36,7 +34,7 @@ public class BubbleSortTest {
     public void bubbleSort2() {
         // 记录程序开始时间
         long startTime = System.currentTimeMillis();
-        int[] arrays = BubbleSort.bubbleSortWithOptimization(RANDOM_INT_ARRAY);
+        int[] arrays = BubbleSort.bubbleSortWithOptimization(Constant.RANDOM_INT_ARRAY);
         // 创建随机数组并排序
         for (int i : arrays) {
             PrintUtil.println(i);
