@@ -30,14 +30,14 @@
 
 ## overview
 
-kjs-common is a basic tool library for Java development, which encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
+kjs-common is a Java development basic tool class library that encapsulates commonly used tools in project development, such as: encryption, http request, API interface, etc. The purpose is to help developers develop faster and faster.
 
 This project integrates the excellent open source tools commonly used in the project:
 
--   lombok (simplified entity classes)
+-   lombok （简化实体类）
 -   mapstruct (simplifies parameter passing)
 
-Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
