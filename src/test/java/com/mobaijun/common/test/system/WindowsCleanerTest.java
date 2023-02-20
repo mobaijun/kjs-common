@@ -13,14 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.test.util;
+package com.mobaijun.common.test.system;
+
+import com.mobaijun.common.util.system.WindowsCleaner;
+import org.junit.Test;
 
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: TimeUtilsTest
- * class description:
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * class name: WindowsCleanerTest<br>
+ * class description: Windows测试类
  *
- * @author MoBaiJun 2022/11/22 17:50
+ * @author MoBaiJun 2023/2/20 7:46
  */
-public class TimeUtilsTest {
+public class WindowsCleanerTest {
+
+    @Test
+    public void windowsClear() {
+        // 清理临时文件
+        WindowsCleaner.cleanTempFolder();
+
+        // 清理回收站
+        WindowsCleaner.emptyRecycleBin();
+    }
 }

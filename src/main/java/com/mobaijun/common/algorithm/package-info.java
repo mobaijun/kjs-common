@@ -16,7 +16,12 @@
 /**
  * software：IntelliJ IDEA 2022.1
  * package name: com.mobaijun.common.algorithm
- * package description： 算法
+ * package description： 算法包
+ * <p>
+ * 感谢：
+ * https://www.cnblogs.com/guoyaohua/p/8600214.html
+ * https://chat.openai.com/chat/
+ * </p>
  *
  * @author MoBaiJun 2022/10/27 9:02
  */

@@ -13,14 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.test.util;
-
 /**
- * software：IntelliJ IDEA 2022.2.3
- * class name: TimeUtilsTest
- * class description:
+ * software：IntelliJ IDEA 2022.2.3<br>
+ * package name: package-info<br>
+ * package description: 通用存储类
  *
- * @author MoBaiJun 2022/11/22 17:50
+ * @author MoBaiJun 2023/2/20 7:16
  */
-public class TimeUtilsTest {
-}
+package com.mobaijun.common.model;

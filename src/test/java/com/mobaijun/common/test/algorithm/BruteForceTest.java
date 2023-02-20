@@ -13,33 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.test.system;
+package com.mobaijun.common.test.algorithm;
 
-import com.mobaijun.common.util.PrintUtil;
-import com.mobaijun.common.util.system.DiskUtil;
+import com.mobaijun.common.algorithm.BruteForce;
+import org.junit.Assert;
 import org.junit.Test;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
- * class name: DiskUtilTest<br>
- * class description: <br>
+ * class name: BruteForceTest<br>
+ * class description: 暴力匹配测试用例
  *
- * @author MoBaiJun 2022/12/13 11:15
+ * @author MoBaiJun 2023/2/20 8:09
  */
-public class DiskUtilTest {
+public class BruteForceTest {
 
     @Test
-    public void diskUtilTest() {
-        // 获取内存使用情况
-        Map<String, String> memoryInfo = DiskUtil.getMemoryInfo();
-        PrintUtil.println(memoryInfo);
+    public void testBruteForce() {
+        String text = "hello world";
+        String pattern = "world";
+        int expectedIndex = 6;
 
-        // disks 返回 ArrayList 形式的硬盘分区
-        ArrayList<File> files = DiskUtil.diskInformation();
-        PrintUtil.println(files);
+        int actualIndex = BruteForce.bruteForceMatch(pattern, text);
+
+        Assert.assertEquals("Test failure！", expectedIndex, actualIndex);
     }
 }

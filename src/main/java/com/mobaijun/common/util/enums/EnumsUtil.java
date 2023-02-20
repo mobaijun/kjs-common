@@ -65,6 +65,7 @@ public final class EnumsUtil {
      * @param propertyName 属性名称
      * @return 属性值集合
      */
+    @SuppressWarnings("unchecked")
     public static <T extends Enum<T>, V> Set<V> getPropertyValues(Class<T> clazz, String propertyName) {
         return (Set<V>) Arrays.stream(clazz.getEnumConstants())
                 .map(e -> getPropertyValue(e, propertyName))
@@ -78,6 +79,7 @@ public final class EnumsUtil {
      * @param propertyName 属性名称
      * @return 属性值
      */
+    @SuppressWarnings("unchecked")
     public static <T extends Enum<T>, V> V getPropertyValue(T enumValue, String propertyName) {
         try {
             Field field = enumValue.getClass().getDeclaredField(propertyName);
