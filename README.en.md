@@ -24,7 +24,7 @@
     </a>
 </p>
 
-## other languages
+## 其他语言
 
 -   [English](README.en.md)
 
