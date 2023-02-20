@@ -1,4 +1,4 @@
-Kjs-common Copyright 2022-2022 Framer Mo Bai
+Kjs-common Copyright 2022-2023 Framer Mo Bai
 
 This product includes other open source software developed on
 GitHub april-project (https://github.com/april-projects).
