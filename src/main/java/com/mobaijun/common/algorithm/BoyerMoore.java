@@ -25,7 +25,7 @@ package com.mobaijun.common.algorithm;
  *
  * @author MoBaiJun 2023/2/20 9:08
  */
-public class BoyerMoore {
+public final class BoyerMoore {
 
     /**
      * Boyer-Moore算法的主要实现，用于匹配源字符串和匹配字符串。<br/>

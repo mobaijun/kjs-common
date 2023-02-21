@@ -45,7 +45,7 @@ package com.mobaijun.common.algorithm;
  *
  * @author MoBaiJun 2023/2/20 9:02
  */
-public class KMP {
+public final class KMP {
 
     /**
      * KMP算法，用于在字符串s中查找是否包含子串p，如果存在则返回第一次出现的位置，否则返回-1<br/>
