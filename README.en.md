@@ -110,11 +110,11 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
-- [@mobaijun](https://github.com/mobaijun)
+-   [@被白军](https://github.com/mobaijun)
 
-## 文档和示例
+## Documentation and examples
 
-You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[示例项目](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
