@@ -36,6 +36,6 @@ public class DownloadUtilsTest {
 
     @Test
     public void fileCopy() {
-        DownloadUtil.fileCopy("D:\\test\\2.jpg","D:\\test\\3.jpg");
+        DownloadUtil.fileCopy("D:\\test\\2.jpg","D:\\test\\3.txt");
     }
 }
