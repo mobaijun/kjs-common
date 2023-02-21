@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum TimerJobStatusEnum {
+
     /**
      * 启动状态
      */

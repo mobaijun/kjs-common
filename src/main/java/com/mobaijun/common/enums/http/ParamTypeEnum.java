@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum ParamTypeEnum {
+
     /**
      * query param参数
      */

@@ -58,13 +58,13 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 > All dependent modules will be updated to the latest version synchronously
 
-## quick start
+## 快速开始
 
 You can pass`kjs-common`Add to your project as a dependency.
 
 ### maven
 
-If you are using Maven, add the following to your`pom.xml`In the file:
+If you are using Maven, add the following to your`pom.xml` 文件中：
 
 ```xml
 
@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[示例项目](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 

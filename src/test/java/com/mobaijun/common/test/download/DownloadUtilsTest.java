@@ -18,8 +18,7 @@ package com.mobaijun.common.test.download;
 import com.mobaijun.common.download.DownloadUtil;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -29,14 +28,9 @@ import java.io.FileOutputStream;
  * @author MoBaiJun 2022/11/22 14:27
  */
 public class DownloadUtilsTest {
-    /**
-     * 文件下载测试
-     * @throws Exception
-     */
+
     @Test
-    public void downloadFileTest() throws Exception{
-        FileOutputStream fileOutputStream = new FileOutputStream(new File("D:\\test\\qqqq.txt"));
-        boolean b = DownloadUtil.downloadFile("D:\\test\\111.txt", fileOutputStream);
-        System.out.println("downloadFile is "+ b);
+    public void downloadFileTest() throws IOException {
+        DownloadUtil.downloadFile("https://tencent.cos.mobaijun.com/img/banner/2.jpg", "D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\2.jpg");
     }
 }
