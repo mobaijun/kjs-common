@@ -15,6 +15,12 @@
  */
 package com.mobaijun.common.test.download;
 
+import com.mobaijun.common.download.DownloadUtil;
+import org.junit.Test;
+
+import java.io.File;
+import java.io.FileOutputStream;
+
 /**
  * software：IntelliJ IDEA 2022.2.3
  * class name: DownloadUtilsTest
@@ -23,4 +29,14 @@ package com.mobaijun.common.test.download;
  * @author MoBaiJun 2022/11/22 14:27
  */
 public class DownloadUtilsTest {
+    /**
+     * 文件下载测试
+     * @throws Exception
+     */
+    @Test
+    public void downloadFileTest() throws Exception{
+        FileOutputStream fileOutputStream = new FileOutputStream(new File("D:\\test\\qqqq.txt"));
+        boolean b = DownloadUtil.downloadFile("D:\\test\\111.txt", fileOutputStream);
+        System.out.println("downloadFile is "+ b);
+    }
 }

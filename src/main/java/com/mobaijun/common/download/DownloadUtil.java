@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.download;
 
+import java.io.*;
+
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
  * ClassName: DownloadUtils<br>
@@ -23,6 +25,29 @@ package com.mobaijun.common.download;
  * @author MoBaiJun 2022/5/5 8:59
  */
 public class DownloadUtil {
-
-
+    /**
+     * @param fileUrl      保存的文件路径
+     * @param outputStream  需要存的文件流
+     * @return 是|否
+     */
+    public static boolean downloadFile(String fileUrl, OutputStream outputStream) throws Exception {
+        File file = new File(fileUrl);
+        if (!file.exists()) {
+            file.getParentFile().mkdir();
+            file.createNewFile();
+        }
+        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+             OutputStream os = outputStream;) {
+            byte[] buffer = new byte[1024];
+            int i = bis.read(buffer);
+            while (i != -1) {
+                os.write(buffer, 0, i);
+                i = bis.read(buffer);
+            }
+            file.delete();
+        } catch (IOException e) {
+            return false;
+        }
+        return true;
+    }
 }
