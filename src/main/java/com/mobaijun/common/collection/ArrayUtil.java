@@ -21,6 +21,7 @@ import com.mobaijun.common.util.classs.CheckToolClass;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -30,6 +31,11 @@ import java.util.stream.Collectors;
  * @author MoBaiJun 2022/6/6 9:35
  */
 public class ArrayUtil {
+
+    /**
+     * 数组中元素未找到的下标，值为-1
+     */
+    private static final int INDEX_NOT_FOUND = -1;
 
     /**
      * write specified bytes to a byte array start from offset
@@ -211,5 +217,19 @@ public class ArrayUtil {
      */
     public static <T> List<T> arrayList(T[] data) {
         return Arrays.stream(data).collect(Collectors.toList());
+    }
+
+    /**
+     * 返回数组中指定元素所在位置，忽略大小写，未找到返回{@link #INDEX_NOT_FOUND}
+     *
+     * @param arr    数组
+     * @param target 被检查的元素
+     * @return 数组中指定元素所在位置，未找到返回{@link #INDEX_NOT_FOUND}
+     */
+    public static int findIgnoreCase(String[] arr, String target) {
+        return IntStream.range(0, arr.length)
+                .filter(i -> arr[i].equalsIgnoreCase(target))
+                .findFirst()
+                .orElse(INDEX_NOT_FOUND);
     }
 }

@@ -13,64 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.enums.date;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+package com.mobaijun.common.enums.api;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
- * enum name: WeekEnum<br>
- * enum description: 日期枚举
+ * enum name: LoopEvent<br>
+ * enum description: 循环事件枚举
  *
- * @author MoBaiJun 2022/11/22 10:58
+ * @author MoBaiJun 2023/2/21 23:55
  */
-@Getter
-@AllArgsConstructor
-public enum WeekEnum {
+public enum LoopEvent {
 
     /**
-     * 星期一
+     * 唯一
      */
-    MON(1, "星期一"),
+    ONLY,
 
     /**
-     * 星期二
+     * 第一个
      */
-    TUES(2, "星期二"),
+    FIRST,
 
     /**
-     * 星期三
+     * 最后一个
      */
-    WEB(3, "星期三"),
+    LAST,
 
     /**
-     * 星期四
+     * 其它元素
      */
-    THUR(4, "星期四"),
-
-    /**
-     * 星期五
-     */
-    FRI(5, "星期五"),
-
-    /**
-     * 星期六
-     */
-    SAT(6, "星期六"),
-
-    /**
-     * 星期七
-     */
-    SUN(7, "星期七");
-
-    /**
-     * 索引
-     */
-    private final Integer index;
-
-    /**
-     * 说明
-     */
-    private final String desc;
+    ELEMENT
 }
