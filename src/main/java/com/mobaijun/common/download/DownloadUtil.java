@@ -15,13 +15,16 @@
  */
 package com.mobaijun.common.download;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Objects;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -37,7 +40,6 @@ public class DownloadUtil {
      *
      * @param url         保存的文件路径
      * @param destination 需要存的文件流
-     * @return 是|否
      */
     public static void downloadFile(String url, String destination) throws IOException {
         URL fileUrl = new URL(url);
@@ -54,19 +56,21 @@ public class DownloadUtil {
 
     /**
      * 文件拷贝
-     * @param source 拷贝的文件源路径
-     * @param target 拷贝的目标路径
+     *
+     * @param source      拷贝的文件源路径
+     * @param destination 拷贝的目标路径
      */
-    public static String fileCopy(String source, String target) {
-        if (Objects.equals(source.substring(source.lastIndexOf(".")),target.substring(target.lastIndexOf(".")))){
-            return "拷贝文件和目标文件路径名不一样";
+    public static void copyFile(File source, File destination) {
+        try (InputStream in = Files.newInputStream(source.toPath());
+             OutputStream out = Files.newOutputStream(destination.toPath())) {
+            // 创建缓冲区
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = in.read(buffer)) > 0) {
+                out.write(buffer, 0, length);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        try (FileChannel in = new FileInputStream(source).getChannel();
-             FileChannel out = new FileOutputStream(target, true).getChannel()) {
-            out.transferFrom(in, 0, in.size());
-        } catch (Exception e) {
-            return "文件拷贝异常";
-        }
-        return "拷贝成功";
     }
 }

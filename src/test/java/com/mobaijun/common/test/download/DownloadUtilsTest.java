@@ -18,6 +18,7 @@ package com.mobaijun.common.test.download;
 import com.mobaijun.common.download.DownloadUtil;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -36,6 +37,7 @@ public class DownloadUtilsTest {
 
     @Test
     public void fileCopy() {
-        DownloadUtil.fileCopy("D:\\test\\2.jpg","D:\\test\\3.txt");
+        DownloadUtil.copyFile(new File("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\2.jpg"),
+                new File("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\3.jpg"));
     }
 }
