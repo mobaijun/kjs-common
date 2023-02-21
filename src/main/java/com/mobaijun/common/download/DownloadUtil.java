@@ -15,13 +15,13 @@
  */
 package com.mobaijun.common.download;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -50,5 +50,23 @@ public class DownloadUtil {
                 out.write(buffer, 0, bytesRead);
             }
         }
+    }
+
+    /**
+     * 文件拷贝
+     * @param source 拷贝的文件源路径
+     * @param target 拷贝的目标路径
+     */
+    public static String fileCopy(String source, String target) {
+        if (Objects.equals(source.substring(source.lastIndexOf(".")),target.substring(target.lastIndexOf(".")))){
+            return "拷贝文件和目标文件路径名不一样";
+        }
+        try (FileChannel in = new FileInputStream(source).getChannel();
+             FileChannel out = new FileOutputStream(target, true).getChannel()) {
+            out.transferFrom(in, 0, in.size());
+        } catch (Exception e) {
+            return "文件拷贝异常";
+        }
+        return "拷贝成功";
     }
 }
