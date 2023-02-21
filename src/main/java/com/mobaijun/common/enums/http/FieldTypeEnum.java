@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum FieldTypeEnum {
+
     /**
      * 基本类型，描述java中的int、long、Integer、String、Double、BigDecimal等
      */

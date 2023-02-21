@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum SendStatusEnum {
+
     /**
      * 未发送
      */

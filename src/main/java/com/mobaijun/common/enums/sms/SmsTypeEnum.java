@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum SmsTypeEnum {
+
     /**
      * 验证类短信
      */

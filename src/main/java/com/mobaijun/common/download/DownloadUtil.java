@@ -15,7 +15,13 @@
  */
 package com.mobaijun.common.download;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -25,29 +31,24 @@ import java.io.*;
  * @author MoBaiJun 2022/5/5 8:59
  */
 public class DownloadUtil {
+
     /**
-     * @param fileUrl      保存的文件路径
-     * @param outputStream  需要存的文件流
+     * 文件下载
+     *
+     * @param url         保存的文件路径
+     * @param destination 需要存的文件流
      * @return 是|否
      */
-    public static boolean downloadFile(String fileUrl, OutputStream outputStream) throws Exception {
-        File file = new File(fileUrl);
-        if (!file.exists()) {
-            file.getParentFile().mkdir();
-            file.createNewFile();
-        }
-        try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
-             OutputStream os = outputStream;) {
+    public static void downloadFile(String url, String destination) throws IOException {
+        URL fileUrl = new URL(url);
+        URLConnection connection = fileUrl.openConnection();
+        try (BufferedInputStream in = new BufferedInputStream(connection.getInputStream());
+             BufferedOutputStream out = new BufferedOutputStream(Files.newOutputStream(Paths.get(destination)))) {
             byte[] buffer = new byte[1024];
-            int i = bis.read(buffer);
-            while (i != -1) {
-                os.write(buffer, 0, i);
-                i = bis.read(buffer);
+            int bytesRead;
+            while ((bytesRead = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
             }
-            file.delete();
-        } catch (IOException e) {
-            return false;
         }
-        return true;
     }
 }

@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum BusinessStatus {
+
     /**
      * 成功
      */
