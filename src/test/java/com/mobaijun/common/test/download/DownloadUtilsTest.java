@@ -33,4 +33,9 @@ public class DownloadUtilsTest {
     public void downloadFileTest() throws IOException {
         DownloadUtil.downloadFile("https://tencent.cos.mobaijun.com/img/banner/2.jpg", "D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\2.jpg");
     }
+
+    @Test
+    public void fileCopy() {
+        DownloadUtil.fileCopy("D:\\test\\2.jpg","D:\\test\\3.jpg");
+    }
 }
