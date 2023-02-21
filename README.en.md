@@ -41,11 +41,11 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
-## Functions and Features
+## 功能和特点
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   An exception handling tool class and a log tool class are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
+-   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
 
 ## develop
 
@@ -58,13 +58,13 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 > All dependent modules will be updated to the latest version synchronously
 
-## 快速开始
+## quick start
 
 You can pass`kjs-common`Add to your project as a dependency.
 
 ### maven
 
-If you are using Maven, add the following to your`pom.xml` 文件中：
+If you are using Maven, add the following to your`pom.xml`In the file:
 
 ```xml
 
@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml` 文件中：
 
 ### Gradle
 
-In Gradle, you can add the following to your`build.gradle`In the file:
+在 Gradle 中，您可以将以下内容添加到您的 `build.gradle`In the file:
 
 ```json
 dependencies {
@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
