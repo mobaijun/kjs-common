@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.download;
 
+import com.mobaijun.common.result.R;
+
 import java.io.*;
 
 /**
@@ -27,14 +29,19 @@ import java.io.*;
 public class DownloadUtil {
     /**
      * @param fileUrl      保存的文件路径
-     * @param outputStream  需要存的文件流
+     * @param outputStream 需要存的文件流
      * @return 是|否
      */
-    public static boolean downloadFile(String fileUrl, OutputStream outputStream) throws Exception {
+    public static boolean downloadFile(String fileUrl, OutputStream outputStream) {
         File file = new File(fileUrl);
         if (!file.exists()) {
             file.getParentFile().mkdir();
-            file.createNewFile();
+            try {
+                file.createNewFile();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
         }
         try (BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
              OutputStream os = outputStream;) {
