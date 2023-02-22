@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util;
+package com.mobaijun.common.license;
 
 import com.mobaijun.common.util.file.FileUtil;
 
@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: LicenseTitleAppenderUtil<br>
- * class description：一键添加开源协议头<br>
+ * class description：一键添加开源协议许可<br>
  *
  * @author MoBaiJun 2022/5/12 11:35
  */

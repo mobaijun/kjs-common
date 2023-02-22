@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.test.util;
+package com.mobaijun.common.test.license;
 
 import com.mobaijun.common.constant.LicenseConstant;
-import com.mobaijun.common.util.LicenseTitleAppenderUtil;
+import com.mobaijun.common.license.LicenseTitleAppenderUtil;
 import org.junit.Test;
 
 /**
