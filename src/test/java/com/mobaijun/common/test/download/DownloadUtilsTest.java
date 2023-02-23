@@ -32,7 +32,8 @@ public class DownloadUtilsTest {
 
     @Test
     public void downloadFileTest() throws IOException {
-        DownloadUtil.downloadFile("https://tencent.cos.mobaijun.com/img/banner/2.jpg", "D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\2.jpg");
+        DownloadUtil.downloadFile("https://tencent.cos.mobaijun.com/img/banner/2.jpg",
+                "D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test\\download\\2.jpg");
     }
 
     @Test
