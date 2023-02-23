@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## [V1.1.13](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.13) - 2023-02-23 01:47:04
+
+1. 新增算法包，常用算法封装
+2. 新增BitMap实现
+3. 新增下载工具类
+4. 新增通用枚举
+5. 新增基于Snowflake的ID生成器
+6. 新增许可证加解密实现
+```xml
+<dependency>
+    <groupId>com.mobaijun</groupId>
+    <artifactId>kjs-common</artifactId>
+    <version>1.1.13</version>
+</dependency>
+```
+
+### Documentation
+
+- general:
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([9725d90](https://github.com/mobaijun/kjs-common/commit/9725d90edc9b1648d57552d33a2c08bbfcde91bf))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([3d5d8c1](https://github.com/mobaijun/kjs-common/commit/3d5d8c16e18bf0bc6b000318b5fb96b8d966dec4))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([f53b61b](https://github.com/mobaijun/kjs-common/commit/f53b61b637d3e7f9317592309214ca40341ed8de))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([deeec7a](https://github.com/mobaijun/kjs-common/commit/deeec7a57de9bdb4384a872a03f1c4c69fbb5f45))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([5a6fe70](https://github.com/mobaijun/kjs-common/commit/5a6fe70362764d42ec787f67e1f88a4424a19d0c))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([fbbc888](https://github.com/mobaijun/kjs-common/commit/fbbc888928f3fe1e83a3370034e33853f76a7c17))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([377775c](https://github.com/mobaijun/kjs-common/commit/377775c89ca83671b5d40563b069e0f4c8c6a3f6))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([29b3f9b](https://github.com/mobaijun/kjs-common/commit/29b3f9bcfd1d173fc75563ec678281c87e4c61f0))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([df1a5e8](https://github.com/mobaijun/kjs-common/commit/df1a5e8609ab4f0c5bba38fe3dcc5c9a9ab7af1d))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([0b702cf](https://github.com/mobaijun/kjs-common/commit/0b702cfb71b1ccc3e14781fa0051b7b1a8062dbe))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([f0ffdb9](https://github.com/mobaijun/kjs-common/commit/f0ffdb9acd0724ecde5d4298d7c7af10af7eae05))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([21cd72f](https://github.com/mobaijun/kjs-common/commit/21cd72f3c8f083c636e392a4a3608eb342bfe173))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([419637d](https://github.com/mobaijun/kjs-common/commit/419637da7cc65acb2e8166c998141b670e2f2b6d))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([aa1ec30](https://github.com/mobaijun/kjs-common/commit/aa1ec309dc18d3345c0d8c59df056b9d90c7ec16))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([6924a8f](https://github.com/mobaijun/kjs-common/commit/6924a8f72317c1eb1884adc3e03b20fd9882c449))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([3529449](https://github.com/mobaijun/kjs-common/commit/35294499121f6b72faa38fc81ccebd009ef01caf))
+
 ## [V1.1.12](https://github.com/mobaijun/kjs-common/releases/tag/V1.1.12) - 2023-02-17 12:57:00
 
 1. 优化冒泡排序
