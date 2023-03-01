@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.file;
 
 import com.mobaijun.common.constant.NumberConstant;
+import com.mobaijun.common.util.date.DateFormat;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -32,11 +33,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -207,9 +213,11 @@ public class FileUtil {
      * 更新临时文件路径
      */
     public static void updateTmpDir(String dirName) {
-        tempDir = new File(SYSTEM_TEMP_DIR, dirName);
-        if (!tempDir.exists()) {
-            tempDir.mkdirs();
+        Path tempDirPath = Paths.get(SYSTEM_TEMP_DIR.getPath(), dirName);
+        try {
+            Files.createDirectories(tempDirPath);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -228,13 +236,25 @@ public class FileUtil {
      * 根据网络路径获取文件输入流
      */
     public static InputStream getInputStreamByUrlPath(String path) throws IOException {
+        // 校验URL的合法性
+        URL url;
+        try {
+            url = new URL(path);
+        } catch (MalformedURLException e) {
+            throw new IllegalArgumentException("Invalid URL: " + path);
+        }
+
         // 从文件链接里获取文件流
-        URL url = new URL(path);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        // 设置超时间为3秒
-        conn.setConnectTimeout(5 * 1000);
-        // 得到输入流
-        return conn.getInputStream();
+        HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+        httpConnection.setConnectTimeout(5 * 1000);
+        httpConnection.setReadTimeout(5 * 1000);
+
+        try {
+            return new BufferedInputStream(httpConnection.getInputStream());
+        } catch (IOException e) {
+            httpConnection.disconnect();
+            throw e;
+        }
     }
 
     /**
@@ -328,25 +348,24 @@ public class FileUtil {
      *
      * @param lines    文件列表
      * @param fileName 文件名
-     * @param isAppend 是否链接
+     * @param append   是否链接
      */
-    public static boolean appendToFile(Collection<?> lines, String fileName, boolean isAppend) {
-        try {
-            File file = new File(fileName);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, isAppend));
+    public static boolean appendToFile(Collection<?> lines, String fileName, boolean append) {
+        if (lines == null) {
+            return false;
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, append))) {
             for (Object line : lines) {
-                writer.write(line + System.lineSeparator());
+                writer.write(line.toString());
+                writer.newLine();
             }
-            writer.close();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
     }
+
 
     /**
      * 该方法首先判断传入的文件名是否为null，如果是，则直接返回null。
@@ -366,5 +385,25 @@ public class FileUtil {
             return fileName;
         }
         return fileName.substring(0, dotIndex);
+    }
+
+    /**
+     * 获取文件的创建时间等详情
+     *
+     * @param filePath 文件路径
+     * @return 文件创建时间等详情
+     */
+    public static String getFileDetails(String filePath) {
+        Path path = new File(filePath).toPath();
+        BasicFileAttributes attributes;
+        try {
+            attributes = Files.readAttributes(path, BasicFileAttributes.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        LocalDateTime creationTime = LocalDateTime.ofInstant(attributes.creationTime().toInstant(), ZoneId.systemDefault());
+        LocalDateTime lastAccessTime = LocalDateTime.ofInstant(attributes.lastAccessTime().toInstant(), ZoneId.systemDefault());
+        LocalDateTime lastModifiedTime = LocalDateTime.ofInstant(attributes.lastModifiedTime().toInstant(), ZoneId.systemDefault());
+        return String.format("Creation time: %s, Last access time: %s, Last modified time: %s", creationTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS), lastAccessTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS), lastModifiedTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS));
     }
 }

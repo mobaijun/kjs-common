@@ -17,6 +17,7 @@ package com.mobaijun.common.util.enums;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -88,5 +89,19 @@ public final class EnumsUtil {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * 通用方法获取枚举key或者value
+     *
+     * @param enumClass 枚举实例
+     * @param isKey     是否获取key，true为获取key，false为获取value(默认智能获取key，无法获取value，如需要获取value，请在枚举添加getvalue方法后重新封装此方法)
+     * @param <T>       枚举类型
+     * @return key或者value，如果枚举实例为null则返回null
+     */
+    public static <T extends Enum<T>> List<String> getEnumValues(Class<T> enumClass, boolean isKey) {
+        return Arrays.stream(enumClass.getEnumConstants())
+                .map(e -> isKey ? e.name() : e.toString())
+                .collect(Collectors.toList());
     }
 }

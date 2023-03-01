@@ -15,30 +15,41 @@
  */
 package com.mobaijun.common.util.file;
 
-import com.mobaijun.common.util.StringUtil;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: PicFileTypeUtil<br>
- * class description： 文件类型识别工具类
+ * class description：文件类型识别工具类
  *
  * @author MoBaiJun 2022/5/12 13:21
  */
 public class PicFileTypeUtil {
 
-    private static final List<String> PIC_TYPES;
+    private static final HashSet<String> PIC_TYPES;
 
     static {
-        PIC_TYPES = new ArrayList<>();
+        // 主流图片格式
+        PIC_TYPES = new HashSet<>();
         PIC_TYPES.add("jpg");
-        PIC_TYPES.add("png");
         PIC_TYPES.add("jpeg");
-        PIC_TYPES.add("tif");
+        PIC_TYPES.add("png");
         PIC_TYPES.add("gif");
         PIC_TYPES.add("bmp");
+        PIC_TYPES.add("webp");
+        PIC_TYPES.add("ico");
+        PIC_TYPES.add("tif");
+        PIC_TYPES.add("tiff");
+        PIC_TYPES.add("indd");
+        PIC_TYPES.add("svg");
+        PIC_TYPES.add("ai");
+        PIC_TYPES.add("eps");
+        PIC_TYPES.add("psd");
+        PIC_TYPES.add("pdf");
+        PIC_TYPES.add("raw");
+        PIC_TYPES.add("tga");
+        PIC_TYPES.add("wbmp");
     }
 
     /**
@@ -48,14 +59,11 @@ public class PicFileTypeUtil {
      * @return boolean true-是图片类型，false-不是图片类型
      */
     public static boolean getFileImgTypeFlag(String fileName) {
-        if (StringUtil.isEmpty(fileName)) {
+        if (fileName.isEmpty()) {
             return false;
         }
-        for (String picType : PIC_TYPES) {
-            if (fileName.toLowerCase().endsWith(picType)) {
-                return true;
-            }
-        }
-        return false;
+        String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+        Set<String> imageExtensions = new HashSet<>(PIC_TYPES);
+        return imageExtensions.contains(fileExtension);
     }
 }

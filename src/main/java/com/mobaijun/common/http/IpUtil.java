@@ -339,4 +339,33 @@ public class IpUtil {
         }
         return null;
     }
+
+    /**
+     * 判断给定的字符串是否是合法的IPv4地址
+     *
+     * @param ip 待验证的IPv4地址字符串
+     * @return 若是合法的IPv4地址则返回true，否则返回false
+     */
+    public static boolean isIpAddress(String ip) {
+        // 将IPv4地址字符串按照"."进行分隔
+        String[] parts = ip.split("\\.");
+
+        // 判断IPv4地址的分隔部分是否为四个，否则非法
+        if (parts.length != NumberConstant.FOUR) {
+            return false;
+        }
+
+        for (String part : parts) {
+            // 检查每个分隔部分是否小于等于3位，否则非法
+            if (part.length() > 3) {
+                return false;
+            }
+            // 将分隔部分转换为整数，检查是否超过0~255范围，否则非法
+            int value = Integer.parseInt(part);
+            if (value < 0 || value > 255) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

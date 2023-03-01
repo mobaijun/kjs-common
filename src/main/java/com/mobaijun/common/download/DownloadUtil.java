@@ -38,8 +38,8 @@ public class DownloadUtil {
     /**
      * 文件下载
      *
-     * @param url         保存的文件路径
-     * @param destination 需要存的文件流
+     * @param url         网络文件地址
+     * @param destination 存储地址
      */
     public static void downloadFile(String url, String destination) throws IOException {
         URL fileUrl = new URL(url);

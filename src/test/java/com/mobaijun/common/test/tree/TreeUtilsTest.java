@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.test.tree;
 
+import com.mobaijun.common.result.R;
 import com.mobaijun.common.util.PrintUtil;
 import com.mobaijun.common.util.tree.TreeNodeMap;
 import com.mobaijun.common.util.tree.TreeUtil;
@@ -52,7 +53,7 @@ public class TreeUtilsTest {
             treeNode.setParentId(String.valueOf(data.parentId));
             treeNode.setName(data.getName());
         });
-        PrintUtil.println(build);
+        PrintUtil.println(R.ok(build));
     }
 
     /**

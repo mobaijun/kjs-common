@@ -114,24 +114,6 @@ public class CollectionUtil {
     }
 
     /**
-     * 字符串转换为long
-     *
-     * @param str          字符串
-     * @param defaultValue 默认
-     * @return long
-     */
-    public static long objectToLong(final Object str, final long defaultValue) {
-        if (str == null) {
-            return defaultValue;
-        }
-        try {
-            return Long.parseLong(String.valueOf(str));
-        } catch (final NumberFormatException nfe) {
-            return defaultValue;
-        }
-    }
-
-    /**
      * 以 conjunction 为分隔符将集合转换为字符串
      *
      * @param <T>         被处理的集合

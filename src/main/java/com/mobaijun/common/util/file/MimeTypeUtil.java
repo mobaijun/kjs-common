@@ -52,8 +52,14 @@ public class MimeTypeUtil {
             // pdf
             "pdf"};
 
-    public static String getExtension(String prefix) {
-        switch (prefix) {
+    /**
+     * 获取文件后缀，未找到匹配类型返回空字符串
+     *
+     * @param imgName 图片名称
+     * @return 图片后缀
+     */
+    public static String getExtension(String imgName) {
+        switch (imgName) {
             case IMAGE_PNG:
                 return "png";
             case IMAGE_JPG:
