@@ -476,8 +476,7 @@ public class ClassUtil {
                 ParameterizedType pType = (ParameterizedType) gSuperclass;
                 Type[] types = pType.getActualTypeArguments();
                 if (index < types.length) {
-                    Class<?> desClass = (Class<T>) types[index];
-                    return (Class<T>) desClass;
+                    return (Class<T>) types[index];
                 }
             } catch (Exception e) {
                 e.printStackTrace();
