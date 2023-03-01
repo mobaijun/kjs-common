@@ -60,7 +60,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 ## quick start
 
-You can pass`kjs-common` 添加到您的项目中作为依赖项。
+You can pass`kjs-common`Add to your project as a dependency.
 
 ### maven
 
@@ -101,7 +101,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
