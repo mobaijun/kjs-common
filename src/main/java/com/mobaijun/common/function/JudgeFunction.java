@@ -24,6 +24,7 @@ package com.mobaijun.common.function;
  */
 @FunctionalInterface
 public interface JudgeFunction {
+
     /**
      * 要做的事情
      */

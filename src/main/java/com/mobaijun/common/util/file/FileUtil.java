@@ -347,4 +347,24 @@ public class FileUtil {
             return false;
         }
     }
+
+    /**
+     * 该方法首先判断传入的文件名是否为null，如果是，则直接返回null。
+     * 否则，使用lastIndexOf方法查找文件名中最后一个点号的位置，如果不存在点号，
+     * 则说明该文件名没有后缀，直接返回原文件名；否则，使用substring方法截取文件名中点号之前的部分，即为文件前缀。
+     * 最后将截取到的文件前缀返回即可。
+     *
+     * @param fileName 文件名称
+     * @return 文件名
+     */
+    public static String getFilePrefix(String fileName) {
+        if (fileName == null) {
+            return null;
+        }
+        int dotIndex = fileName.lastIndexOf(".");
+        if (dotIndex == -1) {
+            return fileName;
+        }
+        return fileName.substring(0, dotIndex);
+    }
 }
