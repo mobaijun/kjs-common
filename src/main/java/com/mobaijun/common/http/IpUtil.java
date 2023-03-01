@@ -22,6 +22,9 @@ import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 import javax.management.Query;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -111,6 +114,27 @@ public class IpUtil {
         }
     }
 
+    /**
+     * 获取本机IP地址
+     *
+     * @return 本机IP地址
+     */
+    public static String getLocalIpAddress() {
+        try {
+            InetAddress address = InetAddress.getLocalHost();
+            return address.getHostAddress();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 用于判断该IP地址是否为内部IP地址
+     *
+     * @param ip IP地址
+     * @return 如果是则返回true，否则返回false
+     */
     public static boolean internalIp(String ip) {
         byte[] adder = textToNumericFormatV4(ip);
         return internalIp(adder) || "127.0.0.1".equals(ip);
@@ -264,5 +288,55 @@ public class IpUtil {
             System.out.println("获取端口异常");
             return "";
         }
+    }
+
+    /**
+     * 判断指定IP地址是否可访问
+     *
+     * @param ipAddress IP地址
+     * @return true表示可访问，false表示不可访问
+     */
+    public static boolean isReachable(String ipAddress) {
+        try {
+            InetAddress address = InetAddress.getByName(ipAddress);
+            return address.isReachable(1000);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 获取局域网内的所有IP地址
+     *
+     * @return IP地址列表
+     */
+    public static String[] getLocalIpAddresses() {
+        try {
+            Process process = Runtime.getRuntime().exec("arp -a");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream(), "GBK"));
+            String line;
+            String[] addresses = new String[255];
+            int index = 0;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith("接口") || line.startsWith("Internet") || line.startsWith("地址")) {
+                    continue;
+                }
+                String[] cols = line.split("\\s+");
+                if (cols.length > 1) {
+                    String ip = cols[0];
+                    if (ip.matches("\\d+\\.\\d+\\.\\d+\\.\\d+")) {
+                        addresses[index++] = ip;
+                    }
+                }
+            }
+            String[] result = new String[index];
+            System.arraycopy(addresses, 0, result, 0, index);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
