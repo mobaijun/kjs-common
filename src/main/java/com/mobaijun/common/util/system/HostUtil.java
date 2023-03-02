@@ -123,7 +123,7 @@ public class HostUtil {
     }
 
     /**
-     * 刷新 dbs
+     * 刷新 dns
      *
      * @return 是否成功
      */

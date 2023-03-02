@@ -31,7 +31,7 @@ import java.util.Optional;
 public class ObjectUtil {
 
     /**
-     * * 判断一个对象是否为空
+     * 判断一个对象是否为空
      *
      * @param object Object
      * @return true：为空 false：非空
@@ -41,7 +41,7 @@ public class ObjectUtil {
     }
 
     /**
-     * * 判断一个对象是否非空
+     * 判断一个对象是否非空
      *
      * @param object Object
      * @return true：非空 false：空
@@ -51,7 +51,7 @@ public class ObjectUtil {
     }
 
     /**
-     * * 判断一个对象是否是数组类型（Java基本型别的数组）
+     * 判断一个对象是否是数组类型（Java基本型别的数组）
      *
      * @param object 对象
      * @return true：是数组 false：不是数组
@@ -100,7 +100,7 @@ public class ObjectUtil {
 
 
     /**
-     * * 判断一个对象数组是否非空
+     * 判断一个对象数组是否非空
      *
      * @param objects 要判断的对象数组
      * @return true：非空 false：空
