@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.util.classs;
 
+import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
@@ -522,7 +523,7 @@ public class ClassUtil {
      * @return 如果是代理的class，返回父 class，否则返回自身
      */
     public static Class<?> getUserClass(Class<?> clazz) {
-        CheckToolClass.notNull(clazz, "Class must not be null");
+        Assert.notNull(clazz, "Class must not be null");
         return isProxy(clazz) ? clazz.getSuperclass() : clazz;
     }
 
@@ -535,7 +536,7 @@ public class ClassUtil {
      * @return 返回对象的 user class
      */
     public static Class<?> getUserClass(Object object) {
-        CheckToolClass.notNull(object, "Instance must not be null");
+        Assert.notNull(object, "Instance must not be null");
         return getUserClass(object.getClass());
     }
 

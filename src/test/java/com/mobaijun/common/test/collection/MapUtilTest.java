@@ -111,4 +111,13 @@ public class MapUtilTest {
         Integer value3 = MapUtil.getObj(map, "A", 0);
         System.out.println(value3); // 1
     }
+
+    @Test
+    public void add() {
+        int sum = 0;
+        for (int i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        PrintUtil.println(sum);
+    }
 }

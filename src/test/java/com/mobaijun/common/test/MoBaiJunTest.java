@@ -15,11 +15,13 @@
  */
 package com.mobaijun.common.test;
 
+import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.util.PrintUtil;
 import com.mobaijun.common.util.number.RandomUtil;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -49,5 +51,13 @@ public class MoBaiJunTest {
         Arrays.stream(chars).forEach(System.out::println);
         long end = System.currentTimeMillis();
         PrintUtil.println((end - start) / 1000);
+    }
+
+    @Test
+    public void stringAndStringBuild() {
+        List<String> list = CollectionUtil.newArrayList();
+        StringBuilder sb = new StringBuilder();
+        list.forEach(sb::append);
+        PrintUtil.println(sb);
     }
 }

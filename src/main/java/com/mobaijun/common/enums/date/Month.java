@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.date;
 
+import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.collection.ArrayUtil;
-import com.mobaijun.common.util.classs.CheckToolClass;
 
 import java.time.format.TextStyle;
 import java.util.Calendar;
@@ -170,7 +170,7 @@ public enum Month {
      * @throws IllegalArgumentException 如果别名无对应的枚举，抛出此异常
      */
     public static Month of(String name) throws IllegalArgumentException {
-        CheckToolClass.assertNotEmpty(name, "[Assertion failed] - this String argument must have text; it must not be null, empty, or blank");
+        Assert.notNull(name, "[Assertion failed] - this String argument must have text; it must not be null, empty, or blank");
         Month of = of(ArrayUtil.findIgnoreCase(ALIASES, name));
         if (null == of) {
             of = Month.valueOf(name.toUpperCase());
@@ -197,7 +197,7 @@ public enum Month {
      */
     public static int getLastDay(int month, boolean isLeapYear) {
         final Month of = of(month);
-        CheckToolClass.notNull(of, "Invalid Month base 0: " + month);
+        Assert.notNull(of, "Invalid Month base 0: " + month);
         return of.getLastDay(isLeapYear);
     }
 
@@ -218,7 +218,7 @@ public enum Month {
      * @return 月份值，对应{@link java.time.Month}，从1开始计数
      */
     public int getValueBaseOne() {
-        CheckToolClass.assertTrue(this == UNDECIMBER, "Unsupported UNDECIMBER Field");
+        Assert.assertTrue(this == UNDECIMBER, "Unsupported UNDECIMBER Field");
         return getValue() + 1;
     }
 

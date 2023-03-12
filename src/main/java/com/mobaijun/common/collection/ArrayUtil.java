@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.collection;
 
+import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.constant.NumberConstant;
-import com.mobaijun.common.util.classs.CheckToolClass;
 
 import java.util.Arrays;
 import java.util.List;
@@ -191,7 +191,7 @@ public class ArrayUtil {
         if (object == null) {
             return null;
         } else {
-            CheckToolClass.assertTrue(CollectionUtil.isArray(object), "请确保实参是数组类型");
+            Assert.assertTrue(CollectionUtil.isArray(object), "请确保实参是数组类型");
             Class<?> targetClass = object.getClass();
             if (targetClass == int[].class) {
                 return Arrays.toString((int[]) object);
