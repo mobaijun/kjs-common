@@ -35,19 +35,14 @@ public final class Charsets {
     public static final Charset UTF_8 = StandardCharsets.UTF_8;
 
     /**
-     * US_ASCII
-     */
-    public static final Charset US_ASCII = StandardCharsets.US_ASCII;
-
-    /**
-     * ISO_8859_1
-     */
-    public static final Charset ISO_8859_1 = StandardCharsets.ISO_8859_1;
-
-    /**
      * UTF_8_NAME
      */
     public static final String UTF_8_NAME = StandardCharsets.UTF_8.name();
+
+    /**
+     * US_ASCII
+     */
+    public static final Charset US_ASCII = StandardCharsets.US_ASCII;
 
     /**
      * ASCII_NAME
@@ -55,7 +50,22 @@ public final class Charsets {
     public static final String ASCII_NAME = StandardCharsets.US_ASCII.name();
 
     /**
+     * ISO_8859_1
+     */
+    public static final Charset ISO_8859_1 = StandardCharsets.ISO_8859_1;
+
+    /**
      * ISO_8859_1_NAME
      */
     public static final String ISO_8859_1_NAME = StandardCharsets.ISO_8859_1.name();
+
+    /**
+     * GBK
+     */
+    public static final Charset GBK = Charset.forName("GBK");
+
+    /**
+     * GBK_NAME
+     */
+    public static final String GBK_NAME = Charset.forName("GBK").name();
 }
