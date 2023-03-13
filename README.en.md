@@ -30,7 +30,7 @@
 
 ## overview
 
-kjs-common is a Java-based tool class library that encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
+kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常用的工具进行封装，旨在提高 Java 开发者的开发效率和代码质量。
 
 This project integrates the excellent open source tools commonly used in the project:
 
@@ -43,7 +43,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## Functions and Features
 
--   提供了许多常用的工具函数和扩展函数，例如字符串操作、集合操作、日期和时间操作等。
+-   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   An exception handling tool class and a log tool class are provided to improve the robustness and readability of the code.
 -   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
 
@@ -114,7 +114,8 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+，以帮助您更好地了解和使用该库。
 
 ## trend
 
