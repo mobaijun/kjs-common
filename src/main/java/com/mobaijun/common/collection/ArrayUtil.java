@@ -184,56 +184,39 @@ public class ArrayUtil {
     /**
      * 将数组转成字符串
      *
-     * @param object 必须确保是数组，否则会抛出异常
+     * @param arr 必须确保是数组，否则会抛出异常
      * @return String
      */
-    public static String toString(Object object) {
-        if (object == null) {
-            return null;
-        } else {
-            Assert.assertTrue(CollectionUtil.isArray(object), "请确保实参是数组类型");
-            Class<?> targetClass = object.getClass();
-            if (targetClass == int[].class) {
-                return Arrays.toString((int[]) object);
-            } else if (targetClass == byte[].class) {
-                return Arrays.toString((byte[]) object);
-            } else if (targetClass == short[].class) {
-                return Arrays.toString((short[]) object);
-            } else if (targetClass == long[].class) {
-                return Arrays.toString((long[]) object);
-            } else if (targetClass == char[].class) {
-                return Arrays.toString((char[]) object);
-            } else if (targetClass == boolean[].class) {
-                return Arrays.toString((boolean[]) object);
-            } else if (targetClass == float[].class) {
-                return Arrays.toString((float[]) object);
-            } else if (targetClass == double[].class) {
-                return Arrays.toString((double[]) object);
-            } else {
-                return Arrays.toString((Object[]) object);
-            }
-        }
+    public static <T> String arrayToString(T[] arr) {
+        Assert.assertTrue(CollectionUtil.isArray(arr), "Make sure that the argument is an array type!");
+        return Arrays.stream(arr)
+                .map(Object::toString)
+                .reduce((s1, s2) -> s1 + ", " + s2)
+                .orElse("");
     }
 
     /**
      * 获取数组第一个元素
      *
-     * @param array 数组
+     * @param arr 数组
      * @return 元素
      */
-    public static <T> T getFirst(T[] array) {
-        return !CollectionUtil.isArray(array) ? array[0] : null;
+    public static <T> T getFirst(T[] arr) {
+        Assert.assertTrue(CollectionUtil.isArray(arr), "Make sure that the argument is an array type!");
+        return !CollectionUtil.isArray(arr) ? arr[0] : null;
     }
 
     /**
      * 数组转换为 list 集合,安全的，可增删改查的
      *
-     * @param data 数据
-     * @param <T>  类型
+     * @param arr 数组
+     * @param <T> 类型
      * @return 集合
      */
-    public static <T> List<T> arrayList(T[] data) {
-        return Arrays.stream(data).collect(Collectors.toList());
+    public static <T> List<T> arrayToList(T[] arr) {
+        Assert.assertTrue(CollectionUtil.isArray(arr), "Make sure that the argument is an array type!");
+        return Arrays.stream(arr)
+                .collect(Collectors.toList());
     }
 
     /**

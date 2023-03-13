@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -582,5 +583,31 @@ public class StringUtil {
             index = sb.indexOf(from, index + to.length());
         }
         return sb.toString();
+    }
+
+    /**
+     * 将数组转换为字符串
+     *
+     * @param arr       数组
+     * @param delimiter 分隔符
+     * @return 字符串
+     */
+    public static <T> String arrayToString(T[] arr, String delimiter) {
+        return Arrays.stream(arr)
+                .map(String::valueOf)
+                .collect(Collectors.joining(delimiter));
+    }
+
+    /**
+     * 将集合转换为字符串
+     *
+     * @param collection 集合
+     * @param delimiter  分隔符
+     * @return 字符串
+     */
+    public static <T> String collectionToString(Collection<T> collection, String delimiter) {
+        return collection.stream()
+                .map(String::valueOf)
+                .collect(Collectors.joining(delimiter));
     }
 }

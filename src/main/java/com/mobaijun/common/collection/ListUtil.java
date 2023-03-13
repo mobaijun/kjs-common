@@ -15,10 +15,11 @@
  */
 package com.mobaijun.common.collection;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -32,15 +33,17 @@ public class ListUtil {
     /**
      * map 数组添加到 list
      *
-     * @param map map
-     * @param <K> 键
-     * @param <V> 值
+     * @param list list集合
+     * @param maps map集合
+     * @param <K>  键
+     * @param <V>  值
      * @return list 集合
      */
     @SafeVarargs
-    public static <K, V> List<Map<K, V>> mapList(Map<K, V>... map) {
-        List<Map<K, V>> mapList = new ArrayList<>(map.length);
-        Collections.addAll(mapList, map);
-        return mapList;
+    public static <K, V> List<Map<K, V>> addMapsToList(List<Map<K, V>> list, Map<K, V>... maps) {
+        return Stream.of(maps)
+                .filter(Objects::nonNull)
+                .peek(list::add)
+                .collect(Collectors.toList());
     }
 }

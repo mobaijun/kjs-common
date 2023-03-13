@@ -74,7 +74,6 @@ public class MapUtil {
                 .collect(Collectors.toList());
     }
 
-
     /**
      * 批量取出Map中的值
      *
@@ -159,5 +158,18 @@ public class MapUtil {
      */
     public static <K, V> V getObj(Map<K, V> map, K key, V defaultValue) {
         return Optional.ofNullable(map).map(e -> e.getOrDefault(key, defaultValue)).orElse(defaultValue);
+    }
+
+    /**
+     * 将Map转成String, 可以指定分隔符
+     *
+     * @param map       map
+     * @param delimiter 分隔符
+     * @return res
+     */
+    public static String mapToString(Map<?, ?> map, String delimiter) {
+        return map.entrySet().stream()
+                .map(entry -> entry.getKey() + "=" + entry.getValue())
+                .collect(Collectors.joining(delimiter));
     }
 }

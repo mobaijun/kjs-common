@@ -15,7 +15,6 @@
  */
 package com.mobaijun.common.util.file;
 
-import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.util.date.DateFormat;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -24,9 +23,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,34 +86,11 @@ public class FileUtil {
      * @throws IOException IOException
      */
     public static void writeBytes(String filePath, OutputStream os) throws IOException {
-        FileInputStream fis = null;
-        try {
-            File file = new File(filePath);
-            if (!file.exists()) {
-                throw new FileNotFoundException(filePath);
-            }
-            fis = new FileInputStream(file);
-            byte[] b = new byte[1024];
-            int length;
-            while ((length = fis.read(b)) > 0) {
-                os.write(b, 0, length);
-            }
-        } finally {
-            if (os != null) {
-                try {
-                    os.close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e1) {
-                    e1.printStackTrace();
-                }
-            }
+        Path path = Paths.get(filePath);
+        if (!Files.exists(path)) {
+            throw new FileNotFoundException(filePath);
         }
+        Files.copy(path, os);
     }
 
     /**
@@ -164,31 +138,6 @@ public class FileUtil {
     }
 
     /**
-     * 下载文件
-     *
-     * @param filePath   下载地址
-     * @param outPutPath 输出地址
-     */
-    public static boolean download(String filePath, String outPutPath) {
-        try {
-            BufferedInputStream inputStream = new BufferedInputStream(new URL(filePath).openStream());
-            FileOutputStream fileOutputStream = new FileOutputStream(outPutPath);
-            byte[] data = new byte[NumberConstant.FIRST_CLASS];
-            int byteContent;
-            while ((byteContent = inputStream.read(data, NumberConstant.ZERO, NumberConstant.FIRST_CLASS)) != NumberConstant.MINUS_ONE) {
-                fileOutputStream.write(data, NumberConstant.ZERO, byteContent);
-            }
-            fileOutputStream.close();
-            inputStream.close();
-        } catch (IOException e) {
-            // handles IO exceptions
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    /**
      * 复制文件
      *
      * @param src  源地址
@@ -205,6 +154,11 @@ public class FileUtil {
         return true;
     }
 
+    /**
+     * 获取系统临时文件
+     *
+     * @return 临时文件
+     */
     public static File getSystemTempDir() {
         return new File(System.getProperty("java.io.tmpdir"));
     }

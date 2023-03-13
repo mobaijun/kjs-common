@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.test.util;
 
+import com.mobaijun.common.collection.MapUtil;
 import com.mobaijun.common.util.PrintUtil;
 import com.mobaijun.common.util.UrlParamsUtil;
 import org.junit.Test;
@@ -38,7 +39,7 @@ public class UrlParamsUtilsTest {
         map.put("2", "mobaijun");
         map.put("3", "mobai123");
         // 将Map转成String, 可以指定分隔符
-        PrintUtil.println(UrlParamsUtil.join(map, ","));
+        PrintUtil.println(MapUtil.mapToString(map, ","));
 
         // 解析ulr参数为map
         PrintUtil.println(UrlParamsUtil.split("https://www.mobaijun.com/test/demo_form.php?name1=value1&name2=value2"));
