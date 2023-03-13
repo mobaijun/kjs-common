@@ -70,7 +70,7 @@ public class QueueUtil {
      * 长度不受限，即生产者不会因为满而阻塞，但消费者会因为空而阻塞.
      */
     public static <E> LinkedBlockingQueue<E> newBlockingUnlimitQueue() {
-        return new LinkedBlockingQueue<E>();
+        return new LinkedBlockingQueue<>();
     }
 
     /**

@@ -30,6 +30,6 @@ public class MavenUtilsTest {
     @Test
     public void mavenCleanTest() {
         // maven 清理无效 jar 包
-        MavenUtil.mavenClear("F:\\repository");
+        MavenUtil.mavenClear("D:\\repository");
     }
 }

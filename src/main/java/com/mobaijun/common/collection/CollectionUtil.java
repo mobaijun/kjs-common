@@ -91,7 +91,7 @@ public class CollectionUtil {
      * @param elements   the array of elements to add, must not be null
      * @throws NullPointerException if the collection or array is null
      */
-    public static void addAll(Collection<Object> collection, Object[] elements) {
+    public static <T> void addAll(Collection<T> collection, T[] elements) {
         collection.addAll(Arrays.asList(elements));
     }
 
@@ -778,61 +778,61 @@ public class CollectionUtil {
     /**
      * 判定给定对象是否为数组类型
      *
-     * @param obj 对象
+     * @param data 对象
      * @return 是否为数组类型
      */
-    public static boolean isArray(Object obj) {
-        return obj.getClass().isArray();
+    public static <T> boolean isArray(T data) {
+        return data.getClass().isArray();
     }
 
     /**
      * 数组或集合转 String
      *
-     * @param obj 集合或数组对象
+     * @param data 集合或数组对象
      * @return 数组字符串，与集合转字符串格式相同
      */
-    public static String toString(Object obj) {
-        if (null == obj) {
+    public static <T> String toString(T data) {
+        if (null == data) {
             return null;
         }
-        if (isArray(obj)) {
+        if (isArray(data)) {
             try {
-                return Arrays.deepToString((Object[]) obj);
+                return Arrays.deepToString((Object[]) data);
             } catch (Exception e) {
-                final String className = obj.getClass().getComponentType().getName();
+                final String className = data.getClass().getComponentType().getName();
                 switch (className) {
                     case "long":
-                        return Arrays.toString((long[]) obj);
+                        return Arrays.toString((long[]) data);
                     case "int":
-                        return Arrays.toString((int[]) obj);
+                        return Arrays.toString((int[]) data);
                     case "short":
-                        return Arrays.toString((short[]) obj);
+                        return Arrays.toString((short[]) data);
                     case "char":
-                        return Arrays.toString((char[]) obj);
+                        return Arrays.toString((char[]) data);
                     case "byte":
-                        return Arrays.toString((byte[]) obj);
+                        return Arrays.toString((byte[]) data);
                     case "boolean":
-                        return Arrays.toString((boolean[]) obj);
+                        return Arrays.toString((boolean[]) data);
                     case "float":
-                        return Arrays.toString((float[]) obj);
+                        return Arrays.toString((float[]) data);
                     case "double":
-                        return Arrays.toString((double[]) obj);
+                        return Arrays.toString((double[]) data);
                     default:
                         throw new ClassCastException(e.getMessage());
                 }
             }
         }
-        return obj.toString();
+        return data.toString();
     }
 
     /**
-     * 比较连个集合元素是否相同
+     * 比较两个集合元素是否相同
      *
      * @param listA 集合a
      * @param listB 集合b
      * @return true false
      */
-    public static boolean isListEquals(List<?> listA, List<?> listB) {
+    public static <T> boolean isListEquals(List<T> listA, List<T> listB) {
         if (listA == null && listB == null) {
             return true;
         }

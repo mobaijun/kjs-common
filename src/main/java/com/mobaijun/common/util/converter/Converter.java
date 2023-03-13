@@ -47,7 +47,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static String toStr(Object value, String defaultValue) {
+    public static <T> String toStr(T value, String defaultValue) {
         if (null == value) {
             return defaultValue;
         }
@@ -65,7 +65,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static String toStr(Object value) {
+    public static <T> String toStr(T value) {
         return toStr(value, null);
     }
 
@@ -78,7 +78,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Character toChar(Object value, Character defaultValue) {
+    public static <T> Character toChar(T value, Character defaultValue) {
         if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
@@ -98,7 +98,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Character toChar(Object value) {
+    public static <T> Character toChar(T value) {
         return toChar(value, null);
     }
 
@@ -111,7 +111,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Byte toByte(Object value, Byte defaultValue) {
+    public static <T> Byte toByte(T value, Byte defaultValue) {
         if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
@@ -126,7 +126,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Byte toByte(Object value) {
+    public static <T> Byte toByte(T value) {
         return toByte(value, null);
     }
 
@@ -139,14 +139,14 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Short toShort(Object value, Short defaultValue) {
+    public static <T> Short toShort(T value, Short defaultValue) {
         if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         return getaShort(value, defaultValue, toStr(value, null));
     }
 
-    public static Short getaShort(Object value, Short defaultValue, String s) {
+    public static <T> Short getaShort(T value, Short defaultValue, String s) {
         if (value instanceof Short) {
             return (Short) value;
         }
@@ -171,7 +171,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Short toShort(Object value) {
+    public static <T> Short toShort(T value) {
         return toShort(value, null);
     }
 
@@ -184,14 +184,14 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Number toNumber(Object value, Number defaultValue) {
+    public static <T> Number toNumber(T value, Number defaultValue) {
         if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
         return getNumber(value, defaultValue, toStr(value, null));
     }
 
-    public static Number getNumber(Object value, Number defaultValue, String s) {
+    public static <T> Number getNumber(T value, Number defaultValue, String s) {
         if (value instanceof Number) {
             return (Number) value;
         }
@@ -213,7 +213,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Number toNumber(Object value) {
+    public static <T> Number toNumber(T value) {
         return toNumber(value, null);
     }
 
@@ -226,7 +226,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Integer toInt(Object value, Integer defaultValue) {
+    public static <T> Integer toInt(T value, Integer defaultValue) {
         if (ObjectUtil.isEmpty(value)) {
             return defaultValue;
         }
@@ -255,7 +255,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Integer toInt(Object value) {
+    public static <T> Integer toInt(T value) {
         return toInt(value, null);
     }
 
@@ -349,7 +349,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Long toLong(Object value, Long defaultValue) {
+    public static <T> Long toLong(T value, Long defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -379,7 +379,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Long toLong(Object value) {
+    public static <T> Long toLong(T value) {
         return toLong(value, null);
     }
 
@@ -392,7 +392,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Double toDouble(Object value, Double defaultValue) {
+    public static <T> Double toDouble(T value, Double defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -422,7 +422,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Double toDouble(Object value) {
+    public static <T> Double toDouble(T value) {
         return toDouble(value, null);
     }
 
@@ -435,7 +435,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Float toFloat(Object value, Float defaultValue) {
+    public static <T> Float toFloat(T value, Float defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -464,7 +464,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Float toFloat(Object value) {
+    public static <T> Float toFloat(T value) {
         return toFloat(value, null);
     }
 
@@ -477,7 +477,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static Boolean toBool(Object value, Boolean defaultValue) {
+    public static <T> Boolean toBool(T value, Boolean defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -512,7 +512,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static Boolean toBool(Object value) {
+    public static <T> Boolean toBool(T value) {
         return toBool(value, null);
     }
 
@@ -526,7 +526,7 @@ public class Converter {
      * @param <E>          未定义
      * @return Enum
      */
-    public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value, E defaultValue) {
+    public static <T, E extends Enum<E>> E toEnum(Class<E> clazz, T value, E defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -555,7 +555,7 @@ public class Converter {
      * @param <E>   Enum的Class
      * @return Enum
      */
-    public static <E extends Enum<E>> E toEnum(Class<E> clazz, Object value) {
+    public static <T, E extends Enum<E>> E toEnum(Class<E> clazz, T value) {
         return toEnum(clazz, value, null);
     }
 
@@ -568,7 +568,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static BigInteger toBigInteger(Object value, BigInteger defaultValue) {
+    public static <T> BigInteger toBigInteger(T value, BigInteger defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -597,7 +597,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static BigInteger toBigInteger(Object value) {
+    public static <T> BigInteger toBigInteger(T value) {
         return toBigInteger(value, null);
     }
 
@@ -610,7 +610,7 @@ public class Converter {
      * @param defaultValue 转换错误时的默认值
      * @return 结果
      */
-    public static BigDecimal toBigDecimal(Object value, BigDecimal defaultValue) {
+    public static <T> BigDecimal toBigDecimal(T value, BigDecimal defaultValue) {
         if (value == null) {
             return defaultValue;
         }
@@ -645,7 +645,7 @@ public class Converter {
      * @param value 被转换的值
      * @return 结果
      */
-    public static BigDecimal toBigDecimal(Object value) {
+    public static <T> BigDecimal toBigDecimal(T value) {
         return toBigDecimal(value, null);
     }
 
@@ -656,7 +656,7 @@ public class Converter {
      * @param obj 对象
      * @return 字符串
      */
-    public static String utf8Str(Object obj) {
+    public static <T> String utf8Str(T obj) {
         return str(obj, Charsets.UTF_8);
     }
 
@@ -668,7 +668,7 @@ public class Converter {
      * @param charsetName 字符集
      * @return 字符串
      */
-    public static String str(Object obj, String charsetName) {
+    public static <T> String str(T obj, String charsetName) {
         return str(obj, Charset.forName(charsetName));
     }
 
@@ -680,7 +680,7 @@ public class Converter {
      * @param charset 字符集
      * @return 字符串
      */
-    public static String str(Object obj, Charset charset) {
+    public static <T> String str(T obj, Charset charset) {
         if (ObjectUtil.isEmpty(obj)) {
             return null;
         }
@@ -688,7 +688,7 @@ public class Converter {
         return isObj(obj, charset);
     }
 
-    private static String isObj(Object obj, Charset charset) {
+    private static <T> String isObj(T obj, Charset charset) {
         if (obj instanceof String) {
             return (String) obj;
         } else if (obj instanceof byte[] || obj instanceof Byte[]) {

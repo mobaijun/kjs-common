@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.license;
 
+import com.mobaijun.common.constant.Constant;
+
 import javax.crypto.Cipher;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -85,7 +87,7 @@ public class LicenseUtil {
                 'a', 'b', 'c', 'd', 'e', 'f'};
 
         try {
-            MessageDigest mdTemp = MessageDigest.getInstance("MD5");
+            MessageDigest mdTemp = MessageDigest.getInstance(Constant.MD5);
             mdTemp.update(data);
             byte[] md = mdTemp.digest();
             int j = md.length;

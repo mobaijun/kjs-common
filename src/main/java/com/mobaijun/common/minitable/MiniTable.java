@@ -79,7 +79,7 @@ public class MiniTable {
     private void init() {
         this.join = new StringBuilder();
         this.rows = new ArrayList<>();
-        this.maxColMap = new HashMap<>();
+        this.maxColMap = new HashMap<>(10);
     }
 
     /**
@@ -88,7 +88,7 @@ public class MiniTable {
      * @param headers 表头数据
      * @return MiniTable对象
      */
-    public MiniTable addHeaders(List<?> headers) {
+    public <T> MiniTable addHeaders(List<T> headers) {
         return this.appendRows(RowType.HEADER, headers.toArray());
     }
 
@@ -98,8 +98,9 @@ public class MiniTable {
      * @param objects 表头数据
      * @return MiniTable对象
      */
-    public MiniTable addHeaders(Object... objects) {
-        return this.appendRows(RowType.HEADER, objects);
+    @SafeVarargs
+    public final <T> MiniTable addHeaders(T... objects) {
+        return this.appendRows(RowType.HEADER, (Object) objects);
     }
 
     /**
@@ -108,7 +109,7 @@ public class MiniTable {
      * @param data 普通行数据
      * @return MiniTable对象
      */
-    public MiniTable addData(List<?> data) {
+    public <T> MiniTable addData(List<T> data) {
         return this.appendRows(RowType.DATA, data.toArray());
     }
 
@@ -118,7 +119,8 @@ public class MiniTable {
      * @param objects 普通行数据
      * @return MiniTable对象
      */
-    public MiniTable addData(Object... objects) {
+    @SafeVarargs
+    public final <T> MiniTable addData(T... objects) {
         return this.appendRows(RowType.DATA, objects);
     }
 
@@ -128,7 +130,8 @@ public class MiniTable {
      * @param objects 表行数据
      * @return MiniTable对象
      */
-    private MiniTable appendRows(RowType rowType, Object... objects) {
+    @SafeVarargs
+    private final <T> MiniTable appendRows(RowType rowType, T... objects) {
         int len;
         if (objects != null && (len = objects.length) > 0) {
             if (this.maxColMap.size() > len) {

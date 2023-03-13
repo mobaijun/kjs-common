@@ -76,28 +76,28 @@ public class Assert {
     /**
      * 确保对象不为空，否则抛出异常
      *
-     * @param object 要判断的对象
-     * @param name   对象名称
+     * @param value 要判断的对象
+     * @param name  对象名称
      * @throws AssertionError 如果对象为空，则抛出异常，包含错误信息和对象名
      */
-    public static void notNull(final Object object,
-                               final String name) {
-        Optional.ofNullable(object)
+    public static <T> void notNull(final T value,
+                                   final String name) {
+        Optional.ofNullable(value)
                 .orElseThrow(() -> new AssertionError(String.format("%s", name)));
     }
 
     /**
      * 确保对象不为空，否则抛出异常
      *
-     * @param object 要判断的对象
+     * @param value  要判断的对象
      * @param name   对象名称
      * @param errMsg 错误信息
      * @throws AssertionError 如果对象为空，则抛出异常，包含错误信息和对象名
      */
-    public static void notNull(final Object object,
-                               final String name,
-                               final String errMsg) {
-        Optional.ofNullable(object)
+    public static <T> void notNull(final T value,
+                                   final String name,
+                                   final String errMsg) {
+        Optional.ofNullable(value)
                 .orElseThrow(() -> new AssertionError(String.format("%s %s", name, errMsg)));
     }
 
@@ -121,9 +121,9 @@ public class Assert {
      * @param actual   实际值
      * @param message  错误消息
      */
-    public static void assertEquals(final Object expected,
-                                    final Object actual,
-                                    final String message) {
+    public static <T> void assertEquals(final T expected,
+                                        final T actual,
+                                        final String message) {
         Optional.of(expected.equals(actual))
                 .filter(b -> !b)
                 .ifPresent(b -> {
@@ -295,9 +295,9 @@ public class Assert {
      * @param msg    错误信息
      * @return 错误提示消息
      */
-    private static String buildErrorMsg(final Object except,
-                                        final Object real,
-                                        final String msg) {
+    private static <T> String buildErrorMsg(final T except,
+                                            final T real,
+                                            final String msg) {
         return String.format("Except:<%s>, Real:<%s>, Msg:<%s>",
                 except, real, Optional.ofNullable(msg).orElse("Not meeting expectations!"));
     }
@@ -399,8 +399,8 @@ public class Assert {
      * @param array 数组
      * @param name  名称
      */
-    public static void notEmpty(final Object[] array,
-                                final String name) {
+    public static <T> void notEmpty(final T[] array,
+                                    final String name) {
         if (Arrays.stream(array).noneMatch(Objects::nonNull)) {
             throw new AssertionError(name + " expected is not empty!");
         }

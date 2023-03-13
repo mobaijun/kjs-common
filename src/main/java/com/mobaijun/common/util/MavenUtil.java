@@ -16,6 +16,10 @@
 package com.mobaijun.common.util;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Objects;
@@ -45,12 +49,12 @@ public class MavenUtil {
      * @param filePath 文件路径
      */
     public static void mavenClear(String filePath) {
-        File dir = new File(filePath);
-        if (!dir.isDirectory()) {
+        Path dirPath = Paths.get(filePath);
+        if (!Files.isDirectory(dirPath)) {
             System.exit(0);
         } else {
             Instant startNow = Instant.now();
-            MavenUtil.delFile(dir);
+            delFile(dirPath.toFile());
             Instant endNow = Instant.now();
             time = Duration.between(startNow, endNow).toMillis();
         }
@@ -63,34 +67,44 @@ public class MavenUtil {
      * @param file 文件
      */
     private static void delFile(File file) {
-        File[] list = file.listFiles();
-        assert list != null;
-        for (File f : list) {
-            if (f.isDirectory()) {
-                delFile(f);
-                if ("unknown".equals(f.getName())) {
-                    delAll(f);
-                    total++;
-                    System.out.println("删除：" + f.getAbsolutePath());
-                } else if (f.getName().startsWith("${") && f.getName().endsWith("}")) {
-                    // 如果 文件夹名称是以 ${ 开头 } 结尾，那么将这个文件夹及其下面所有文件全部删除
-                    delAll(f);
-                    f.delete();
-                    total++;
-                    System.out.println("删除：" + f.getAbsolutePath());
-                } else if (Objects.requireNonNull(f.listFiles()).length == 0) {
-                    // 删除空文件夹
-                    f.delete();
-                    total++;
-                    System.out.println("删除：" + f.getAbsolutePath());
-                }
-            } else {
-                if (f.getName().endsWith(".lastUpdated")) {
-                    f.delete();
-                    total++;
-                    System.out.println("删除：" + f.getAbsolutePath());
-                }
-            }
+        try {
+            Files.walk(file.toPath())
+                    .sorted((p1, p2) -> -p1.compareTo(p2))
+                    .forEach(p -> {
+                        File f = p.toFile();
+                        if (f.isDirectory()) {
+                            if ("unknown".equals(f.getName())) {
+                                delAll(f);
+                            } else if (f.getName().startsWith("${") && f.getName().endsWith("}")) {
+                                delAll(f);
+                                try {
+                                    Files.delete(f.toPath());
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                                total++;
+                                System.out.println("删除：" + f.getAbsolutePath());
+                            } else if (Objects.requireNonNull(f.listFiles()).length == 0) {
+                                try {
+                                    Files.delete(f.toPath());
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                                total++;
+                                System.out.println("删除：" + f.getAbsolutePath());
+                            }
+                        } else if (f.getName().endsWith(".lastUpdated")) {
+                            try {
+                                Files.delete(f.toPath());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                            total++;
+                            System.out.println("删除：" + f.getAbsolutePath());
+                        }
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -100,18 +114,29 @@ public class MavenUtil {
      * @param file file
      */
     private static void delAll(File file) {
-        File[] list = file.listFiles();
-        assert list != null;
-        for (File f : list) {
-            if (f.isFile()) {
-                // 是文件就删除
-                f.delete();
-            } else {
-                // 先将文件夹下的文件夹和文件全部删除再删除源文件夹
-                delAll(f);
-            }
-            total++;
-            System.out.println("删除：" + f.getAbsolutePath());
+        try {
+            Files.walk(file.toPath())
+                    .sorted((p1, p2) -> -p1.compareTo(p2))
+                    .forEach(p -> {
+                        File f = p.toFile();
+                        if (f.isFile()) {
+                            try {
+                                Files.delete(f.toPath());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        } else {
+                            try {
+                                Files.delete(f.toPath());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                        total++;
+                        System.out.println("删除：" + f.getAbsolutePath());
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

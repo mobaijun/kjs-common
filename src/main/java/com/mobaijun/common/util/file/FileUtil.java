@@ -332,9 +332,9 @@ public class FileUtil {
      * @param newLines 文本列表
      * @param file     文件
      */
-    public static void writeUtf8Lines(ArrayList<Object> newLines, File file) {
+    public static <T> void writeUtf8Lines(ArrayList<T> newLines, File file) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            for (Object line : newLines) {
+            for (T line : newLines) {
                 writer.write(line.toString());
                 writer.newLine();
             }
@@ -350,7 +350,7 @@ public class FileUtil {
      * @param fileName 文件名
      * @param append   是否链接
      */
-    public static boolean appendToFile(Collection<?> lines, String fileName, boolean append) {
+    public static <T> boolean appendToFile(Collection<T> lines, String fileName, boolean append) {
         if (lines == null) {
             return false;
         }
