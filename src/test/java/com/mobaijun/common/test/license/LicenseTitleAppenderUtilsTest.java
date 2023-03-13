@@ -31,8 +31,8 @@ public class LicenseTitleAppenderUtilsTest {
     @Test
     public void licenseTitleAppenderUtilTest() {
         LicenseTitleAppenderUtil.append("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\main\\java\\com\\mobaijun\\common"
-                , LicenseConstant.APACHE_2);
+                , String.format(LicenseConstant.APACHE_2, "www.mobaijun.com"));
         LicenseTitleAppenderUtil.append("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common"
-                , LicenseConstant.APACHE_2);
+                , String.format(LicenseConstant.APACHE_2, "www.mobaijun.com"));
     }
 }

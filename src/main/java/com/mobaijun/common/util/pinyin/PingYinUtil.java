@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.util.pinyin;
 
-import com.mobaijun.common.constant.Constant;
+import com.mobaijun.common.util.text.Charsets;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +39,7 @@ public final class PingYinUtil {
         try {
             StringBuilder buffer = new StringBuilder();
             // 把中文转化成byte数组
-            byte[] chineseBytes = strChinese.getBytes(Constant.GBK);
+            byte[] chineseBytes = strChinese.getBytes(Charsets.GBK_NAME);
             for (int i = 0; i < chineseBytes.length; i++) {
                 if ((chineseBytes[i] & 255) > 128) {
                     int char1 = chineseBytes[i++] & 255;

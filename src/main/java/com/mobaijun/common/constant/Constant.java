@@ -25,11 +25,6 @@ package com.mobaijun.common.constant;
 public final class Constant {
 
     /**
-     * GBK 字符集
-     */
-    public static final String GBK = "GBK";
-
-    /**
      * MD5
      */
     public static final String MD5 = "MD5";
