@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 www.mobaijun.com
+ * Copyright (C) 2022 [www.mobaijun.com]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,20 @@
 package com.mobaijun.common.license;
 
 import com.mobaijun.common.util.file.FileUtil;
+import com.mobaijun.common.util.text.Charsets;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -50,5 +59,49 @@ public class LicenseTitleAppenderUtil {
                         FileUtil.writeUtf8Lines(newLines, file);
                     }
                 });
+    }
+
+    /**
+     * 从指定目录下的所有文件中删除包含指定许可证头部的内容。
+     *
+     * @param codeDirectory 指定的目录
+     * @param licenseHeader 许可证头部
+     */
+    public static void removeLicense(String codeDirectory, String licenseHeader) {
+        try (Stream<Path> paths = Files.walk(Paths.get(codeDirectory))) {
+            // 遍历指定目录下的所有文件，过滤掉非普通文件（例如目录或符号链接），
+            // 并将路径转换成对应的File对象
+            paths.filter(Files::isRegularFile)
+                    .map(Path::toFile)
+                    .forEach(file -> {
+                        try {
+                            // 读取文件的所有行到List中
+                            List<String> fileLines = Files.readAllLines(file.toPath(), Charsets.UTF_8);
+                            // 找到第一行包含许可证头部的行号
+                            OptionalInt startLineIndex = IntStream.range(0, fileLines.size())
+                                    .filter(i -> fileLines.get(i).contains(licenseHeader))
+                                    .findFirst();
+                            if (startLineIndex.isPresent()) {
+                                // 找到最后一行包含 */ 的行号
+                                OptionalInt endLineIndex = IntStream.range(startLineIndex.getAsInt(), fileLines.size())
+                                        .filter(i -> "*/".equals(fileLines.get(i)))
+                                        .findFirst();
+                                if (endLineIndex.isPresent()) {
+                                    // 将第一行到最后一行之间的内容替换为一个空List
+                                    List<String> newLines = Stream.concat(
+                                                    fileLines.subList(0, startLineIndex.getAsInt()).stream(),
+                                                    fileLines.subList(endLineIndex.getAsInt() + 1, fileLines.size()).stream())
+                                            .collect(Collectors.toList());
+                                    // 将新内容写入文件
+                                    Files.write(file.toPath(), newLines, Charsets.UTF_8);
+                                }
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
