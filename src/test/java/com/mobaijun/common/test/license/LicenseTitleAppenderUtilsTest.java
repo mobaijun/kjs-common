@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 www.mobaijun.com
+ * Copyright (C) 2022 [www.mobaijun.com]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,5 +34,12 @@ public class LicenseTitleAppenderUtilsTest {
                 , String.format(LicenseConstant.APACHE_2, "www.mobaijun.com"));
         LicenseTitleAppenderUtil.append("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common"
                 , String.format(LicenseConstant.APACHE_2, "www.mobaijun.com"));
+    }
+
+    @Test
+    public void remove() {
+        // 删除开源协议
+        LicenseTitleAppenderUtil.removeLicense("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\test", "/*");
+        LicenseTitleAppenderUtil.removeLicense("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\main\\java\\com\\mobaijun\\common", "/*");
     }
 }
