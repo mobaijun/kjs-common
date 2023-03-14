@@ -44,7 +44,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 ## Functions and Features
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
--   An exception handling tool class and a log tool class are provided to improve the robustness and readability of the code.
+-   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
 -   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
 
 ## develop
@@ -101,7 +101,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-You can use our[GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki)found on`kjs-common`documentation and examples. We also provide unit tests[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
