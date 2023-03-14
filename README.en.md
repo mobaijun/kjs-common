@@ -30,7 +30,7 @@
 
 ## overview
 
-kjs-common is a Java-based tool class library that encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
+kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常用的工具进行封装，旨在提高 Java 开发者的开发效率和代码质量。
 
 This project integrates the excellent open source tools commonly used in the project:
 
@@ -114,8 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
-，以帮助您更好地了解和使用该库。
+We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
