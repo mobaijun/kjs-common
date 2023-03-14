@@ -30,7 +30,7 @@
 
 ## overview
 
-kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常用的工具进行封装，旨在提高 Java 开发者的开发效率和代码质量。
+kjs-common is a Java-based tool class library that encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
 
 This project integrates the excellent open source tools commonly used in the project:
 
