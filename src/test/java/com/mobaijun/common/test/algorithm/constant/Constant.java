@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.test.algorithm.constant;
 
+import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.util.number.RandomUtil;
 
 /**
@@ -30,4 +31,9 @@ public final class Constant {
      * 通用随机数
      */
     public static final int[] RANDOM_INT_ARRAY = RandomUtil.generateRandomArray(100000, 1, 100000);
+
+    /**
+     * 随机字符串
+     */
+    public static final String CONSTANT_STRING = RandomUtil.randomString(NumberConstant.BASE_CHAR, 24);
 }
