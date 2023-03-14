@@ -17,9 +17,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: -1
-      - uses: Release-Candy/auto-changelog-action@v2.2.0
+      - uses: BobAnkh/auto-generate-changelog@master
         with:
-          output: CHANGELOG.md
-          changeLogName: CHANGELOG.md
-          changeLogCommitMessage: "docs(changelog): Update change log"
-          changeLogPrefix: "feat(✨): ,fix(🐛): ,docs(📚): ,refactor(🔧): ,style(🎨): ,perf(🚀): ,test(🚨): ,build(🛠️): ,ci(🔧):"
+          ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PATH: 'CHANGELOG.md'
+          COMMIT_MESSAGE: 'docs(changelog): update release notes'
+          TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
