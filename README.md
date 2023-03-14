@@ -44,7 +44,7 @@ kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常
 ## 功能和特点
 
 - 提供了许多常用的工具函数和扩展函数，例如字符串操作、集合操作、日期和时间操作等。
-- 提供了异常处理工具类和日志工具类，以提高代码的健壮性和可读性。
+- 提供了 Stream 处理工具类和文件工具类，以提高代码的健壮性和可读性。
 - 所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
 
 ## 发展
@@ -114,8 +114,7 @@ dependencies {
 
 ## 文档和示例
 
-您可以在我们的 [GitHub Wiki](https://github.com/mobaijun/kjs-common/wiki) 上找到有关 `kjs-common`
-的文档和示例。我们还提供单元测试 [示例项目](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+我们提供单元测试 [示例项目](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 ，以帮助您更好地了解和使用该库。
 
 ## 趋势
