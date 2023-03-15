@@ -101,12 +101,12 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
-`kjs-common`is based on Apache
-Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
+`kjs-common` 是基于 Apache
+许可证开发的，详情请查看 [LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
 
 ## author
 
@@ -114,7 +114,8 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+，以帮助您更好地了解和使用该库。
 
 ## trend
 
