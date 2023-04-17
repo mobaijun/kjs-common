@@ -17,7 +17,6 @@ package com.mobaijun.common.google;
 
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.PrintUtil;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -49,16 +48,6 @@ public class PasswordUtil {
     private static final int TIMEOUT_MS = 10000;
 
     /**
-     * 代理地址
-     */
-    private static final String PROXY_HOST = "127.0.0.1";
-
-    /**
-     * 代理端口
-     */
-    private static final int PROXY_PORT = 10809;
-
-    /**
      * 从CSV文件中读取密码数据，并返回一个PasswordEntry对象的列表
      *
      * @param filePath CSV文件路径
@@ -87,14 +76,16 @@ public class PasswordUtil {
      * 用于删除不可达URL的方法
      *
      * @param passwordEntries 要处理的PasswordEntry对象的列表
+     * @param proxyHost       代理地址
+     * @param port            代理端口
      */
-    public static void removeInaccessiblePasswordEntries(List<PasswordEntry> passwordEntries) {
+    public static void removeInaccessiblePasswordEntries(List<PasswordEntry> passwordEntries, String proxyHost, Integer port) {
         // 用于存储所有的CompletableFuture对象
         List<CompletableFuture<Boolean>> futures = new ArrayList<>();
 
         // 遍历PasswordEntry列表中的每个对象，为每个PasswordEntry对象创建一个异步任务，检查它的URL是否可访问
         for (PasswordEntry passwordEntry : passwordEntries) {
-            futures.add(CompletableFuture.supplyAsync(() -> isUrlAccessible(passwordEntry.getUrl())));
+            futures.add(CompletableFuture.supplyAsync(() -> isUrlAccessible(passwordEntry.getUrl(), proxyHost, port)));
         }
 
         // 处理所有异步任务，移除不可访问的PasswordEntry对象
@@ -151,10 +142,10 @@ public class PasswordUtil {
      * @param url 要检查的URL
      * @return 如果可访问则返回true，否则返回false
      */
-    private static boolean isUrlAccessible(String url) {
+    private static boolean isUrlAccessible(String url, String proxyHost, Integer port) {
         HttpURLConnection connection = null;
         try {
-            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(PROXY_HOST, PROXY_PORT));
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHost, port));
             connection = (HttpURLConnection) new URL(url).openConnection(proxy);
             connection.setRequestMethod("HEAD");
             // 1000毫秒的连接超时
@@ -169,13 +160,5 @@ public class PasswordUtil {
                 connection.disconnect();
             }
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        List<PasswordEntry> entries = readCsvFile("D:\\ideaProject\\kjs-projects\\kjs-common\\src\\main\\java\\com\\mobaijun\\common\\google\\Chrome Passwords.csv");
-        removeInaccessiblePasswordEntries(entries);
-        PrintUtil.println("-------------------------------------------------------------------------------------------------------------------------------------------------------");
-        PrintUtil.println(entries);
-        writeCsv(entries, "D:\\ideaProject\\kjs-projects\\kjs-common\\src\\main\\java\\com\\mobaijun\\common\\google\\Chrome Passwords2.csv");
     }
 }

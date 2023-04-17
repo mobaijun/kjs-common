@@ -21,6 +21,7 @@ import com.mobaijun.common.lambda.LambdaExceptionUtil.BiFunctionWithExceptions;
 import com.mobaijun.common.lambda.LambdaExceptionUtil.ConsumerWithExceptions;
 import com.mobaijun.common.lambda.LambdaExceptionUtil.FunctionWithExceptions;
 import com.mobaijun.common.lambda.LambdaExceptionUtil.SupplierWithExceptions;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.function.BiConsumer;
@@ -47,7 +48,7 @@ public class LambdaExceptionUtilTest {
         FunctionWithExceptions<Integer, String, Exception> functionWithExceptions = i -> Integer.toString(i);
         Function<Integer, String> wrappedFunction = LambdaExceptionUtil.wrapFunction(functionWithExceptions);
         assertEquals(wrappedFunction.apply(123), function.apply(123));
-        assertThrows(Exception.class, () -> wrappedFunction.apply(null));
+        Assert.assertThrows(Exception.class, () -> wrappedFunction.apply(null));
     }
 
     @Test
@@ -56,7 +57,7 @@ public class LambdaExceptionUtilTest {
         BiFunctionWithExceptions<Integer, Double, String, Exception> biFunctionWithExceptions = (i, d) -> i + Double.toString(d);
         BiFunction<Integer, Double, String> wrappedBiFunction = LambdaExceptionUtil.wrapBiFunction(biFunctionWithExceptions);
         assertEquals(wrappedBiFunction.apply(123, 4.56), biFunction.apply(123, 4.56));
-        assertThrows(Exception.class, () -> wrappedBiFunction.apply(null, 4.56));
+        Assert.assertThrows(Exception.class, () -> wrappedBiFunction.apply(null, 4.56));
     }
 
     @Test

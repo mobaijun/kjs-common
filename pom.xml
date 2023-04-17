@@ -64,11 +64,11 @@
 
     <!--  Dependency version management -->
     <properties>
-        <!-- 工程JDK版本 -->
+        <!-- Engineering JDK version -->
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
-        <!-- 工程源码编码 -->
+        <!-- Engineering source code -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
@@ -77,35 +77,52 @@
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-        <lombok.version>[1.+,)</lombok.version>
+        <slf4j-api.version>[2.0.+,)</slf4j-api.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
+        <lombok.version>[1.+,)</lombok.version>
         <junit.version>4.13.2</junit.version>
-        <slf4j-api.version>2.0.7</slf4j-api.version>
+        <gson.version>[2.+,)</gson.version>
         <maven.test.skip>true</maven.test.skip>
     </properties>
 
     <dependencies>
+        <!-- Simplified entity class -->
         <dependency>
-            <!-- Simplified entity class -->
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- type converter -->
         <dependency>
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--  Json utils -->
+        <dependency>
+            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- log -->
         <dependency>
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j-api.version}</version>
@@ -114,13 +131,13 @@
 
         <!-- junit -->
         <dependency>
+            <!-- https://mvnrepository.com/artifact/junit/junit -->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 
     <!-- snapshots -->
     <repositories>
@@ -189,7 +206,7 @@
                 <version>${maven-resources-plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>copy-mapstruct-license</id>
+                        <id>copy-mobaijun-license</id>
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>copy-resources</goal>
