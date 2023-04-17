@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-In Gradle, you can add the following to your`build.gradle`In the file:
+In Gradle, you can add the following to your`build.gradle` 文件中：
 
 ```json
 dependencies {
@@ -110,7 +110,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@被白军](https://github.com/mobaijun)
+-   [@mobaijun](https://github.com/mobaijun)
 
 ## Documentation and examples
 
