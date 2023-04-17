@@ -45,7 +45,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
+-   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
 
 ## develop
 
@@ -87,7 +87,7 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released synchronously[maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
@@ -99,7 +99,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4.  push to branch (`git push origin feature/AmazingFeature`)
-5.  打开一个 Pull Request
+5.  Open a Pull Request
 
 Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
