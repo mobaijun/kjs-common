@@ -87,7 +87,7 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released synchronously[maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
@@ -99,14 +99,14 @@ If you want to contribute code or make a suggestion, please follow these steps:
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4.  push to branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
+5.  打开一个 Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
 `kjs-common`is based on Apache
-Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt) 文件。
+Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
 
 ## author
 
