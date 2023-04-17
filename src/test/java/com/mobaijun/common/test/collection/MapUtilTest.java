@@ -120,4 +120,36 @@ public class MapUtilTest {
         }
         PrintUtil.println(sum);
     }
+
+    @Test
+    public void getCollection() {
+    }
+
+    @Test
+    public void testGetCollection() {
+    }
+
+    @Test
+    public void testGetCollection1() {
+    }
+
+    @Test
+    public void testMapToList() {
+    }
+
+    @Test
+    public void testMapToList1() {
+    }
+
+    @Test
+    public void testTransMap() {
+    }
+
+    @Test
+    public void getObj() {
+    }
+
+    @Test
+    public void mapToString() {
+    }
 }
