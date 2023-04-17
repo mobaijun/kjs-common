@@ -39,7 +39,7 @@ This project integrates the excellent open source tools commonly used in the pro
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
-> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
+> Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
 ## Functions and Features
 
@@ -101,7 +101,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
