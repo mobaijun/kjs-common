@@ -39,13 +39,13 @@ This project integrates the excellent open source tools commonly used in the pro
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
-> Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
+> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
 
 ## Functions and Features
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
--   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
+-   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
 
 ## develop
 
