@@ -15,7 +15,7 @@
     <!-- Package Description -->
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.1.15</version>
+    <version>1.1.16</version>
 
     <!-- Project Introduction -->
     <name>kjs-common</name>
@@ -81,7 +81,6 @@
         <mapstruct.version>[1.+,)</mapstruct.version>
         <lombok.version>[1.+,)</lombok.version>
         <junit.version>4.13.2</junit.version>
-        <gson.version>[2.+,)</gson.version>
         <maven.test.skip>true</maven.test.skip>
     </properties>
 
@@ -109,15 +108,6 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
             <scope>compile</scope>
-        </dependency>
-
-        <!--  Json utils -->
-        <dependency>
-            <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- log -->
