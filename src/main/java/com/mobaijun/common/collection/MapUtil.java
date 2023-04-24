@@ -16,16 +16,8 @@
 package com.mobaijun.common.collection;
 
 import com.mobaijun.common.model.Model;
-import com.mobaijun.common.util.converter.EntityUtil;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -127,23 +119,6 @@ public class MapUtil {
             list.sort(comparator);
         }
         return list;
-    }
-
-    /**
-     * 将 Map 中 value 进行转换
-     *
-     * @param map         原始Map实例
-     * @param valueAction value转换的行为
-     * @param <K>         Key的类型
-     * @param <V>         原始value的类型
-     * @param <T>         目标value类型
-     * @return 转换后的Map
-     */
-    public static <K, V, T> Map<K, T> transMap(Map<K, V> map, Function<? super V, ? extends T> valueAction) {
-        Objects.requireNonNull(map);
-        Objects.requireNonNull(valueAction);
-        return map.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> EntityUtil.toObj(e.getValue(), valueAction)));
     }
 
     /**

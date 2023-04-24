@@ -15,9 +15,14 @@
  */
 package com.mobaijun.common.http;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -27,20 +32,6 @@ import java.net.URL;
  * @author MoBaiJun 2022/7/18 10:05
  */
 public class HttpUtil {
-
-    /**
-     * 获取 http 链接
-     *
-     * @param url url
-     * @return HttpConnection
-     */
-    public static HttpURLConnection getHttpConnection(String url, String requestMethod) throws IOException {
-        URL requestUrl = new URL(url);
-        HttpURLConnection connection = (HttpURLConnection) requestUrl.openConnection();
-        connection.setRequestMethod(requestMethod);
-        connection.connect();
-        return connection;
-    }
 
     /**
      * 判断是否为http链接
@@ -74,5 +65,36 @@ public class HttpUtil {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static void disableSSLVerification() {
+        // 创建一个信任所有证书的TrustManager数组
+        TrustManager[] trustAllCerts = new TrustManager[]{
+                new X509TrustManager() {
+                    // 返回接受的证书，这里直接返回null
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+
+                    // 忽略客户端证书验证
+                    public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                    }
+
+                    // 忽略服务端证书验证
+                    public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                    }
+                }
+        };
+        // 获取TLS协议的SSLContext实例
+        SSLContext sc;
+        try {
+            sc = SSLContext.getInstance("TLS");
+            // 初始化SSLContext，第一个参数是null表示使用默认的KeyManager，第二个参数是trustAllCerts数组表示信任所有证书，第三个参数是一个随机数生成器
+            sc.init(null, trustAllCerts, new java.security.SecureRandom());
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            throw new RuntimeException(e);
+        }
+        // 将当前应用的默认SSLSocketFactory设置为SSLContext中的SSLSocketFactory
+        HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }
 }
