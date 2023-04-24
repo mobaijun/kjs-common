@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-In Gradle, you can add the following to your`build.gradle` 文件中：
+In Gradle, you can add the following to your`build.gradle`In the file:
 
 ```json
 dependencies {
@@ -101,7 +101,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
@@ -110,7 +110,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@mobaijun](https://github.com/mobaijun)
+-   [@被白军](https://github.com/mobaijun)
 
 ## Documentation and examples
 
