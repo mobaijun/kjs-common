@@ -27,8 +27,6 @@ import java.nio.charset.Charset;
 import java.text.NumberFormat;
 import java.util.Set;
 
-import static com.mobaijun.common.util.text.StrConvert.getaByte;
-
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
  * ClassName: Converter<br>
@@ -100,34 +98,6 @@ public class Converter {
      */
     public static <T> Character toChar(T value) {
         return toChar(value, null);
-    }
-
-    /**
-     * 转换为byte<br>
-     * 如果给定的值为<code>null</code>，或者转换失败，返回默认值<br>
-     * 转换失败不会报错
-     *
-     * @param value        被转换的值
-     * @param defaultValue 转换错误时的默认值
-     * @return 结果
-     */
-    public static <T> Byte toByte(T value, Byte defaultValue) {
-        if (ObjectUtil.isEmpty(value)) {
-            return defaultValue;
-        }
-        return getaByte(value, defaultValue, toStr(value, null));
-    }
-
-    /**
-     * 转换为byte<br>
-     * 如果给定的值为<code>null</code>，或者转换失败，返回默认值<code>null</code><br>
-     * 转换失败不会报错
-     *
-     * @param value 被转换的值
-     * @return 结果
-     */
-    public static <T> Byte toByte(T value) {
-        return toByte(value, null);
     }
 
     /**
