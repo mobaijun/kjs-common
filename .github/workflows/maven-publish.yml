@@ -42,6 +42,7 @@ jobs:
             -Dmaven.repo.remote=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
             # 跳过默认的部署行为
             -Dmaven.deploy.skip=true \
+            -X \
             # 设置 GPG 密钥相关信息
             -Dmaven.artifact.gpg.keyname=${{ secrets.GPG_KEY_ID }} \
             -Dmaven.artifact.gpg.passphrase="${{ secrets.MAVEN_GPG_PASSPHRASE }}" \
