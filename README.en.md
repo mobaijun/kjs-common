@@ -60,7 +60,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 ## quick start
 
-You can pass`kjs-common`Add to your project as a dependency.
+您可以将 `kjs-common`Add to your project as a dependency.
 
 ### maven
 
