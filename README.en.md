@@ -52,7 +52,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 > This project plans to support JDK 17 and above in version 2.0, and versions below 2.0 use JDK 8 as the cornerstone, which means that future 2.X versions will not be compatible with projects below JDK 17.
 > Projects within JDK 17 are recommended to use versions within 2.0
 
-## 示例
+## example
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
@@ -126,4 +126,4 @@ We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/t
 
 ## thank you
 
-Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
+Thank you for using`kjs-common`，我们将继续努力为开发者提供更好的工具库。
