@@ -3,8 +3,7 @@ name: Publish to Maven Central
 
 # 设置触发工作流程的事件类型，此处为创建一个新的发布版本
 on:
-  release:
-    types: [ created ]
+  workflow_dispatch:
 
 # 定义工作流程
 jobs:
