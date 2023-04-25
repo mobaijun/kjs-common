@@ -24,7 +24,7 @@
     </a>
 </p>
 
-## other languages
+## 其他语言
 
 -   [English](README.en.md)
 
@@ -43,7 +43,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## Functions and Features
 
--   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
+-   提供了许多常用的工具函数和扩展函数，例如字符串操作、集合操作、日期和时间操作等。
 -   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
 -   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
 
@@ -60,7 +60,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 ## quick start
 
-您可以将 `kjs-common`Add to your project as a dependency.
+You can pass`kjs-common`Add to your project as a dependency.
 
 ### maven
 
