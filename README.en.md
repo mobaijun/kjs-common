@@ -24,7 +24,7 @@
     </a>
 </p>
 
-## 其他语言
+## other languages
 
 -   [English](README.en.md)
 
@@ -43,7 +43,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## Functions and Features
 
--   提供了许多常用的工具函数和扩展函数，例如字符串操作、集合操作、日期和时间操作等。
+-   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
 -   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
 
@@ -101,7 +101,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
