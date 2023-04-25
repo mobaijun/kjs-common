@@ -1,0 +1,64 @@
+# 定义工作流名称
+name: Publish to Maven Central
+
+# 设置触发工作流程的事件类型，此处为创建一个新的发布版本
+on:
+  release:
+    types: [ created ]
+
+# 定义工作流程
+jobs:
+  # 部署任务
+  deploy:
+    # 运行操作系统类型
+    runs-on: ubuntu-latest
+    # 定义任务步骤
+    steps:
+      # 将代码仓库检出到工作目录
+      - uses: actions/checkout@v2
+      # 配置 Java 环境
+      - name: Set up JDK 8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      # 安装 GPG（GNU Privacy Guard）密钥管理工具
+      - name: Install GPG
+        run: sudo apt-get install -y gnupg
+      # 导入 GPG 密钥
+      - name: Import GPG key
+        # 使用 GitHub Secrets 中保存的 GPG_PRIVATE_KEY
+        # 对应的是你本地生成的 GPG 密钥
+        run: echo ${{ secrets.GPG_PRIVATE_KEY }} | base64 --decode | gpg --import --batch --passphrase "${{ secrets.MAVEN_GPG_PASSPHRASE }}"
+      # 部署到 Maven 中央仓库
+      - name: Publish
+        run: |
+          mvn deploy -DskipTests=true -B \
+            # 禁用 Maven 的 log
+            -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
+            # 失败后重试 10 次
+            -DretryFailedDeploymentCount=10 \
+            # 配置部署仓库的地址，此处使用 Sonatype 的服务
+            -Dmaven.repo.remote=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
+            # 跳过默认的部署行为
+            -Dmaven.deploy.skip=true \
+            # 设置 GPG 密钥相关信息
+            -Dmaven.artifact.gpg.keyname=${{ secrets.GPG_KEY_ID }} \
+            -Dmaven.artifact.gpg.passphrase="${{ secrets.MAVEN_GPG_PASSPHRASE }}" \
+            -Dmaven.artifact.gpg.executable=gpg \
+            -Dgpg.executable=gpg \
+            # 配置 Sonatype 的仓库地址
+            -Dsonatype.url=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
+            -Dsonatype.serverId=ossrh
+        # 定义 Secrets，这些变量值从 GitHub Secrets 中获取
+        # 注意：GitHub Secrets 需要在仓库设置中添加
+        secrets:
+          MAVEN_USERNAME:
+            value: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD:
+            value: ${{ secrets.MAVEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE:
+            value: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          GPG_PRIVATE_KEY:
+            value: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_KEY_ID:
+            value: ${{ secrets.GPG_KEY_ID }}

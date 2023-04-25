@@ -20,11 +20,7 @@ import com.mobaijun.common.model.Model;
 import com.mobaijun.common.util.PrintUtil;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -85,16 +81,6 @@ public class MapUtilTest {
 
         list = MapUtil.mapToList(map, Comparator.comparing(Model::getValue)); // 根据值排序
         PrintUtil.println(list); // 输出排序后的 Model 对象
-    }
-
-    @Test
-    public void transMap() {
-        Map<String, String> map = new HashMap<>(10);
-        map.put("apple", "1");
-        map.put("banana", "2");
-        map.put("orange", "3");
-        Map<String, Integer> newMap = MapUtil.transMap(map, Integer::parseInt);
-        System.out.println(newMap); // 输出: {orange=3, banana=2, apple=1}
     }
 
     @Test
