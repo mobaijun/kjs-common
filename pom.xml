@@ -210,6 +210,10 @@
                             <goals>
                                 <goal>jar</goal>
                             </goals>
+                            <configuration>
+                                <!-- Ignore annotation exceptions -->
+                                <additionalOptions>-Xdoclint:none</additionalOptions>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
