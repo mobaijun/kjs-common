@@ -106,7 +106,7 @@ Please note that we are an open source community and we welcome contributions fr
 ## license
 
 `kjs-common`is based on Apache
-Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt) 文件。
+Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
 
 ## author
 
