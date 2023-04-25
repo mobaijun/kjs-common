@@ -37,7 +37,7 @@ This project integrates the excellent open source tools commonly used in the pro
 -   lombok (simplified entity classes)
 -   mapstruct (simplifies parameter passing)
 
-Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
@@ -45,7 +45,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
+-   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
 
 ## develop
 
@@ -120,7 +120,7 @@ We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/t
 
 ![](https://starchart.cc/mobaijun/kjs-common.svg)
 
-## state
+## 状态
 
 ![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
 
