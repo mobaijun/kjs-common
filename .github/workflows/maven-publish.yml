@@ -1,5 +1,6 @@
-name: Publish to Maven Central
-
+# 相当于脚本用途的一个声明
+name: Maven Central Repo Deployment
+# 触发脚本的事件  这里为发布release之后触发
 on:
   # 手动触发
   workflow_dispatch:
@@ -8,53 +9,32 @@ on:
     tags:
       - v*
 
+# 定义一个发行任务
 jobs:
-  # 部署任务
-  deploy:
-    # 运行操作系统类型
+  publish:
+    # 任务运行的环境
     runs-on: ubuntu-latest
-    # 定义任务步骤
+    # 任务的步骤
     steps:
-      # 将代码仓库检出到工作目录
-      - uses: actions/checkout@v2
-      # 配置 Java 环境
-      - name: Set up JDK 8
+      # 1. 声明 checkout 仓库代码到工作区
+      - name: Checkout Git Repo
+        uses: actions/checkout@v2
+      # 2. 安装Java 环境 这里会用到的参数就是 Git Action secrets中配置的，
+      #    取值要在key前面加  secrets.
+      - name: Set up Maven Central Repo
         uses: actions/setup-java@v1
         with:
-          java-version: 8
-      # 安装 GPG（GNU Privacy Guard）密钥管理工具
-      - name: Install GPG
-        run: sudo apt-get install -y gnupg
-      # 导入 GPG 密钥
-      - name: Import GPG key
-        # 使用 GitHub Secrets 中保存的 GPG_PRIVATE_KEY
-        # 对应的是你本地生成的 GPG 密钥
-        run: echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --batch --passphrase "${{ secrets.MAVEN_GPG_PASSPHRASE }}"
-      # 部署到 Maven 中央仓库
-      - name: Publish
-        run: |
-          mvn deploy -e -DskipTests=true -B \
-            # 禁用 Maven 的 log
-            -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
-            # 失败后重试 10 次
-            -DretryFailedDeploymentCount=10 \
-            # 配置部署仓库的地址，此处使用 Sonatype 的服务
-            -Dmaven.repo.remote=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
-            # 跳过默认的部署行为
-            -Dmaven.deploy.skip=true \
-            # 设置 GPG 密钥相关信息
-            -Dmaven.artifact.gpg.keyname=${{ secrets.GPG_KEY_ID }} \
-            -Dmaven.artifact.gpg.passphrase="${{ secrets.MAVEN_GPG_PASSPHRASE }}" \
-            -Dmaven.artifact.gpg.executable=gpg \
-            -Dgpg.executable=gpg \
-            # 配置 Sonatype 的仓库地址
-            -Dsonatype.url=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
-            -Dsonatype.serverId=ossrh
-        # 定义 Secrets，这些变量值从 GitHub Secrets 中获取
-        # 注意：GitHub Secrets 需要在仓库设置中添加
-        env:
-          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          java-version: 1.8
+          server-id: sonatype-nexus-staging
+          server-username: ${{ secrets.MAVEN_USERNAME }}
+          server-password: ${{ secrets.MAVEN_PASSWORD }}
+          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+      # 3. 发布到Maven中央仓库
+      - name: Publish to Maven Central Repo
+        # 这里用到了其他人写的action脚本，详细可以去看他的文档。
+        uses: samuelmeuli/action-maven-publish@v1
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg_passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          nexus_username: ${{ secrets.MAVEN_USERNAME }}
+          nexus_password: ${{ secrets.MAVEN_PASSWORD }}
