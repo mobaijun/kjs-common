@@ -33,7 +33,7 @@ jobs:
       # 部署到 Maven 中央仓库
       - name: Publish
         run: |
-          mvn deploy -DskipTests=true -B \
+          mvn deploy -e -DskipTests=true -B \
             # 禁用 Maven 的 log
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
             # 失败后重试 10 次
@@ -42,7 +42,6 @@ jobs:
             -Dmaven.repo.remote=https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/ \
             # 跳过默认的部署行为
             -Dmaven.deploy.skip=true \
-            -X \
             # 设置 GPG 密钥相关信息
             -Dmaven.artifact.gpg.keyname=${{ secrets.GPG_KEY_ID }} \
             -Dmaven.artifact.gpg.passphrase="${{ secrets.MAVEN_GPG_PASSPHRASE }}" \
