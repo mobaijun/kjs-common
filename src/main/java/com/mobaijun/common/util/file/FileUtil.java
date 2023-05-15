@@ -15,11 +15,10 @@
  */
 package com.mobaijun.common.util.file;
 
-import com.mobaijun.common.util.date.DateFormat;
+import com.mobaijun.common.constant.JdkConstant;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -37,10 +36,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -68,11 +65,6 @@ public class FileUtil {
      * 正则
      */
     private static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";
-
-    /**
-     * 系统的临时文件夹
-     */
-    private static File tempDir;
 
     static {
         updateTmpDir("april");
@@ -118,26 +110,6 @@ public class FileUtil {
     }
 
     /**
-     * 获取目录下所有文件路径
-     *
-     * @param path 地址
-     * @throws IOException IO 异常
-     */
-    private static void getFileList(File path) throws IOException {
-        File[] listFile = path.listFiles();
-        assert listFile != null;
-        for (File a : listFile) {
-            BasicFileAttributes basicFileAttributes = Files.readAttributes(a.toPath(), BasicFileAttributes.class);
-            if (basicFileAttributes.isDirectory()) {
-                // 递归调用getFile()方法
-                getFileList(new File(a.getAbsolutePath()));
-            } else if (basicFileAttributes.isRegularFile()) {
-                FILE_LIST.add(a.getAbsolutePath());
-            }
-        }
-    }
-
-    /**
      * 复制文件
      *
      * @param src  源地址
@@ -160,7 +132,7 @@ public class FileUtil {
      * @return 临时文件
      */
     public static File getSystemTempDir() {
-        return new File(System.getProperty("java.io.tmpdir"));
+        return new File(System.getProperty(JdkConstant.TMPDIR));
     }
 
     /**
@@ -181,7 +153,7 @@ public class FileUtil {
     public static File getTemplateFile(String name) throws IOException {
         File file;
         do {
-            file = new File(tempDir, System.currentTimeMillis() + "." + name);
+            file = new File(JdkConstant.TMPDIR, System.currentTimeMillis() + "." + name);
         } while (!file.createNewFile());
         return file;
     }
@@ -190,25 +162,18 @@ public class FileUtil {
      * 根据网络路径获取文件输入流
      */
     public static InputStream getInputStreamByUrlPath(String path) throws IOException {
-        // 校验URL的合法性
         URL url;
         try {
             url = new URL(path);
         } catch (MalformedURLException e) {
-            throw new IllegalArgumentException("Invalid URL: " + path);
+            throw new IllegalArgumentException("Invalid URL: " + path, e);
         }
 
-        // 从文件链接里获取文件流
         HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
         httpConnection.setConnectTimeout(5 * 1000);
         httpConnection.setReadTimeout(5 * 1000);
 
-        try {
-            return new BufferedInputStream(httpConnection.getInputStream());
-        } catch (IOException e) {
-            httpConnection.disconnect();
-            throw e;
-        }
+        return httpConnection.getInputStream();
     }
 
     /**
@@ -236,19 +201,13 @@ public class FileUtil {
      * @return 文件列表
      */
     public static List<File> getAllFilesInDirectory(String directoryPath) {
-        List<File> fileList = new ArrayList<>();
         File directory = new File(directoryPath);
         if (!directory.isDirectory()) {
             throw new IllegalArgumentException(directoryPath + " is not a directory");
         }
-        for (File file : Objects.requireNonNull(directory.listFiles())) {
-            if (file.isDirectory()) {
-                fileList.addAll(getAllFilesInDirectory(file.getAbsolutePath()));
-            } else {
-                fileList.add(file);
-            }
-        }
-        return fileList;
+        return Arrays.stream(Objects.requireNonNull(directory.listFiles()))
+                .flatMap(file -> file.isDirectory() ? getAllFilesInDirectory(file.getAbsolutePath()).stream() : Stream.of(file))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -309,7 +268,7 @@ public class FileUtil {
             return false;
         }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, append))) {
-            for (Object line : lines) {
+            for (T line : lines) {
                 writer.write(line.toString());
                 writer.newLine();
             }
@@ -319,7 +278,6 @@ public class FileUtil {
             return false;
         }
     }
-
 
     /**
      * 该方法首先判断传入的文件名是否为null，如果是，则直接返回null。
@@ -335,29 +293,6 @@ public class FileUtil {
             return null;
         }
         int dotIndex = fileName.lastIndexOf(".");
-        if (dotIndex == -1) {
-            return fileName;
-        }
-        return fileName.substring(0, dotIndex);
-    }
-
-    /**
-     * 获取文件的创建时间等详情
-     *
-     * @param filePath 文件路径
-     * @return 文件创建时间等详情
-     */
-    public static String getFileDetails(String filePath) {
-        Path path = new File(filePath).toPath();
-        BasicFileAttributes attributes;
-        try {
-            attributes = Files.readAttributes(path, BasicFileAttributes.class);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        LocalDateTime creationTime = LocalDateTime.ofInstant(attributes.creationTime().toInstant(), ZoneId.systemDefault());
-        LocalDateTime lastAccessTime = LocalDateTime.ofInstant(attributes.lastAccessTime().toInstant(), ZoneId.systemDefault());
-        LocalDateTime lastModifiedTime = LocalDateTime.ofInstant(attributes.lastModifiedTime().toInstant(), ZoneId.systemDefault());
-        return String.format("Creation time: %s, Last access time: %s, Last modified time: %s", creationTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS), lastAccessTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS), lastModifiedTime.format(DateFormat.YYYY_MM_DD_HH_MM_SS));
+        return (dotIndex == -1) ? fileName : fileName.substring(0, dotIndex);
     }
 }
