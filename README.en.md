@@ -64,7 +64,7 @@ You can pass`kjs-common`Add to your project as a dependency.
 
 ### maven
 
-If you are using Maven, add the following to your`pom.xml`In the file:
+如果您使用的是 Maven，请将以下内容添加到您的 `pom.xml`In the file:
 
 ```xml
 
@@ -98,7 +98,7 @@ If you want to contribute code or make a suggestion, please follow these steps:
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  push to branch (`git push origin feature/AmazingFeature`)
+4.  推送到分支 (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
