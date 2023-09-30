@@ -54,7 +54,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## Example
 
-Test case address:[测试用例地址](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
 > All dependent modules will be updated to the latest version simultaneously
 
