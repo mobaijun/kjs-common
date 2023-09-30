@@ -15,7 +15,7 @@
     <!-- Package Description -->
     <groupId>com.mobaijun</groupId>
     <artifactId>kjs-common</artifactId>
-    <version>1.1.16</version>
+    <version>2.0.0</version>
 
     <!-- Project Introduction -->
     <name>kjs-common</name>
@@ -65,9 +65,9 @@
     <!--  Dependency version management -->
     <properties>
         <!-- Engineering JDK version -->
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-        <java.version>1.8</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>21</java.version>
         <!-- Engineering source code -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
@@ -77,7 +77,7 @@
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
-        <slf4j-api.version>[2.0.+,)</slf4j-api.version>
+        <slf4j-api.version>[2.+,)</slf4j-api.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
         <lombok.version>[1.+,)</lombok.version>
         <junit.version>4.13.2</junit.version>
@@ -87,7 +87,7 @@
     <dependencies>
         <!-- Simplified entity class -->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <!-- https://central.sonatype.com/artifact/org.projectlombok/lombok/versions -->
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
@@ -96,14 +96,14 @@
 
         <!-- type converter -->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+            <!-- https://central.sonatype.com/artifact/org.mapstruct/mapstruct -->
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+            <!-- https://central.sonatype.com/artifact/org.mapstruct/mapstruct-processor -->
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
@@ -112,7 +112,7 @@
 
         <!-- log -->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <!-- https://central.sonatype.com/artifact/org.slf4j/slf4j-api/versions -->
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j-api.version}</version>
@@ -121,7 +121,7 @@
 
         <!-- junit -->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/junit/junit -->
+            <!-- https://central.sonatype.com/artifact/junit/junit/versions -->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
