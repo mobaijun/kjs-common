@@ -28,43 +28,43 @@
 
 -   [English](README.en.md)
 
-## overview
+## Overview
 
-kjs-common is a Java-based tool class library that encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
-This project integrates the excellent open source tools commonly used in the project:
+This project integrates excellent open source tools commonly used in projects:
 
--   lombok (simplified entity classes)
+-   lombok (simplified entity class)
 -   mapstruct (simplifies parameter passing)
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
-## Functions and Features
+## Functions and features
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
--   Stream processing tool class and file tool class are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, so you can use them with confidence.
+-   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
+-   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
 
 ## develop
 
-> This project plans to support JDK 17 and above in version 2.0, and versions below 2.0 use JDK 8 as the cornerstone, which means that future 2.X versions will not be compatible with projects below JDK 17.
-> Projects within JDK 17 are recommended to use versions within 2.0
+> This project plans to support JDK 17 and above in version 2.0. Versions below 2.0 are based on JDK 8. This means that future 2.X versions will not be compatible with projects below JDK 17. If
+> It is recommended that projects within JDK 17 or below use versions below 2.0
 
-## example
+## Example
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> All dependent modules will be updated to the latest version synchronously
+> All dependent modules will be updated to the latest version simultaneously
 
 ## quick start
 
-You can pass`kjs-common`Add to your project as a dependency.
+You can use`kjs-common`Add to your project as dependency.
 
 ### maven
 
-如果您使用的是 Maven，请将以下内容添加到您的 `pom.xml`In the file:
+If you are using Maven, add the following to your`pom.xml`In the file:
 
 ```xml
 
@@ -77,7 +77,7 @@ You can pass`kjs-common`Add to your project as a dependency.
 
 ### Gradle
 
-In Gradle, you can add the following to your`build.gradle`In the file:
+In Gradle you can add the following to your`build.gradle`In the file:
 
 ```json
 dependencies {
@@ -87,21 +87,21 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released synchronously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released simultaneously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
 ## contribute
 
-If you want to contribute code or make a suggestion, please follow these steps:
+If you would like to contribute code or make suggestions, please follow these steps:
 
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  推送到分支 (`git push origin feature/AmazingFeature`)
+3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guidelines](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
@@ -110,11 +110,11 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@被白军](https://github.com/mobaijun)
+-   [@ Mobaijun](https://github.com/mobaijun)
 
 ## Documentation and examples
 
-We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
@@ -124,6 +124,6 @@ We provide unit testing[sample project](https://github.com/mobaijun/kjs-common/t
 
 ![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
 
-## thank you
+## Acknowledgments
 
 Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
