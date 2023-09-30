@@ -126,4 +126,4 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ## Acknowledgments
 
-Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
+感谢您使用 `kjs-common`, we will continue to work hard to provide developers with a better tool library.
