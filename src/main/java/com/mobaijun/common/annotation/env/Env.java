@@ -17,6 +17,13 @@ package com.mobaijun.common.annotation.env;
 
 import com.mobaijun.common.enums.EnvEnum;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * annotation name: Env<br>
@@ -24,6 +31,10 @@ import com.mobaijun.common.enums.EnvEnum;
  *
  * @author MoBaiJun 2022/12/16 16:00
  */
+@Inherited
+@Documented
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Env {
 
     /**
