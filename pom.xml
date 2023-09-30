@@ -21,7 +21,7 @@
     <name>kjs-common</name>
     <inceptionYear>2022</inceptionYear>
     <url>https://github.com/mobaijun/kjs-common</url>
-    <description>A simple and useful java commons packaging</description>
+    <description>A simple and useful java commons packaging </description>
 
     <!--  license  -->
     <licenses>
