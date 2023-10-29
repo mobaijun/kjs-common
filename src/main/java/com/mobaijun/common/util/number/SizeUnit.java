@@ -70,24 +70,12 @@ public enum SizeUnit {
      * @return Number of bytes corresponding to the provided number of particular memory units.
      */
     public double toBytes(final long input) {
-        double bytes;
-        switch (this) {
-            case BYTES:
-                bytes = input;
-                break;
-            case KILOBYTES:
-                bytes = input * BYTES_PER_KILOBYTE;
-                break;
-            case MEGABYTES:
-                bytes = input * BYTES_PER_KILOBYTE * KILOBYTES_PER_MEGABYTE;
-                break;
-            case GIGABYTES:
-                bytes = input * BYTES_PER_KILOBYTE * KILOBYTES_PER_MEGABYTE * MEGABYTES_PER_GIGABYTE;
-                break;
-            default:
-                throw new RuntimeException("No value '" + this + "' recognized for enum MemoryUnit.");
-        }
-        return bytes;
+        return switch (this) {
+            case BYTES -> input;
+            case KILOBYTES -> input * BYTES_PER_KILOBYTE;
+            case MEGABYTES -> input * BYTES_PER_KILOBYTE * KILOBYTES_PER_MEGABYTE;
+            case GIGABYTES -> input * BYTES_PER_KILOBYTE * KILOBYTES_PER_MEGABYTE * MEGABYTES_PER_GIGABYTE;
+        };
     }
 
     /**
@@ -97,24 +85,12 @@ public enum SizeUnit {
      * @return Number of kilobytes corresponding to the provided number of particular memory units.
      */
     public double toKiloBytes(final long input) {
-        double kilobytes;
-        switch (this) {
-            case BYTES:
-                kilobytes = input / BYTES_PER_KILOBYTE;
-                break;
-            case KILOBYTES:
-                kilobytes = input;
-                break;
-            case MEGABYTES:
-                kilobytes = input * KILOBYTES_PER_MEGABYTE;
-                break;
-            case GIGABYTES:
-                kilobytes = input * KILOBYTES_PER_MEGABYTE * MEGABYTES_PER_GIGABYTE;
-                break;
-            default:
-                throw new RuntimeException("No value '" + this + "' recognized for enum MemoryUnit.");
-        }
-        return kilobytes;
+        return switch (this) {
+            case BYTES -> input / BYTES_PER_KILOBYTE;
+            case KILOBYTES -> input;
+            case MEGABYTES -> input * KILOBYTES_PER_MEGABYTE;
+            case GIGABYTES -> input * KILOBYTES_PER_MEGABYTE * MEGABYTES_PER_GIGABYTE;
+        };
     }
 
     /**
@@ -124,24 +100,12 @@ public enum SizeUnit {
      * @return Number of megabytes corresponding to the provided number of particular memory units.
      */
     public double toMegaBytes(final long input) {
-        double megabytes;
-        switch (this) {
-            case BYTES:
-                megabytes = input / BYTES_PER_KILOBYTE / KILOBYTES_PER_MEGABYTE;
-                break;
-            case KILOBYTES:
-                megabytes = input / KILOBYTES_PER_MEGABYTE;
-                break;
-            case MEGABYTES:
-                megabytes = input;
-                break;
-            case GIGABYTES:
-                megabytes = input * MEGABYTES_PER_GIGABYTE;
-                break;
-            default:
-                throw new RuntimeException("No value '" + this + "' recognized for enum MemoryUnit.");
-        }
-        return megabytes;
+        return switch (this) {
+            case BYTES -> input / BYTES_PER_KILOBYTE / KILOBYTES_PER_MEGABYTE;
+            case KILOBYTES -> input / KILOBYTES_PER_MEGABYTE;
+            case MEGABYTES -> input;
+            case GIGABYTES -> input * MEGABYTES_PER_GIGABYTE;
+        };
     }
 
     /**
@@ -151,23 +115,11 @@ public enum SizeUnit {
      * @return Number of gigabytes corresponding to the provided number of particular memory units.
      */
     public double toGigaBytes(final long input) {
-        double gigabytes;
-        switch (this) {
-            case BYTES:
-                gigabytes = input / BYTES_PER_KILOBYTE / KILOBYTES_PER_MEGABYTE / MEGABYTES_PER_GIGABYTE;
-                break;
-            case KILOBYTES:
-                gigabytes = input / KILOBYTES_PER_MEGABYTE / MEGABYTES_PER_GIGABYTE;
-                break;
-            case MEGABYTES:
-                gigabytes = input / MEGABYTES_PER_GIGABYTE;
-                break;
-            case GIGABYTES:
-                gigabytes = input;
-                break;
-            default:
-                throw new RuntimeException("No value '" + this + "' recognized for enum MemoryUnit.");
-        }
-        return gigabytes;
+        return switch (this) {
+            case BYTES -> input / BYTES_PER_KILOBYTE / KILOBYTES_PER_MEGABYTE / MEGABYTES_PER_GIGABYTE;
+            case KILOBYTES -> input / KILOBYTES_PER_MEGABYTE / MEGABYTES_PER_GIGABYTE;
+            case MEGABYTES -> input / MEGABYTES_PER_GIGABYTE;
+            case GIGABYTES -> input;
+        };
     }
 }

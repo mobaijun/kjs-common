@@ -37,15 +37,15 @@ public final class PathConstant {
     /**
      * 目标class文件路径后缀
      */
-    public static final String TARGET_CLASSES_PATH_SUFFIX = "target/classes/";
+    public static final String TARGET_CLASSES_PATH_SUFFIX = MavenConstant.TARGET_CLASSES_PATH_SUFFIX;
 
     /**
      * java源文件默认存放路径
      */
-    public static final String SRC_MAIN_JAVA_PATH = "src/main/java/";
+    public static final String SRC_MAIN_JAVA_PATH = MavenConstant.SRC_MAIN_JAVA_PATH;
 
     /**
      * 资源文件存放路径
      */
-    public static final String SRC_MAIN_RESOURCES_PATH = "/src/main/resources";
+    public static final String SRC_MAIN_RESOURCES_PATH = MavenConstant.SRC_MAIN_RESOURCES_PATH;
 }

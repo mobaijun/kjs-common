@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.date;
 
 import com.mobaijun.common.constant.DateConstant;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.management.ManagementFactory;
 import java.text.SimpleDateFormat;
@@ -44,6 +45,7 @@ import java.util.Objects;
  *
  * @author MoBaiJun 2022/10/28 8:42
  */
+@Slf4j
 public class LocalDateUtil {
 
 
@@ -614,21 +616,24 @@ public class LocalDateUtil {
     }
 
     /**
-     * long 转 （yyyy-MM-dd HH:mm:ss）字符串日期格式
+     * long 转 (yyyy-MM-dd HH:mm:ss) 字符串日期格式
      *
      * @param time 时间
      * @return 时间字符串
      */
     public static String longToString(Long time) {
-        // 要转换的时间格式
-        SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS);
-        try {
-            Date date = sdf.parse(sdf.format(time));
-            return sdf.format(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        if (time == null) {
+            return "";
         }
+
+        // 创建 SimpleDateFormat 实例，用于格式化日期
+        SimpleDateFormat sdf = new SimpleDateFormat(DateConstant.YYYY_MM_DD_HH_MM_SS);
+
+        // 将时间戳转换为日期对象
+        Date date = new Date(time);
+
+        // 使用 SimpleDateFormat 格式化日期为字符串
+        return sdf.format(date);
     }
 
     /**

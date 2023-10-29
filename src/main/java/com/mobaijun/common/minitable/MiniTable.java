@@ -231,14 +231,12 @@ public class MiniTable {
     /**
      * 构建边框行的方法.
      *
-     * @param datas 行
+     * @param data 行
      */
-    private void buildRowBorder(List<String> datas) {
+    private void buildRowBorder(List<String> data) {
         this.join.append("+");
-        for (int i = 0, len = datas.size(); i < len; i++) {
-            for (int j = 0; j < this.maxColMap.get(i) + 2; j++) {
-                this.join.append("-");
-            }
+        for (int i = 0, len = data.size(); i < len; i++) {
+            this.join.append("-".repeat(Math.max(0, this.maxColMap.get(i) + 2)));
             this.join.append("+");
         }
         this.join.append("\n");

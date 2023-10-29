@@ -19,7 +19,6 @@ import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.util.text.Charsets;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 
@@ -37,9 +36,8 @@ public class ParamUtil {
      *
      * @param data Map类型的参数
      * @return url请求的参数
-     * @throws UnsupportedEncodingException 异常
      */
-    public static String getUrlParamsByMap(Map<String, String> data) throws UnsupportedEncodingException {
+    public static String getUrlParamsByMap(Map<String, String> data) {
         if (data == null || data.isEmpty()) {
             return null;
         }
@@ -49,7 +47,7 @@ public class ParamUtil {
 
             sb.append(i.getKey())
                     .append(StringConstant.EQUAL)
-                    .append(URLEncoder.encode(i.getValue(), Charsets.UTF_8.name()))
+                    .append(URLEncoder.encode(i.getValue(), Charsets.UTF_8))
                     .append(StringConstant.AND);
 
         }

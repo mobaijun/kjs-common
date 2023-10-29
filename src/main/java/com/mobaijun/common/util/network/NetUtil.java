@@ -15,9 +15,7 @@
  */
 package com.mobaijun.common.util.network;
 
-import com.mobaijun.common.constant.JdkConstant;
-
-import java.util.Arrays;
+import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -35,14 +33,14 @@ public class NetUtil {
      * @param host 主机地址
      * @return true false
      */
-    private static boolean ping(String host) {
+    public static boolean isHostReachable(String host) {
         try {
-            boolean isWindows = System.getProperty(JdkConstant.OS_NAME).toLowerCase().contains("win");
+            boolean isWindows = System.getProperty("os.name").toLowerCase().contains("win");
             ProcessBuilder processBuilder = new ProcessBuilder("ping", isWindows ? "-n" : "-c", "1", host);
             Process proc = processBuilder.start();
             int returnVal = proc.waitFor();
             return returnVal == 0;
-        } catch (Exception e) {
+        } catch (IOException | InterruptedException e) {
             return false;
         }
     }
@@ -50,15 +48,19 @@ public class NetUtil {
     /**
      * 获取一个ping通的ip
      *
-     * @param ipAdders ip数组
+     * @param ipAddresses ip数组
      * @return ip
      */
-    public static String getOneUseFullIp(String[] ipAdders) {
-        AtomicReference<String> ip = new AtomicReference<>("");
-        Arrays.stream(ipAdders).forEach(temp -> {
-            ip.set(temp);
-            ping(ip.get());
-        });
-        return ip.get();
+    public static String getFirstReachableIpAddress(String[] ipAddresses) {
+        AtomicReference<String> reachableIp = new AtomicReference<>(null);
+
+        for (String ipAddress : ipAddresses) {
+            if (isHostReachable(ipAddress)) {
+                reachableIp.set(ipAddress);
+                break;
+            }
+        }
+
+        return reachableIp.get();
     }
 }

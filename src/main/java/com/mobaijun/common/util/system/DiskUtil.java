@@ -57,9 +57,9 @@ public class DiskUtil {
         Map<String, String> map = new ConcurrentHashMap<>(1);
         OperatingSystemMXBean mem = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
         // 获取内存总容量
-        map.put("totalMemorySize", transformation(mem.getTotalPhysicalMemorySize()));
+        map.put("totalMemorySize", transformation(mem.getTotalMemorySize()));
         // 获取可用内存容量
-        map.put("freeMemorySize", transformation(mem.getFreePhysicalMemorySize()));
+        map.put("freeMemorySize", transformation(mem.getFreeMemorySize()));
         return map;
     }
 

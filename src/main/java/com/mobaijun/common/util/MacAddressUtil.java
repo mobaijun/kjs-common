@@ -66,7 +66,7 @@ public class MacAddressUtil {
                 tmpMacList.add(sb.toString());
             }
         }
-        if (tmpMacList.size() <= 0) {
+        if (tmpMacList.isEmpty()) {
             return tmpMacList;
         }
         // 去重，同一个网卡的ipv4,ipv6得到的mac都是一样的

@@ -59,7 +59,7 @@ public class UrlParamsUtil {
         }
         Map<String, String> result = CollectionUtil.newHashMap();
         for (String item : paramsItems) {
-            if (item == null || item.length() == 0 || !item.contains(separator)) {
+            if (item == null || item.isEmpty() || !item.contains(separator)) {
                 continue;
             }
             String[] keyValue = item.split(separator);
@@ -95,7 +95,7 @@ public class UrlParamsUtil {
      * @param keyValues keyValues
      */
     public static void add(Map<String, String> originMap, String... keyValues) {
-        if (originMap == null || originMap.size() == 0) {
+        if (originMap == null || originMap.isEmpty()) {
             return;
         }
         for (int i = 0; i < keyValues.length; i += NumberConstant.TWO) {

@@ -78,11 +78,9 @@ public class SqlUtil {
      */
     public static String parse(List<?> list) {
         StringBuilder str = new StringBuilder();
-        if (list != null && list.size() > 0) {
+        if (list != null && !list.isEmpty()) {
             str.append(StringConstant.QUESTION_MARK);
-            for (int i = 1; i < list.size(); i++) {
-                str.append(",?");
-            }
+            str.append(",?".repeat(list.size() - 1));
         }
         return str.toString();
     }

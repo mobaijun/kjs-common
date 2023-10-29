@@ -553,10 +553,10 @@ public class StringUtil {
      * @return 字符串数组
      */
     public static String[] split(String input, String delimiter) {
-        if (input == null || input.length() == 0) {
+        if (input == null || input.isEmpty()) {
             return new String[0];
         }
-        if (delimiter == null || delimiter.length() == 0) {
+        if (delimiter == null || delimiter.isEmpty()) {
             return new String[]{input};
         }
         return input.split(Pattern.quote(delimiter));

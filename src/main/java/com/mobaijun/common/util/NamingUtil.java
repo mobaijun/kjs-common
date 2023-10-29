@@ -45,7 +45,7 @@ public class NamingUtil {
             return StringConstant.BLANK;
         }
         Matcher matcher = RegxConstant.HUMP_PATTERN.matcher(name);
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(buffer, StringConstant.HYPHEN + matcher.group(0).toLowerCase());
         }
@@ -88,7 +88,7 @@ public class NamingUtil {
         }
         name = name.toLowerCase();
         Matcher matcher = RegxConstant.UNDERLINE_PATTERN.matcher(name);
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(buffer, matcher.group(1).toUpperCase());
         }

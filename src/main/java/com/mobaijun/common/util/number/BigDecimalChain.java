@@ -35,7 +35,7 @@ public class BigDecimalChain {
     private BigDecimal value;
 
     public BigDecimalChain(Object value) {
-        this.value = convertBigDecimal(value, null);
+        this.value = convertToBigDecimal(value, null);
     }
 
     /**
@@ -164,37 +164,19 @@ public class BigDecimalChain {
     }
 
     /**
-     * 基本运算符
-     *
-     * @param operatorFunction 运算符函数
-     * @param other            other
-     * @param preoperational   preoperational
-     * @return BigDecimalChain
-     */
-    private synchronized BigDecimalChain baseOperator(Function<BigDecimal, BigDecimal> operatorFunction, Object other, Integer preoperational) {
-        if (other == null) {
-            return this;
-        }
-        if (other instanceof BigDecimalChain) {
-            this.value = operatorFunction.apply(((BigDecimalChain) other).getValue());
-            return this;
-        }
-        this.value = operatorFunction.apply(convertBigDecimal(other, preoperational));
-        return this;
-    }
-
-    /**
      * 转换大小树
      *
      * @param value 值
      * @param scale 取值
      * @return BigDecimal
      */
-    private BigDecimal convertBigDecimal(Object value, Integer scale) {
+    public static BigDecimal convertToBigDecimal(Object value, Integer scale) {
         if (value == null) {
             return BigDecimal.ZERO;
         }
+
         BigDecimal res;
+
         if (value instanceof Number) {
             res = BigDecimal.valueOf(((Number) value).doubleValue());
         } else {
@@ -206,8 +188,31 @@ public class BigDecimalChain {
         }
 
         if (scale != null) {
-            res = BigDecimal.valueOf(res.setScale(scale, RoundingMode.HALF_UP).doubleValue());
+            res = res.setScale(scale, RoundingMode.HALF_UP);
         }
+
         return res;
+    }
+
+    /**
+     * 基本运算符
+     *
+     * @param operatorFunction 运算符函数
+     * @param other            other
+     * @param precision        precision
+     * @return BigDecimalChain
+     */
+    private synchronized BigDecimalChain baseOperator(Function<BigDecimal, BigDecimal> operatorFunction, Object other, Integer precision) {
+        if (other == null) {
+            return this;
+        }
+
+        if (other instanceof BigDecimalChain) {
+            this.value = operatorFunction.apply(((BigDecimalChain) other).getValue());
+        } else {
+            this.value = operatorFunction.apply(convertToBigDecimal(other, precision));
+        }
+
+        return this;
     }
 }

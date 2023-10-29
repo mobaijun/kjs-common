@@ -74,7 +74,7 @@ public class ObjectUtil {
             return ((Optional<?>) obj).isPresent();
         }
         if (obj instanceof CharSequence) {
-            return ((CharSequence) obj).length() == 0;
+            return ((CharSequence) obj).isEmpty();
         }
         if (obj.getClass().isArray()) {
             return Array.getLength(obj) == 0;

@@ -17,6 +17,7 @@ package com.mobaijun.common.license;
 
 import com.mobaijun.common.util.file.FileUtil;
 import com.mobaijun.common.util.text.Charsets;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,6 +39,7 @@ import java.util.stream.Stream;
  *
  * @author MoBaiJun 2022/5/12 11:35
  */
+@Slf4j
 public class LicenseTitleAppenderUtil {
 
     /**
@@ -97,11 +99,11 @@ public class LicenseTitleAppenderUtil {
                                 }
                             }
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            log.error("Content reading and writing failed:" + e.getMessage());
                         }
                     });
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Content reading and writing failed:" + e.getMessage());
         }
     }
 }
