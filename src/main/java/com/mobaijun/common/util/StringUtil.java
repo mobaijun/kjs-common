@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -609,5 +610,27 @@ public class StringUtil {
         return collection.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(delimiter));
+    }
+
+    /**
+     * 在原始字符串中的指定位置插入另一个字符串。
+     *
+     * @param original 原始字符串
+     * @param insert   要插入的字符串
+     * @param position 要插入的位置（从0开始计数）
+     * @return 插入后的新字符串
+     */
+    public static String insertString(String original, String insert, int position) {
+        if (original == null || insert == null) {
+            return original;
+        }
+
+        if (position < 0 || position > original.length()) {
+            throw new IllegalArgumentException("插入位置超出字符串范围");
+        }
+
+        return IntStream.range(0, original.length())
+                .mapToObj(i -> (i == position) ? insert : String.valueOf(original.charAt(i)))
+                .collect(Collectors.joining());
     }
 }
