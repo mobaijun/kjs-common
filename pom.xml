@@ -80,7 +80,7 @@
         <slf4j-api.version>[2.+,)</slf4j-api.version>
         <mapstruct.version>[1.+,)</mapstruct.version>
         <lombok.version>[1.+,)</lombok.version>
-        <junit.version>4.13.2</junit.version>
+        <junit.version>[4.,)</junit.version>
         <maven.test.skip>true</maven.test.skip>
     </properties>
 
@@ -129,11 +129,11 @@
         </dependency>
     </dependencies>
 
-    <!-- snapshots -->
+    <!-- ossrh -->
     <repositories>
         <repository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
     </repositories>
 
