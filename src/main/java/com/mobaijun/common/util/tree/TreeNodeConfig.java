@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util.tree;
 
+import lombok.Setter;
+
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: TreeNodeConfig<br>
@@ -22,6 +24,7 @@ package com.mobaijun.common.util.tree;
  *
  * @author MoBaiJun 2022/11/5 23:47
  */
+@Setter
 public class TreeNodeConfig {
 
     /**
@@ -31,26 +34,42 @@ public class TreeNodeConfig {
 
     /**
      * 属性
+     * -- SETTER --
+     * set id
+     *
+     * @param idKey id
      */
     private String idKey;
 
     /**
+     * -- SETTER --
+     * set code
      *
+     * @param codeKey code
      */
     private String codeKey;
 
     /**
+     * -- SETTER --
+     * set name
      *
+     * @param nameKey name
      */
     private String nameKey;
 
     /**
+     * -- SETTER --
+     * set children
      *
+     * @param childrenKey children
      */
     private String childrenKey;
 
     /**
+     * -- SETTER --
+     * set parentId
      *
+     * @param parentIdKey parentId
      */
     private String parentIdKey;
 
@@ -64,30 +83,12 @@ public class TreeNodeConfig {
     }
 
     /**
-     * set id
-     *
-     * @param idKey id
-     */
-    public void setIdKey(String idKey) {
-        this.idKey = idKey;
-    }
-
-    /**
      * get code
      *
      * @return code
      */
     public String getCodeKey() {
         return getOrDefault(codeKey, TreeConstant.TREE_CODE);
-    }
-
-    /**
-     * set code
-     *
-     * @param codeKey code
-     */
-    public void setCodeKey(String codeKey) {
-        this.codeKey = codeKey;
     }
 
     /**
@@ -100,15 +101,6 @@ public class TreeNodeConfig {
     }
 
     /**
-     * set name
-     *
-     * @param nameKey name
-     */
-    public void setNameKey(String nameKey) {
-        this.nameKey = nameKey;
-    }
-
-    /**
      * get children
      *
      * @return children
@@ -118,30 +110,12 @@ public class TreeNodeConfig {
     }
 
     /**
-     * set children
-     *
-     * @param childrenKey children
-     */
-    public void setChildrenKey(String childrenKey) {
-        this.childrenKey = childrenKey;
-    }
-
-    /**
      * get parentId
      *
      * @return parentId
      */
     public String getParentIdKey() {
         return getOrDefault(parentIdKey, TreeConstant.TREE_PARENT_ID);
-    }
-
-    /**
-     * set parentId
-     *
-     * @param parentIdKey parentId
-     */
-    public void setParentIdKey(String parentIdKey) {
-        this.parentIdKey = parentIdKey;
     }
 
     /**

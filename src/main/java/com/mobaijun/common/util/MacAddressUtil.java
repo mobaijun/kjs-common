@@ -15,14 +15,14 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.collection.CollectionUtil;
-
 import java.net.InetAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -39,37 +39,42 @@ public class MacAddressUtil {
      * <br>
      * 一台机器不一定有多个网卡，所以返回的是数组
      *
-     * @return 集合地址
-     * @throws Exception Exception
+     * @return 包含地址信息的 Optional 列表，可能为空
      */
-    public static List<String> getMacList() throws Exception {
-        Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces();
-        StringBuilder sb = new StringBuilder();
-        ArrayList<String> tmpMacList = CollectionUtil.newArrayList();
-        while (en.hasMoreElements()) {
-            NetworkInterface face = en.nextElement();
-            List<InterfaceAddress> adds = face.getInterfaceAddresses();
-            for (InterfaceAddress addr : adds) {
-                InetAddress ip = addr.getAddress();
-                NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-                if (network == null) {
-                    continue;
+    public static Optional<List<String>> getMacList() {
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            List<String> macList = new ArrayList<>();
+            StringBuilder sb = new StringBuilder();
+
+            while (networkInterfaces.hasMoreElements()) {
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
+                List<InterfaceAddress> interfaceAddresses = networkInterface.getInterfaceAddresses();
+
+                for (InterfaceAddress interfaceAddress : interfaceAddresses) {
+                    InetAddress ip = interfaceAddress.getAddress();
+                    NetworkInterface associatedNetwork = NetworkInterface.getByInetAddress(ip);
+
+                    if (associatedNetwork == null) {
+                        continue;
+                    }
+
+                    byte[] mac = associatedNetwork.getHardwareAddress();
+
+                    if (mac != null) {
+                        sb.delete(0, sb.length());
+                        for (int i = 0; i < mac.length; i++) {
+                            sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+                        }
+                        macList.add(sb.toString());
+                    }
                 }
-                byte[] mac = network.getHardwareAddress();
-                if (mac == null) {
-                    continue;
-                }
-                sb.delete(0, sb.length());
-                for (int i = 0; i < mac.length; i++) {
-                    sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
-                }
-                tmpMacList.add(sb.toString());
             }
+
+            // 去重，同一个网卡的 IPv4 和 IPv6 得到的 mac 都是一样的
+            return Optional.of(macList.stream().distinct().collect(Collectors.toList()));
+        } catch (SocketException e) {
+            return Optional.empty();
         }
-        if (tmpMacList.isEmpty()) {
-            return tmpMacList;
-        }
-        // 去重，同一个网卡的ipv4,ipv6得到的mac都是一样的
-        return tmpMacList.stream().distinct().collect(Collectors.toList());
     }
 }

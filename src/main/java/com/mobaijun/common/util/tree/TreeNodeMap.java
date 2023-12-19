@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.util.tree;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
  */
 public class TreeNodeMap extends LinkedHashMap<String, Object> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 8376668307601977428L;
 
     /**

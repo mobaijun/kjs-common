@@ -20,6 +20,7 @@ import com.mobaijun.common.constant.StringConstant;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -62,7 +63,7 @@ public class StringUtil {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(Collection<?> coll) {
-        return ObjectUtil.isNull(coll) || coll.isEmpty();
+        return Objects.isNull(coll) || coll.isEmpty();
     }
 
     /**
@@ -72,7 +73,7 @@ public class StringUtil {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(Object[] objects) {
-        return ObjectUtil.isNull(objects) || (objects.length == 0);
+        return Objects.isNull(objects) || (objects.length == 0);
     }
 
     /**
@@ -82,7 +83,7 @@ public class StringUtil {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(Map<?, ?> map) {
-        return ObjectUtil.isNull(map) || map.isEmpty();
+        return Objects.isNull(map) || map.isEmpty();
     }
 
     /**
@@ -92,7 +93,7 @@ public class StringUtil {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(String str) {
-        return ObjectUtil.isNull(str) || StringConstant.EMPTY_STRING.equals(str.trim());
+        return Objects.isNull(str) || StringConstant.EMPTY_STRING.equals(str.trim());
     }
 
     /**

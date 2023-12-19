@@ -15,15 +15,14 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.collection.CollectionUtil;
-import com.mobaijun.common.constant.RegxConstant;
 import com.mobaijun.common.constant.StringConstant;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -33,6 +32,10 @@ import java.util.regex.Matcher;
  * @author MoBaiJun 2022/11/22 11:33
  */
 public class NamingUtil {
+
+    private static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
+
+    private static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
 
     /**
      * 驼峰转中划线
@@ -44,10 +47,10 @@ public class NamingUtil {
         if (name.isEmpty()) {
             return StringConstant.BLANK;
         }
-        Matcher matcher = RegxConstant.HUMP_PATTERN.matcher(name);
+        Matcher matcher = HUMP_PATTERN.matcher(name);
         StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
-            matcher.appendReplacement(buffer, StringConstant.HYPHEN + matcher.group(0).toLowerCase());
+            matcher.appendReplacement(buffer, StringConstant.UNDERLINE + matcher.group(0).toLowerCase());
         }
         matcher.appendTail(buffer);
         return buffer.toString();
@@ -63,8 +66,8 @@ public class NamingUtil {
         StringBuilder buf = new StringBuilder();
         for (int i = 0; i < name.length(); ++i) {
             char ch = name.charAt(i);
-            if (ch >= 'A' && ch <= 'Z') {
-                char chars = (char) (ch + 32);
+            if (Character.isUpperCase(ch)) {
+                char chars = Character.toLowerCase(ch);
                 if (i > 0) {
                     buf.append(StringConstant.UNDERLINE);
                 }
@@ -87,7 +90,7 @@ public class NamingUtil {
             return StringConstant.BLANK;
         }
         name = name.toLowerCase();
-        Matcher matcher = RegxConstant.UNDERLINE_PATTERN.matcher(name);
+        Matcher matcher = UNDERLINE_PATTERN.matcher(name);
         StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(buffer, matcher.group(1).toUpperCase());
@@ -99,19 +102,14 @@ public class NamingUtil {
     /**
      * 下划线转驼峰Map集
      *
-     * @param map 源字符串
+     * @param map 源Map
      * @return 转换后的Map
      */
-    public static Map<String, Object> underline2CamelMap(Map<String, Object> map) {
-        Map<String, Object> newMap = CollectionUtil.newHashMap();
+    public static Map<String, Object> underlineToCamelMap(Map<String, Object> map) {
+        Map<String, Object> newMap = new HashMap<>();
         for (String key : map.keySet()) {
             String camel = underlineToHump(key);
-            // 存在 " " 转换为""
-            if (" ".equals(map.get(key))) {
-                newMap.put(camel, "");
-            } else {
-                newMap.put(camel, map.get(key));
-            }
+            newMap.put(camel, map.get(key));
         }
         return newMap;
     }
@@ -119,14 +117,14 @@ public class NamingUtil {
     /**
      * Map集 驼峰转下划线
      *
-     * @param map 源字符串
+     * @param map 源Map
      * @return 转换后的Map
      */
-    public static Map<String, Object> camel2UnderlineMap(Map<String, Object> map) {
-        Map<String, Object> newMap = CollectionUtil.newHashMap();
+    public static Map<String, Object> camelToUnderlineMap(Map<String, Object> map) {
+        Map<String, Object> newMap = new HashMap<>();
         for (String key : map.keySet()) {
-            String camel = humpToUnderline(key);
-            newMap.put(camel, map.get(key));
+            String underline = humpToUnderline(key);
+            newMap.put(underline, map.get(key));
         }
         return newMap;
     }
@@ -134,34 +132,35 @@ public class NamingUtil {
     /**
      * 驼峰法转下划线List套Map集
      *
-     * @param list 源字符串
+     * @param list 源List
      * @return 转换后的List套Map
      */
-    public static List<Map<String, Object>> underline2CamelList(List<Map<String, Object>> list) {
-        Map<String, Object> newMap = CollectionUtil.newHashMap();
-        List<Map<String, Object>> returnList = CollectionUtil.newArrayList();
-        return getMaps(list, newMap, returnList);
+    public static List<Map<String, Object>> underlineToCamelListMap(List<Map<String, Object>> list) {
+        List<Map<String, Object>> returnList = new ArrayList<>();
+        for (Map<String, Object> map : list) {
+            Map<String, Object> newMap = new HashMap<>();
+            for (String key : map.keySet()) {
+                String camel = underlineToHump(key);
+                newMap.put(camel, map.get(key));
+            }
+            returnList.add(newMap);
+        }
+        return returnList;
     }
 
     /**
      * 下划线转驼峰法List套Map集
      *
-     * @param list 源字符串
+     * @param list 源List
      * @return 转换后的List套Map
      */
-    public static List<Map<String, Object>> underlineList(List<Map<String, Object>> list) {
-        Map<String, Object> newMap = CollectionUtil.newHashMap();
-        List<Map<String, Object>> returnList = new ArrayList<>(Collections.emptyList());
-        return getMaps(list, newMap, returnList);
-    }
-
-    private static List<Map<String, Object>> getMaps(List<Map<String, Object>> list,
-                                                     Map<String, Object> newMap,
-                                                     List<Map<String, Object>> returnList) {
+    public static List<Map<String, Object>> camelToUnderlineList(List<Map<String, Object>> list) {
+        List<Map<String, Object>> returnList = new ArrayList<>();
         for (Map<String, Object> map : list) {
+            Map<String, Object> newMap = new HashMap<>();
             for (String key : map.keySet()) {
-                String camel = humpToUnderline(key);
-                newMap.put(camel, map.get(key));
+                String underline = humpToUnderline(key);
+                newMap.put(underline, map.get(key));
             }
             returnList.add(newMap);
         }
@@ -171,14 +170,13 @@ public class NamingUtil {
     /**
      * 下划线转驼峰法List
      *
-     * @param list 源字符串
-     * @return 转换后的List套String
+     * @param list 源List
+     * @return 转换后的List
      */
-    public static List<String> getList(List<String> list) {
-        List<String> returnList = CollectionUtil.newArrayList();
-        System.out.println(list.get(0));
+    public static List<String> underlineToCamelList(List<String> list) {
+        List<String> returnList = new ArrayList<>();
         for (String key : list) {
-            String camel = humpToUnderline(key);
+            String camel = underlineToHump(key);
             returnList.add(camel);
         }
         return returnList;

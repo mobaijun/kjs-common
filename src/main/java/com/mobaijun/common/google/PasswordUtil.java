@@ -55,7 +55,7 @@ public class PasswordUtil {
      */
     public static List<PasswordEntry> readCsvFile(String filePath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            //跳过文件的第一行头部信息
+            // 跳过文件的第一行头部信息
             reader.readLine();
 
             return reader.lines()

@@ -15,11 +15,11 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.text.Charsets;
 
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -37,43 +37,43 @@ public class ParamUtil {
      * @param data Map类型的参数
      * @return url请求的参数
      */
-    public static String getUrlParamsByMap(Map<String, String> data) {
-        if (data == null || data.isEmpty()) {
+    public static String mapToUrlParams(Map<String, String> data) {
+        if (data.isEmpty()) {
             return null;
         }
 
         StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> i : data.entrySet()) {
-
-            sb.append(i.getKey())
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            sb.append(entry.getKey())
                     .append(StringConstant.EQUAL)
-                    .append(URLEncoder.encode(i.getValue(), Charsets.UTF_8))
+                    .append(URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8))
                     .append(StringConstant.AND);
-
         }
-        String str = sb.toString();
 
-        return str.substring(0, str.length() - 1);
+        String params = sb.toString();
+        return params.substring(0, params.length() - 1);
     }
 
     /**
      * 将url参数转换成map
      *
-     * @param param [ellipsis]
+     * @param param url参数字符串
      * @return 参数Map
      */
-    public static Map<String, String> getUrlParams(String param) {
-        Map<String, String> map = CollectionUtil.newHashMap();
+    public static Map<String, String> urlParamsToMap(String param) {
+        Map<String, String> paramMap = new HashMap<>();
         if (param.isEmpty()) {
-            return map;
+            return paramMap;
         }
+
         String[] params = param.split(StringConstant.AND);
-        for (String s : params) {
-            String[] p = s.split(StringConstant.EQUAL);
-            if (p.length == 2) {
-                map.put(p[0], p[1]);
+        for (String pair : params) {
+            String[] keyValue = pair.split(StringConstant.EQUAL);
+            if (keyValue.length == 2) {
+                paramMap.put(keyValue[0], keyValue[1]);
             }
         }
-        return map;
+
+        return paramMap;
     }
 }

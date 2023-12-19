@@ -50,8 +50,6 @@ import java.util.Map.Entry;
 @Slf4j
 public class JdbcDriverUtil {
 
-    private static String DB_NAME = "DB_NAME";
-
     /**
      * 获取Connection
      *
@@ -288,6 +286,7 @@ public class JdbcDriverUtil {
 
         StringBuilder sb = new StringBuilder();
 
+        String DB_NAME = "DB_NAME";
         if ("oracle".equals(DB_NAME)) {
             sb.append("SELECT * FROM (");
             sb.append("SELECT TEMP_TABLE_.*, ROWNUM ROWNUM_ FROM (").append(sql).append(") TEMP_TABLE_");

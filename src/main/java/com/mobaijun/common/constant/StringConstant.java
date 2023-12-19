@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.constant;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: StringConstant<br>
@@ -357,4 +360,16 @@ public final class StringConstant {
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', 'y', 'z'
     };
+
+    /**
+     * 去重处理，去除重复的字符串常量
+     */
+    public static void removeDuplicates() {
+        Set<String> uniqueConstants = new HashSet<>();
+        for (String constant : COLOR_LIST) {
+            if (!uniqueConstants.add(constant)) {
+                System.out.println("Duplicate constant: " + constant);
+            }
+        }
+    }
 }

@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.constant;
 
+import java.util.Objects;
+
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
  * ClassName: Constant<br>
@@ -32,15 +34,20 @@ public final class Constant {
     /**
      * 大写十六进制数
      */
-    public static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    public static final String HEX_DIGITS_UPPER = "0123456789ABCDEF";
 
     /**
      * 小写十六进制
      */
-    public static final char[] HEX_DIGITS_LOWER = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final String HEX_DIGITS_LOWER = "0123456789abcdef";
 
     /**
      * 接口文档的菜单名
      */
     public static final String API_MENU_NAME = "接口文档";
+
+    /**
+     * 示例：使用 Objects.hash() 生成散列码
+     */
+    public static final int EXAMPLE_HASH_CODE = Objects.hash(MD5, HEX_DIGITS_UPPER, HEX_DIGITS_LOWER, API_MENU_NAME);
 }

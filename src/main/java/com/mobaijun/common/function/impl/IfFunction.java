@@ -17,12 +17,14 @@ package com.mobaijun.common.function.impl;
 
 import com.mobaijun.common.function.JudgeFunction;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: IfFunction<br>
- * class description：代替'if else' 和 'switch'的方法
+ * class description：代替 'if else' 和 'switch' 的条件执行方法类
  *
  * @param <K> 限定的参数类型
  * @author MoBaiJun 2022/9/29 8:34
@@ -30,54 +32,53 @@ import java.util.Map;
 public class IfFunction<K> {
 
     /**
-     * 通过map保存
+     * 保存条件(key)与对应方法的映射关系
      */
     private final Map<K, JudgeFunction> map;
 
     /**
-     * 通过map类型来保存对应的条件key和方法
+     * 构造函数，初始化条件与方法的映射关系
      *
-     * @param map a map
+     * @param map 条件与方法的映射关系
      */
     public IfFunction(Map<K, JudgeFunction> map) {
-        this.map = map;
+        // 使用浅复制以确保构造函数参数 map 的不可变性
+        this.map = new HashMap<>(map);
     }
 
     /**
-     * 添加条件
+     * 添加条件与方法的映射关系
      *
      * @param key      需要验证的条件（key）
      * @param function 要执行的方法
-     * @return this.
+     * @return 返回当前 IfFunction 实例，支持链式调用
      */
     public IfFunction<K> add(K key, JudgeFunction function) {
+        // 添加条件与方法的映射关系
         this.map.put(key, function);
         return this;
     }
 
     /**
-     * 确定key是否存在，如果存在，则执行相应的方法。
+     * 根据条件执行对应的方法
      *
-     * @param key the key need to verify
+     * @param key 需要验证的条件（key）
      */
     public void doIf(K key) {
-        if (this.map.containsKey(key)) {
-            map.get(key).invoke();
-        }
+        // 如果条件存在，执行相应方法
+        Optional.ofNullable(map.get(key))
+                .ifPresent(JudgeFunction::invoke);
     }
 
     /**
-     * 确定key是否存在，如果存在，则执行相应的方法。
-     * 否则将执行默认方法
+     * 根据条件执行对应的方法，如果条件不存在，则执行默认方法
      *
      * @param key             需要验证的条件（key）
-     * @param defaultFunction 要执行的方法
+     * @param defaultFunction 默认方法
      */
-    public void doIfWithDefault(K key, JudgeFunction defaultFunction) {
-        if (this.map.containsKey(key)) {
-            map.get(key).invoke();
-        } else {
-            defaultFunction.invoke();
-        }
+    public void doIf(K key, JudgeFunction defaultFunction) {
+        // 如果条件存在，执行相应方法，否则执行默认方法
+        Optional.ofNullable(map.getOrDefault(key, defaultFunction))
+                .ifPresent(JudgeFunction::invoke);
     }
 }

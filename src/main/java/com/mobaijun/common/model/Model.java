@@ -22,7 +22,7 @@ import lombok.ToString;
 /**
  * software：IntelliJ IDEA 2022.2.3
  * class name: Model
- * class description: 用户存储 K、V 结构的Model实体类
+ * class description: 用户存储 K、V 结构的 Model 实体类
  *
  * @author MoBaiJun 2022/12/10 17:12
  */

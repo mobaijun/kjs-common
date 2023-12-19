@@ -16,7 +16,6 @@
 package com.mobaijun.common.util.converter;
 
 import com.mobaijun.common.constant.StringConstant;
-import com.mobaijun.common.util.ObjectUtil;
 import com.mobaijun.common.util.StringUtil;
 import com.mobaijun.common.util.text.Charsets;
 
@@ -25,6 +24,7 @@ import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.text.NumberFormat;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -77,7 +77,7 @@ public class Converter {
      * @return 结果
      */
     public static <T> Character toChar(T value, Character defaultValue) {
-        if (ObjectUtil.isEmpty(value)) {
+        if (Objects.isNull(value)) {
             return defaultValue;
         }
         if (value instanceof Character) {
@@ -110,7 +110,7 @@ public class Converter {
      * @return 结果
      */
     public static <T> Short toShort(T value, Short defaultValue) {
-        if (ObjectUtil.isEmpty(value)) {
+        if (Objects.isNull(value)) {
             return defaultValue;
         }
         return getaShort(value, defaultValue, toStr(value, null));
@@ -155,7 +155,7 @@ public class Converter {
      * @return 结果
      */
     public static <T> Number toNumber(T value, Number defaultValue) {
-        if (ObjectUtil.isEmpty(value)) {
+        if (Objects.isNull(value)) {
             return defaultValue;
         }
         return getNumber(value, defaultValue, toStr(value, null));
@@ -197,7 +197,7 @@ public class Converter {
      * @return 结果
      */
     public static <T> Integer toInt(T value, Integer defaultValue) {
-        if (ObjectUtil.isEmpty(value)) {
+        if (Objects.isNull(value)) {
             return defaultValue;
         }
         if (value instanceof Integer) {
@@ -651,7 +651,7 @@ public class Converter {
      * @return 字符串
      */
     public static <T> String str(T obj, Charset charset) {
-        if (ObjectUtil.isEmpty(obj)) {
+        if (Objects.isNull(obj)) {
             return null;
         }
 
