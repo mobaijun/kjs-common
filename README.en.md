@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-In Gradle you can add the following to your`build.gradle`In the file:
+在 Gradle 中，您可以将以下内容添加到您的 `build.gradle`In the file:
 
 ```json
 dependencies {
