@@ -32,14 +32,14 @@
 
 kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
-This project integrates excellent open source tools commonly used in projects:
+本项目集成了项目中常用的优秀开源工具类：
 
 -   lombok (simplified entity class)
 -   mapstruct (simplifies parameter passing)
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
-> Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
+> 注意：kjs-common 基于 JDK1.8 开发，如果你的 JDK 版本过低，请找到相应的工具类，复制相关代码，进行使用。
 
 ## Functions and features
 
@@ -58,7 +58,7 @@ Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tre
 
 > All dependent modules will be updated to the latest version simultaneously
 
-## quick start
+## 快速开始
 
 You can use`kjs-common`Add to your project as dependency.
 
@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-在 Gradle 中，您可以将以下内容添加到您的 `build.gradle`In the file:
+In Gradle you can add the following to your`build.gradle`In the file:
 
 ```json
 dependencies {
@@ -108,7 +108,7 @@ Please note that we are an open source community and we welcome contributions fr
 `kjs-common`is based on Apache
 Developed under license, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
 
-## author
+## 作者
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
