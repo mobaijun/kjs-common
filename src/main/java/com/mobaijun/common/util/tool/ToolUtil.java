@@ -119,7 +119,8 @@ public class ToolUtil {
         }
 
         int count;
-        if (obj instanceof Iterator<?> iter) {
+        if (obj instanceof Iterator) {
+            Iterator<?> iter = (Iterator<?>) obj;
             count = 0;
             while (iter.hasNext()) {
                 count++;
@@ -127,7 +128,8 @@ public class ToolUtil {
             }
             return count;
         }
-        if (obj instanceof Enumeration<?> enumeration) {
+        if (obj instanceof Enumeration) {
+            Enumeration<?> enumeration = (Enumeration<?>) obj;
             count = 0;
             while (enumeration.hasMoreElements()) {
                 count++;
@@ -165,7 +167,8 @@ public class ToolUtil {
             return ((Map<?, ?>) obj).containsValue(element);
         }
 
-        if (obj instanceof Iterator<?> iter) {
+        if (obj instanceof Iterator) {
+            Iterator<?> iter = (Iterator<?>) obj;
             while (iter.hasNext()) {
                 Object o = iter.next();
                 if (equals(o, element)) {
@@ -174,7 +177,8 @@ public class ToolUtil {
             }
             return false;
         }
-        if (obj instanceof Enumeration<?> enumeration) {
+        if (obj instanceof Enumeration) {
+            Enumeration<?> enumeration = (Enumeration<?>) obj;
             while (enumeration.hasMoreElements()) {
                 Object o = enumeration.nextElement();
                 if (equals(o, element)) {
@@ -216,30 +220,20 @@ public class ToolUtil {
         if (o == null) {
             return true;
         }
-        switch (o) {
-            case String ignored -> {
-                return StringConstant.BLANK.equals(o.toString().trim());
-            }
-            case List list -> {
-                return list.isEmpty();
-            }
-            case Map map -> {
-                return map.isEmpty();
-            }
-            case Set set -> {
-                return set.isEmpty();
-            }
-            case Object[] objects -> {
-                return objects.length == 0;
-            }
-            case int[] ints -> {
-                return ints.length == 0;
-            }
-            case long[] longs -> {
-                return longs.length == 0;
-            }
-            default -> {
-            }
+        if (o instanceof String) {
+            return StringConstant.BLANK.equals(o.toString().trim());
+        } else if (o instanceof List) {
+            return ((List) o).size() == 0;
+        } else if (o instanceof Map) {
+            return ((Map) o).size() == 0;
+        } else if (o instanceof Set) {
+            return ((Set) o).size() == 0;
+        } else if (o instanceof Object[]) {
+            return ((Object[]) o).length == 0;
+        } else if (o instanceof int[]) {
+            return ((int[]) o).length == 0;
+        } else if (o instanceof long[]) {
+            return ((long[]) o).length == 0;
         }
         return false;
     }

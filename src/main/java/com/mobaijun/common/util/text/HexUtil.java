@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util;
+package com.mobaijun.common.util.text;
 
 import com.mobaijun.common.constant.StringConstant;
 

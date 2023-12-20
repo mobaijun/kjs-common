@@ -25,6 +25,7 @@ import java.util.regex.Pattern;
  * @author MoBaiJun 2022/5/18 10:07
  */
 public final class RegxConstant {
+
     /**
      * 正则表达式：验证用户名
      */
@@ -129,4 +130,11 @@ public final class RegxConstant {
      * 大驼峰模式
      */
     public static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
+
+    /**
+     * COORDINATE_PATTERN 是一个用于匹配 GPS 坐标字符串格式的正则表达式模式。
+     * 这个正则表达式的目的是匹配形如 "40.7128, -74.0060" 的 GPS 坐标字符串，其中经度和纬度之间由逗号分隔，且可以包含小数。
+     * 如果传入的字符串不符合这个格式，parseGpsCoordinate 方法将抛出 IllegalArgumentException。
+     */
+    public static final String COORDINATE_PATTERN = "^(-?\\d+(\\.\\d+)?),\\s*(-?\\d+(\\.\\d+)?)$";
 }
