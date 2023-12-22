@@ -52,7 +52,7 @@ public enum LogType {
     /**
      * 业务日志
      */
-    BUSSINESS("业务日志");
+    BUSINESS("业务日志");
 
     private final String message;
 }

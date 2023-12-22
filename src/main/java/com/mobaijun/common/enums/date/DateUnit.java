@@ -69,22 +69,15 @@ public enum DateUnit {
      * @return DateUnit，null表示不支持此单位
      */
     public static DateUnit of(ChronoUnit unit) {
-        switch (unit) {
-            case MICROS:
-                return DateUnit.MS;
-            case SECONDS:
-                return DateUnit.SECOND;
-            case MINUTES:
-                return DateUnit.MINUTE;
-            case HOURS:
-                return DateUnit.HOUR;
-            case DAYS:
-                return DateUnit.DAY;
-            case WEEKS:
-                return DateUnit.WEEK;
-            default:
-                return null;
-        }
+        return switch (unit) {
+            case MICROS -> DateUnit.MS;
+            case SECONDS -> DateUnit.SECOND;
+            case MINUTES -> DateUnit.MINUTE;
+            case HOURS -> DateUnit.HOUR;
+            case DAYS -> DateUnit.DAY;
+            case WEEKS -> DateUnit.WEEK;
+            default -> null;
+        };
     }
 
     /**
@@ -94,22 +87,15 @@ public enum DateUnit {
      * @return {@link ChronoUnit}
      */
     public static ChronoUnit toChronoUnit(DateUnit unit) {
-        switch (unit) {
-            case MS:
-                return ChronoUnit.MICROS;
-            case SECOND:
-                return ChronoUnit.SECONDS;
-            case MINUTE:
-                return ChronoUnit.MINUTES;
-            case HOUR:
-                return ChronoUnit.HOURS;
-            case DAY:
-                return ChronoUnit.DAYS;
-            case WEEK:
-                return ChronoUnit.WEEKS;
-            default:
-                return null;
-        }
+        return switch (unit) {
+            case MS -> ChronoUnit.MICROS;
+            case SECOND -> ChronoUnit.SECONDS;
+            case MINUTE -> ChronoUnit.MINUTES;
+            case HOUR -> ChronoUnit.HOURS;
+            case DAY -> ChronoUnit.DAYS;
+            case WEEK -> ChronoUnit.WEEKS;
+            default -> null;
+        };
     }
 
     /**

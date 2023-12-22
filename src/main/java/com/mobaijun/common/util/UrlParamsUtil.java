@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.NumberConstant;
-import com.mobaijun.common.constant.StringConstant;
 
 import java.util.Map;
 
@@ -41,50 +41,77 @@ public class UrlParamsUtil {
     }
 
     /**
-     * 解析ulr参数为map
+     * 解析 URL 参数为 Map
      *
-     * @param paramsPath url
-     * @return map
+     * @param paramsPath URL
+     * @param separator  参数分隔符
+     * @return 参数 Map
      */
     public static Map<String, String> split(String paramsPath, String separator) {
-        if (paramsPath == null || !paramsPath.contains(StringConstant.QUESTION_MARK)
-                || !paramsPath.contains(separator)) {
+        Assert.notNull(paramsPath, "paramsPath不能为空");
+        Assert.notNull(separator, "separator不能为空");
+
+        // 判断是否包含 "?" 和参数分隔符
+        if (!paramsPath.contains("?") || !paramsPath.contains(separator)) {
             return CollectionUtil.newHashMap();
         }
+
+        // 获取 "?" 后的参数部分
         String[] paramsArr = paramsPath.split("\\?");
         String paramsStr = paramsArr[paramsArr.length - 1];
-        String[] paramsItems = paramsStr.split(StringConstant.AND);
+
+        // 判断是否存在参数项
+        if (paramsStr.isEmpty()) {
+            return CollectionUtil.newHashMap();
+        }
+
+        // 分割参数项
+        String[] paramsItems = paramsStr.split("&");
+
+        // 判断是否存在有效的参数项
         if (paramsItems.length == 0) {
             return CollectionUtil.newHashMap();
         }
+
+        // 构建结果 Map
         Map<String, String> result = CollectionUtil.newHashMap();
+
+        // 遍历参数项，解析并放入结果 Map
         for (String item : paramsItems) {
             if (item == null || item.isEmpty() || !item.contains(separator)) {
                 continue;
             }
+
             String[] keyValue = item.split(separator);
-            result.put(keyValue[0], keyValue[1]);
+
+            // 确保键值对格式正确
+            if (keyValue.length == 2) {
+                result.put(keyValue[0], keyValue[1]);
+            }
         }
-        if (result.isEmpty()) {
-            return CollectionUtil.newHashMap();
-        }
+
         return result;
     }
 
     /**
      * 将keyValues转成Map
      *
-     * @param keyValues kayValue
-     * @return map
+     * @param keyValues 键值对数组
+     * @return 转换后的Map
      */
     public static Map<String, String> build(String... keyValues) {
-        if (keyValues == null || keyValues.length == 0) {
+        Assert.assertTrue(keyValues.length % 2 == 0, "键值对数量必须是偶数");
+
+        if (keyValues.length == 0) {
             return CollectionUtil.newHashMap();
         }
+
         Map<String, String> result = CollectionUtil.newHashMap();
-        for (int i = 0; i < keyValues.length; i += NumberConstant.TWO) {
+
+        for (int i = 0; i < keyValues.length; i += 2) {
             result.put(keyValues[i], keyValues[i + 1]);
         }
+
         return result;
     }
 

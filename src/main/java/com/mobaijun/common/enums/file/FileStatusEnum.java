@@ -26,6 +26,7 @@ import lombok.Getter;
  */
 @Getter
 public enum FileStatusEnum {
+
     /**
      * 新文件
      * <br>

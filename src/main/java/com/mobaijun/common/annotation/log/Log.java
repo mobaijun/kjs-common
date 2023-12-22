@@ -56,7 +56,7 @@ public @interface Log {
      *
      * @return 默认业务日志
      */
-    LogType logType() default LogType.BUSSINESS;
+    LogType logType() default LogType.BUSINESS;
 
     /**
      * 操作模块

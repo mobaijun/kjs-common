@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.enums.common;
 
+import lombok.Getter;
+
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * enum name: LangEnum<br>
@@ -22,6 +24,7 @@ package com.mobaijun.common.enums.common;
  *
  * @author MoBaiJun 2022/12/9 15:19
  */
+@Getter
 public enum LangEnum {
     /**
      * 自动匹配

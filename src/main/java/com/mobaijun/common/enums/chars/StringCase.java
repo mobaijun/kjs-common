@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.enums.chars;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * enum name: StringCase<br>
@@ -22,6 +25,8 @@ package com.mobaijun.common.enums.chars;
  *
  * @author MoBaiJun 2023/2/21 23:56
  */
+@Getter
+@AllArgsConstructor
 public enum StringCase {
 
     /**
@@ -47,11 +52,6 @@ public enum StringCase {
     private final boolean defaultUpper;
 
     private final boolean ignoredCase;
-
-    StringCase(boolean defaultUpper, boolean ignoredCase) {
-        this.defaultUpper = defaultUpper;
-        this.ignoredCase = ignoredCase;
-    }
 
     /**
      * 处理字符串大小写

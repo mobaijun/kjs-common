@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.enums.file;
 
+import lombok.Getter;
+
 import java.net.URLConnection;
 
 /**
@@ -24,6 +26,7 @@ import java.net.URLConnection;
  *
  * @author MoBaiJun 2022/6/10 14:02
  */
+@Getter
 public enum ImageType {
 
     /**
@@ -48,6 +51,7 @@ public enum ImageType {
      * 后缀名
      */
     private final String mSuffix;
+
     private final String mMIME;
 
     ImageType(String suffix, String mime) {

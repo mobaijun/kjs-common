@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.enums.database;
 
-import lombok.Getter;
-
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
  * ClassName: DataSourceType<br>
@@ -24,7 +22,6 @@ import lombok.Getter;
  *
  * @author MoBaiJun 2022/4/25 15:18
  */
-@Getter
 public enum DataSourceType {
 
     /**
@@ -36,5 +33,4 @@ public enum DataSourceType {
      * 从库
      */
     SLAVE,
-
 }

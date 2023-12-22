@@ -45,7 +45,12 @@ public enum RouteRepositoryEnum {
     EUREKA,
 
     /**
-     * NACOS
+     * NA_COS
      */
-    NACOS
+    NA_COS,
+
+    /**
+     * ORACLE
+     */
+    ORACLE
 }

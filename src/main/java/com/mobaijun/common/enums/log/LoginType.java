@@ -38,6 +38,7 @@ public enum LoginType {
     PORTAL(1, "Portal");
 
     private final int code;
+
     private final String name;
 
     LoginType(int code, String name) {

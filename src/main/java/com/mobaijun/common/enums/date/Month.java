@@ -229,17 +229,11 @@ public enum Month {
      * @return 此月份最后一天的值
      */
     public int getLastDay(boolean isLeapYear) {
-        switch (this) {
-            case FEBRUARY:
-                return isLeapYear ? 29 : 28;
-            case APRIL:
-            case JUNE:
-            case SEPTEMBER:
-            case NOVEMBER:
-                return 30;
-            default:
-                return 31;
-        }
+        return switch (this) {
+            case FEBRUARY -> isLeapYear ? 29 : 28;
+            case APRIL, JUNE, SEPTEMBER, NOVEMBER -> 30;
+            default -> 31;
+        };
     }
 
     /**

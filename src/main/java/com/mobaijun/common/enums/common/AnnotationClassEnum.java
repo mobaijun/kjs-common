@@ -79,6 +79,7 @@ public enum AnnotationClassEnum {
      * ShortName
      */
     private final String shortName;
+
     /**
      * full package with Annotation
      */
