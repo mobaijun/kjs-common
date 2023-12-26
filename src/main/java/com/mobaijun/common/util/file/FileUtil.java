@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.file;
 
 import com.mobaijun.common.constant.JdkConstant;
+import com.mobaijun.common.util.tool.ToolUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -136,11 +137,15 @@ public class FileUtil {
     }
 
     /**
-     * 更新临时文件路径
+     * 更新临时文件目录路径。
+     *
+     * @param dirName 新的临时文件目录名称
      */
     public static void updateTmpDir(String dirName) {
+        // 构建新的临时文件目录路径
         Path tempDirPath = Paths.get(SYSTEM_TEMP_DIR.getPath(), dirName);
         try {
+            // 创建目录及其父目录，如果不存在
             Files.createDirectories(tempDirPath);
         } catch (IOException e) {
             e.printStackTrace();
@@ -148,32 +153,46 @@ public class FileUtil {
     }
 
     /**
-     * 获取临时文件, 不会创建文件
+     * 获取一个带有唯一时间戳的临时文件。
+     *
+     * @param name 文件名
+     * @return 带有唯一时间戳的临时文件
      */
-    public static File getTemplateFile(String name) throws IOException {
-        File file;
-        do {
-            file = new File(JdkConstant.TMPDIR, System.currentTimeMillis() + "." + name);
-        } while (!file.createNewFile());
-        return file;
+    public static File getTemplateFile(String name) {
+        try {
+            Path tempFilePath = Files.createTempFile(ToolUtil.uuid() + name, null);
+            return tempFilePath.toFile();
+        } catch (IOException e) {
+            // 在内部处理异常，可以选择记录日志或采取其他措施
+            throw new RuntimeException("无法创建临时文件", e);
+        }
     }
 
     /**
-     * 根据网络路径获取文件输入流
+     * 通过URL路径获取输入流。
+     *
+     * @param path URL路径
+     * @return 获取到的输入流
      */
-    public static InputStream getInputStreamByUrlPath(String path) throws IOException {
-        URL url;
+    public static InputStream getInputStreamByUrlPath(String path) {
         try {
-            url = new URL(path);
+            // 将路径转换为URL对象
+            URL url = new URL(path);
+
+            // 打开URL连接
+            HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+            // 设置连接和读取超时时间
+            httpConnection.setConnectTimeout(5 * 1000);
+            httpConnection.setReadTimeout(5 * 1000);
+
+            // 返回获取到的输入流
+            return httpConnection.getInputStream();
         } catch (MalformedURLException e) {
+            // 如果路径无效，则抛出参数异常
             throw new IllegalArgumentException("Invalid URL: " + path, e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-        HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
-        httpConnection.setConnectTimeout(5 * 1000);
-        httpConnection.setReadTimeout(5 * 1000);
-
-        return httpConnection.getInputStream();
     }
 
     /**
