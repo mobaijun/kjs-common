@@ -49,8 +49,8 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## develop
 
-> This project plans to support JDK 17 and above in version 2.0. Versions below 2.0 are based on JDK 8. This means that future 2.X versions will not be compatible with projects below JDK 17. If
-> It is recommended that projects within JDK 17 or below use versions below 2.0
+> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
+> JDK 17 以内项目推荐使用 2.0 以内版本
 
 ## Example
 
