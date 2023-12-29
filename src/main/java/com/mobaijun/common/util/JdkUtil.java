@@ -17,6 +17,9 @@ package com.mobaijun.common.util;
 
 import com.mobaijun.common.constant.JdkConstant;
 
+import java.io.File;
+import java.nio.file.FileSystems;
+
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
  * ClassName: JdkUtils<br>
@@ -164,21 +167,21 @@ public class JdkUtil {
      * 获取文件分隔符（在 UNIX 系统中是“/”）
      */
     public static String getSileSeparator() {
-        return System.getProperty(JdkConstant.FILE_SEPARATOR);
+        return FileSystems.getDefault().getSeparator();
     }
 
     /**
      * 获取路径分隔符（在 UNIX 系统中是“:”）
      */
     public static String getPathSeparator() {
-        return System.getProperty(JdkConstant.PATH_SEPARATOR);
+        return File.pathSeparator;
     }
 
     /**
      * 获取行分隔符（在 UNIX 系统中是“/n”）
      */
     public static String getLineSeparator() {
-        return System.getProperty(JdkConstant.LINE_SEPARATOR);
+        return System.lineSeparator();
     }
 
     /**

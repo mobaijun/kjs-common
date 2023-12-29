@@ -17,18 +17,22 @@ package com.mobaijun.common.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
- * class name: ThrowableUtils<br>
+ * class name: ExceptionUtil<br>
  * class description: 异常工具类<br>
  *
  * @author MoBaiJun 2022/12/8 9:38
  */
-public class ThrowableUtil {
+public class ExceptionUtil {
 
     /**
-     * 获取堆栈信息
+     * 获取异常的堆栈信息
+     *
+     * @param throwable 异常对象
+     * @return 堆栈信息字符串
      */
     public static String getStackTrace(Throwable throwable) {
         StringWriter sw = new StringWriter();
@@ -39,29 +43,30 @@ public class ThrowableUtil {
     }
 
     /**
-     * 转换异常信息为字符串
+     * 将异常信息转换为字符串
      *
      * @param exceptionName    异常名称
      * @param exceptionMessage 异常信息
      * @param elements         堆栈信息
+     * @return 转换后的字符串
      */
     public static String stackTraceToString(String exceptionName, String exceptionMessage, StackTraceElement[] elements) {
         StringBuilder str = new StringBuilder();
-        for (StackTraceElement stet : elements) {
-            str.append(stet).append("\n");
-        }
+        Arrays.stream(elements).forEach(item -> str.append(item).append("\n"));
         return exceptionName + ":" + exceptionMessage + "\n\t" + str;
     }
 
     /**
-     * parse error to string
+     * 将异常对象转换为字符串
      *
-     * @param e Throwable
-     * @return String
+     * @param e 异常对象
+     * @return 转换后的字符串
      */
     public static String toString(Throwable e) {
         StringWriter stringWriter = new StringWriter();
-        e.printStackTrace(new PrintWriter(stringWriter));
-        return stringWriter.toString();
+        try (PrintWriter printWriter = new PrintWriter(stringWriter)) {
+            e.printStackTrace(printWriter);
+            return stringWriter.toString();
+        }
     }
 }

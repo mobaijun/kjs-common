@@ -34,103 +34,96 @@ public class PrintUtil {
     /**
      * 不换行输出
      *
-     * @param data data
+     * @param data 数据
      */
     public static <T> void print(T data) {
-        if (Objects.isNull(data)) {
-            return;
+        if (Objects.nonNull(data)) {
+            System.out.print(data);
         }
-        System.out.print(data);
     }
 
     /**
      * 换行打印输出
      *
-     * @param data obj
+     * @param data 数据
      */
     public static <T> void println(T data) {
-        if (Objects.isNull(data)) {
-            return;
+        if (Objects.nonNull(data)) {
+            System.out.println(data);
         }
-        System.out.println(data);
     }
 
     /**
-     * 单列集合打印
+     * 打印集合元素，每个元素一行
      *
-     * @param collection collection
+     * @param collection 集合
      */
     public static <T> void println(Collection<T> collection) {
-        if (Objects.isNull(collection)) {
-            return;
+        if (Objects.nonNull(collection)) {
+            collection.forEach(System.out::println);
         }
-        collection.forEach(System.out::println);
     }
 
     /**
-     * 打印空格
+     * 打印空行
      */
-    public static void print() {
+    public static void printNewLine() {
         System.out.println();
     }
 
     /**
      * 打印异常信息
      *
-     * @param message 内容
-     * @param clazz   类
+     * @param message 异常信息
+     * @param clazz   异常类
      * @param <T>     泛型
      */
-    public static <T> void println(String message, Class<T> clazz) {
-        System.out.printf("The exception comes from {%s} class，The error message is：{%s}", clazz.getName(), message);
+    public static <T> void printlnException(String message, Class<T> clazz) {
+        System.out.printf("Exception from {%s} class: {%s}%n", clazz.getName(), message);
     }
 
     /**
      * 格式化输出
      *
-     * @param format format
-     * @param obj    obj
+     * @param format 格式字符串
+     * @param obj    对象
      */
     public static <T> void printf(String format, T obj) {
-        if (Objects.isNull(obj)) {
-            return;
+        if (Objects.nonNull(obj)) {
+            System.out.printf(format, obj);
         }
-        System.out.printf(format, obj);
     }
 
     /**
-     * println String map key and value
+     * 打印 Map 的键值对，每个键值对一行
      *
-     * @param map map
+     * @param map Map
      */
     public static <K, V> void println(Map<K, V> map) {
-        if (map.isEmpty()) {
-            return;
+        if (Objects.nonNull(map) && !map.isEmpty()) {
+            map.forEach((key, value) -> System.out.println(key + ": " + value));
         }
-        map.entrySet().forEach(System.out::println);
     }
 
     /**
-     * println  map values
+     * 打印 Map 的值，每个值一行
      *
-     * @param map map
+     * @param map Map
      */
-    public static <K, V> void mapValue(Map<K, V> map) {
-        if (map.isEmpty()) {
-            return;
+    public static <K, V> void mapValues(Map<K, V> map) {
+        if (Objects.nonNull(map) && !map.isEmpty()) {
+            map.values().forEach(System.out::println);
         }
-        map.values().forEach(System.out::println);
     }
 
     /**
-     * println String map key
+     * 打印 Map 的键，每个键一行
      *
-     * @param map map
+     * @param map Map
      */
-    public static <K, V> void mapKey(Map<K, V> map) {
-        if (map.isEmpty()) {
-            return;
+    public static <K, V> void mapKeys(Map<K, V> map) {
+        if (Objects.nonNull(map) && !map.isEmpty()) {
+            map.keySet().forEach(System.out::println);
         }
-        map.keySet().forEach(System.out::println);
     }
 }

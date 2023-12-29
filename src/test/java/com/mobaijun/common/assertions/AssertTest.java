@@ -1,136 +1,305 @@
 package com.mobaijun.common.assertions;
 
+import com.mobaijun.common.util.PrintUtil;
 import org.junit.Test;
 
 /**
- * Description: [AssertTest 测试类]
+ * Description: [AssertTest测试类]
  * Author: [mobaijun]
- * Date: [2023/12/19 14:50]
+ * Date: [2023/12/29 8:47]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
 public class AssertTest {
 
+
+    /**
+     * Test for assertTrue.
+     */
     @Test
-    public void assertTrue() {
+    public void testAssertTrue() {
+        // Perform the method call
+        Assert.assertTrue(true, "message");
     }
 
+    /**
+     * Test for nullToEmptyCollection.
+     */
     @Test
-    public void nullToEmptyCollection() {
+    public void testNullToEmptyCollection() {
+        // Perform the method call
     }
 
+    /**
+     * Test for nullToEmptyMap.
+     */
     @Test
-    public void nullToEmptyMap() {
+    public void testNullToEmptyMap() {
+        // Perform the method call
     }
 
-    @Test
-    public void notNull() {
-    }
-
+    /**
+     * Test for notNull.
+     */
     @Test
     public void testNotNull() {
+        // Perform the method call
     }
 
+    /**
+     * Test for notNull.
+     */
     @Test
-    public void notEmpty() {
+    public void testNotNull2() {
     }
 
-    @Test
-    public void assertEquals() {
-    }
-
-    @Test
-    public void assertEqualsLen() {
-    }
-
-    @Test
-    public void isEqualsLen() {
-    }
-
-    @Test
-    public void isNotEqualsLen() {
-    }
-
-    @Test
-    public void isFitMaxLen() {
-    }
-
-    @Test
-    public void isNotFitMaxLen() {
-    }
-
-    @Test
-    public void isFitMinLen() {
-    }
-
-    @Test
-    public void isNotFitMinLen() {
-    }
-
-    @Test
-    public void isNumber() {
-    }
-
-    @Test
-    public void isNotNumber() {
-    }
-
-    @Test
-    public void isMatchesRegex() {
-    }
-
-    @Test
-    public void isNotMatchesRegex() {
-    }
-
-    @Test
-    public void positive() {
-    }
-
-    @Test
-    public void notNegative() {
-    }
-
-    @Test
-    public void testPositive() {
-    }
-
-    @Test
-    public void testNotNegative() {
-    }
-
-    @Test
-    public void testPositive1() {
-    }
-
-    @Test
-    public void testNotNegative1() {
-    }
-
-    @Test
-    public void assertFalse() {
-    }
-
+    /**
+     * Test for notEmpty.
+     */
     @Test
     public void testNotEmpty() {
+        // Perform the method call
+        Assert.notEmpty("string", "name");
     }
 
+    /**
+     * Test for assertEquals.
+     */
     @Test
-    public void testNotEmpty1() {
+    public void testAssertEquals() {
     }
 
+    /**
+     * Test for assertEqualsLen.
+     */
     @Test
-    public void gt() {
+    public void testAssertEqualsLen() {
+        // Perform the method call
+        Assert.assertEqualsLen("string", 0, "desc");
     }
 
+    /**
+     * Test for isEqualsLen.
+     */
     @Test
-    public void gte() {
+    public void testIsEqualsLen() {
+        // Perform the method call
+        boolean result = Assert.isEqualsLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
     }
 
+    /**
+     * Test for isNotEqualsLen.
+     */
     @Test
-    public void lt() {
+    public void testIsNotEqualsLen() {
+        // Perform the method call
+        boolean result = Assert.isNotEqualsLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
     }
 
+    /**
+     * Test for isFitMaxLen.
+     */
     @Test
-    public void lte() {
+    public void testIsFitMaxLen() {
+        // Perform the method call
+        boolean result = Assert.isFitMaxLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
     }
+
+    /**
+     * Test for isNotFitMaxLen.
+     */
+    @Test
+    public void testIsNotFitMaxLen() {
+        // Perform the method call
+        boolean result = Assert.isNotFitMaxLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isFitMinLen.
+     */
+    @Test
+    public void testIsFitMinLen() {
+        // Perform the method call
+        boolean result = Assert.isFitMinLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isNotFitMinLen.
+     */
+    @Test
+    public void testIsNotFitMinLen() {
+        // Perform the method call
+        boolean result = Assert.isNotFitMinLen("string", 0);
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isNumber.
+     */
+    @Test
+    public void testIsNumber() {
+        // Perform the method call
+        boolean result = Assert.isNumber("number");
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isNotNumber.
+     */
+    @Test
+    public void testIsNotNumber() {
+        // Perform the method call
+        Boolean result = Assert.isNotNumber("number");
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isMatchesRegex.
+     */
+    @Test
+    public void testIsMatchesRegex() {
+        // Perform the method call
+        boolean result = Assert.isMatchesRegex("string", "regex");
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for isNotMatchesRegex.
+     */
+    @Test
+    public void testIsNotMatchesRegex() {
+        // Perform the method call
+        Boolean result = Assert.isNotMatchesRegex("string", "regex");
+
+        // Print the result using your PrintUtil
+        PrintUtil.println(result);
+    }
+
+    /**
+     * Test for positive.
+     */
+    @Test
+    public void testPositive() {
+        // Perform the method call
+        Assert.positive(0, "paramName");
+    }
+
+    /**
+     * Test for notNegative.
+     */
+    @Test
+    public void testNotNegative() {
+        // Perform the method call
+        Assert.notNegative(0, "paramName");
+    }
+
+    /**
+     * Test for positive.
+     */
+    @Test
+    public void testPositive2() {
+        // Perform the method call
+        Assert.positive(0L, "paramName");
+    }
+
+    /**
+     * Test for notNegative.
+     */
+    @Test
+    public void testNotNegative2() {
+        // Perform the method call
+        Assert.notNegative(0L, "paramName");
+    }
+
+    /**
+     * Test for positive.
+     */
+    @Test
+    public void testPositive3() {
+        // Perform the method call
+        Assert.positive(0d, "paramName");
+    }
+
+    /**
+     * Test for notNegative.
+     */
+    @Test
+    public void testNotNegative3() {
+        // Perform the method call
+        Assert.notNegative(0d, "paramName");
+    }
+
+    /**
+     * Test for assertFalse.
+     */
+    @Test
+    public void testAssertFalse() {
+        // Perform the method call
+        Assert.assertFalse(true, "name");
+    }
+
+    /**
+     * Test for notEmpty.
+     */
+    @Test
+    public void testNotEmpty2() {
+    }
+
+    /**
+     * Test for notEmpty.
+     */
+    @Test
+    public void testNotEmpty3() {
+    }
+
+    /**
+     * Test for gt.
+     */
+    @Test
+    public void testGt() {
+    }
+
+    /**
+     * Test for gte.
+     */
+    @Test
+    public void testGte() {
+    }
+
+    /**
+     * Test for lt.
+     */
+    @Test
+    public void testLt() {
+    }
+
+    /**
+     * Test for lte.
+     */
+    @Test
+    public void testLte() {
+    }
+
 }

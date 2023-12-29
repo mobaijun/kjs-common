@@ -248,12 +248,12 @@ public class StringUtil {
      * 是否包含字符串
      *
      * @param str  验证字符串
-     * @param strs 字符串组
+     * @param stirs 字符串组
      * @return 包含返回true
      */
-    public static boolean inStringIgnoreCase(String str, String... strs) {
-        if (str != null && strs != null) {
-            for (String s : strs) {
+    public static boolean inStringIgnoreCase(String str, String... stirs) {
+        if (str != null && stirs != null) {
+            for (String s : stirs) {
                 if (str.equalsIgnoreCase(trim(s))) {
                     return true;
                 }
