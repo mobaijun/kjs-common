@@ -41,6 +41,6 @@ public class LicenseTitleAppenderUtilTest {
     @Test
     public void testRemoveLicense() {
         // Perform the method call
-        LicenseTitleAppenderUtil.removeLicense("codeDirectory", "licenseHeader");
+        LicenseTitleAppenderUtil.removeLicense("src/test/java/com/mobaijun/common", "licenseHeader");
     }
 }
