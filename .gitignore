@@ -2,3 +2,5 @@
 .idea
 target
 src/s.html
+*.iml
+/src/test/resources/2.jpg
