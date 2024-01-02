@@ -13,28 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.util.jdbc;
+package com.mobaijun.common.license;
 
-import lombok.Getter;
+import com.mobaijun.common.constant.LicenseConstant;
+import org.junit.Test;
 
 /**
- * Description: [数据库类型]
+ * Description: [LicenseTitleAppenderUtilTest测试类]
  * Author: [mobaijun]
- * Date: [2023/10/29 16:37]
+ * Date: [2024/1/2 10:31]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
-@Getter
-public enum DatabaseType {
+public class LicenseTitleAppenderUtilTest {
 
-    SQL_SERVER("com.microsoft.sqlserver.jdbc.SQLServerDriver"),
+    /**
+     * Test for append.
+     */
+    @Test
+    public void testAppend() {
+        // Perform the method call
+        LicenseTitleAppenderUtil.append("src/test/java/com/mobaijun/common", LicenseConstant.APACHE_2);
+    }
 
-    ORACLE("oracle.jdbc.driver.OracleDriver"),
-
-    MYSQL("com.mysql.cj.jdbc.Driver");
-
-    private final String driver;
-
-    DatabaseType(String driver) {
-        this.driver = driver;
+    /**
+     * Test for removeLicense.
+     */
+    @Test
+    public void testRemoveLicense() {
+        // Perform the method call
+        LicenseTitleAppenderUtil.removeLicense("codeDirectory", "licenseHeader");
     }
 }
