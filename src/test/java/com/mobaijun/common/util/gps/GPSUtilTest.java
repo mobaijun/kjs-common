@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 [%s]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.mobaijun.common.util.gps;
 
 import com.mobaijun.common.model.Model;
@@ -15,6 +30,7 @@ import java.math.BigDecimal;
 public class GPSUtilTest {
 
     @Test
+<<<<<<< HEAD
     public void testGetDistance() throws Exception {
         // 北京的经纬度
         Coordinate beijing = new Coordinate(39.9d, 116.3d);
@@ -23,18 +39,25 @@ public class GPSUtilTest {
         double result = GPSUtil.getDistance(beijing.getLatitude(), beijing.getLongitude(), wuhan.getLatitude(), wuhan.getLongitude());
         System.out.println(result);
         Assert.assertNotNull(result);
+=======
+    public void testGetDistance() {
+        double result = GPSUtil.getDistance(0d, 0d, 0d, 0d);
+        Assert.assertEquals(0d, result);
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
     }
 
     @Test
-    public void testParseGpsCoordinate() throws Exception {
+    public void testParseGpsCoordinate() {
         double[] result = GPSUtil.parseGpsCoordinate("gpsCoordinate");
-        //Assert.assertArrayEquals(new double[]{0d}, result);
     }
 
     @Test
-    public void testGenerateRandomCoordinates() throws Exception {
+    public void testGenerateRandomCoordinates() {
         Model<BigDecimal, BigDecimal> result = GPSUtil.generateRandomCoordinates(0d, 0d, 0d, 0d);
-        Assert.assertEquals(new Model<BigDecimal, BigDecimal>(new BigDecimal(0), new BigDecimal(0)), result);
+        Assert.assertEquals(new Model<>(new BigDecimal(0), new BigDecimal(0)), result);
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3

@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2022 [%s]
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.mobaijun.common.util.file;
 
 import org.junit.Assert;
@@ -22,6 +37,7 @@ public class FileUtilTest {
 
     @Test
     public void testWriteBytes() throws Exception {
+<<<<<<< HEAD
         OutputStream outPutStream = new FileOutputStream("3.jpg");
         FileUtil.writeBytes(FileUtil.getFileAbsolutePath("1.jpg"), outPutStream);
     }
@@ -29,63 +45,88 @@ public class FileUtilTest {
     @Test
     public void testDeleteFile() throws Exception {
         boolean result = FileUtil.deleteFile(FileUtil.getFileAbsolutePath("2.jpg"));
+=======
+        OutputStream outPutStream = new FileOutputStream("12.jpg");
+        FileUtil.writeBytes(System.getProperty("user.dir") + "src\\test\\resources\\1.jpg", outPutStream);
+    }
+
+    @Test
+    public void testDeleteFile() {
+        boolean result = FileUtil.deleteFile("C:\\java-project\\kjs-common\\src\\test\\resources\\1.jpg");
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void testIsValidFilename() throws Exception {
+    public void testIsValidFilename() {
         boolean result = FileUtil.isValidFilename("2.jpg");
         Assert.assertEquals(true, result);
     }
 
     @Test
+<<<<<<< HEAD
     public void testCopyFile() throws Exception {
         boolean result = FileUtil.copyFile(new File(FileUtil.getFileAbsolutePath("2.jpg")), new File(FileUtil.getFileAbsolutePath("2.jpg")));
+=======
+    public void testCopyFile() {
+        boolean result = FileUtil.copyFile(new File("C:\\java-project\\kjs-common\\src\\test\\resources\\2.jpg"), new File("C:\\java-project\\kjs-common\\src\\test\\resources\\1.jpg"));
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void testGetSystemTempDir() throws Exception {
+    public void testGetSystemTempDir() {
         File result = FileUtil.getSystemTempDir();
         Assert.assertNotNull(result);
     }
 
     @Test
-    public void testUpdateTmpDir() throws Exception {
+    public void testUpdateTmpDir() {
         FileUtil.updateTmpDir("Temp1");
     }
 
     @Test
-    public void testGetTemplateFile() throws Exception {
+    public void testGetTemplateFile() {
         File result = FileUtil.getTemplateFile("test-template");
         Assert.assertNotNull(result);
     }
 
     @Test
-    public void testGetInputStreamByUrlPath() throws Exception {
+    public void testGetInputStreamByUrlPath() {
         InputStream result = FileUtil.getInputStreamByUrlPath("https://img2.baidu.com/it/u=1103740651,3828883478&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800");
         Assert.assertNotNull(result);
     }
 
     @Test
-    public void testReadTemplate() throws Exception {
-        String result = FileUtil.readTemplate("1.jpg");
+    public void testReadTemplate() {
+        String result = FileUtil.readTemplate("img/1.jpg");
         Assert.assertNotNull(result);
     }
 
     @Test
+<<<<<<< HEAD
     public void testGetAllFilesInDirectory() throws Exception {
         List<File> result = FileUtil.getAllFilesInDirectory(this.getClass().getClassLoader().getResource("").getPath());
+=======
+    public void testGetAllFilesInDirectory() {
+        List<File> result = FileUtil.getAllFilesInDirectory("C:\\Users\\xiazh\\Desktop\\test");
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
         Assert.assertNotNull(result);
     }
 
     @Test
+<<<<<<< HEAD
     public void testReadLines() throws Exception {
         List<String> result = FileUtil.readLines(new File(FileUtil.getFileAbsolutePath("demo.txt")), StandardCharsets.UTF_8);
+=======
+    public void testReadLines() {
+        List<String> result = FileUtil.readLines(new File("C:\\Users\\xiazh\\Desktop\\test\\demo.txt"), StandardCharsets.UTF_8);
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
         Assert.assertNotNull(result);
     }
 
     @Test
+<<<<<<< HEAD
     public void testWriteUtf8Lines() throws Exception {
         ArrayList<File> allFilesInDirectory = (ArrayList<File>) FileUtil.getAllFilesInDirectory(this.getClass().getClassLoader().getResource("").getPath());
         FileUtil.writeUtf8Lines(allFilesInDirectory, new File(FileUtil.getFileAbsolutePath("demo.txt")));
@@ -94,12 +135,22 @@ public class FileUtilTest {
     @Test
     public void testAppendToFile() throws Exception {
         Collection<File> allFilesInDirectory = (Collection<File>) FileUtil.getAllFilesInDirectory(this.getClass().getClassLoader().getResource("").getPath());
-        boolean result = FileUtil.appendToFile(allFilesInDirectory, "demo03", true);
-        Assert.assertEquals(true, result);
+=======
+    public void testWriteUtf8Lines() {
+        ArrayList<File> allFilesInDirectory = (ArrayList<File>) FileUtil.getAllFilesInDirectory("C:\\Users\\xiazh\\Desktop\\test");
+        FileUtil.writeUtf8Lines(allFilesInDirectory, new File("C:\\Users\\xiazh\\Desktop\\test1\\demo02.txt"));
     }
 
     @Test
-    public void testGetFilePrefix() throws Exception {
+    public void testAppendToFile() {
+        Collection<File> allFilesInDirectory = FileUtil.getAllFilesInDirectory("C:\\Users\\xiazh\\Desktop\\test");
+>>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
+        boolean result = FileUtil.appendToFile(allFilesInDirectory, "demo03", true);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void testGetFilePrefix() {
         String result = FileUtil.getFilePrefix("demo.txt");
         Assert.assertEquals("demo", result);
     }
