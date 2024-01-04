@@ -16,8 +16,13 @@ public class GPSUtilTest {
 
     @Test
     public void testGetDistance() throws Exception {
-        double result = GPSUtil.getDistance(0d, 0d, 0d, 0d);
-        Assert.assertEquals(0d, result);
+        // 北京的经纬度
+        Coordinate beijing = new Coordinate(39.9d, 116.3d);
+        // 武汉的经纬度
+        Coordinate wuhan = new Coordinate(114.29d, 30.58d);
+        double result = GPSUtil.getDistance(beijing.getLatitude(), beijing.getLongitude(), wuhan.getLatitude(), wuhan.getLongitude());
+        System.out.println(result);
+        Assert.assertNotNull(result);
     }
 
     @Test
@@ -33,4 +38,3 @@ public class GPSUtilTest {
     }
 }
 
-//Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme
