@@ -27,7 +27,7 @@ import org.junit.Test;
 public class MimeTypeUtilTest {
 
     @Test
-    public void testGetExtension() throws Exception {
+    public void testGetExtension() {
         String result = MimeTypeUtil.getExtension("image/png");
         Assert.assertEquals("png", result);
     }
