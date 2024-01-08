@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.gps;
 
 import com.mobaijun.common.model.Model;
+import com.mobaijun.common.util.gps.model.Coordinate;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -30,7 +31,6 @@ import java.math.BigDecimal;
 public class GPSUtilTest {
 
     @Test
-<<<<<<< HEAD
     public void testGetDistance() throws Exception {
         // 北京的经纬度
         Coordinate beijing = new Coordinate(39.9d, 116.3d);
@@ -39,11 +39,6 @@ public class GPSUtilTest {
         double result = GPSUtil.getDistance(beijing.getLatitude(), beijing.getLongitude(), wuhan.getLatitude(), wuhan.getLongitude());
         System.out.println(result);
         Assert.assertNotNull(result);
-=======
-    public void testGetDistance() {
-        double result = GPSUtil.getDistance(0d, 0d, 0d, 0d);
-        Assert.assertEquals(0d, result);
->>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
     }
 
     @Test
@@ -57,7 +52,3 @@ public class GPSUtilTest {
         Assert.assertEquals(new Model<>(new BigDecimal(0), new BigDecimal(0)), result);
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 12b3c1633ece6750d24a7c6e756436a31f5de0e3
