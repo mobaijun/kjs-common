@@ -20,28 +20,17 @@ import com.mobaijun.common.util.tool.ToolUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,6 +45,8 @@ import java.util.stream.Stream;
 public class FileUtil {
 
     private static final File SYSTEM_TEMP_DIR = new File(System.getProperty("java.io.tmpdir"));
+
+    private static final FileUtil INSTANCE = new FileUtil();
 
     /**
      * 存储文件列表
@@ -313,5 +304,26 @@ public class FileUtil {
         }
         int dotIndex = fileName.lastIndexOf(".");
         return (dotIndex == -1) ? fileName : fileName.substring(0, dotIndex);
+    }
+
+    /**
+     * 该方法获取resource下文件的绝对路径
+     *
+     * @param fileName
+     * @return
+     * @throws URISyntaxException
+     */
+    public static String getFileAbsolutePath(String fileName) {
+        URL resource = INSTANCE.getClass().getClassLoader().getResource(fileName);
+        String url = "";
+        Path resourcePath = null;
+        try {
+            resourcePath = Paths.get(resource.toURI());
+            Path absolutePath = resourcePath.toAbsolutePath();
+            url = absolutePath.toString();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+        return url;
     }
 }
