@@ -16,7 +16,6 @@
 package com.mobaijun.common.util.thread;
 
 import com.mobaijun.common.constant.DefaultValues;
-import com.mobaijun.common.util.PrintUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CancellationException;
@@ -63,7 +62,7 @@ public class Threads {
                 if (!pool.awaitTermination(DefaultValues.Thread.TIME_OUT, TimeUnit.SECONDS)) {
                     pool.shutdownNow();
                     if (!pool.awaitTermination(DefaultValues.Thread.TIME_OUT, TimeUnit.SECONDS)) {
-                        PrintUtil.println("Pool did not terminate");
+                        log.info("Pool did not terminate");
                     }
                 }
             } catch (InterruptedException ie) {

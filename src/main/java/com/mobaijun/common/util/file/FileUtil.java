@@ -164,7 +164,7 @@ public class FileUtil {
             return tempFilePath.toFile();
         } catch (IOException e) {
             // 在内部处理异常，可以选择记录日志或采取其他措施
-            throw new RuntimeException("无法创建临时文件", e);
+            throw new RuntimeException("Unable to create temporary file", e);
         }
     }
 
@@ -205,7 +205,7 @@ public class FileUtil {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
 
         if (inputStream == null) {
-            throw new RuntimeException("读取文件失败");
+            throw new RuntimeException("File reading failure");
         } else {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             Stream<String> streamOfString = new BufferedReader(inputStreamReader).lines();

@@ -35,7 +35,12 @@ public enum SmsTypeEnum {
     /**
      * 纯发送短信
      */
-    MESSAGE(2, "纯发送短信");
+    MESSAGE(2, "纯发送短信"),
+
+    /**
+     * 营销短信
+     */
+    MARKETING_SMS(3, "纯发送短信");
 
     private final Integer code;
 

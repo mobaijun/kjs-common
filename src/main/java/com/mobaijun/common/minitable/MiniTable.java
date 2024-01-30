@@ -135,7 +135,7 @@ public class MiniTable {
         int len;
         if (objects != null && (len = objects.length) > 0) {
             if (this.maxColMap.size() > len) {
-                throw new IllegalArgumentException("向表格中插入某行数据的列数与之前的列数不同,请检查!");
+                throw new IllegalArgumentException("The number of columns that inserted a row of data into the table is different from the number of previous columns, check!");
             }
 
             // 遍历传入的数据集合，并将其存入到行数据对象中.

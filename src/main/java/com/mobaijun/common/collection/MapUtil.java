@@ -167,7 +167,7 @@ public class MapUtil {
      * @return 转换后的Map
      */
     public static <K, V> Map<K, V> build(Class<K> keyClass, Class<V> valueClass, Object... keyValues) {
-        Assert.assertTrue(keyValues.length % 2 == 0, "键值对数量必须是偶数");
+        Assert.assertTrue(keyValues.length % 2 == 0, "The number of key-value pairs must be an even number");
 
         if (keyValues.length == 0) {
             return Map.of();
@@ -200,7 +200,7 @@ public class MapUtil {
         }
 
         if (keyValues.length % 2 != 0) {
-            throw new IllegalArgumentException("键值对数量必须是偶数");
+            throw new IllegalArgumentException("The number of key-value pairs must be an even number");
         }
 
         for (int i = 0; i < keyValues.length; i += 2) {

@@ -59,7 +59,7 @@ public final class PingYinUtil {
             }
             return buffer.toString();
         } catch (Exception e) {
-            log.warn("取中文拼音有错" + e.getMessage());
+            log.warn("There is a mistake in taking Chinese pinyin {}", e.getMessage());
         }
         return null;
     }
@@ -123,8 +123,6 @@ public final class PingYinUtil {
         if (!bUpCase) {
             result = Character.toLowerCase(result);
         }
-
         return result;
-
     }
 }

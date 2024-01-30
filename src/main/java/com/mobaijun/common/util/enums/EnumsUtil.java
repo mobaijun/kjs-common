@@ -104,4 +104,21 @@ public final class EnumsUtil {
                 .map(e -> isKey ? e.name() : e.toString())
                 .collect(Collectors.toList());
     }
+
+    /**
+     * 根据code获取名称
+     *
+     * @param <T>       枚举类型
+     * @param enumClass 枚举类
+     * @param value     code值
+     * @return 名称
+     */
+    public static <T extends Enum<T> & CodeNameConvertible> String getNameByCode(Class<T> enumClass, String value) {
+        for (T enumValue : enumClass.getEnumConstants()) {
+            if (value.equals(String.valueOf(enumValue.getCode()))) {
+                return enumValue.getValue();
+            }
+        }
+        return null;
+    }
 }

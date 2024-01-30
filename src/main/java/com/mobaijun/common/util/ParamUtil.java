@@ -15,65 +15,136 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.constant.StringConstant;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * class name: ParamUtils<br>
- * class description: 参数处理工具类<br>
+ * class description: URL 参数处理工具类<br>
  *
  * @author MoBaiJun 2022/11/22 11:36
  */
 public class ParamUtil {
 
     /**
-     * 将Map型转为请求参数型
+     * 将Map转换为URL参数字符串。
      *
-     * @param data Map类型的参数
-     * @return url请求的参数
+     * @param paramsMap 参数Map
+     * @return URL参数字符串
      */
-    public static String mapToUrlParams(Map<String, String> data) {
-        if (data.isEmpty()) {
-            return null;
+    public static <V> String convertMapToUrlParams(Map<String, V> paramsMap) {
+        if (paramsMap.isEmpty()) {
+            return "";
         }
 
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> entry : data.entrySet()) {
-            sb.append(entry.getKey())
+        StringBuilder urlParamsBuilder = new StringBuilder();
+
+        for (Map.Entry<String, V> entry : paramsMap.entrySet()) {
+            String encodedValue = URLEncoder.encode(entry.getValue().toString(), StandardCharsets.UTF_8);
+            urlParamsBuilder.append(entry.getKey())
                     .append(StringConstant.EQUAL)
-                    .append(URLEncoder.encode(entry.getValue(), StandardCharsets.UTF_8))
+                    .append(encodedValue)
                     .append(StringConstant.AND);
         }
 
-        String params = sb.toString();
-        return params.substring(0, params.length() - 1);
+        urlParamsBuilder.deleteCharAt(urlParamsBuilder.length() - 1);
+        return urlParamsBuilder.toString();
     }
 
     /**
-     * 将url参数转换成map
+     * 解析URL参数为Map。
      *
-     * @param param url参数字符串
+     * @param paramsPath URL
      * @return 参数Map
      */
-    public static Map<String, String> urlParamsToMap(String param) {
-        Map<String, String> paramMap = new HashMap<>();
-        if (param.isEmpty()) {
-            return paramMap;
+    public static Map<String, String> parseUrlParams(String paramsPath) {
+        return parseUrlParams(paramsPath, "=");
+    }
+
+    /**
+     * 解析URL参数为Map。
+     *
+     * @param paramsPath URL
+     * @param separator  参数分隔符
+     * @return 参数Map
+     */
+    public static Map<String, String> parseUrlParams(String paramsPath, String separator) {
+        Assert.notNull(paramsPath, "The params Path cannot be empty");
+        Assert.notNull(separator, "separator cannot be empty");
+
+        // 判断是否包含 "?" 和参数分隔符
+        if (!paramsPath.contains("?") || !paramsPath.contains(separator)) {
+            return new HashMap<>();
         }
 
-        String[] params = param.split(StringConstant.AND);
-        for (String pair : params) {
-            String[] keyValue = pair.split(StringConstant.EQUAL);
-            if (keyValue.length == 2) {
-                paramMap.put(keyValue[0], keyValue[1]);
-            }
+        // 获取 "?" 后的参数部分
+        String[] paramsArr = paramsPath.split("\\?");
+        String paramsStr = paramsArr[paramsArr.length - 1];
+
+        // 判断是否存在参数项
+        if (paramsStr.isEmpty()) {
+            return new HashMap<>();
         }
 
-        return paramMap;
+        // 分割参数项
+        String[] paramsItems = paramsStr.split(StringConstant.AND);
+
+        // 构建结果 Map
+        Map<String, String> result = new HashMap<>();
+
+        // 遍历参数项，解析并放入结果 Map
+        Arrays.stream(paramsItems)
+                .filter(item -> item != null && !item.isEmpty() && item.contains(separator))
+                .map(item -> item.split(separator, 2))
+                .filter(keyValue -> keyValue.length == 2)
+                .forEach(keyValue -> result.put(keyValue[0], keyValue[1]));
+
+        return result;
+    }
+
+    /**
+     * 构建重定向 URL。
+     *
+     * @param baseUrl   原始的URL
+     * @param paramsMap URL上要拼接的参数信息
+     * @return 构建后的重定向URL
+     */
+    public static <V> String buildRedirectUrl(String baseUrl, Map<String, V> paramsMap) {
+        URI uri;
+        try {
+            uri = new URI(baseUrl);
+        } catch (URISyntaxException e) {
+            throw new IllegalArgumentException("Invalid URI: " + baseUrl, e);
+        }
+
+        String query = uri.getQuery();
+        StringBuilder urlBuilder = new StringBuilder(baseUrl);
+
+        if (query == null) {
+            urlBuilder.append(StringConstant.QUESTION_MARK);
+        } else {
+            urlBuilder.append(StringConstant.AND);
+        }
+
+        for (Map.Entry<String, V> entry : paramsMap.entrySet()) {
+            String key = entry.getKey();
+            V value = entry.getValue();
+            urlBuilder.append(key)
+                    .append(StringConstant.EQUAL)
+                    .append(value.toString())
+                    .append(StringConstant.AND);
+        }
+
+        urlBuilder.deleteCharAt(urlBuilder.length() - 1);
+        return urlBuilder.toString();
     }
 }

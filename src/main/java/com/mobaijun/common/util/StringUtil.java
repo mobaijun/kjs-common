@@ -627,7 +627,7 @@ public class StringUtil {
         }
 
         if (position < 0 || position > original.length()) {
-            throw new IllegalArgumentException("插入位置超出字符串范围");
+            throw new IllegalArgumentException("Insert position outside string range");
         }
 
         return IntStream.range(0, original.length())

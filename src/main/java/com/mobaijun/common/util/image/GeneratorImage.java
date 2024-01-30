@@ -49,7 +49,7 @@ public class GeneratorImage {
      * @param fillet     圆角大小
      * @throws IOException IOException
      */
-    public static void generateImg(String name, String outputPath, String outputName, Integer fillet) throws IOException {
+    public static boolean generateImg(String name, String outputPath, String outputName, Integer fillet) throws IOException {
         int width = 100;
         int height = 100;
         int nameLen = name.length();
@@ -117,7 +117,7 @@ public class GeneratorImage {
 
         }
         BufferedImage rounded = makeRoundedCorner(bi, fillet);
-        ImageIO.write(rounded, FileConstant.IMAGE_PNG, file);
+        return ImageIO.write(rounded, FileConstant.IMAGE_PNG, file);
     }
 
     /**

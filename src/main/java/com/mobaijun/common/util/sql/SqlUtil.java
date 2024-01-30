@@ -55,7 +55,7 @@ public class SqlUtil {
      */
     public static String escapeOrderBySql(String value) {
         if (StringUtil.isNotEmpty(value) && !isValidOrderBySql(value)) {
-            throw new RuntimeException("参数不符合规范，不能进行查询");
+            throw new RuntimeException("The parameter does not meet specifications and cannot be queried");
         }
         return value;
     }
@@ -102,7 +102,7 @@ public class SqlUtil {
             }
             return result;
         } catch (SQLException e) {
-            log.error("转化结果集错误！{}", e.getMessage());
+            log.error("Conversion result set error!{}", e.getMessage());
             // 返回空map
             return new HashMap<>(1);
         }
@@ -123,7 +123,7 @@ public class SqlUtil {
             }
             return result;
         } catch (SQLException e) {
-            log.error("转化结果集错误！{}", e.getMessage());
+            log.error("Error converting result set！{}", e.getMessage());
             // 返回空map
             return result;
         }

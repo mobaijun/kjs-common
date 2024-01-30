@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,6 +33,7 @@ import java.util.Objects;
  *
  * @author MoBaiJun 2022/4/22 18:14
  */
+@Slf4j
 public class MavenUtil {
 
     /**
@@ -58,7 +61,7 @@ public class MavenUtil {
             Instant endNow = Instant.now();
             time = Duration.between(startNow, endNow).toMillis();
         }
-        System.out.printf("删除数量：%d 耗时：%d 毫秒", total, time);
+        log.info("Number of deletes: {} Time taken: {} milliseconds", total, time);
     }
 
     /**
@@ -83,7 +86,7 @@ public class MavenUtil {
                                     throw new RuntimeException(e);
                                 }
                                 total++;
-                                System.out.println("删除：" + f.getAbsolutePath());
+                                log.info("Removed:{}", f.getAbsolutePath());
                             } else if (Objects.requireNonNull(f.listFiles()).length == 0) {
                                 try {
                                     Files.delete(f.toPath());
@@ -91,7 +94,7 @@ public class MavenUtil {
                                     throw new RuntimeException(e);
                                 }
                                 total++;
-                                System.out.println("删除：" + f.getAbsolutePath());
+                                log.info("Removed:{}", f.getAbsolutePath());
                             }
                         } else if (f.getName().endsWith(".lastUpdated")) {
                             try {
@@ -100,7 +103,7 @@ public class MavenUtil {
                                 throw new RuntimeException(e);
                             }
                             total++;
-                            System.out.println("删除：" + f.getAbsolutePath());
+                            log.info("Removed:{}", f.getAbsolutePath());
                         }
                     });
         } catch (IOException e) {
@@ -133,7 +136,7 @@ public class MavenUtil {
                             }
                         }
                         total++;
-                        System.out.println("删除：" + f.getAbsolutePath());
+                        log.info("Removed:{}", f.getAbsolutePath());
                     });
         } catch (IOException e) {
             throw new RuntimeException(e);

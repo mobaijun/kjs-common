@@ -116,7 +116,7 @@ public class ListUtil {
         }
 
         if (list2 == null || list2.isEmpty()) {
-            return list1 == null || list1.isEmpty() ? new ArrayList<>() : list1;
+            return list1;
         }
 
         // 使用 Set 处理差集和交集

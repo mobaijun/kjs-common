@@ -17,6 +17,7 @@ package com.mobaijun.common.http;
 
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.util.StringUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
@@ -41,6 +42,7 @@ import java.util.Set;
  *
  * @author MoBaiJun 2022/5/12 10:17
  */
+@Slf4j
 public class IpUtil {
 
     /**
@@ -284,8 +286,8 @@ public class IpUtil {
                     Query.match(Query.attr("protocol"), Query.value("HTTP/1.1")));
             return objectNames.iterator().next().getKeyProperty("port");
         } catch (MalformedObjectNameException e) {
+            log.error("Failed to obtain port");
             e.printStackTrace();
-            System.out.println("获取端口异常");
             return "";
         }
     }

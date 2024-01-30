@@ -16,6 +16,7 @@
 package com.mobaijun.common.util.system;
 
 import com.mobaijun.common.util.JdkUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +31,7 @@ import java.nio.file.Paths;
  *
  * @author MoBaiJun 2023/2/20 7:41
  */
+@Slf4j
 public class WindowsCleaner {
 
     /**
@@ -65,10 +67,9 @@ public class WindowsCleaner {
                         }
                     });
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Error cleaning temp folder {}", e.getMessage());
         }
-
-        System.out.println("Temp folder cleaned successfully.");
+        log.info("Temp folder cleaned successfully.");
     }
 
     /**
@@ -81,7 +82,7 @@ public class WindowsCleaner {
         // 判断回收站目录是否存在
         File recycleBinDir = new File(recycleBinPath);
         if (!recycleBinDir.exists()) {
-            System.out.println("Recycle bin directory not found.");
+            log.error("Recycle bin directory not found.");
             return;
         }
         // 遍历回收站目录中的所有文件和子文件夹
@@ -99,6 +100,6 @@ public class WindowsCleaner {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Recycle bin emptied successfully.");
+        log.info("Recycle bin emptied successfully.");
     }
 }

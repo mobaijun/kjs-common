@@ -74,12 +74,12 @@ public class PrintUtil {
     /**
      * 打印异常信息
      *
-     * @param message 异常信息
-     * @param clazz   异常类
-     * @param <T>     泛型
+     * @param message        异常信息
+     * @param exceptionClass 异常类
+     * @param <T>            泛型
      */
-    public static <T> void printlnException(String message, Class<T> clazz) {
-        System.out.printf("Exception from {%s} class: {%s}%n", clazz.getName(), message);
+    public static <T extends Throwable> void logException(String message, Class<T> exceptionClass) {
+        print(String.format("Exception from {%s} class: {%s}", exceptionClass.getName(), message));
     }
 
     /**

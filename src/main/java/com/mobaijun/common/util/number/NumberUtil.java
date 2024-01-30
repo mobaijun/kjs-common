@@ -65,7 +65,7 @@ public class NumberUtil {
      */
     public static int countAge(String idNumber) {
         if (idNumber.length() != 18 && idNumber.length() != 15) {
-            throw new IllegalArgumentException("身份证号长度错误");
+            throw new IllegalArgumentException("Id number length is incorrect");
         }
         String year;
         String yue;

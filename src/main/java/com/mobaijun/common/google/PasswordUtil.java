@@ -17,6 +17,7 @@ package com.mobaijun.common.google;
 
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -40,6 +41,7 @@ import java.util.stream.Collectors;
  *
  * @author MoBaiJun 2023/4/6 10:52
  */
+@Slf4j
 public class PasswordUtil {
 
     /**
@@ -68,6 +70,7 @@ public class PasswordUtil {
                     }).map(fields -> new PasswordEntry(fields[0], fields[1], fields[2], fields[3], fields[4]))
                     .collect(Collectors.toList());
         } catch (IOException e) {
+            log.error("Failed to read csv file {}", e.getMessage());
             throw new IOException("Failed to read csv file", e);
         }
     }
@@ -99,9 +102,9 @@ public class PasswordUtil {
         passwordEntries.removeAll(toRemove);
 
         // 遍历待删除的PasswordEntry列表，逐个输出它们的信息
-        System.out.println("以下PasswordEntry对象因URL不可访问被删除：");
+        log.warn("The following Password Entry object was deleted because the URL was inaccessible:");
         for (PasswordEntry entry : toRemove) {
-            System.out.println(entry);
+            log.warn("entry :{}", entry);
         }
     }
 
