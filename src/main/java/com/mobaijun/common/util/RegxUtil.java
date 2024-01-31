@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
  * @author MoBaiJun 2022/5/18 10:08
  */
 public class RegxUtil {
+
     /**
      * 校验用户名
      *

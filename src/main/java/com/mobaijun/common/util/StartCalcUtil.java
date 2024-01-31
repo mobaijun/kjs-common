@@ -15,40 +15,55 @@
  */
 package com.mobaijun.common.util;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: StartCalcUtil<br>
- * class description：开始时间的计时工具<br>
+ * class description：项目启动时间管理工具类。<br>
  *
  * @author MoBaiJun 2022/5/12 14:05
  */
 public class StartCalcUtil {
-    /**
-     * 项目开始启动时间
-     */
-    public static Date startDate = null;
 
     /**
-     * 初始化项目开始时间
-     *
-     * @param date 开始日期
+     * 项目的启动时间。
      */
-    public static void init(Date date) {
-        startDate = date;
+    private static LocalDateTime projectStartTime = null;
+
+    /**
+     * 初始化项目的启动时间。
+     *
+     * @param startDateTime 项目的开始日期和时间。
+     */
+    public static void initializeProjectStartTime(LocalDateTime startDateTime) {
+        projectStartTime = startDateTime;
     }
 
     /**
-     * 计算是否项目已经启动
+     * 检查项目是否已启动。
      *
-     * @param date                 日期
-     * @param startInterValSeconds 启动时间毫秒值
-     * @return true启动 false 未启动
+     * @param currentDateTime      当前的日期和时间。
+     * @param startIntervalSeconds 用于判定项目已启动的时间间隔，以秒为单位。
+     * @return 如果项目已启动，则返回true；否则返回false。
      */
-    public static boolean calcEnable(Date date, long startInterValSeconds) {
-        Date currentDate = new Date();
-        long interval = (currentDate.getTime() - date.getTime()) / 1000;
-        return interval >= startInterValSeconds;
+    public static boolean hasStarted(LocalDateTime currentDateTime, long startIntervalSeconds) {
+        if (projectStartTime == null || currentDateTime == null) {
+            throw new IllegalArgumentException("项目启动时间和当前时间不能为null");
+        }
+
+        LocalDateTime currentProjectTime = getCurrentTime();
+        long elapsedSeconds = ChronoUnit.SECONDS.between(projectStartTime, currentProjectTime);
+        return elapsedSeconds >= startIntervalSeconds;
+    }
+
+    /**
+     * 获取当前时间。
+     *
+     * @return 当前时间。
+     */
+    private static LocalDateTime getCurrentTime() {
+        return LocalDateTime.now();
     }
 }

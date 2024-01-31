@@ -24,22 +24,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
- * class name: RunTimeUtils<br>
- * class description： 运行时工具类<br>
+ * class name: JVMUtil<br>
+ * class description： 提供与 JVM 相关的实用方法<br>
  *
  * @author MoBaiJun 2022/7/11 10:02
  */
-public class RunTimeUtil {
+public class JVMUtil {
 
     private static final AtomicInteger SHUTDOWN_HOOK_THREAD_INDEX = new AtomicInteger(0);
 
     /**
-     * 获得当前进程的PID
-     * <br>
-     * 当失败时返回-1
+     * 获取当前进程的 PID。
+     *
+     * @return 当前进程的 PID，获取失败时返回 -1。
      */
-    public static int getPid() {
-        // format: "pid@hostname"
+    public static int getProcessId() {
+        // 格式: "pid@hostname"
         String jvmName = ManagementFactory.getRuntimeMXBean().getName();
         String[] split = jvmName.split(StringConstant.AT);
         if (split.length != NumberConstant.TWO) {
@@ -47,51 +47,58 @@ public class RunTimeUtil {
         }
         try {
             return Integer.parseInt(split[NumberConstant.ZERO]);
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             return NumberConstant.MINUS_ONE;
         }
     }
 
     /**
-     * 返回应用启动到现在的毫秒数
+     * 获取应用启动到现在的毫秒数。
+     *
+     * @return 应用启动到现在的毫秒数。
      */
-    public static long getUpTime() {
+    public static long getUptime() {
         return ManagementFactory.getRuntimeMXBean().getUptime();
     }
 
     /**
-     * 返回输入的JVM参数列表
+     * 获取 JVM 的输入参数列表。
+     *
+     * @return JVM 输入参数列表的字符串表示。
      */
-    public static String getVmArguments() {
+    public static String getVMArguments() {
         List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
         return String.join(StringConstant.BLANK, vmArguments);
     }
 
-
     /**
-     * 获取CPU核数
+     * 获取 CPU 核数。
+     *
+     * @return CPU 核数。
      */
     public static int getCores() {
         return Runtime.getRuntime().availableProcessors();
     }
 
     /**
-     * 注册JVM关闭时的钩子程序
+     * 注册 JVM 关闭时的钩子程序。
+     *
+     * @param runnable 关闭时执行的任务。
      */
     public static void addShutdownHook(Runnable runnable) {
         Runtime.getRuntime().addShutdownHook(
-                new Thread(runnable, "Thread-ShutDownHook-" + SHUTDOWN_HOOK_THREAD_INDEX.incrementAndGet()));
+                new Thread(runnable, "ShutdownHook-" + SHUTDOWN_HOOK_THREAD_INDEX.incrementAndGet()));
     }
 
     /**
-     * 通过StackTrace，获得调用者的类名.
-     * <br>
-     * 获取StackTrace有消耗，不要滥用
+     * 通过 StackTrace 获得调用者的类名。
+     *
+     * @return 调用者的类名。
      */
     public static String getCallerClass() {
-        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
-        if (stacktrace.length >= NumberConstant.FOUR) {
-            StackTraceElement element = stacktrace[NumberConstant.THREE];
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= NumberConstant.FOUR) {
+            StackTraceElement element = stackTrace[NumberConstant.THREE];
             return element.getClassName();
         } else {
             return StringConstant.EMPTY_STRING;
@@ -99,14 +106,14 @@ public class RunTimeUtil {
     }
 
     /**
-     * 通过StackTrace，获得调用者的"类名.方法名()"
-     * <br>
-     * 获取StackTrace有消耗，不要滥用
+     * 通过 StackTrace 获得调用者的 "类名.方法名()"。
+     *
+     * @return 调用者的 "类名.方法名()"。
      */
     public static String getCallerMethod() {
-        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
-        if (stacktrace.length >= NumberConstant.FOUR) {
-            StackTraceElement element = stacktrace[NumberConstant.THREE];
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= NumberConstant.FOUR) {
+            StackTraceElement element = stackTrace[NumberConstant.THREE];
             return element.getClassName() + StringConstant.DOT + element.getMethodName() + StringConstant.PARENTHESES;
         } else {
             return StringConstant.EMPTY_STRING;
@@ -114,14 +121,14 @@ public class RunTimeUtil {
     }
 
     /**
-     * 通过StackTrace，获得当前方法的类名.
-     * <br>
-     * 获取StackTrace有消耗，不要滥用
+     * 通过 StackTrace 获得当前方法的类名。
+     *
+     * @return 当前方法的类名。
      */
     public static String getCurrentClass() {
-        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
-        if (stacktrace.length >= NumberConstant.THREE) {
-            StackTraceElement element = stacktrace[NumberConstant.TWO];
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= NumberConstant.THREE) {
+            StackTraceElement element = stackTrace[NumberConstant.TWO];
             return element.getClassName();
         } else {
             return StringConstant.EMPTY_STRING;
@@ -129,14 +136,14 @@ public class RunTimeUtil {
     }
 
     /**
-     * 通过StackTrace，获得当前方法的"类名.方法名()"
-     * <br>
-     * 获取StackTrace有消耗，不要滥用
+     * 通过 StackTrace 获得当前方法的 "类名.方法名()"。
+     *
+     * @return 当前方法的 "类名.方法名()"。
      */
     public static String getCurrentMethod() {
-        StackTraceElement[] stacktrace = Thread.currentThread().getStackTrace();
-        if (stacktrace.length >= NumberConstant.THREE) {
-            StackTraceElement element = stacktrace[NumberConstant.TWO];
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        if (stackTrace.length >= NumberConstant.THREE) {
+            StackTraceElement element = stackTrace[NumberConstant.TWO];
             return element.getClassName() + StringConstant.DOT + element.getMethodName() + StringConstant.PARENTHESES;
         } else {
             return StringConstant.EMPTY_STRING;

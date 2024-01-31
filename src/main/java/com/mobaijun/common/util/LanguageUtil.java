@@ -25,6 +25,7 @@ import java.util.regex.Pattern;
  * @author MoBaiJun 2022/9/13 14:12
  */
 public class LanguageUtil {
+
     /**
      * 是否只有数字
      */

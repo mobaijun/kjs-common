@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.util;
 
-import com.mobaijun.common.constant.StringConstant;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,45 +36,22 @@ public class NamingUtil {
     private static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
 
     /**
-     * 驼峰转中划线
-     *
-     * @param name 待转换的名称
-     * @return 转换后的名称
-     */
-    public static String humpToMidline(String name) {
-        if (name.isEmpty()) {
-            return StringConstant.BLANK;
-        }
-        Matcher matcher = HUMP_PATTERN.matcher(name);
-        StringBuilder buffer = new StringBuilder();
-        while (matcher.find()) {
-            matcher.appendReplacement(buffer, StringConstant.UNDERLINE + matcher.group(0).toLowerCase());
-        }
-        matcher.appendTail(buffer);
-        return buffer.toString();
-    }
-
-    /**
      * 驼峰转下划线
      *
      * @param name 待转换的名称
      * @return 转换后的名称
      */
-    public static String humpToUnderline(String name) {
-        StringBuilder buf = new StringBuilder();
-        for (int i = 0; i < name.length(); ++i) {
-            char ch = name.charAt(i);
-            if (Character.isUpperCase(ch)) {
-                char chars = Character.toLowerCase(ch);
-                if (i > 0) {
-                    buf.append(StringConstant.UNDERLINE);
-                }
-                buf.append(chars);
-            } else {
-                buf.append(ch);
-            }
+    public static String toUnderline(String name) {
+        if (name.isEmpty()) {
+            return "";
         }
-        return buf.toString();
+        Matcher matcher = HUMP_PATTERN.matcher(name);
+        StringBuilder buffer = new StringBuilder();
+        while (matcher.find()) {
+            matcher.appendReplacement(buffer, "_" + matcher.group(0).toLowerCase());
+        }
+        matcher.appendTail(buffer);
+        return buffer.toString();
     }
 
     /**
@@ -85,9 +60,9 @@ public class NamingUtil {
      * @param name 待转换的名称
      * @return 转换后的名称
      */
-    public static String underlineToHump(String name) {
+    public static String toCamel(String name) {
         if (name.isEmpty()) {
-            return StringConstant.BLANK;
+            return "";
         }
         name = name.toLowerCase();
         Matcher matcher = UNDERLINE_PATTERN.matcher(name);
@@ -100,15 +75,44 @@ public class NamingUtil {
     }
 
     /**
+     * 将小写字符串转换为下划线大写形式
+     *
+     * @param input 小写字符串
+     * @return 下划线大写形式的字符串
+     */
+    public static String toUpperUnderscore(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder result = new StringBuilder();
+        boolean isFirstChar = true;
+
+        for (char c : input.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                if (!isFirstChar) {
+                    result.append('_');
+                }
+                result.append(Character.toLowerCase(c));
+            } else {
+                result.append(Character.toUpperCase(c));
+            }
+            isFirstChar = false;
+        }
+
+        return result.toString();
+    }
+
+    /**
      * 下划线转驼峰Map集
      *
      * @param map 源Map
      * @return 转换后的Map
      */
-    public static Map<String, Object> underlineToCamelMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>();
+    public static <T> Map<String, T> toCamelMap(Map<String, T> map) {
+        Map<String, T> newMap = new HashMap<>();
         for (String key : map.keySet()) {
-            String camel = underlineToHump(key);
+            String camel = toCamel(key);
             newMap.put(camel, map.get(key));
         }
         return newMap;
@@ -120,10 +124,10 @@ public class NamingUtil {
      * @param map 源Map
      * @return 转换后的Map
      */
-    public static Map<String, Object> camelToUnderlineMap(Map<String, Object> map) {
-        Map<String, Object> newMap = new HashMap<>();
+    public static <T> Map<String, T> toUnderlineMap(Map<String, T> map) {
+        Map<String, T> newMap = new HashMap<>();
         for (String key : map.keySet()) {
-            String underline = humpToUnderline(key);
+            String underline = toUnderline(key);
             newMap.put(underline, map.get(key));
         }
         return newMap;
@@ -135,14 +139,10 @@ public class NamingUtil {
      * @param list 源List
      * @return 转换后的List套Map
      */
-    public static List<Map<String, Object>> underlineToCamelListMap(List<Map<String, Object>> list) {
-        List<Map<String, Object>> returnList = new ArrayList<>();
-        for (Map<String, Object> map : list) {
-            Map<String, Object> newMap = new HashMap<>();
-            for (String key : map.keySet()) {
-                String camel = underlineToHump(key);
-                newMap.put(camel, map.get(key));
-            }
+    public static <T> List<Map<String, T>> toCamelListMap(List<Map<String, T>> list) {
+        List<Map<String, T>> returnList = new ArrayList<>();
+        for (Map<String, T> map : list) {
+            Map<String, T> newMap = toCamelMap(map);
             returnList.add(newMap);
         }
         return returnList;
@@ -154,14 +154,10 @@ public class NamingUtil {
      * @param list 源List
      * @return 转换后的List套Map
      */
-    public static List<Map<String, Object>> camelToUnderlineList(List<Map<String, Object>> list) {
-        List<Map<String, Object>> returnList = new ArrayList<>();
-        for (Map<String, Object> map : list) {
-            Map<String, Object> newMap = new HashMap<>();
-            for (String key : map.keySet()) {
-                String underline = humpToUnderline(key);
-                newMap.put(underline, map.get(key));
-            }
+    public static <T> List<Map<String, T>> toUnderlineListMap(List<Map<String, T>> list) {
+        List<Map<String, T>> returnList = new ArrayList<>();
+        for (Map<String, T> map : list) {
+            Map<String, T> newMap = toUnderlineMap(map);
             returnList.add(newMap);
         }
         return returnList;
@@ -173,10 +169,10 @@ public class NamingUtil {
      * @param list 源List
      * @return 转换后的List
      */
-    public static List<String> underlineToCamelList(List<String> list) {
+    public static List<String> toCamelList(List<String> list) {
         List<String> returnList = new ArrayList<>();
         for (String key : list) {
-            String camel = underlineToHump(key);
+            String camel = toCamel(key);
             returnList.add(camel);
         }
         return returnList;
