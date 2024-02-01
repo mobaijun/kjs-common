@@ -112,7 +112,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
-## 文档和示例
+## Documentation and examples
 
 We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
@@ -126,4 +126,4 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ## Acknowledgments
 
-感谢您使用 `kjs-common`, we will continue to work hard to provide developers with a better tool library.
+Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
