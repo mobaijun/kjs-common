@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.license;
 
-import com.mobaijun.common.util.file.FileUtil;
-import com.mobaijun.common.util.text.Charsets;
+import com.mobaijun.common.file.FileUtil;
+import com.mobaijun.common.text.Charsets;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;

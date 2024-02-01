@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common.http;
 
+import com.mobaijun.common.enums.http.ProtocolType;
+
 import java.net.URL;
 
 /**
@@ -30,14 +32,14 @@ public class HttpUtil {
      * 判断是否为指定协议的链接
      *
      * @param urlString url链接
-     * @param protocol  协议类型，可为 "http" 或 "https"
+     * @param protocol  协议类型，可为 ProtocolType.HTTP 或 ProtocolType.HTTPS
      * @return 是|否
      */
-    public static boolean isProtocol(String urlString, String protocol) {
+    public static boolean isProtocol(String urlString, ProtocolType protocol) {
         try {
             URL url = new URL(urlString);
             String urlProtocol = url.getProtocol();
-            return protocol.equals(urlProtocol);
+            return protocol.getValue().equalsIgnoreCase(urlProtocol);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

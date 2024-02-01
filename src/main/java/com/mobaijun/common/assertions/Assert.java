@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.assertions;
 
-import com.mobaijun.common.util.StringUtil;
+import com.mobaijun.common.text.StringUtil;
 
 import java.util.Arrays;
 import java.util.Collection;

@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.collection;
 
-import com.mobaijun.common.util.StringUtil;
+import com.mobaijun.common.text.StringUtil;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

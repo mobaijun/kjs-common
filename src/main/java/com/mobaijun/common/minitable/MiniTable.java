@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.minitable;
 
-import com.mobaijun.common.util.StringUtil;
+import com.mobaijun.common.text.StringUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
