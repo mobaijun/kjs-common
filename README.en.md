@@ -96,7 +96,7 @@ This warehouse has been released simultaneously[maven central warehouse](https:/
 If you would like to contribute code or make suggestions, please follow these steps:
 
 1.  Fork this warehouse
-2.  Create your branch (`git checkout -b feature/AmazingFeature`)
+2.  创建您的分支 (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
@@ -110,7 +110,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@mobaijun](https://github.com/mobaijun)
+-   [@ Mobaijun](https://github.com/mobaijun)
 
 ## Documentation and examples
 
