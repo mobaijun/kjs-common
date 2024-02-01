@@ -96,9 +96,9 @@ This warehouse has been released simultaneously[maven central warehouse](https:/
 If you would like to contribute code or make suggestions, please follow these steps:
 
 1.  Fork this warehouse
-2.  创建您的分支 (`git checkout -b feature/AmazingFeature`)
+2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  push to branch (`git push origin feature/AmazingFeature`)
+4.  Push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
@@ -112,7 +112,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
-## Documentation and examples
+## 文档和示例
 
 We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
@@ -126,4 +126,4 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ## Acknowledgments
 
-Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
+感谢您使用 `kjs-common`, we will continue to work hard to provide developers with a better tool library.
