@@ -32,7 +32,7 @@ public class LicenseTest {
     @Test
     public void testAppend() {
         // Perform the method call
-        LicenseTitleAppenderUtil.append("src/main/java/com/mobaijun/common/concurrent", String.format(License.APACHE_2.getValue(), "www.mobaijun.com"));
+        LicenseTitleAppenderUtil.append("src/main/java/com/mobaijun/common/", String.format(License.APACHE_2.getValue(), "www.mobaijun.com"));
     }
 
     /**
