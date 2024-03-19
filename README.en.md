@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[示例项目](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
