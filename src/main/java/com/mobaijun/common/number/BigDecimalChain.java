@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import lombok.Getter;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -27,6 +28,7 @@ import java.util.function.Function;
  *
  * @author MoBaiJun 2022/11/6 1:21
  */
+@Getter
 public class BigDecimalChain {
 
     /**
@@ -130,10 +132,6 @@ public class BigDecimalChain {
                 .divide(otherValue, scale, RoundingMode.HALF_UP), other, preoperational);
     }
 
-
-    public BigDecimal getValue() {
-        return value;
-    }
 
     public BigDecimal getValue(int scale) {
         return value.setScale(scale, RoundingMode.HALF_UP);

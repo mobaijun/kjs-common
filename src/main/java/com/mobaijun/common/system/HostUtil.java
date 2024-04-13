@@ -19,13 +19,13 @@ import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.JdkConstant;
 import com.mobaijun.common.file.FileUtil;
 import com.mobaijun.common.text.Charsets;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br/>
@@ -37,6 +37,7 @@ import java.util.stream.Collectors;
  *
  * @author MoBaiJun 2022/12/9 23:15
  */
+@Slf4j
 public class HostUtil {
 
     /**
@@ -132,7 +133,7 @@ public class HostUtil {
             Runtime.getRuntime().exec(FLUSH_DNS);
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("An error occurred while refreshing DNS:{}", e.getMessage());
             return false;
         }
     }

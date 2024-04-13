@@ -21,7 +21,6 @@ import com.mobaijun.common.constant.RegxConstant;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.date.LocalDateUtil;
 import com.mobaijun.common.text.StringUtil;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -42,6 +41,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -50,6 +50,7 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/4/22 18:59
  */
+@Slf4j
 public class ToolUtil {
 
     /**
@@ -79,8 +80,8 @@ public class ToolUtil {
         } finally {
             try {
                 sw.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException s) {
+                log.error("getExceptionMsg error", s);
             }
         }
         return sw.getBuffer().toString().replaceAll("\\$", "T");
@@ -119,8 +120,7 @@ public class ToolUtil {
         }
 
         int count;
-        if (obj instanceof Iterator) {
-            Iterator<?> iter = (Iterator<?>) obj;
+        if (obj instanceof Iterator<?> iter) {
             count = 0;
             while (iter.hasNext()) {
                 count++;
@@ -128,8 +128,7 @@ public class ToolUtil {
             }
             return count;
         }
-        if (obj instanceof Enumeration) {
-            Enumeration<?> enumeration = (Enumeration<?>) obj;
+        if (obj instanceof Enumeration<?> enumeration) {
             count = 0;
             while (enumeration.hasMoreElements()) {
                 count++;
@@ -167,8 +166,7 @@ public class ToolUtil {
             return ((Map<?, ?>) obj).containsValue(element);
         }
 
-        if (obj instanceof Iterator) {
-            Iterator<?> iter = (Iterator<?>) obj;
+        if (obj instanceof Iterator<?> iter) {
             while (iter.hasNext()) {
                 Object o = iter.next();
                 if (equals(o, element)) {
@@ -177,8 +175,7 @@ public class ToolUtil {
             }
             return false;
         }
-        if (obj instanceof Enumeration) {
-            Enumeration<?> enumeration = (Enumeration<?>) obj;
+        if (obj instanceof Enumeration<?> enumeration) {
             while (enumeration.hasMoreElements()) {
                 Object o = enumeration.nextElement();
                 if (equals(o, element)) {
@@ -223,11 +220,11 @@ public class ToolUtil {
         if (o instanceof String) {
             return StringConstant.BLANK.equals(o.toString().trim());
         } else if (o instanceof List) {
-            return ((List) o).size() == 0;
+            return ((List) o).isEmpty();
         } else if (o instanceof Map) {
-            return ((Map) o).size() == 0;
+            return ((Map) o).isEmpty();
         } else if (o instanceof Set) {
-            return ((Set) o).size() == 0;
+            return ((Set) o).isEmpty();
         } else if (o instanceof Object[]) {
             return ((Object[]) o).length == 0;
         } else if (o instanceof int[]) {

@@ -16,7 +16,6 @@
 package com.mobaijun.common.system;
 
 import com.mobaijun.common.text.Charsets;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -86,9 +85,9 @@ public class SystemUtil {
     /**
      * 获取所有进程的 PID 和 名称
      */
-    public static List<String> getPids() {
+    public static List<String> getPidS() {
         try {
-            List<String> pids = new ArrayList<>();
+            List<String> pidS = new ArrayList<>();
             ProcessBuilder processBuilder = new ProcessBuilder("jps", "-v");
             Process process = processBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -96,10 +95,10 @@ public class SystemUtil {
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.trim().split("\\s+");
                 if (tokens.length > 1) {
-                    pids.add(tokens[0]);
+                    pidS.add(tokens[0]);
                 }
             }
-            return pids;
+            return pidS;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.reflect;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.beans.PropertyDescriptor;
 import java.io.File;
 import java.lang.reflect.Array;
@@ -33,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -317,8 +316,9 @@ public class ReflectUtil {
      */
     public static <T> T newInstance(Class<T> clazz) {
         try {
-            return clazz.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
+            return clazz.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
+                 NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
     }

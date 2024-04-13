@@ -16,7 +16,6 @@
 package com.mobaijun.common.minitable;
 
 import com.mobaijun.common.text.StringUtil;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -185,9 +184,7 @@ public class MiniTable {
 
             // 拼接出标题行的上边框和标题行的数据.
             this.join.append("+");
-            for (int i = 0; i < maxTitleSize + 2; i++) {
-                this.join.append("-");
-            }
+            this.join.append("-".repeat(Math.max(0, maxTitleSize + 2)));
             this.join.append("+\n")
                     .append("|")
                     .append(StringUtil.center(this.title, maxTitleSize + 2, ' '))

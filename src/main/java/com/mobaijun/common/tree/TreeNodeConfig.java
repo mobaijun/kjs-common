@@ -35,9 +35,8 @@ public class TreeNodeConfig {
     /**
      * 属性
      * -- SETTER --
-     * set id
+     * set idKey
      *
-     * @param idKey id
      */
     private String idKey;
 
@@ -45,7 +44,6 @@ public class TreeNodeConfig {
      * -- SETTER --
      * set code
      *
-     * @param codeKey code
      */
     private String codeKey;
 
@@ -53,7 +51,6 @@ public class TreeNodeConfig {
      * -- SETTER --
      * set name
      *
-     * @param nameKey name
      */
     private String nameKey;
 
@@ -61,7 +58,6 @@ public class TreeNodeConfig {
      * -- SETTER --
      * set children
      *
-     * @param childrenKey children
      */
     private String childrenKey;
 
@@ -69,7 +65,6 @@ public class TreeNodeConfig {
      * -- SETTER --
      * set parentId
      *
-     * @param parentIdKey parentId
      */
     private String parentIdKey;
 

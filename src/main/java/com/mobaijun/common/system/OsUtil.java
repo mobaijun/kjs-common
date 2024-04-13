@@ -2,6 +2,7 @@ package com.mobaijun.common.system;
 
 import java.io.File;
 import java.util.Locale;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Description: [OSUtil工具类提供了一些操作系统相关的方法。]
@@ -9,6 +10,7 @@ import java.util.Locale;
  * Date: [2024/3/19 8:55]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
+@Slf4j
 public class OsUtil {
 
     private static final String OS_NAME = System.getProperty("os.name").toLowerCase(Locale.ENGLISH);
@@ -113,7 +115,7 @@ public class OsUtil {
             }
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("An error occurred while opening the URL: {}", e.getMessage());
             return false;
         }
     }

@@ -16,13 +16,12 @@
 package com.mobaijun.common.system;
 
 import com.mobaijun.common.jdk.JdkUtil;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -63,7 +62,7 @@ public class WindowsCleaner {
                             // 删除文件或文件夹
                             Files.deleteIfExists(path);
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            log.error("Error cleaning temp folder {}", e.getMessage());
                         }
                     });
         } catch (IOException e) {
@@ -94,7 +93,7 @@ public class WindowsCleaner {
                             // 删除文件或文件夹
                             Files.deleteIfExists(path);
                         } catch (IOException e) {
-                            e.printStackTrace();
+                            log.error("Error emptying recycle bin {}", e.getMessage());
                         }
                     });
         } catch (IOException e) {

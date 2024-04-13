@@ -16,8 +16,8 @@
 package com.mobaijun.common.http;
 
 import com.mobaijun.common.enums.http.ProtocolType;
-
 import java.net.URL;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -26,6 +26,7 @@ import java.net.URL;
  *
  * @author MoBaiJun 2022/7/18 10:05
  */
+@Slf4j
 public class HttpUtil {
 
     /**
@@ -41,7 +42,7 @@ public class HttpUtil {
             String urlProtocol = url.getProtocol();
             return protocol.getValue().equalsIgnoreCase(urlProtocol);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error in protocol judgment:{}", e.getMessage());
             return false;
         }
     }

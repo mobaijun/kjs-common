@@ -18,16 +18,14 @@ package com.mobaijun.common.image;
 import com.mobaijun.common.constant.FileConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
-
-import javax.imageio.ImageIO;
+import com.mobaijun.common.tool.RegxUtil;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -128,9 +126,7 @@ public class GeneratorImage {
      */
     public static boolean isChinese(String str) {
         String regEx = "[\\u4e00-\\u9fa5]+";
-        Pattern p = Pattern.compile(regEx);
-        Matcher m = p.matcher(str);
-        return m.find();
+        return RegxUtil.find(regEx, str);
     }
 
     /**

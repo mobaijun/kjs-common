@@ -35,11 +35,7 @@ public class ExceptionUtil {
      * @return 堆栈信息字符串
      */
     public static String getStackTrace(Throwable throwable) {
-        StringWriter sw = new StringWriter();
-        try (PrintWriter pw = new PrintWriter(sw)) {
-            throwable.printStackTrace(pw);
-            return sw.toString();
-        }
+        return toString(throwable);
     }
 
     /**

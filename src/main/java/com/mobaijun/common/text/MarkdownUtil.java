@@ -26,6 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2023.1.1<br>
@@ -34,6 +35,7 @@ import java.util.stream.StreamSupport;
  *
  * @author MoBaiJun 2023/4/12 22:39
  */
+@Slf4j
 public class MarkdownUtil {
 
     /**
@@ -135,7 +137,7 @@ public class MarkdownUtil {
                     try {
                         return getImageUrlsFromMarkdownFile(filePath).stream();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        log.error("Failed to get image URLs from file: {}", filePath, e);
                         return Stream.empty();
                     }
                 })

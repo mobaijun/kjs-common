@@ -17,9 +17,6 @@ package com.mobaijun.common.file;
 
 import com.mobaijun.common.constant.JdkConstant;
 import com.mobaijun.common.tool.ToolUtil;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -44,6 +41,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -52,6 +52,7 @@ import java.util.stream.Stream;
  *
  * @author MoBaiJun 2022/4/22 17:06
  */
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FileUtil {
 
@@ -121,7 +122,7 @@ public class FileUtil {
         try {
             Files.copy(src.toPath(), dest.toPath());
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("File copying failed: {}", e.getMessage());
             return false;
         }
         return true;
@@ -148,7 +149,7 @@ public class FileUtil {
             // 创建目录及其父目录，如果不存在
             Files.createDirectories(tempDirPath);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Failed to create temporary directory: {}", e.getMessage());
         }
     }
 
@@ -293,7 +294,7 @@ public class FileUtil {
             }
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Failed to write to file: {}", e.getMessage());
             return false;
         }
     }
