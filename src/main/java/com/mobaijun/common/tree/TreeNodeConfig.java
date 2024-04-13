@@ -36,35 +36,30 @@ public class TreeNodeConfig {
      * 属性
      * -- SETTER --
      * set idKey
-     *
      */
     private String idKey;
 
     /**
      * -- SETTER --
      * set code
-     *
      */
     private String codeKey;
 
     /**
      * -- SETTER --
      * set name
-     *
      */
     private String nameKey;
 
     /**
      * -- SETTER --
      * set children
-     *
      */
     private String childrenKey;
 
     /**
      * -- SETTER --
      * set parentId
-     *
      */
     private String parentIdKey;
 
