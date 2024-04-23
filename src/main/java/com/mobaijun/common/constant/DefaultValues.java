@@ -141,9 +141,39 @@ public final class DefaultValues {
         public static final String FIRST_NAME = "墨白";
 
         /**
-         * 默认主页
+         * 默认博客地址
          */
-        public static final String URL = "https://www.mobaijun.com";
+        public static final String BLOG_URL = "https://www.mobaijun.com/";
+
+        /**
+         * 默认文档地址
+         */
+        public static final String DOCS_URL = "https://docs.mobaijun.com/";
+
+        /**
+         * 默认 api
+         */
+        public static final String URL = "https://api.mobaijun.com/";
+
+        /**
+         * 默认导航地址
+         */
+        public static final String NAV_URL = "https://nav.mobaijun.com/";
+
+        /**
+         * 默认 GitHub 主页
+         */
+        public static final String GitHub_HOME = "https://github.com/mobaijun";
+
+        /**
+         * 默认组织 GitHub 主页
+         */
+        public static final String GITHUB_ORGANIZATIONS = "https://github.com/april-projects";
+
+        /**
+         * 默认 gitee 主页
+         */
+        public static final String GITEE_HOME = "https://gitee.com/mobaijun";
 
         /**
          * 品牌

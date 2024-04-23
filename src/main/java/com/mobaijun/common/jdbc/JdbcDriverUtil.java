@@ -60,7 +60,7 @@ public class JdbcDriverUtil {
      * @param username 数据库用户名
      * @param password 数据库密码
      * @return 数据库连接对象
-     * @throws SQLException 如果获取连接失败
+     * @throws SQLException 如果连接数据库时发生 SQL 异常
      */
     public static Connection getConnection(DatabaseType dbType, String url, String username, String password) throws SQLException {
         Objects.requireNonNull(dbType, "数据库类型不能为空");
@@ -97,9 +97,8 @@ public class JdbcDriverUtil {
      * @param conn   数据库连接对象
      * @param sql    SQL 语句
      * @param params SQL 参数
-     * @throws SQLException 如果执行 SQL 出错
      */
-    public static void execute(Connection conn, String sql, Object... params) throws SQLException {
+    public static void execute(Connection conn, String sql, Object... params) {
         Objects.requireNonNull(conn, "数据库连接不能为空");
         Objects.requireNonNull(sql, "SQL 语句不能为空");
 
@@ -119,9 +118,8 @@ public class JdbcDriverUtil {
      * @param conn        数据库连接对象
      * @param sql         SQL 语句
      * @param batchParams 批量参数列表
-     * @throws SQLException 如果执行 SQL 出错
      */
-    public static void executeBatch(Connection conn, String sql, List<Object[]> batchParams) throws SQLException {
+    public static void executeBatch(Connection conn, String sql, List<Object[]> batchParams) {
         Objects.requireNonNull(conn, "数据库连接不能为空");
         Objects.requireNonNull(sql, "SQL 语句不能为空");
 
@@ -146,9 +144,8 @@ public class JdbcDriverUtil {
      * @param inParams  输入参数
      * @param outParams 输出参数
      * @return 存储过程执行结果
-     * @throws SQLException 如果执行存储过程出错
      */
-    public static Map<Integer, Object> executeProcedure(Connection conn, String sql, Map<Integer, Object> inParams, Map<Integer, Integer> outParams) throws SQLException {
+    public static Map<Integer, Object> executeProcedure(Connection conn, String sql, Map<Integer, Object> inParams, Map<Integer, Integer> outParams) {
         Objects.requireNonNull(conn, "数据库连接不能为空");
         Objects.requireNonNull(sql, "存储过程调用语句不能为空");
 
@@ -170,9 +167,8 @@ public class JdbcDriverUtil {
      * @param sql    查询 SQL 语句
      * @param params 查询参数
      * @return 查询结果列表
-     * @throws SQLException 如果查询出错
      */
-    public static List<Map<String, Object>> findAll(Connection conn, String sql, Object... params) throws SQLException {
+    public static List<Map<String, Object>> findAll(Connection conn, String sql, Object... params) {
         Objects.requireNonNull(conn, "数据库连接不能为空");
         Objects.requireNonNull(sql, "查询 SQL 语句不能为空");
 
@@ -187,6 +183,13 @@ public class JdbcDriverUtil {
         }
     }
 
+    /**
+     * 设置 PreparedStatement 的参数。
+     *
+     * @param pst    PreparedStatement 对象
+     * @param params 参数数组
+     * @throws SQLException 如果设置参数时发生 SQL 异常
+     */
     private static void setParameters(PreparedStatement pst, Object... params) throws SQLException {
         if (params != null) {
             for (int i = 0; i < params.length; i++) {
@@ -195,6 +198,13 @@ public class JdbcDriverUtil {
         }
     }
 
+    /**
+     * 注册 CallableStatement 的输出参数。
+     *
+     * @param cs        CallableStatement 对象
+     * @param outParams 输出参数的映射，key 是参数索引，value 是参数类型
+     * @throws SQLException 如果注册输出参数时发生 SQL 异常
+     */
     private static void registerOutParameters(CallableStatement cs, Map<Integer, Integer> outParams) throws SQLException {
         if (outParams != null) {
             for (Map.Entry<Integer, Integer> entry : outParams.entrySet()) {
@@ -203,6 +213,14 @@ public class JdbcDriverUtil {
         }
     }
 
+    /**
+     * 获取 CallableStatement 的输出参数值。
+     *
+     * @param cs        CallableStatement 对象
+     * @param outParams 输出参数的映射，key 是参数索引，value 是参数类型
+     * @return 包含输出参数值的映射，key 是参数索引，value 是参数值
+     * @throws SQLException 如果获取输出参数值时发生 SQL 异常
+     */
     private static Map<Integer, Object> retrieveOutputParameters(CallableStatement cs, Map<Integer, Integer> outParams) throws SQLException {
         Map<Integer, Object> resultMap = new HashMap<>();
         if (outParams != null) {
@@ -213,6 +231,12 @@ public class JdbcDriverUtil {
         return resultMap;
     }
 
+    /**
+     * 处理 SQL 异常，包括记录错误日志并回滚事务。
+     *
+     * @param conn 数据库连接
+     * @param e    SQL 异常对象
+     */
     private static void handleSQLException(Connection conn, SQLException e) {
         log.error("SQL 执行出错: {}", e.getMessage());
         try {
@@ -222,6 +246,13 @@ public class JdbcDriverUtil {
         }
     }
 
+    /**
+     * 将 ResultSet 转换为 List<Map<String, Object>> 结果集。
+     *
+     * @param rs ResultSet 对象
+     * @return 包含 ResultSet 数据的 List<Map<String, Object>>
+     * @throws SQLException 如果处理 ResultSet 时发生 SQL 异常
+     */
     private static List<Map<String, Object>> resultSetToList(ResultSet rs) throws SQLException {
         List<Map<String, Object>> resultList = new ArrayList<>();
         ResultSetMetaData metaData = rs.getMetaData();

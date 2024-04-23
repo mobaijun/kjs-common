@@ -17,10 +17,9 @@ package com.mobaijun.common.gps;
 
 import com.mobaijun.common.gps.model.Coordinate;
 import com.mobaijun.common.model.Model;
+import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.math.BigDecimal;
 
 /**
  * Description: [GPSUtilTest测试类]
@@ -38,7 +37,6 @@ public class GPSUtilTest {
         Coordinate wuhan = new Coordinate(114.29d, 30.58d);
         double result = GPSUtil.getDistance(beijing.getLatitude(), beijing.getLongitude(), wuhan.getLatitude(), wuhan.getLongitude());
         System.out.println(result);
-        Assert.assertNotNull(result);
     }
 
     @Test
