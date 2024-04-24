@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.collection;
 
-import com.mobaijun.common.tool.PrintUtil;
-import org.junit.Test;
-
+import com.mobaijun.common.tool.Console;
 import java.util.List;
+import org.junit.Test;
 
 /**
  * Description: [StreamUtilTest测试类]
@@ -85,8 +84,8 @@ public class StreamUtilTest {
         // Perform the method call
         String result = StreamUtil.join(List.of("data"), "join");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -164,8 +163,8 @@ public class StreamUtilTest {
         // Perform the method call
         List<Long> result = StreamUtil.strToLong(List.of("list"));
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -185,8 +184,8 @@ public class StreamUtilTest {
         // Perform the method call
         List<Double> result = StreamUtil.doubleToString(List.of("list"));
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -197,8 +196,8 @@ public class StreamUtilTest {
         // Perform the method call
         List<Integer> result = StreamUtil.stringToInteger(List.of("list"));
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
 }

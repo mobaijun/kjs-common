@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.assertions;
 
-import com.mobaijun.common.tool.PrintUtil;
+import com.mobaijun.common.tool.Console;
 import org.junit.Test;
 
 /**
@@ -100,8 +100,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isEqualsLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -112,8 +112,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isNotEqualsLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -124,8 +124,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isFitMaxLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -136,8 +136,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isNotFitMaxLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -148,8 +148,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isFitMinLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -160,8 +160,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isNotFitMinLen("string", 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -172,8 +172,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isNumber("number");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -184,8 +184,8 @@ public class AssertTest {
         // Perform the method call
         Boolean result = Assert.isNotNumber("number");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -196,8 +196,8 @@ public class AssertTest {
         // Perform the method call
         boolean result = Assert.isMatchesRegex("string", "regex");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -208,8 +208,8 @@ public class AssertTest {
         // Perform the method call
         Boolean result = Assert.isNotMatchesRegex("string", "regex");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**

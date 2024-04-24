@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.collection;
 
-import com.mobaijun.common.tool.PrintUtil;
+import com.mobaijun.common.tool.Console;
 import org.junit.Test;
 
 /**
@@ -53,8 +53,8 @@ public class ArrayUtilTest {
         // Perform the method call
         long result = ArrayUtil.getIntLong(new byte[]{(byte) 0}, 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -65,8 +65,8 @@ public class ArrayUtilTest {
         // Perform the method call
         int result = ArrayUtil.getInt3(new byte[]{(byte) 0}, 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -77,8 +77,8 @@ public class ArrayUtilTest {
         // Perform the method call
         int result = ArrayUtil.getInt2(new byte[]{(byte) 0}, 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -89,8 +89,8 @@ public class ArrayUtilTest {
         // Perform the method call
         int result = ArrayUtil.getInt1(new byte[]{(byte) 0}, 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -101,8 +101,8 @@ public class ArrayUtilTest {
         // Perform the method call
         long result = ArrayUtil.ip2long("ip");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -113,8 +113,8 @@ public class ArrayUtilTest {
         // Perform the method call
         String result = ArrayUtil.long2ip(0L);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -125,8 +125,8 @@ public class ArrayUtilTest {
         // Perform the method call
 //        String result = ArrayUtil.arrayToString();
 
-        // Print the result using your PrintUtil
-//        PrintUtil.println(result);
+        // Print the result using your Console
+//        Console.println(result);
     }
 
     /**
@@ -151,8 +151,8 @@ public class ArrayUtilTest {
         // Perform the method call
         int result = ArrayUtil.findIgnoreCase(new String[]{"arr"}, "target");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
 }

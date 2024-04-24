@@ -1,6 +1,6 @@
 package com.mobaijun.common.system;
 
-import com.mobaijun.common.tool.PrintUtil;
+import com.mobaijun.common.tool.Console;
 import java.util.List;
 import java.util.Map;
 import org.junit.Test;
@@ -16,19 +16,19 @@ public class SystemUtilTest {
     @Test
     public void getSystemInfo() {
         List<Map<String, Object>> systemInfo = SystemUtil.getSystemInfo();
-        PrintUtil.println(systemInfo);
+        Console.println(systemInfo);
     }
 
     @Test
     public void processList() {
         List<List<String>> lists = SystemUtil.processList();
-        PrintUtil.println(lists);
+        Console.println(lists);
     }
 
     @Test
     public void getPidS() {
         List<String> pidS = SystemUtil.getPidS();
-        PrintUtil.println(pidS);
+        Console.println(pidS);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SystemUtilTest {
         // 使用 Lambda 表达式遍历进程ID列表，并打印每个进程的信息
         pidList.forEach(pid -> {
             String processInfo = SystemUtil.getProcessInfo(pid);
-            PrintUtil.println(processInfo);
+            Console.println(processInfo);
         });
     }
 }

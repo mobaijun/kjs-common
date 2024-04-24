@@ -29,7 +29,7 @@ import java.util.Objects;
  *
  * @author mobaijun
  */
-public class PrintUtil {
+public class Console {
 
     /**
      * 不换行输出

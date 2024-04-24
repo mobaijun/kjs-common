@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.util;
 
+import com.mobaijun.common.tool.Console;
 import com.mobaijun.common.tool.ExceptionUtil;
-import com.mobaijun.common.tool.PrintUtil;
 import org.junit.Test;
 
 /**
@@ -34,7 +34,7 @@ public class ExceptionUtilTest {
             int result = 1 / 0;
         } catch (Exception e) {
             String stackTrace = ExceptionUtil.getStackTrace(e);
-            PrintUtil.println(stackTrace);
+            Console.println(stackTrace);
         }
     }
 
@@ -49,7 +49,7 @@ public class ExceptionUtilTest {
             StackTraceElement[] elements = e.getStackTrace();
 
             String result = ExceptionUtil.stackTraceToString(exceptionName, exceptionMessage, elements);
-            PrintUtil.println(result);
+            Console.println(result);
         }
     }
 
@@ -60,7 +60,7 @@ public class ExceptionUtilTest {
             int result = 1 / 0;
         } catch (Exception e) {
             String result = ExceptionUtil.toString(e);
-            PrintUtil.println(result);
+            Console.println(result);
         }
     }
 }

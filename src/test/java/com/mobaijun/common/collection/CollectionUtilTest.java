@@ -15,11 +15,10 @@
  */
 package com.mobaijun.common.collection;
 
-import com.mobaijun.common.tool.PrintUtil;
-import org.junit.Test;
-
+import com.mobaijun.common.tool.Console;
 import java.util.List;
 import java.util.Map;
+import org.junit.Test;
 
 /**
  * Description: [CollectionUtilTest测试类]
@@ -38,8 +37,8 @@ public class CollectionUtilTest {
         // Perform the method call
         List<String> result = CollectionUtil.splitToList("str", "separator");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -222,8 +221,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Map<String, String> result = CollectionUtil.zip("keys", "values", "delimiter");
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -274,8 +273,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Integer[] result = CollectionUtil.wrap(0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -286,8 +285,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Long[] result = CollectionUtil.wrap(0L);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -298,8 +297,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Character[] result = CollectionUtil.wrap('a');
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -310,8 +309,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Byte[] result = CollectionUtil.wrap((byte) 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -322,8 +321,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Short[] result = CollectionUtil.wrap((short) 0);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -334,8 +333,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Float[] result = CollectionUtil.wrap(0f);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -346,8 +345,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Double[] result = CollectionUtil.wrap(0d);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -358,8 +357,8 @@ public class CollectionUtilTest {
         // Perform the method call
         Boolean[] result = CollectionUtil.wrap(true);
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**

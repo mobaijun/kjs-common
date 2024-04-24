@@ -16,7 +16,7 @@
 package com.mobaijun.common.util;
 
 import com.mobaijun.common.jdk.JdkUtil;
-import com.mobaijun.common.tool.PrintUtil;
+import com.mobaijun.common.tool.Console;
 import org.junit.Test;
 
 /**
@@ -36,8 +36,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getJdkVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -48,8 +48,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getJdkSpeVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -60,8 +60,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getJdkVmVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -72,8 +72,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getJdkOsVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -84,8 +84,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getJdkSunDataVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -96,8 +96,8 @@ public class JdkUtilTest {
         // Perform the method call
         int result = JdkUtil.getServerCpuNum();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -108,8 +108,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getVendorUrl();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -120,8 +120,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getVmSpecificationVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -132,8 +132,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getVmSpecificationName();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -144,8 +144,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getVmVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -156,8 +156,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getSpecificationVendor();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -168,8 +168,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getSpecificationName();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -180,8 +180,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getClassVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -192,8 +192,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getClassPath();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -204,8 +204,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getLibraryPath();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -216,8 +216,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getTmpdir();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -228,8 +228,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getCompiler();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -240,8 +240,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getExtDirs();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -252,8 +252,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getOsVersion();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -264,8 +264,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getSileSeparator();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -276,8 +276,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getPathSeparator();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -288,8 +288,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getLineSeparator();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -300,8 +300,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getUserName();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -312,8 +312,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getUserHome();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
     /**
@@ -324,8 +324,8 @@ public class JdkUtilTest {
         // Perform the method call
         String result = JdkUtil.getUserDir();
 
-        // Print the result using your PrintUtil
-        PrintUtil.println(result);
+        // Print the result using your Console
+        Console.println(result);
     }
 
 }

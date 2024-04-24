@@ -15,12 +15,11 @@
  */
 package com.mobaijun.common.collection;
 
-import com.mobaijun.common.tool.PrintUtil;
-import org.junit.Test;
-
+import com.mobaijun.common.tool.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import org.junit.Test;
 
 /**
  * Description: [ListUtilTest测试类]
@@ -49,7 +48,7 @@ public class ListUtilTest {
         System.out.println("Map 2: " + map2);
 
         ListUtil.addAllMapsToList(existingList, map1, map2);
-        PrintUtil.println("existingList:" + existingList);
+        Console.println("existingList:" + existingList);
     }
 
     /**
