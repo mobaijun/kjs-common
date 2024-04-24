@@ -87,7 +87,7 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released simultaneously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released simultaneously[maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
@@ -97,8 +97,8 @@ If you would like to contribute code or make suggestions, please follow these st
 
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
-3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to branch (`git push origin feature/AmazingFeature`)
+3.  提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
+4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
@@ -120,7 +120,7 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ![](https://starchart.cc/mobaijun/kjs-common.svg)
 
-## state
+## 状态
 
 ![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
 
