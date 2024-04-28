@@ -30,7 +30,7 @@
 
 ## Overview
 
-kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool class library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
 This project integrates excellent open source tools commonly used in projects:
 
@@ -47,10 +47,10 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 -   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
 -   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
 
-## 发展
+## develop
 
-> 本项目计划在 2.0 版本支持 JDK 17 及以上版本，2.0 以内版本以 JDK 8 为基石，这表示未来 2.X 版本不会兼容 JDK 17 以下的项目，如果是
-> JDK 17 以内项目推荐使用 2.0 以内版本
+> This project plans to support JDK 17 and above in version 2.0. Versions below 2.0 are based on JDK 8. This means that future 2.X versions will not be compatible with projects below JDK 17. If
+> It is recommended that projects within JDK 17 or below use versions below 2.0
 
 ## Example
 
@@ -101,7 +101,7 @@ If you would like to contribute code or make suggestions, please follow these st
 4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
+请注意，我们是一个开源社区，我们欢迎任何人的贡献。请在提交贡献之前仔细阅读我们的[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
