@@ -87,7 +87,7 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released simultaneously[maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released simultaneously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
