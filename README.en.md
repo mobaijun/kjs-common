@@ -30,7 +30,7 @@
 
 ## Overview
 
-kjs-common is a tool class library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
 This project integrates excellent open source tools commonly used in projects:
 
@@ -87,7 +87,7 @@ dependencies {
 
 ### central warehouse
 
-This warehouse has been released simultaneously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released simultaneously[maven 中央仓库](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
@@ -98,10 +98,10 @@ If you would like to contribute code or make suggestions, please follow these st
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  push to branch (`git push origin feature/AmazingFeature`)
+4.  Push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
-请注意，我们是一个开源社区，我们欢迎任何人的贡献。请在提交贡献之前仔细阅读我们的[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
