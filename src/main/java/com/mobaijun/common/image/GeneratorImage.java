@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.image;
 
-import com.mobaijun.common.constant.FileConstant;
 import com.mobaijun.common.constant.NumberConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.enums.file.FileType;
 import com.mobaijun.common.tool.RegxUtil;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -67,7 +67,7 @@ public class GeneratorImage {
             }
         }
 
-        String filename = outputPath + File.separator + outputName + FileConstant.IMAGE_JPG;
+        String filename = outputPath + File.separator + outputName + FileType.JPE.getName();
         File file = new File(filename);
         // Font font = new Font("微软雅黑", Font.PLAIN, 30);
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -115,7 +115,7 @@ public class GeneratorImage {
 
         }
         BufferedImage rounded = makeRoundedCorner(bi, fillet);
-        return ImageIO.write(rounded, FileConstant.IMAGE_PNG, file);
+        return ImageIO.write(rounded, FileType.JPE.getName(), file);
     }
 
     /**
