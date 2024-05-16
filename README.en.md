@@ -2,7 +2,7 @@
     kjs-common
 </h1>
 <p align="center">
-    <strong>JAVA development, commonly used toolset (Lombok, MapStruct integrated by default) </strong>
+    <strong>JAVA开发，常用工具集(默认集成Lombok，MapStruct ) </strong>
 </p>
 <p align="center">
     <a target="_blank" href="https://search.maven.org/artifact/com.mobaijun/kjs-common">
@@ -30,14 +30,14 @@
 
 ## Overview
 
-kjs-common is a tool class library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
 This project integrates excellent open source tools commonly used in projects:
 
 -   lombok (simplified entity class)
 -   mapstruct (simplifies parameter passing)
 
-Target:`Non-invasive`，`lightweight`，`Common Functions`，`countless tests`，`Continuous improvement`
+Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
@@ -64,7 +64,7 @@ You can use`kjs-common`Add to your project as dependency.
 
 ### maven
 
-If you are using Maven, add the following to your`pom.xml`In the file:
+如果您使用的是 Maven，请将以下内容添加到您的 `pom.xml`In the file:
 
 ```xml
 
