@@ -41,6 +41,6 @@ public class LicenseTest {
     @Test
     public void testRemoveLicense() {
         // Perform the method call
-        LicenseTitleAppenderUtil.removeLicense("src/main/java/com/mobaijun/common", License.APACHE_2.getValue());
+        LicenseTitleAppenderUtil.removeLicense("D:\\ideaProject\\my-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\collection\\","/*");
     }
 }

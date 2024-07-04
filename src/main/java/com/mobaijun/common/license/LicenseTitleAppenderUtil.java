@@ -17,8 +17,6 @@ package com.mobaijun.common.license;
 
 import com.mobaijun.common.file.FileUtil;
 import com.mobaijun.common.text.Charsets;
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -31,6 +29,7 @@ import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -99,11 +98,11 @@ public class LicenseTitleAppenderUtil {
                                 }
                             }
                         } catch (IOException e) {
-                            log.error("Content reading and writing failed:" + e.getMessage());
+                            log.error("Content writing failed for file {}: {}", file, e.getMessage());
                         }
                     });
         } catch (IOException e) {
-            log.error("Content reading and writing failed:" + e.getMessage());
+            log.error("Content reading and writing failed:{}", e.getMessage());
         }
     }
 }
