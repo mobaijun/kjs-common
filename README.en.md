@@ -35,7 +35,7 @@ kjs-common is a tool library developed based on Java. It encapsulates tools comm
 This project integrates excellent open source tools commonly used in projects:
 
 -   lombok (simplified entity class)
--   mapstruct (simplifies parameter passing)
+-   mapstruct （简化参数传递）
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
@@ -64,7 +64,7 @@ You can use`kjs-common`Add to your project as dependency.
 
 ### maven
 
-如果您使用的是 Maven，请将以下内容添加到您的 `pom.xml`In the file:
+If you are using Maven, add the following to your`pom.xml`In the file:
 
 ```xml
 
@@ -93,12 +93,12 @@ This warehouse has been released simultaneously[maven central warehouse](https:/
 
 ## contribute
 
-If you would like to contribute code or make suggestions, please follow these steps:
+如果您想贡献代码或者提出建议，请遵循以下步骤：
 
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  push to branch (`git push origin feature/AmazingFeature`)
+4.  Push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
