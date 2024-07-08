@@ -35,7 +35,7 @@ kjs-common is a tool library developed based on Java. It encapsulates tools comm
 This project integrates excellent open source tools commonly used in projects:
 
 -   lombok (simplified entity class)
--   mapstruct （简化参数传递）
+-   mapstruct (simplifies parameter passing)
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
@@ -56,7 +56,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> All dependent modules will be updated to the latest version simultaneously
+> 所有依赖模块会同步更新最新版本
 
 ## quick start
 
@@ -93,7 +93,7 @@ This warehouse has been released simultaneously[maven central warehouse](https:/
 
 ## contribute
 
-如果您想贡献代码或者提出建议，请遵循以下步骤：
+If you would like to contribute code or make suggestions, please follow these steps:
 
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
