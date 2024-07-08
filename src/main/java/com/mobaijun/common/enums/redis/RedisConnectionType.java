@@ -55,6 +55,13 @@ public enum RedisConnectionType {
      */
     MASTER_SLAVE("master_slave", "主从部署方式");
 
-    private final String connection_type;
-    private final String connection_desc;
+    /**
+     * 连接方式
+     */
+    private final String connectionType;
+
+    /**
+     * 连接描述
+     */
+    private final String connectionDesc;
 }

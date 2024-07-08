@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.enums.http;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * enum name: RenderType<br>
@@ -22,6 +25,8 @@ package com.mobaijun.common.enums.http;
  *
  * @author MoBaiJun 2022/10/31 13:55
  */
+@Getter
+@AllArgsConstructor
 public enum RenderType {
 
     /**

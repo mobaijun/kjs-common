@@ -24,7 +24,6 @@ import lombok.Getter;
  * Date: [2024/2/1 8:24]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
-
 @Getter
 @AllArgsConstructor
 public enum ProtocolType {
@@ -79,7 +78,14 @@ public enum ProtocolType {
      */
     WS("WebSocket", "ws://");
 
+    /**
+     * 协议名称
+     */
     private final String name;
+
+    /**
+     * 协议值
+     */
     private final String value;
 
     /**

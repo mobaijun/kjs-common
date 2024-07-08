@@ -15,7 +15,7 @@
  */
 package com.mobaijun.common.license;
 
-import com.mobaijun.common.enums.common.License;
+import com.mobaijun.common.enums.comm.LicenseType;
 import org.junit.Test;
 
 /**
@@ -32,7 +32,7 @@ public class LicenseTest {
     @Test
     public void testAppend() {
         // Perform the method call
-        LicenseTitleAppenderUtil.append("src/main/java/com/mobaijun/common/", String.format(License.APACHE_2.getValue(), "www.mobaijun.com"));
+        LicenseTitleAppenderUtil.append("src/main/java/com/mobaijun/common", String.format(LicenseType.APACHE_2.getValue(), "www.mobaijun.com"));
     }
 
     /**
@@ -41,6 +41,6 @@ public class LicenseTest {
     @Test
     public void testRemoveLicense() {
         // Perform the method call
-        LicenseTitleAppenderUtil.removeLicense("D:\\ideaProject\\my-project\\kjs-common\\src\\test\\java\\com\\mobaijun\\common\\collection\\","/*");
+        LicenseTitleAppenderUtil.removeLicense("D:\\ideaProject\\my-project\\kjs-comm\\src\\test\\java\\com\\mobaijun\\comm\\collection\\", "/*");
     }
 }

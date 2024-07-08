@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.enums.redis;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * software：IntelliJ IDEA 2022.2.3
  * enum name: LimitType
@@ -22,6 +25,8 @@ package com.mobaijun.common.enums.redis;
  *
  * @author MoBaiJun 2022/12/10 18:09
  */
+@Getter
+@AllArgsConstructor
 public enum LimitType {
 
     /**

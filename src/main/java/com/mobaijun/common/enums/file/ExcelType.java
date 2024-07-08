@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.enums.file;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * enum name: ExcelType<br>
@@ -22,6 +25,8 @@ package com.mobaijun.common.enums.file;
  *
  * @author MoBaiJun 2023/2/22 17:49
  */
+@Getter
+@AllArgsConstructor
 public enum ExcelType {
 
     /**

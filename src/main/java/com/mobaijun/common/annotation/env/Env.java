@@ -15,8 +15,7 @@
  */
 package com.mobaijun.common.annotation.env;
 
-import com.mobaijun.common.enums.EnvEnum;
-
+import com.mobaijun.common.enums.sys.EnvEnum;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;

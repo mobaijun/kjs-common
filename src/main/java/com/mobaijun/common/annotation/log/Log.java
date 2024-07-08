@@ -15,9 +15,8 @@
  */
 package com.mobaijun.common.annotation.log;
 
-import com.mobaijun.common.enums.log.BusinessType;
-import com.mobaijun.common.enums.log.LogType;
-
+import com.mobaijun.common.enums.sys.log.BusinessType;
+import com.mobaijun.common.enums.sys.log.LogType;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 /**
- * software：IntelliJ IDEA 2022.2.3<br>
- * package name: package-info<br>
- * package description: 校验属性枚举
+ * software：IntelliJ IDEA 2022.1
+ * package name: com.mobaijun.common.enums.verification
+ * package description： 用户
  *
- * @author MoBaiJun 2023/2/21 13:32
+ * @author MoBaiJun 2022/9/14 13:42
  */
 package com.mobaijun.common.enums.verification;

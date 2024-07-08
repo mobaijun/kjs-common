@@ -15,7 +15,7 @@
  */
 /**
  * software：IntelliJ IDEA 2022.1
- * package name: com.mobaijun.common.function
+ * package name: com.mobaijun.comm.function
  * package description： lambda 包
  *
  * @author MoBaiJun 2022/9/14 13:43

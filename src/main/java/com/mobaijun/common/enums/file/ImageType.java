@@ -15,9 +15,9 @@
  */
 package com.mobaijun.common.enums.file;
 
-import lombok.Getter;
-
 import java.net.URLConnection;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -27,6 +27,7 @@ import java.net.URLConnection;
  * @author MoBaiJun 2022/6/10 14:02
  */
 @Getter
+@AllArgsConstructor
 public enum ImageType {
 
     /**
@@ -52,13 +53,21 @@ public enum ImageType {
      */
     private final String mSuffix;
 
+    /**
+     * 文件类型
+     */
     private final String mMIME;
 
-    ImageType(String suffix, String mime) {
-        this.mSuffix = suffix;
-        this.mMIME = mime;
-    }
-
+    /**
+     * 从给定的URL中提取文件后缀名。
+     * <p>
+     * 此方法首先尝试通过匹配预定义的文件类型（ImageType枚举中的值）来直接获取URL中的文件后缀名。
+     * 如果找不到匹配的后缀名，则尝试通过URL的文件名部分来猜测MIME类型，并基于该MIME类型来映射一个文件后缀名。
+     * 如果两种方法都无法确定后缀名，则返回null。
+     *
+     * @param url 要从中提取后缀名的URL字符串。
+     * @return URL中文件的后缀名，如果无法确定则返回null。
+     */
     public static String getSuffixFromUrl(String url) {
 
         for (ImageType fileType : values()) {
@@ -73,6 +82,15 @@ public enum ImageType {
         return mimeMakingSuffix(contentType);
     }
 
+    /**
+     * 根据给定的URL字符串猜测其MIME类型。
+     * <p>
+     * 此方法使用URL的字符串（通常是文件名部分）来尝试猜测其MIME类型。
+     * 如果URL为空或无法从文件名推断出MIME类型，则返回null。
+     *
+     * @param url 要猜测MIME类型的URL字符串。
+     * @return 猜测的MIME类型字符串，如果无法确定则返回null。
+     */
     public static String getMimeTypeFromUrl(String url) {
         if (url == null || url.isEmpty()) {
             return null;
