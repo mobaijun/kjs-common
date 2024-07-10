@@ -1,26 +1,24 @@
 # CHANGELOG
 
-## [v2.0.1](https://github.com/mobaijun/kjs-common/releases/tag/v2.0.1) - 2024-04-23 03:16:56
+## [v2.0.3](https://github.com/mobaijun/kjs-common/releases/tag/v2.0.3) - 2024-07-08 09:09:59
 
-## What's Changed
-* ⬆️ Bump org.apache.maven.plugins:maven-gpg-plugin from 3.0.1 to 3.2.0 by @dependabot in https://github.com/mobaijun/kjs-common/pull/35
-* ⬆️ Bump org.apache.maven.plugins:maven-gpg-plugin from 3.2.0 to 3.2.4 by @dependabot in https://github.com/mobaijun/kjs-common/pull/41
-
-
-**Full Changelog**: https://github.com/mobaijun/kjs-common/compare/v2.0.0...v2.0.1
+**Full Changelog**: https://github.com/mobaijun/kjs-common/compare/v2.0.1...v2.0.3
 
 ### Documentation
 
 - general:
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([b67d4ca](https://github.com/mobaijun/kjs-common/commit/b67d4ca4302606a13a6714c879ed6ead33668878))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([a7d7f01](https://github.com/mobaijun/kjs-common/commit/a7d7f0159e9c03e6846a5d38acd563f7e0993c7a))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([dd9a610](https://github.com/mobaijun/kjs-common/commit/dd9a610e4b3b502f34e7ccc3f9e56b52318b2f98))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([3462c3b](https://github.com/mobaijun/kjs-common/commit/3462c3b346577cab1932c36f214f917571494b8e))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([48c22f4](https://github.com/mobaijun/kjs-common/commit/48c22f42c24a8a69e559a85af6c2503c5c93a270))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([3a8f07f](https://github.com/mobaijun/kjs-common/commit/3a8f07f54e8ab2847d202b8b51bb006f77d6a708))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([83274d6](https://github.com/mobaijun/kjs-common/commit/83274d66fa4c8685f8b43214a900559cb09a0e59))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([d5beb78](https://github.com/mobaijun/kjs-common/commit/d5beb789ac6ffb72b8003a82c3b3590c1e4c13d2))
-  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([dd7cea5](https://github.com/mobaijun/kjs-common/commit/dd7cea5272cac1abb055d05ec2652eacc889e5d3))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([0a438b4](https://github.com/mobaijun/kjs-common/commit/0a438b4a1b473f4b2f02824934a3bac018696ad0))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([5cdf53e](https://github.com/mobaijun/kjs-common/commit/5cdf53e7a7830bace079e6bc2b2f10da33a06cf4))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([393a5fc](https://github.com/mobaijun/kjs-common/commit/393a5fce6a34f6c08fe66ef9cd659b1fdeaf21e0))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([d461c92](https://github.com/mobaijun/kjs-common/commit/d461c923c4f93ec15077a07410db5d635a68ff6b))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([155ea76](https://github.com/mobaijun/kjs-common/commit/155ea7626d8a97b74260f9018365f6aae08d5d25))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([a0afb30](https://github.com/mobaijun/kjs-common/commit/a0afb30c7c580284213e2735778cd26726067b67))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([a6f782b](https://github.com/mobaijun/kjs-common/commit/a6f782baa21d5d8c2d56dd254df7c7c1222ddef7))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([f5aecaa](https://github.com/mobaijun/kjs-common/commit/f5aecaa0675745ef7d3ad043a1202a3cedf065ed))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([5af03be](https://github.com/mobaijun/kjs-common/commit/5af03be44faf482371805a5f2a9cca6653eb1c74))
+  - Added README."en".md translation via https://github.com/dephraiim/translate-readme ([eeaf545](https://github.com/mobaijun/kjs-common/commit/eeaf545b24ebb2bf60c5dff2611a3b477d603885))
+
+## [v2.0.1](https://github.com/mobaijun/kjs-common/releases/tag/v2.0.1) - 2024-04-23 03:16:56
 
 ## [v2.0.0](https://github.com/mobaijun/kjs-common/releases/tag/v2.0.0) - 2024-02-01 01:13:19
 
