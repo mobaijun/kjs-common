@@ -98,7 +98,7 @@ If you would like to contribute code or make suggestions, please follow these st
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to branch (`git push origin feature/AmazingFeature`)
+4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
@@ -112,10 +112,9 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
-## 文档和示例
+## Documentation and examples
 
-We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
-，以帮助您更好地了解和使用该库。
+We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
