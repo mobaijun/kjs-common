@@ -100,6 +100,19 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 自定义状态码和消息内容
+     *
+     * @param data    数据
+     * @param message 消息
+     * @return R<T>
+     */
+    public static <T> R<T> ok(T data, int code, String message) {
+        return new R<T>().setCode(code)
+                .setData(data)
+                .setMessage(message);
+    }
+
+    /**
      * 自定义错误状态码和返回消息
      *
      * @param code    状态码
