@@ -98,7 +98,7 @@ public class AssertTest {
     @Test
     public void testIsEqualsLen() {
         // Perform the method call
-        boolean result = Assert.isEqualsLen("string", 0);
+        var result = Assert.isEqualsLen("string", 0);
 
         // Print the result using your Console
         Console.println(result);
@@ -110,7 +110,7 @@ public class AssertTest {
     @Test
     public void testIsNotEqualsLen() {
         // Perform the method call
-        boolean result = Assert.isNotEqualsLen("string", 0);
+        var result = Assert.isNotEqualsLen("string", 0);
 
         // Print the result using your Console
         Console.println(result);
@@ -122,7 +122,7 @@ public class AssertTest {
     @Test
     public void testIsFitMaxLen() {
         // Perform the method call
-        boolean result = Assert.isFitMaxLen("string", 0);
+        var result = Assert.isFitMaxLen("string", 0);
 
         // Print the result using your Console
         Console.println(result);

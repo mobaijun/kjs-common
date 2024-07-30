@@ -16,14 +16,13 @@
 package com.mobaijun.common.result;
 
 import com.mobaijun.common.enums.http.HttpStatus;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -76,6 +75,18 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 返回空数据，自定义成功消息
+     *
+     * @param message 数据
+     * @return R<T>
+     */
+    public static <T> R<T> ok(String message) {
+        return new R<T>().setCode(HttpStatus.OK.getCode())
+                .setData(null)
+                .setMessage(message);
+    }
+
+    /**
      * 自定义返回消息内容
      *
      * @param data    数据
@@ -83,7 +94,9 @@ public class R<T> implements Serializable {
      * @return R<T>
      */
     public static <T> R<T> ok(T data, String message) {
-        return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data).setMessage(message);
+        return new R<T>().setCode(HttpStatus.OK.getCode())
+                .setData(data)
+                .setMessage(message);
     }
 
     /**
@@ -98,13 +111,46 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 返回 500 错误信息
+     *
+     * @return R<T>
+     */
+    public static <T> R<T> failed() {
+        return new R<T>().setCode(HttpStatus.INTERNAL_SERVER_ERROR.getCode())
+                .setMessage(HttpStatus.INTERNAL_SERVER_ERROR.getMessage());
+    }
+
+    /**
+     * 返回自定义错误信息和数据
+     *
+     * @return R<T>
+     */
+    public static <T> R<T> failed(HttpStatus failCode, T data) {
+        return new R<T>().setCode(failCode.getCode())
+                .setData(data)
+                .setMessage(failCode.getMessage());
+    }
+
+    /**
      * 自定义错误状态码
      *
      * @param failMsg 状态码
      * @return R<T>
      */
     public static <T> R<T> failed(HttpStatus failMsg) {
-        return new R<T>().setCode(failMsg.getCode()).setMessage(failMsg.getMessage());
+        return new R<T>().setCode(failMsg.getCode())
+                .setMessage(failMsg.getMessage());
+    }
+
+    /**
+     * 自定义错误消息,状态码默认 500
+     *
+     * @param message 错误信息
+     * @return R<T>
+     */
+    public static <T> R<T> failed(String message) {
+        return new R<T>().setCode(HttpStatus.INTERNAL_SERVER_ERROR.getCode())
+                .setMessage(message);
     }
 
     /**
@@ -116,5 +162,28 @@ public class R<T> implements Serializable {
      */
     public static <T> R<T> failed(HttpStatus failMsg, String message) {
         return new R<T>().setCode(failMsg.getCode()).setMessage(message);
+    }
+
+    /**
+     * 返回自定义警告消息
+     *
+     * @param msg 返回内容
+     * @return 警告消息
+     */
+    public static <T> R<T> warn(String msg) {
+        return new R<T>().setCode(HttpStatus.WARN.getCode())
+                .setMessage(msg);
+    }
+
+    /**
+     * 返回自定义警告消息和数据
+     *
+     * @param msg  返回内容
+     * @param data 数据对象
+     * @return 警告消息
+     */
+    public static <T> R<T> warn(String msg, T data) {
+        return new R<T>().setData(data).setCode(HttpStatus.WARN.getCode())
+                .setMessage(msg);
     }
 }

@@ -15,8 +15,9 @@
  */
 package com.mobaijun.common.annotation.log;
 
+import com.mobaijun.common.enums.sys.OperatorType;
 import com.mobaijun.common.enums.sys.log.BusinessType;
-import com.mobaijun.common.enums.sys.log.LogType;
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -32,49 +33,38 @@ import java.lang.annotation.Target;
  * @author MoBaiJun 2022/4/22 16:52
  */
 @Inherited
+@Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD})
+@Target({ElementType.PARAMETER, ElementType.METHOD})
 public @interface Log {
 
     /**
-     * 业务的名称
-     *
-     * @return String
+     * 模块
      */
-    String value() default "";
+    String title() default "";
 
     /**
-     * 操作类型  ， 默认新增
-     *
-     * @return 操作类型
+     * 功能
      */
-    BusinessType businessType() default BusinessType.INSERT;
+    BusinessType businessType() default BusinessType.OTHER;
 
     /**
-     * 日志类型
-     *
-     * @return 默认业务日志
+     * 操作人类别
      */
-    LogType logType() default LogType.BUSINESS;
+    OperatorType operatorType() default OperatorType.MANAGE;
 
     /**
-     * 操作模块
-     *
-     * @return 业务模块
+     * 是否保存请求的参数
      */
-    String module() default "";
+    boolean isSaveRequestData() default true;
 
     /**
-     * 是否保存方法入参
-     *
-     * @return boolean
+     * 是否保存响应的参数
      */
-    boolean recordParams() default true;
+    boolean isSaveResponseData() default true;
 
     /**
-     * 是否保存方法返回值
-     *
-     * @return boolean
+     * 排除指定的请求参数
      */
-    boolean recordResult() default true;
+    String[] excludeParamNames() default {};
 }
