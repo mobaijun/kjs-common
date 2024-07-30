@@ -56,7 +56,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
 
-> 所有依赖模块会同步更新最新版本
+> All dependent modules will be updated to the latest version simultaneously
 
 ## quick start
 
@@ -112,9 +112,10 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
-## Documentation and examples
+## 文档和示例
 
-We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+，以帮助您更好地了解和使用该库。
 
 ## trend
 
