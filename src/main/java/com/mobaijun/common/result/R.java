@@ -199,4 +199,24 @@ public class R<T> implements Serializable {
         return new R<T>().setData(data).setCode(HttpStatus.WARN.getCode())
                 .setMessage(msg);
     }
+
+    /**
+     * 返回响应结果
+     *
+     * @param rows 影响行数
+     * @return 操作结果
+     */
+    public static R<Void> toAjax(int rows) {
+        return rows > 0 ? R.ok() : R.failed();
+    }
+
+    /**
+     * 返回响应结果
+     *
+     * @param result 结果
+     * @return 操作结果
+     */
+    public static R<Void> toAjax(boolean result) {
+        return result ? R.ok() : R.failed();
+    }
 }
