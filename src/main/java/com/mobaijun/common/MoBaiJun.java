@@ -15,6 +15,8 @@
  */
 package com.mobaijun.common;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * class name: MoBaiJun<br/>
@@ -23,5 +25,6 @@ package com.mobaijun.common;
  *
  * @author MoBaiJun 2022/7/13 16:15
  */
+@Schema(title = "根类", description = "项目的起始类")
 public class MoBaiJun {
 }

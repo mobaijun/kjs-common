@@ -77,11 +77,14 @@
         <maven-gpg-plugin.version>3.2.4</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
+
+        <!-- 项目依赖包 -->
         <slf4j-api.version>[2.+,)</slf4j-api.version>
-        <mapstruct.version>[1.+,)</mapstruct.version>
         <lombok.version>[1.+,)</lombok.version>
         <junit.version>[4.,)</junit.version>
         <maven.test.skip>true</maven.test.skip>
+        <!-- openapi 注解包-->
+        <swagger-annotations-jakarta.version>2.2.22</swagger-annotations-jakarta.version>
     </properties>
 
     <dependencies>
@@ -92,22 +95,6 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>compile</scope>
-        </dependency>
-
-        <!-- type converter -->
-        <dependency>
-            <!-- https://central.sonatype.com/artifact/org.mapstruct/mapstruct -->
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <!-- https://central.sonatype.com/artifact/org.mapstruct/mapstruct-processor -->
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- log -->
@@ -126,6 +113,15 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <!-- swagger annotations -->
+        <dependency>
+            <!-- https://central.sonatype.com/artifact/io.swagger.core.v3/swagger-annotations-jakarta/versions -->
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations-jakarta</artifactId>
+            <version>${swagger-annotations-jakarta.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

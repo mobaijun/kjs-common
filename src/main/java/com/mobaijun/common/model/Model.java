@@ -15,7 +15,11 @@
  */
 package com.mobaijun.common.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.LinkedHashMap;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -29,23 +33,20 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Model<K, V> {
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(title = "Model", description = "用户存储 K、V 结构的 Model 实体类")
+public class Model<K, V> extends LinkedHashMap<K, V> {
 
     /**
      * 键
      */
+    @Schema(title = "键", description = "键")
     private K key;
 
     /**
      * 值
      */
+    @Schema(title = "值", description = "值")
     private V value;
-
-    public Model() {
-    }
-
-    public Model(K key, V value) {
-        this.key = key;
-        this.value = value;
-    }
 }

@@ -16,6 +16,7 @@
 package com.mobaijun.common.result;
 
 import com.mobaijun.common.enums.http.HttpStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,21 +38,25 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
+@Schema(title = "返回体结构")
 public class R<T> implements Serializable {
 
     /**
      * 返回状态码
      */
+    @Schema(title = "状态码", example = "200")
     private int code;
 
     /**
      * 返回信息
      */
+    @Schema(title = "信息", example = "请求成功！")
     private String message;
 
     /**
      * 数据
      */
+    @Schema(title = "数据列", example = "{}")
     private T data;
 
     /**
