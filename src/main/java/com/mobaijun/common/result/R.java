@@ -75,20 +75,19 @@ public class R<T> implements Serializable {
      * @return R<T>
      */
     public static <T> R<T> ok(T data) {
-        return new R<T>().setCode(HttpStatus.OK.getCode()).setData(data)
-                .setMessage(HttpStatus.OK.getMessage());
+        return ok(data, HttpStatus.OK);
     }
 
     /**
-     * 返回空数据，自定义成功消息
+     * 返回数据，自定义成功消息
      *
-     * @param message 数据
+     * @param status 自定义状态码
      * @return R<T>
      */
-    public static <T> R<T> ok(String message) {
-        return new R<T>().setCode(HttpStatus.OK.getCode())
-                .setData(null)
-                .setMessage(message);
+    public static <T> R<T> ok(T data, HttpStatus status) {
+        return new R<T>().setCode(status.getCode())
+                .setData(data)
+                .setMessage(status.getMessage());
     }
 
     /**
@@ -118,24 +117,12 @@ public class R<T> implements Serializable {
     }
 
     /**
-     * 自定义错误状态码和返回消息
-     *
-     * @param code    状态码
-     * @param message 消息
-     * @return R<T>
-     */
-    public static <T> R<T> failed(int code, String message) {
-        return new R<T>().setCode(code).setMessage(message);
-    }
-
-    /**
      * 返回 500 错误信息
      *
      * @return R<T>
      */
     public static <T> R<T> failed() {
-        return new R<T>().setCode(HttpStatus.INTERNAL_SERVER_ERROR.getCode())
-                .setMessage(HttpStatus.INTERNAL_SERVER_ERROR.getMessage());
+        return failed(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
@@ -152,12 +139,12 @@ public class R<T> implements Serializable {
     /**
      * 自定义错误状态码
      *
-     * @param failMsg 状态码
+     * @param failStatus 状态码
      * @return R<T>
      */
-    public static <T> R<T> failed(HttpStatus failMsg) {
-        return new R<T>().setCode(failMsg.getCode())
-                .setMessage(failMsg.getMessage());
+    public static <T> R<T> failed(HttpStatus failStatus) {
+        return new R<T>().setCode(failStatus.getCode())
+                .setMessage(failStatus.getMessage());
     }
 
     /**
@@ -169,6 +156,17 @@ public class R<T> implements Serializable {
     public static <T> R<T> failed(String message) {
         return new R<T>().setCode(HttpStatus.INTERNAL_SERVER_ERROR.getCode())
                 .setMessage(message);
+    }
+
+    /**
+     * 自定义错误状态码和返回消息
+     *
+     * @param code    状态码
+     * @param message 消息
+     * @return R<T>
+     */
+    public static <T> R<T> failed(int code, String message) {
+        return new R<T>().setCode(code).setMessage(message);
     }
 
     /**
