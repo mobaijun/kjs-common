@@ -56,7 +56,7 @@ public class R<T> implements Serializable {
     /**
      * 数据
      */
-    @Schema(title = "数据列", example = "{}")
+    @Schema(title = "数据列")
     private T data;
 
     /**
