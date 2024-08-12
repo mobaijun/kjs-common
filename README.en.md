@@ -110,7 +110,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@ Mobaijun](https://github.com/mobaijun)
+-   [@mobaijun](https://github.com/mobaijun)
 
 ## Documentation and examples
 
