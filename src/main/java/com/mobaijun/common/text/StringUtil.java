@@ -16,7 +16,6 @@
 package com.mobaijun.common.text;
 
 import com.mobaijun.common.constant.StringConstant;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
@@ -106,7 +105,6 @@ public class StringUtil {
         return !isEmpty(coll);
     }
 
-
     /**
      * * 判断一个Map是否为空
      *
@@ -116,7 +114,6 @@ public class StringUtil {
     public static boolean isNotEmpty(Map<?, ?> map) {
         return !isEmpty(map);
     }
-
 
     /**
      * * 判断一个字符串是否为非空串
@@ -247,7 +244,7 @@ public class StringUtil {
     /**
      * 是否包含字符串
      *
-     * @param str  验证字符串
+     * @param str   验证字符串
      * @param stirs 字符串组
      * @return 包含返回true
      */
@@ -333,7 +330,7 @@ public class StringUtil {
      * @param str str
      * @return boolean
      */
-    public static boolean notEmpty(String[] str) {
+    public static boolean isEmpty(String[] str) {
         for (String strIndex : str) {
             if (isEmpty(strIndex)) {
                 return false;
@@ -499,7 +496,6 @@ public class StringUtil {
      * @param strLength 限制位数
      * @return 字符
      */
-
     public static String appendZero(String str, int strLength) {
         int strLen = str.length();
         StringBuilder sb;
@@ -594,7 +590,7 @@ public class StringUtil {
      * @param delimiter 分隔符
      * @return 字符串
      */
-    public static <T> String arrayToString(T[] arr, String delimiter) {
+    public static <T> String arrToStr(T[] arr, String delimiter) {
         return Arrays.stream(arr)
                 .map(String::valueOf)
                 .collect(Collectors.joining(delimiter));
@@ -607,7 +603,7 @@ public class StringUtil {
      * @param delimiter  分隔符
      * @return 字符串
      */
-    public static <T> String collectionToString(Collection<T> collection, String delimiter) {
+    public static <T> String collToStr(Collection<T> collection, String delimiter) {
         return collection.stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(delimiter));
@@ -621,7 +617,7 @@ public class StringUtil {
      * @param position 要插入的位置（从0开始计数）
      * @return 插入后的新字符串
      */
-    public static String insertString(String original, String insert, int position) {
+    public static String insertStr(String original, String insert, int position) {
         if (original == null || insert == null) {
             return original;
         }
