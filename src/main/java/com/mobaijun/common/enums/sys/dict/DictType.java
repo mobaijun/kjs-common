@@ -28,6 +28,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum DictType {
+
     /**
      * 字符串类型
      */
