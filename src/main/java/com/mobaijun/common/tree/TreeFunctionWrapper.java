@@ -16,40 +16,20 @@
 package com.mobaijun.common.tree;
 
 import java.util.List;
+import java.util.function.BiConsumer;
+import java.util.function.Function;
 
 /**
- * Description: [树节点]
+ * Description: [结构函数包装器]
  * Author: [mobaijun]
- * Date: [2024/6/25 16:58]
+ * Date: [2024/8/15 14:02]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
+ *
+ * @param keyExtractor       节点 key 提取器。
+ * @param parentKeyExtractor 父节点 key 提取器。
+ * @param childrenSetter     子节点设置器。
+ * @param childrenGetter     子节点获取器。
  */
-public interface TreeNode<I> {
-
-    /**
-     * 获取节点 key
-     *
-     * @return 树节点 key
-     */
-    I getKey();
-
-    /**
-     * 获取该节点的父节点 key
-     *
-     * @return 父节点 key
-     */
-    I getParentKey();
-
-    /**
-     * 获取所有子节点
-     *
-     * @return 子节点列表
-     */
-    <T extends TreeNode<I>> List<T> getChildren();
-
-    /**
-     * 设置节点的子节点列表
-     *
-     * @param children 子节点
-     */
-    <T extends TreeNode<I>> void setChildren(List<T> children);
+public record TreeFunctionWrapper<T, I>(Function<T, I> keyExtractor, Function<T, I> parentKeyExtractor,
+                                        BiConsumer<T, List<T>> childrenSetter, Function<T, List<T>> childrenGetter) {
 }
