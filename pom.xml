@@ -84,7 +84,7 @@
         <junit.version>[4.,)</junit.version>
         <maven.test.skip>true</maven.test.skip>
         <!-- openapi 注解包-->
-        <swagger-annotations-jakarta.version>2.2.22</swagger-annotations-jakarta.version>
+        <swagger-annotations-jakarta.version>2.2.23</swagger-annotations-jakarta.version>
     </properties>
 
     <dependencies>
