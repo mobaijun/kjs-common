@@ -112,30 +112,6 @@ public class OsUtil {
     }
 
     /**
-     * 在操作系统默认浏览器中打开指定的URL。
-     *
-     * @param url 要打开的URL。
-     * @return 如果成功打开URL，则返回true，否则返回false。
-     */
-    public static boolean openURLInDefaultBrowser(String url) {
-        try {
-            if (isWindows()) {
-                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
-            } else if (isMac()) {
-                Runtime.getRuntime().exec("open " + url);
-            } else if (isLinux()) {
-                Runtime.getRuntime().exec("xdg-open " + url);
-            } else {
-                return false;
-            }
-            return true;
-        } catch (Exception e) {
-            log.error("An error occurred while opening the URL: {}", e.getMessage());
-            return false;
-        }
-    }
-
-    /**
      * 获取操作系统分隔符。
      *
      * @return 返回操作系统文件路径中的分隔符。

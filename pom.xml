@@ -71,11 +71,11 @@
         <!-- Engineering source code -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.10.0</maven-javadoc-plugin.version>
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
-        <maven-gpg-plugin.version>3.2.5</maven-gpg-plugin.version>
-        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        <maven-gpg-plugin.version>3.2.6</maven-gpg-plugin.version>
+        <maven-surefire-plugin.version>3.5.0</maven-surefire-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
 
         <!-- 项目依赖包 -->
@@ -84,7 +84,7 @@
         <junit.version>[4.,)</junit.version>
         <maven.test.skip>true</maven.test.skip>
         <!-- openapi 注解包-->
-        <swagger-annotations-jakarta.version>2.2.22</swagger-annotations-jakarta.version>
+        <swagger-annotations.version>[2.+,)</swagger-annotations.version>
     </properties>
 
     <dependencies>
@@ -122,7 +122,7 @@
             <!-- https://central.sonatype.com/artifact/io.swagger.core.v3/swagger-annotations-jakarta/versions -->
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations-jakarta</artifactId>
-            <version>${swagger-annotations-jakarta.version}</version>
+            <version>${swagger-annotations.version}</version>
             <optional>true</optional>
         </dependency>
     </dependencies>
