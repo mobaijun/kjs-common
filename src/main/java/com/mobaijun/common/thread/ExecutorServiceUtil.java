@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.thread;
 
-import com.mobaijun.common.constant.DefaultValues;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -35,6 +33,26 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author MoBaiJun 2022/5/31 11:38
  */
 public class ExecutorServiceUtil {
+
+    /**
+     * 要保留的空闲线程数。
+     */
+    private static final int CORE_POOL_SIZE = 0;
+
+    /**
+     * 最大线程池数量(获取系统处理器个数，作为线程池数量)
+     * public static final
+     */
+    private static final int MAX_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+
+    /**
+     * 定时线程池处理线程数
+     */
+    private static final int SCHEDULED_EXECUTOR_POOL_SIZE = 8;
+
+    /**
+     * 线程工厂，用于创建线程池中的线程。
+     */
     private static final ThreadFactory THREAD_FACTORY = new ThreadFactory() {
 
         private final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
@@ -59,7 +77,7 @@ public class ExecutorServiceUtil {
      * @return ScheduledExecutorService
      */
     static public ScheduledExecutorService newScheduledExecutorService() {
-        return new ScheduledThreadPoolExecutor(DefaultValues.Thread.SCHEDULED_EXECUTOR_POOL_SIZE, THREAD_FACTORY);
+        return new ScheduledThreadPoolExecutor(SCHEDULED_EXECUTOR_POOL_SIZE, THREAD_FACTORY);
     }
 
     /**
@@ -87,8 +105,7 @@ public class ExecutorServiceUtil {
      * @return executor service
      */
     static public ExecutorService newExecutorService() {
-        return new ThreadPoolExecutor(DefaultValues.Thread.CORE_POOL_SIZE,
-                DefaultValues.Thread.MAX_POOL_SIZE, 0L,
+        return new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 0L,
                 TimeUnit.MILLISECONDS, new SynchronousQueue<>(),
                 THREAD_FACTORY);
     }

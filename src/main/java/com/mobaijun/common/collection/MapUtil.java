@@ -17,8 +17,8 @@ package com.mobaijun.common.collection;
 
 import com.mobaijun.common.assertions.Assert;
 import com.mobaijun.common.model.Model;
-import com.mobaijun.common.reflect.ReflectUtil;
 import com.mobaijun.common.text.StringUtil;
+import java.lang.reflect.Constructor;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +39,7 @@ import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -47,6 +48,7 @@ import java.util.stream.StreamSupport;
  *
  * @author MoBaiJun 2022/12/10 17:29
  */
+@Slf4j
 public class MapUtil {
 
     /**
@@ -250,13 +252,17 @@ public class MapUtil {
      */
     @SuppressWarnings("unchecked")
     public static <K, V> Map<K, V> createMap(Class<?> mapType) {
-        if (null == mapType || mapType.isAssignableFrom(AbstractMap.class)) {
+        // 如果没有传入类型或者传入的是抽象类 AbstractMap，则返回 HashMap
+        if (mapType == null || mapType.isAssignableFrom(AbstractMap.class)) {
             return new HashMap<>();
         } else {
             try {
-                return (Map<K, V>) ReflectUtil.newInstance(mapType);
-            } catch (RuntimeException e) {
-                // 不支持的map类型，返回默认的HashMap
+                // 使用反射创建 Map 实例
+                Constructor<?> constructor = mapType.getDeclaredConstructor();
+                return (Map<K, V>) constructor.newInstance();
+            } catch (Exception e) {
+                // 如果反射失败（如没有无参构造器），返回默认的 HashMap
+                log.error("Error creating map instance, defaulting to HashMap: {}", e.getMessage());
                 return new HashMap<>();
             }
         }

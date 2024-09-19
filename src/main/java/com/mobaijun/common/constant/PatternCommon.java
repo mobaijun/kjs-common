@@ -135,4 +135,14 @@ public final class PatternCommon {
      * 一个以上汉字
      */
     public static final Pattern MULTIPLE_CHINESE_CHAR = Pattern.compile("[\u4e00-\u9fa5]+");
+
+    /**
+     * 驼峰
+     */
+    public static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
+
+    /**
+     * 大驼峰模式
+     */
+    public static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
 }

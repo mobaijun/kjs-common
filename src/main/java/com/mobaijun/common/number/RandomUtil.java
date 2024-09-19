@@ -16,17 +16,15 @@
 package com.mobaijun.common.number;
 
 import com.mobaijun.common.constant.DateConstant;
+import static com.mobaijun.common.constant.NumberConstant.BASE_NUMBER;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.date.LocalDateUtil;
-
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-
-import static com.mobaijun.common.constant.NumberConstant.BASE_NUMBER;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -485,7 +483,7 @@ public class RandomUtil {
         long endTimestamp = timestamp - oneYearTimestamp * 16;
         long randomTimestamp = beginTimestamp + (long) (Math.random() * (endTimestamp - beginTimestamp));
         LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(randomTimestamp), ZoneId.systemDefault());
-        String birth = LocalDateUtil.toString(localDateTime, DateConstant.YY_YY_MM_DD);
+        String birth = LocalDateUtil.toString(localDateTime, DateConstant.YYYY_MM_DD);
         return randomIdCard(birth, male);
     }
 

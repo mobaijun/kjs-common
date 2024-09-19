@@ -15,14 +15,12 @@
  */
 package com.mobaijun.common.thread;
 
-import com.mobaijun.common.constant.DefaultValues;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -59,9 +57,9 @@ public class Threads {
         if (pool != null && !pool.isShutdown()) {
             pool.shutdown();
             try {
-                if (!pool.awaitTermination(DefaultValues.Thread.TIME_OUT, TimeUnit.SECONDS)) {
+                if (!pool.awaitTermination(10, TimeUnit.SECONDS)) {
                     pool.shutdownNow();
-                    if (!pool.awaitTermination(DefaultValues.Thread.TIME_OUT, TimeUnit.SECONDS)) {
+                    if (!pool.awaitTermination(10, TimeUnit.SECONDS)) {
                         log.info("Pool did not terminate");
                     }
                 }
