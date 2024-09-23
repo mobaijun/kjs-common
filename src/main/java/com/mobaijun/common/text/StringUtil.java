@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
+import java.util.StringJoiner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -629,5 +630,24 @@ public class StringUtil {
         return IntStream.range(0, original.length())
                 .mapToObj(i -> (i == position) ? insert : String.valueOf(original.charAt(i)))
                 .collect(Collectors.joining());
+    }
+
+    /**
+     * 将字符串数组中的元素按指定分隔符连接起来
+     *
+     * @param array     字符串数组
+     * @param delimiter 分隔符
+     * @return 拼接后的字符串
+     */
+    public static String join(String[] array, String delimiter) {
+        if (array == null || array.length == 0) {
+            return "";
+        }
+
+        StringJoiner joiner = new StringJoiner(delimiter);
+        for (String element : array) {
+            joiner.add(element);
+        }
+        return joiner.toString();
     }
 }

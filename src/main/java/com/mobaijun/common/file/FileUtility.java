@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2022 [www.mobaijun.com]
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.mobaijun.common.file;
 
 import java.awt.image.BufferedImage;
@@ -27,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.imageio.ImageIO;
@@ -40,6 +26,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class FileUtility {
+
+    /**
+     * ForkJoinPool 线程池
+     */
+    private static final ForkJoinPool forkJoinPool = new ForkJoinPool();
 
     /**
      * 删除指定目录下的空文件夹
@@ -138,12 +129,11 @@ public class FileUtility {
      *
      * @param directoryPath 要列出的目录路径
      * @return 目录下的所有文件流
-     * @throws java.io.IOException 如果无法访问目录或者发生I/O错误
+     * @throws IOException 如果无法访问目录或者发生I/O错误
      */
     public static Stream<Path> listFiles(String directoryPath) throws IOException {
-        try {
-            return Files.walk(Paths.get(directoryPath))
-                    .filter(Files::isRegularFile);
+        try (Stream<Path> pathStream = Files.walk(Paths.get(directoryPath))) {
+            return pathStream.filter(Files::isRegularFile);
         } catch (IOException e) {
             log.info("Failed to list files: {}", e.getMessage());
             throw e;
@@ -180,9 +170,8 @@ public class FileUtility {
      * @return 文件路径列表
      */
     public static List<String> getAllFilesInDirectory(File folder, boolean fullPath) {
-        try {
-            return Files.walk(folder.toPath())
-                    .filter(Files::isRegularFile)
+        try (Stream<Path> files = Files.walk(folder.toPath())) {
+            return files.filter(Files::isRegularFile)
                     .map(path -> fullPath ? path.toString() : path.getFileName().toString())
                     .collect(Collectors.toList());
         } catch (IOException e) {
@@ -327,20 +316,59 @@ public class FileUtility {
     }
 
     /**
+     * 删除指定文件夹下所有损坏的文件。
+     *
+     * @param folderNameValue 文件夹路径
+     */
+    public static void deleteCorruptFilesInFolder(String folderNameValue) {
+        List<File> allFolders = getAllFolders(folderNameValue);
+        try {
+            forkJoinPool.submit(() ->
+                    allFolders.stream()
+                            .flatMap(folder -> getAllFilesInDirectory(folder, true).stream())
+                            .forEach(FileUtility::checkAndDeleteIfCorrupt)
+            ).join();
+        } catch (Exception e) {
+            log.warn("Error occurred while deleting corrupt files: {}", e.getMessage());
+        }
+        forkJoinPool.shutdown();
+    }
+
+    /**
      * 获取指定目录下的所有文件夹
      *
      * @param directoryPath 目录路径
      * @return 所有文件夹列表
      */
     public static List<File> getAllFolders(String directoryPath) {
-        try {
-            return Files.walk(Paths.get(directoryPath))
-                    .filter(Files::isDirectory)
+        if (directoryPath == null || directoryPath.isEmpty()) {
+            log.warn("Invalid directory path: null or empty");
+            return List.of();
+        }
+        try (Stream<Path> files = Files.walk(Paths.get(directoryPath))) {
+            return files.filter(Files::isDirectory)
                     .map(Path::toFile)
                     .collect(Collectors.toList());
         } catch (IOException e) {
             log.warn("Error occurred while getting all folders: {}", e.getMessage());
             return List.of();
         }
+    }
+
+    /**
+     * 删除指定文件夹下所有损坏的文件。
+     *
+     * @param folderNameValue 文件夹路径
+     */
+    public static void deleteAllCorruptFilesInFolder(String folderNameValue) {
+        // 获取指定文件夹下的所有文件夹
+        List<File> allFolders = FileUtility.getAllFolders(folderNameValue);
+        // 获取所有文件夹下的所有文件
+        List<String> listImageFiles = allFolders.stream()
+                .map(item -> FileUtility.getAllFilesInDirectory(item, true))
+                .flatMap(List::stream)
+                .toList();
+        // 删除损坏的文件
+        listImageFiles.forEach(FileUtility::deleteCorruptFilesInFolder);
     }
 }
