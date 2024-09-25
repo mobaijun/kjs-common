@@ -54,7 +54,7 @@ kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常
 
 ## 示例
 
-测试用例地址：[测试用例地址](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)
+测试用例地址：[测试用例地址](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common)
 
 > 所有依赖模块会同步更新最新版本
 
