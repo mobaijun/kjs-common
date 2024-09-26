@@ -17,7 +17,7 @@ package com.mobaijun.common.tool;
 
 import com.mobaijun.common.collection.CollectionUtil;
 import com.mobaijun.common.constant.DateConstant;
-import com.mobaijun.common.constant.RegxConstant;
+import com.mobaijun.common.constant.RegexpConstant;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.date.LocalDateUtil;
 import com.mobaijun.common.text.StringUtil;
@@ -574,7 +574,7 @@ public class ToolUtil {
      */
     public static boolean checkEmail(String username) {
         // 正则表达式的模式 编译正则表达式
-        Pattern p = Pattern.compile(RegxConstant.PATH_EMAIL);
+        Pattern p = Pattern.compile(RegexpConstant.PATH_EMAIL);
         // 正则表达式的匹配器
         Matcher m = p.matcher(username);
         // 进行正则匹配

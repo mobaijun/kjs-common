@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.tool;
 
-import com.mobaijun.common.constant.RegxConstant;
+import com.mobaijun.common.constant.RegexpConstant;
 import com.mobaijun.common.constant.StringConstant;
 import com.mobaijun.common.text.StringUtil;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,7 +37,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isUsername(String username) {
-        return Pattern.matches(RegxConstant.REGEX_USERNAME, username);
+        return Pattern.matches(RegexpConstant.REGEX_USERNAME, username);
     }
 
     /**
@@ -48,7 +47,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isPassword(String password) {
-        return Pattern.matches(RegxConstant.REGEX_PASSWORD, password);
+        return Pattern.matches(RegexpConstant.REGEX_PASSWORD, password);
     }
 
     /**
@@ -58,7 +57,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isMobile(String mobile) {
-        return Pattern.matches(RegxConstant.REGEX_MOBILE, mobile);
+        return Pattern.matches(RegexpConstant.REGEX_MOBILE, mobile);
     }
 
     /**
@@ -68,7 +67,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isEmail(String email) {
-        return Pattern.matches(RegxConstant.REGEX_EMAIL, email);
+        return Pattern.matches(RegexpConstant.REGEX_EMAIL, email);
     }
 
     /**
@@ -78,7 +77,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isChinese(String chinese) {
-        return Pattern.matches(RegxConstant.REGEX_CHINESE, chinese);
+        return Pattern.matches(RegexpConstant.REGEX_CHINESE, chinese);
     }
 
     /**
@@ -88,7 +87,7 @@ public class RegxUtil {
      * @return 校验通过返回true，否则返回false
      */
     public static boolean isIdCard(String idCard) {
-        return Pattern.matches(RegxConstant.REGEX_ID_CARD, idCard);
+        return Pattern.matches(RegexpConstant.REGEX_ID_CARD, idCard);
     }
 
     /**
@@ -98,7 +97,7 @@ public class RegxUtil {
      * @return true or false
      */
     public static boolean isIpAddress(String ipAddress) {
-        return Pattern.matches(RegxConstant.REGEX_IP_ADDR, ipAddress);
+        return Pattern.matches(RegexpConstant.REGEX_IP_ADDR, ipAddress);
     }
 
     /**
@@ -108,7 +107,7 @@ public class RegxUtil {
      * @return true or false
      */
     public static boolean isMac(String mac) {
-        return Pattern.matches(RegxConstant.REGEX_MAC, mac);
+        return Pattern.matches(RegexpConstant.REGEX_MAC, mac);
     }
 
     /**
@@ -149,7 +148,7 @@ public class RegxUtil {
         if (StringUtil.isEmpty(phone)) {
             return StringConstant.EMPTY_STRING;
         }
-        if (match(RegxConstant.REGEX_PHONE, phone)) {
+        if (match(RegexpConstant.REGEX_PHONE, phone)) {
             String begin = phone.substring(0, 3);
             String end = phone.substring(7);
             return begin + "****" + end;

@@ -15,10 +15,9 @@
  */
 package com.mobaijun.common.gps;
 
-import com.mobaijun.common.constant.RegxConstant;
+import com.mobaijun.common.constant.RegexpConstant;
 import com.mobaijun.common.model.Model;
 import com.mobaijun.common.number.NumberUtil;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.concurrent.ThreadLocalRandom;
@@ -69,7 +68,7 @@ public class GPSUtil {
      * @throws IllegalArgumentException 如果坐标格式不正确
      */
     public static double[] parseGpsCoordinate(String gpsCoordinate) {
-        Pattern pattern = Pattern.compile(RegxConstant.COORDINATE_PATTERN);
+        Pattern pattern = Pattern.compile(RegexpConstant.COORDINATE_PATTERN);
         Matcher matcher = pattern.matcher(gpsCoordinate.trim());
 
         if (matcher.matches()) {

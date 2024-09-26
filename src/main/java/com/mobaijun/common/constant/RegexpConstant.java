@@ -22,7 +22,7 @@ package com.mobaijun.common.constant;
  *
  * @author MoBaiJun 2022/5/18 10:07
  */
-public final class RegxConstant {
+public final class RegexpConstant {
 
     /**
      * 正则表达式：验证用户名
@@ -37,7 +37,7 @@ public final class RegxConstant {
     /**
      * 正则表达式：验证手机号
      */
-    public static final String REGEX_MOBILE = "^((13[0-9])|(14[5,7,9])|(15[^4,\\D])|(17[0,1,3,5-8])|(18[0-9]))\\d{8}$";
+    public static final String REGEX_MOBILE = "^((13[0-9])|(14[579])|(15[0-35-9])|(17[0-35-8])|(18[0-9]))\\d{8}$";
 
     /**
      * 正则表达式：验证邮箱
@@ -47,7 +47,7 @@ public final class RegxConstant {
     /**
      * 正则表达式：验证汉字
      */
-    public static final String REGEX_CHINESE = "^[\u4e00-\u9fa5],{0,}$";
+    public static final String REGEX_CHINESE = "^[\\u4e00-\\u9fa5]{0,}$";
 
     /**
      * 正则表达式：验证身份证
@@ -62,7 +62,7 @@ public final class RegxConstant {
     /**
      * 正则表达式：mac地址校验
      */
-    public static final String REGEX_MAC = "^(([0-9a-fA-F]){1,2}[:-]){5}([0-9a-fA-F]){1,2}";
+    public static final String REGEX_MAC = "^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$";
 
     /**
      * 正则表达式：检测邮箱是否合法
@@ -124,12 +124,12 @@ public final class RegxConstant {
      * 这个正则表达式的目的是匹配形如 "40.7128, -74.0060" 的 GPS 坐标字符串，其中经度和纬度之间由逗号分隔，且可以包含小数。
      * 如果传入的字符串不符合这个格式，parseGpsCoordinate 方法将抛出 IllegalArgumentException。
      */
-    public static final String COORDINATE_PATTERN = "^(-?\\d+(\\.\\d+)?),\\s*(-?\\d+(\\.\\d+)?)$";
+    public static final String COORDINATE_PATTERN = "^(-?\\d{1,3}(\\.\\d+)?),\\s*(-?\\d{1,3}(\\.\\d+)?)$";
 
     /**
      * 车牌号正则校验
      */
-    public static final String REGEX_CAR_LICENSE = "/^([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[a-zA-Z](([DF]((?![IO])[a-zA-Z0-9](?![IO]))[0-9]{4})|([0-9]{5}[DF]))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1})$/";
+    public static final String REGEX_CAR_LICENSE = "([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼]{1}(([A-HJ-Z]{1}[A-HJ-NP-Z0-9]{5})|([A-HJ-Z]{1}(([DF]{1}[A-HJ-NP-Z0-9]{1}[0-9]{4})|([0-9]{5}[DF]{1})))|([A-HJ-Z]{1}[A-D0-9]{1}[0-9]{3}警)))|([0-9]{6}使)|((([沪粤川云桂鄂陕蒙藏黑辽渝]{1}A)|鲁B|闽D|蒙E|蒙H)[0-9]{4}领)|(WJ[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼·•]{1}[0-9]{4}[TDSHBXJ0-9]{1})|([VKHBSLJNGCE]{1}[A-DJ-PR-TVY]{1}[0-9]{5})";
 
     /**
      * 数字：匹配任意数字。
