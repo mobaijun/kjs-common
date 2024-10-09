@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.http;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -27,7 +27,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/10/26 17:14
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum ContentType {
 
     /**

@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.verification;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -26,7 +26,7 @@ import lombok.Getter;
  * @author MoBaiJun 2023/2/21 13:33
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum VerificationType {
 
     /**

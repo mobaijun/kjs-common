@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.sys;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Description: [菜单类型枚举]
@@ -25,7 +25,7 @@ import lombok.Getter;
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum MenuType {
     /**
      * 左侧菜单

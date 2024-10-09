@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.datasource;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -26,7 +26,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/4/25 15:18
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum DataSourceType {
 
     /**

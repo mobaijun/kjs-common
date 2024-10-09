@@ -17,8 +17,8 @@ package com.mobaijun.common.enums.comm;
 
 import java.util.ArrayList;
 import java.util.List;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -28,7 +28,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/12/5 9:11
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum AnnotationClassType {
 
     /**

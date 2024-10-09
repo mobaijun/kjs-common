@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.regex;
 
 import java.util.regex.Pattern;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -27,7 +27,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/11/23 17:46
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum FlagsType {
 
     /**

@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.redis;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3
@@ -26,7 +26,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/12/10 18:09
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum LimitType {
 
     /**

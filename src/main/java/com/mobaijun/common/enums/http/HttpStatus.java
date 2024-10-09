@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.http;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -27,7 +27,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/4/22 17:30
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum HttpStatus {
 
     /**

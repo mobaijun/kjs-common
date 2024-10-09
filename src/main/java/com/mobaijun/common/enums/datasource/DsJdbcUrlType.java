@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.datasource;
 
 import java.util.Arrays;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Description: [数据源类型枚举]
@@ -26,7 +26,7 @@ import lombok.Getter;
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum DsJdbcUrlType {
 
     /**

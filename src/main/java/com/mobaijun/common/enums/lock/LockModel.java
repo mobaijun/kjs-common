@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.lock;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Description: [锁的类型]
@@ -24,9 +24,8 @@ import lombok.Getter;
  * Date: [2024/7/8 15:33]
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
-
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum LockModel {
 
     /**

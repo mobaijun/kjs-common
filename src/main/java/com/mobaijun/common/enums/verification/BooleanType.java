@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.verification;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -26,7 +26,7 @@ import lombok.Getter;
  * @author 2022/5/21 16:56 url:<a href="https://www.mobaijun.com">...</a>
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum BooleanType {
 
     /**

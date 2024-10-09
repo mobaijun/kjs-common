@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.device;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Description: [操作系统]
@@ -25,7 +25,7 @@ import lombok.Getter;
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum OSType {
 
     WINDOWS_10_2016("Windows 10+ / Windows Server 2016+", "windows nt 10\\.0", "windows nt (10\\.0)"),

@@ -15,10 +15,6 @@
  */
 package com.mobaijun.common.concurrent;
 
-import lombok.Builder;
-import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
 import java.util.concurrent.Executor;
@@ -26,6 +22,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Description: [CompletableFuture的工具类，用于在并发环境中简化CompletableFuture的使用。]
@@ -35,6 +35,7 @@ import java.util.function.Supplier;
  */
 @Slf4j
 @Builder
+@AllArgsConstructor
 public class CompletableFutureUtil<T> {
 
     /**

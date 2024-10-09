@@ -15,6 +15,9 @@
  */
 package com.mobaijun.common.enums.sys;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 /**
  * software：IntelliJ IDEA 2022.1<br>
  * enum name: EnvEnum<br>
@@ -22,6 +25,8 @@ package com.mobaijun.common.enums.sys;
  *
  * @author MoBaiJun 2022/5/18 9:50
  */
+@Getter
+@RequiredArgsConstructor
 public enum EnvEnum {
 
     /**

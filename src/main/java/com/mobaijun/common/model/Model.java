@@ -17,7 +17,8 @@ package com.mobaijun.common.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.HashMap;
-import lombok.AllArgsConstructor;
+import java.util.Map;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,7 +35,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @Schema(title = "Model", description = "用户存储 K、V 结构的 Model 实体类")
 public class Model<K, V> extends HashMap<K, V> {
 
@@ -49,4 +50,56 @@ public class Model<K, V> extends HashMap<K, V> {
      */
     @Schema(title = "值", description = "值")
     private V value;
+
+    /**
+     * Constructs an empty {@code HashMap} with the specified initial
+     * capacity and load factor.
+     *
+     * @param initialCapacity the initial capacity
+     * @param loadFactor      the load factor
+     * @throws IllegalArgumentException if the initial capacity is negative
+     *                                  or the load factor is nonpositive
+     */
+    public Model(int initialCapacity, float loadFactor, K key, V value) {
+        super(initialCapacity, loadFactor);
+        this.key = key;
+        this.value = value;
+    }
+
+    /**
+     * Constructs an empty {@code HashMap} with the specified initial
+     * capacity and the default load factor (0.75).
+     *
+     * @param initialCapacity the initial capacity.
+     * @throws IllegalArgumentException if the initial capacity is negative.
+     */
+    public Model(int initialCapacity, K key, V value) {
+        super(initialCapacity);
+        this.key = key;
+        this.value = value;
+    }
+
+    /**
+     * Constructs an empty {@code HashMap} with the default initial capacity
+     * (16) and the default load factor (0.75).
+     */
+    public Model(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    /**
+     * Constructs a new {@code HashMap} with the same mappings as the
+     * specified {@code Map}.  The {@code HashMap} is created with
+     * default load factor (0.75) and an initial capacity sufficient to
+     * hold the mappings in the specified {@code Map}.
+     *
+     * @param m the map whose mappings are to be placed in this map
+     * @throws NullPointerException if the specified map is null
+     */
+    public Model(Map<? extends K, ? extends V> m, K key, V value) {
+        super(m);
+        this.key = key;
+        this.value = value;
+    }
 }

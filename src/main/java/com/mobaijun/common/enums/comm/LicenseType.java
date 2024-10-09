@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.comm;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * Description: [开源许可证]
@@ -25,7 +25,7 @@ import lombok.Getter;
  * IntelliJ IDEA Version: [IntelliJ IDEA 2023.1.4]
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum LicenseType {
 
     /**

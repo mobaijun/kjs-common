@@ -20,8 +20,8 @@ import com.mobaijun.common.collection.ArrayUtil;
 import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -47,7 +47,7 @@ import lombok.Getter;
  * @see Calendar#UNDECIMBER
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum MonthType {
 
     /**

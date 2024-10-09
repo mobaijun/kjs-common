@@ -16,8 +16,8 @@
 package com.mobaijun.common.enums.date;
 
 import java.time.temporal.ChronoUnit;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -27,7 +27,7 @@ import lombok.Getter;
  * @author MoBaiJun 2023/2/22 0:11
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum DateUnitType {
 
     /**

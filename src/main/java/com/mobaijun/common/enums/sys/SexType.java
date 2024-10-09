@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.sys;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -28,7 +28,7 @@ import lombok.ToString;
  */
 @Getter
 @ToString
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum SexType {
 
     /**

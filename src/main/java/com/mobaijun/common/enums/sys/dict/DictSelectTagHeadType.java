@@ -15,8 +15,8 @@
  */
 package com.mobaijun.common.enums.sys.dict;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -26,7 +26,7 @@ import lombok.Getter;
  * @author MoBaiJun 2022/5/12 14:13
  */
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum DictSelectTagHeadType {
 
     /**
