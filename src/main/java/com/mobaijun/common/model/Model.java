@@ -16,7 +16,7 @@
 package com.mobaijun.common.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +36,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Model", description = "用户存储 K、V 结构的 Model 实体类")
-public class Model<K, V> extends LinkedHashMap<K, V> {
+public class Model<K, V> extends HashMap<K, V> {
 
     /**
      * 键
