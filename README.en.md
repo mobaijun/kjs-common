@@ -30,7 +30,7 @@
 
 ## Overview
 
-kjs-common is a tool library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool class library developed based on Java. It encapsulates tools commonly used in project development and aims to improve the development efficiency and code quality of Java developers.
 
 This project integrates excellent open source tools commonly used in projects:
 
