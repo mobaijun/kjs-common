@@ -37,7 +37,7 @@ This project integrates excellent open source tools commonly used in projects:
 -   lombok (simplified entity class)
 -   mapstruct (simplifies parameter passing)
 
-Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
