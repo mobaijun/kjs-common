@@ -32,7 +32,7 @@ public class LicenseTest {
     @Test
     public void testAppend() {
         // Perform the method call
-        LicenseTitleAppenderUtil.append("D:\\ideaProject\\my-project\\mobaijun-spring-boot-starter\\translation-spring-boot-starter\\src\\main\\java\\com\\mobaijun\\translation", String.format(LicenseType.APACHE_2.getValue(), "www.mobaijun.com"));
+        LicenseTitleAppenderUtil.append("D:\\ideaProject\\team\\kjs-common\\src\\main\\java\\com\\mobaijun\\common", String.format(LicenseType.APACHE_2.getValue(), "www.mobaijun.com"));
     }
 
     /**
