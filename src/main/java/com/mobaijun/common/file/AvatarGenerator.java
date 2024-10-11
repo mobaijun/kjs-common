@@ -19,7 +19,10 @@ import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Base64;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -202,5 +205,33 @@ public class AvatarGenerator {
             log.error("生成Base64字符串失败：{}", e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * 将 Base64 字符串转换为临时文件
+     *
+     * @param base64Img Base64 编码的图片
+     * @return File 对象（临时文件）
+     * @throws IOException 如果解码或写入失败
+     */
+    public static File base64ToTempFile(String base64Img) throws IOException {
+        // 去掉 Base64 编码中的头部信息
+        String[] base64Parts = base64Img.split(",");
+        String base64Data = base64Parts.length > 1 ? base64Parts[1] : base64Parts[0];
+
+        // 解码 Base64 字符串
+        byte[] imgBytes = Base64.getDecoder().decode(base64Data);
+
+        // 创建临时文件
+        File tempFile = File.createTempFile("temp_image_", ".png");
+        // 在 JVM 退出时自动删除临时文件
+        tempFile.deleteOnExit();
+
+        // 写入文件
+        try (OutputStream out = new FileOutputStream(tempFile)) {
+            out.write(imgBytes);
+        }
+
+        return tempFile;
     }
 }
