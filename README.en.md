@@ -120,10 +120,10 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ![](https://starchart.cc/mobaijun/kjs-common.svg)
 
-## 状态
+## state
 
 ![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
 
-## 致谢
+## Acknowledgments
 
 Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
