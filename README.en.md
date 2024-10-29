@@ -93,9 +93,9 @@ This warehouse has been released simultaneously[maven central warehouse](https:/
 
 ## contribute
 
-If you would like to contribute code or make suggestions, please follow these steps:
+如果您想贡献代码或者提出建议，请遵循以下步骤：
 
-1.  Fork this warehouse
+1.  Fork 本仓库
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
 4.  Push to branch (`git push origin feature/AmazingFeature`)
@@ -112,7 +112,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 -   [@ Mobaijun](https://github.com/mobaijun)
 
-## Documentation and examples
+## 文档和示例
 
 We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
