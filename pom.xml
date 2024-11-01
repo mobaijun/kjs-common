@@ -76,7 +76,7 @@
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <maven-gpg-plugin.version>3.2.5</maven-gpg-plugin.version>
         <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
+        <central-publishing-maven-plugin.version>0.6.0</central-publishing-maven-plugin.version>
 
         <!-- 项目依赖包 -->
         <slf4j-api.version>[2.+,)</slf4j-api.version>
@@ -137,6 +137,18 @@
 
     <build>
         <plugins>
+            <!--   central发布插件    -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>osr</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <!-- maven compiler plugin -->
                 <groupId>org.apache.maven.plugins</groupId>
