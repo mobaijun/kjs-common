@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,14 +30,21 @@ import java.util.regex.Pattern;
  *
  * @author MoBaiJun 2022/11/22 11:33
  */
-public class NamingUtil {
-
-    private static final Pattern HUMP_PATTERN = Pattern.compile("[A-Z]");
-
-    private static final Pattern UNDERLINE_PATTERN = Pattern.compile("_(\\w)");
+public class StringConverter {
 
     /**
-     * 驼峰转下划线
+     * 正则表达式模式，用于处理字符串转换。
+     */
+    private static final Pattern CAMEL_CASE_PATTERN = Pattern.compile("[A-Z]");
+
+    /**
+     * 正则表达式模式，用于匹配下划线后面的字母。
+     */
+    private static final Pattern SNAKE_CASE_PATTERN = Pattern.compile("_(\\w)");
+
+
+    /**
+     * 将驼峰命名法转换为下划线命名法。
      *
      * @param name 待转换的名称
      * @return 转换后的名称
@@ -45,7 +53,7 @@ public class NamingUtil {
         if (name.isEmpty()) {
             return "";
         }
-        Matcher matcher = HUMP_PATTERN.matcher(name);
+        Matcher matcher = CAMEL_CASE_PATTERN.matcher(name);
         StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(buffer, "_" + matcher.group(0).toLowerCase());
@@ -55,7 +63,7 @@ public class NamingUtil {
     }
 
     /**
-     * 下划线转驼峰
+     * 将下划线命名法转换为驼峰命名法。
      *
      * @param name 待转换的名称
      * @return 转换后的名称
@@ -65,7 +73,7 @@ public class NamingUtil {
             return "";
         }
         name = name.toLowerCase();
-        Matcher matcher = UNDERLINE_PATTERN.matcher(name);
+        Matcher matcher = SNAKE_CASE_PATTERN.matcher(name);
         StringBuilder buffer = new StringBuilder();
         while (matcher.find()) {
             matcher.appendReplacement(buffer, matcher.group(1).toUpperCase());
@@ -75,7 +83,7 @@ public class NamingUtil {
     }
 
     /**
-     * 将小写字符串转换为下划线大写形式
+     * 将小写字符串转换为下划线大写形式。
      *
      * @param input 小写字符串
      * @return 下划线大写形式的字符串
@@ -104,77 +112,69 @@ public class NamingUtil {
     }
 
     /**
-     * 下划线转驼峰Map集
+     * 将源 Map 的键从下划线命名法转换为驼峰命名法。
      *
-     * @param map 源Map
-     * @return 转换后的Map
+     * @param map 源 Map
+     * @return 转换后的 Map
      */
     public static <T> Map<String, T> toCamelMap(Map<String, T> map) {
         Map<String, T> newMap = new HashMap<>();
-        for (String key : map.keySet()) {
-            String camel = toCamel(key);
-            newMap.put(camel, map.get(key));
-        }
+        map.forEach((key, value) -> newMap.put(toCamel(key), value));
         return newMap;
     }
 
     /**
-     * Map集 驼峰转下划线
+     * 将源 Map 的键从驼峰命名法转换为下划线命名法。
      *
-     * @param map 源Map
-     * @return 转换后的Map
+     * @param map 源 Map
+     * @return 转换后的 Map
      */
     public static <T> Map<String, T> toUnderlineMap(Map<String, T> map) {
         Map<String, T> newMap = new HashMap<>();
-        for (String key : map.keySet()) {
-            String underline = toUnderline(key);
-            newMap.put(underline, map.get(key));
-        }
+        map.forEach((key, value) -> newMap.put(toUnderline(key), value));
         return newMap;
     }
 
     /**
-     * 驼峰法转下划线List套Map集
+     * 将 List 中的 Map 的键从驼峰命名法转换为下划线命名法。
      *
-     * @param list 源List
-     * @return 转换后的List套Map
+     * @param list 源 List
+     * @return 转换后的 List
      */
     public static <T> List<Map<String, T>> toCamelListMap(List<Map<String, T>> list) {
-        List<Map<String, T>> returnList = new ArrayList<>();
-        for (Map<String, T> map : list) {
-            Map<String, T> newMap = toCamelMap(map);
-            returnList.add(newMap);
-        }
-        return returnList;
+        return convertList(list, StringConverter::toCamelMap);
     }
 
     /**
-     * 下划线转驼峰法List套Map集
+     * 将 List 中的 Map 的键从下划线命名法转换为驼峰命名法。
      *
-     * @param list 源List
-     * @return 转换后的List套Map
+     * @param list 源 List
+     * @return 转换后的 List
      */
     public static <T> List<Map<String, T>> toUnderlineListMap(List<Map<String, T>> list) {
-        List<Map<String, T>> returnList = new ArrayList<>();
-        for (Map<String, T> map : list) {
-            Map<String, T> newMap = toUnderlineMap(map);
-            returnList.add(newMap);
-        }
-        return returnList;
+        return convertList(list, StringConverter::toUnderlineMap);
     }
 
     /**
-     * 下划线转驼峰法List
+     * 将 List 中的字符串从下划线命名法转换为驼峰命名法。
      *
-     * @param list 源List
-     * @return 转换后的List
+     * @param list 源 List
+     * @return 转换后的 List
      */
     public static List<String> toCamelList(List<String> list) {
-        List<String> returnList = new ArrayList<>();
-        for (String key : list) {
-            String camel = toCamel(key);
-            returnList.add(camel);
-        }
+        return convertList(list, StringConverter::toCamel);
+    }
+
+    /**
+     * 通用方法，用于转换 List 中的元素。
+     *
+     * @param list      源 List
+     * @param converter 转换函数
+     * @return 转换后的 List
+     */
+    private static <T, R> List<R> convertList(List<T> list, Function<T, R> converter) {
+        List<R> returnList = new ArrayList<>();
+        list.forEach(item -> returnList.add(converter.apply(item)));
         return returnList;
     }
 }

@@ -28,6 +28,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum BucketAuthType {
+
     /**
      * 私有的（仅有 owner 可以读写）
      */

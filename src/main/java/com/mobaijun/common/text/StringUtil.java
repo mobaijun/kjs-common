@@ -16,6 +16,7 @@
 package com.mobaijun.common.text;
 
 import com.mobaijun.common.constant.StringConstant;
+import static com.mobaijun.common.constant.StringConstant.EMPTY_STRING;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
@@ -93,7 +94,7 @@ public class StringUtil {
      * @return true：为空 false：非空
      */
     public static boolean isEmpty(String str) {
-        return Objects.isNull(str) || StringConstant.EMPTY_STRING.equals(str.trim());
+        return Objects.isNull(str) || EMPTY_STRING.equals(str.trim());
     }
 
     /**
@@ -145,7 +146,7 @@ public class StringUtil {
      */
     public static String substring(final String str, int start) {
         if (str == null) {
-            return StringConstant.EMPTY_STRING;
+            return EMPTY_STRING;
         }
 
         if (start < 0) {
@@ -156,7 +157,7 @@ public class StringUtil {
             start = 0;
         }
         if (start > str.length()) {
-            return StringConstant.EMPTY_STRING;
+            return EMPTY_STRING;
         }
 
         return str.substring(start);
@@ -172,7 +173,7 @@ public class StringUtil {
      */
     public static String substring(final String str, int start, int end) {
         if (str == null) {
-            return StringConstant.EMPTY_STRING;
+            return EMPTY_STRING;
         }
 
         if (end < 0) {
@@ -187,7 +188,7 @@ public class StringUtil {
         }
 
         if (start > end) {
-            return StringConstant.EMPTY_STRING;
+            return EMPTY_STRING;
         }
 
         if (start < 0) {
@@ -373,10 +374,15 @@ public class StringUtil {
     }
 
     /**
-     * <p>Left pad a String with a specified character.</p>
+     * 使用指定字符左填充字符串。
      *
-     * <p>Pad to a size of {@code size}.</p>
+     * @param str     要填充的字符串，可能为null
+     * @param size    填充后的目标大小
+     * @param padChar 用于填充的字符
+     * @return 左填充后的字符串，或者原始字符串（如果不需要填充），
+     * 如果输入字符串为null，则返回null
      *
+     * <p>示例：</p>
      * <pre>
      * StringUtils.leftPad(null, *, *)     = null
      * StringUtils.leftPad("", 3, 'z')     = "zzz"
@@ -385,12 +391,6 @@ public class StringUtil {
      * StringUtils.leftPad("bat", 1, 'z')  = "bat"
      * StringUtils.leftPad("bat", -1, 'z') = "bat"
      * </pre>
-     *
-     * @param str     the String to pad out, may be null
-     * @param size    the size to pad to
-     * @param padChar the character to pad with
-     * @return left padded String or original String if no padding is necessary,
-     * {@code null} if null String input
      */
     public static String leftPad(final String str, final int size, final char padChar) {
         if (str == null) {
@@ -398,7 +398,7 @@ public class StringUtil {
         }
         final int pads = size - str.length();
         if (pads <= 0) {
-            // returns original String when possible
+            // 返回原始字符串（如果可能）
             return str;
         }
         if (pads > PAD_LIMIT) {
@@ -408,28 +408,27 @@ public class StringUtil {
     }
 
     /**
-     * <p>Returns padding using the specified delimiter repeated
-     * to a given length.</p>
+     * 返回使用指定字符重复到给定长度的填充字符串。
      *
+     * @param ch     要重复的字符
+     * @param repeat 重复字符的次数，负数视为零
+     * @return 填充后的字符串
+     *
+     * <p>示例：</p>
      * <pre>
      * StringUtils.repeat('e', 0)  = ""
      * StringUtils.repeat('e', 3)  = "eee"
      * StringUtils.repeat('e', -2) = ""
      * </pre>
      *
-     * <p>Note: this method does not support padding with
-     * <a href="http://www.unicode.org/glossary/#supplementary_character">Unicode Supplementary Characters</a>
-     * as they require a pair of {@code char}s to be represented.
-     * If you are needing to support full I18N of your applications
-     * </p>
-     *
-     * @param ch     character to repeat
-     * @param repeat number of times to repeat char, negative treated as zero
-     * @return String with repeated character
+     * <p>注意：此方法不支持用
+     * <a href="http://www.unicode.org/glossary/#supplementary_character">Unicode补充字符</a>
+     * 进行填充，因为它们需要一对{@code char}表示。
+     * 如果需要支持完整的国际化应用程序，</p>
      */
     public static String repeat(final char ch, final int repeat) {
         if (repeat <= 0) {
-            return StringConstant.EMPTY_STRING;
+            return EMPTY_STRING;
         }
         final char[] buf = new char[repeat];
         Arrays.fill(buf, ch);
@@ -437,10 +436,15 @@ public class StringUtil {
     }
 
     /**
-     * <p>Left pad a String with a specified String.</p>
+     * 使用指定字符串左填充字符串。
      *
-     * <p>Pad to a size of {@code size}.</p>
+     * @param str    要填充的字符串，可能为null
+     * @param size   填充后的目标大小
+     * @param padStr 用于填充的字符串，null或空字符串视为单个空格
+     * @return 左填充后的字符串，或者原始字符串（如果不需要填充），
+     * 如果输入字符串为null，则返回null
      *
+     * <p>示例：</p>
      * <pre>
      * StringUtils.leftPad(null, *, *)      = null
      * StringUtils.leftPad("", 3, "z")      = "zzz"
@@ -452,12 +456,6 @@ public class StringUtil {
      * StringUtils.leftPad("bat", 5, null)  = "  bat"
      * StringUtils.leftPad("bat", 5, "")    = "  bat"
      * </pre>
-     *
-     * @param str    the String to pad out, may be null
-     * @param size   the size to pad to
-     * @param padStr the String to pad with, null or empty treated as single space
-     * @return left padded String or original String if no padding is necessary,
-     * {@code null} if null String input
      */
     public static String leftPad(final String str, final int size, String padStr) {
         if (str == null) {
@@ -470,7 +468,8 @@ public class StringUtil {
         final int strLen = str.length();
         final int pads = size - strLen;
         if (pads <= 0) {
-            return str; // returns original String when possible
+            // 返回原始字符串（如果可能）
+            return str;
         }
         if (padLen == 1 && pads <= PAD_LIMIT) {
             return leftPad(str, size, padStr.charAt(0));

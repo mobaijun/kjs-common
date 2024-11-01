@@ -15,8 +15,6 @@
  */
 package com.mobaijun.common.tool;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,6 +23,8 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Objects;
+import java.util.stream.Stream;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Software：IntelliJ IDEA 2021.3.2<br>
@@ -70,9 +70,8 @@ public class MavenUtil {
      * @param file 文件
      */
     private static void delFile(File file) {
-        try {
-            Files.walk(file.toPath())
-                    .sorted((p1, p2) -> -p1.compareTo(p2))
+        try (Stream<Path> paths = Files.walk(file.toPath())) {
+            paths.sorted((p1, p2) -> -p1.compareTo(p2))
                     .forEach(p -> {
                         File f = p.toFile();
                         if (f.isDirectory()) {
@@ -80,30 +79,12 @@ public class MavenUtil {
                                 delAll(f);
                             } else if (f.getName().startsWith("${") && f.getName().endsWith("}")) {
                                 delAll(f);
-                                try {
-                                    Files.delete(f.toPath());
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                                total++;
-                                log.info("Removed:{}", f.getAbsolutePath());
+                                deleteFile(f);
                             } else if (Objects.requireNonNull(f.listFiles()).length == 0) {
-                                try {
-                                    Files.delete(f.toPath());
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                                total++;
-                                log.info("Removed:{}", f.getAbsolutePath());
+                                deleteFile(f);
                             }
                         } else if (f.getName().endsWith(".lastUpdated")) {
-                            try {
-                                Files.delete(f.toPath());
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                            total++;
-                            log.info("Removed:{}", f.getAbsolutePath());
+                            deleteFile(f);
                         }
                     });
         } catch (IOException e) {
@@ -117,27 +98,27 @@ public class MavenUtil {
      * @param file file
      */
     private static void delAll(File file) {
-        try {
-            Files.walk(file.toPath())
-                    .sorted((p1, p2) -> -p1.compareTo(p2))
+        try (Stream<Path> paths = Files.walk(file.toPath())) {
+            paths.sorted((p1, p2) -> -p1.compareTo(p2))
                     .forEach(p -> {
                         File f = p.toFile();
-                        if (f.isFile()) {
-                            try {
-                                Files.delete(f.toPath());
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        } else {
-                            try {
-                                Files.delete(f.toPath());
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                        total++;
-                        log.info("Removed:{}", f.getAbsolutePath());
+                        deleteFile(f);
                     });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 删除文件并更新总计数
+     *
+     * @param file 要删除的文件
+     */
+    private static void deleteFile(File file) {
+        try {
+            Files.delete(file.toPath());
+            total++;
+            log.info("Removed: {}", file.getAbsolutePath());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

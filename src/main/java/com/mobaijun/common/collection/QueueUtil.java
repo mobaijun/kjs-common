@@ -35,71 +35,71 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class QueueUtil {
 
     /**
-     * 创建ArrayDeque (JDK无ArrayQueue)
+     * 创建一个初始长度为指定值的 ArrayDeque (JDK 无 ArrayQueue)。
      * <p>
-     * 需设置初始长度，默认为16，数组满时成倍扩容
+     * 数组满时会成倍扩容，默认为 16。
      */
-    public static <E> ArrayDeque<E> newArrayDeque(int initSize) {
-        return new ArrayDeque<>(initSize);
+    public static <E> ArrayDeque<E> createArrayDequeWithInitialSize(int initialSize) {
+        return new ArrayDeque<>(initialSize);
     }
 
     /**
-     * 创建LinkedDeque (LinkedList实现了Deque接口)
+     * 创建一个 LinkedList 实现的双端队列。
      */
-    public static <E> LinkedList<E> newLinkedDeque() {
+    public static <E> LinkedList<E> createLinkedDeque() {
         return new LinkedList<>();
     }
 
     /**
-     * 创建无阻塞情况下，性能最优的并发队列
+     * 创建无阻塞情况下性能最优的并发队列。
      */
-    public static <E> ConcurrentLinkedQueue<E> newConcurrentNonBlockingQueue() {
+    public static <E> ConcurrentLinkedQueue<E> createConcurrentQueue() {
         return new ConcurrentLinkedQueue<>();
     }
 
     /**
-     * 创建无阻塞情况下，性能最优的并发双端队列
+     * 创建无阻塞情况下性能最优的并发双端队列。
      */
-    public static <E> Deque<E> newConcurrentNonBlockingDeque() {
+    public static <E> Deque<E> createConcurrentDeque() {
         return new ConcurrentLinkedDeque<>();
     }
 
     /**
-     * 创建并发阻塞情况下，长度不受限的队列.
+     * 创建长度不受限的阻塞队列。
      * <p>
-     * 长度不受限，即生产者不会因为满而阻塞，但消费者会因为空而阻塞.
+     * 生产者不会因为队列满而阻塞，但消费者会因为队列空而阻塞。
      */
-    public static <E> LinkedBlockingQueue<E> newBlockingUnlimitQueue() {
+    public static <E> LinkedBlockingQueue<E> createUnboundedBlockingQueue() {
         return new LinkedBlockingQueue<>();
     }
 
     /**
-     * 创建并发阻塞情况下，长度不受限的双端队列.
+     * 创建长度不受限的阻塞双端队列。
      * <p>
-     * 长度不受限，即生产者不会因为满而阻塞，但消费者会因为空而阻塞.
+     * 生产者不会因为队列满而阻塞，但消费者会因为队列空而阻塞。
      */
-    public static <E> LinkedBlockingDeque<E> newBlockingUnlimitDeque() {
+    public static <E> LinkedBlockingDeque<E> createUnboundedBlockingDeque() {
         return new LinkedBlockingDeque<>();
     }
 
     /**
-     * 创建并发阻塞情况下，长度受限，更节约内存，但共用一把锁的队列（无双端队列实现）.
+     * 创建长度受限的并发阻塞队列，节约内存但共用一把锁（无双端实现）。
      */
-    public static <E> ArrayBlockingQueue<E> newArrayBlockingQueue(int capacity) {
+    public static <E> ArrayBlockingQueue<E> createArrayBlockingQueue(int capacity) {
         return new ArrayBlockingQueue<>(capacity);
     }
 
     /**
-     * 创建并发阻塞情况下，长度受限，头队尾两把锁, 但使用更多内存的队列.
+     * 创建长度受限的并发阻塞队列，头队尾各有一把锁，使用更多内存。
      */
-    public static <E> LinkedBlockingQueue<E> newLinkedBlockingQueue(int capacity) {
+    public static <E> LinkedBlockingQueue<E> createLinkedBlockingQueue(int capacity) {
         return new LinkedBlockingQueue<>(capacity);
     }
 
     /**
-     * 创建并发阻塞情况下，长度受限，头队尾两把锁, 但使用更多内存的双端队列.
+     * 创建长度受限的并发阻塞双端队列，头队尾各有一把锁，使用更多内存。
      */
-    public static <E> LinkedBlockingDeque<E> newBlockingDeque(int capacity) {
+    public static <E> LinkedBlockingDeque<E> createBlockingDeque(int capacity) {
         return new LinkedBlockingDeque<>(capacity);
     }
 }

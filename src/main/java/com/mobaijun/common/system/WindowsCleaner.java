@@ -15,6 +15,7 @@
  */
 package com.mobaijun.common.system;
 
+import com.mobaijun.common.exception.UtilException;
 import com.mobaijun.common.jdk.JdkUtil;
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * class name: WindowsCleaner<br>
- * class description: Windows清理垃圾工具
+ * class description: 提供系统清理功能，包括清理临时文件夹和清空回收站。
  *
  * @author MoBaiJun 2023/2/20 7:41
  */
@@ -36,43 +37,48 @@ public class WindowsCleaner {
     /**
      * 获取管理员权限
      */
-    private static final Process GET_ADMIN;
+    public static final Process GET_ADMIN;
 
     static {
         try {
             GET_ADMIN = Runtime.getRuntime().exec("runas /user:Administrator");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new UtilException(e);
         }
     }
 
     /**
-     * 清理 Windows 系统的临时文件夹
+     * 清理 Windows 系统的临时文件夹。
+     * 该方法会遍历临时文件夹中的所有文件和子文件夹，并尝试删除它们。
+     * 在删除过程中如果发生错误，将记录错误信息。
      */
     public static void cleanTempFolder() {
         // 获取系统临时文件夹路径
         Path tempFolderPath = Paths.get(JdkUtil.getTmpdir());
 
         // 遍历临时文件夹中的所有文件和子文件夹
-        try {
-            Files.walk(tempFolderPath)
+        try (var pathsStream = Files.walk(tempFolderPath)) {
+            pathsStream
+                    // 先删除子文件夹再删除父文件夹
                     .sorted((p1, p2) -> -p1.compareTo(p2))
                     .forEach(path -> {
                         try {
                             // 删除文件或文件夹
                             Files.deleteIfExists(path);
                         } catch (IOException e) {
-                            log.error("Error cleaning temp folder {}", e.getMessage());
+                            log.error("Error cleaning temp folder: {}", e.getMessage());
                         }
                     });
+            log.info("Temp folder cleaned successfully.");
         } catch (IOException e) {
-            log.error("Error cleaning temp folder {}", e.getMessage());
+            log.error("Error walking through temp folder: {}", e.getMessage());
         }
-        log.info("Temp folder cleaned successfully.");
     }
 
     /**
-     * 清空 Windows 系统的回收站
+     * 清空 Windows 系统的回收站。
+     * 该方法会遍历回收站目录中的所有文件和子文件夹，并尝试删除它们。
+     * 如果回收站目录不存在或删除过程中发生错误，将记录错误信息。
      */
     public static void emptyRecycleBin() {
         // 获取回收站目录路径
@@ -84,21 +90,23 @@ public class WindowsCleaner {
             log.error("Recycle bin directory not found.");
             return;
         }
+
         // 遍历回收站目录中的所有文件和子文件夹
-        try {
-            Files.walk(Paths.get(recycleBinPath))
+        try (var pathsStream = Files.walk(Paths.get(recycleBinPath))) {
+            pathsStream
+                    // 先删除子文件夹再删除父文件夹
                     .sorted((p1, p2) -> -p1.compareTo(p2))
                     .forEach(path -> {
                         try {
                             // 删除文件或文件夹
                             Files.deleteIfExists(path);
                         } catch (IOException e) {
-                            log.error("Error emptying recycle bin {}", e.getMessage());
+                            log.error("Error emptying recycle bin: {}", e.getMessage());
                         }
                     });
+            log.info("Recycle bin emptied successfully.");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            log.error("Error walking through recycle bin: {}", e.getMessage());
         }
-        log.info("Recycle bin emptied successfully.");
     }
 }

@@ -63,8 +63,6 @@ public enum DateUnitType {
     /**
      * 单位对应的毫秒数
      * -- GETTER --
-     *
-     * @return 单位对应的毫秒数
      */
     private final long millis;
 

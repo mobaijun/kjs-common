@@ -15,13 +15,12 @@
  */
 package com.mobaijun.common.number;
 
-import com.mobaijun.common.constant.DateConstant;
-import lombok.extern.slf4j.Slf4j;
-
+import com.mobaijun.common.date.DatePattern;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * software：IntelliJ IDEA 2022.1<br>
@@ -33,7 +32,16 @@ import java.util.Date;
 @Slf4j
 public class NumberUtil {
 
+    /**
+     * 经典身份证号长度
+     * <p>经典身份证号码的长度为15位。</p>
+     */
     private static final int CLASSIC_ID_LENGTH = 15;
+
+    /**
+     * 当前身份证号长度
+     * <p>当前身份证号码的长度为18位。</p>
+     */
     private static final int CURRENT_ID_LENGTH = 18;
 
     /**
@@ -79,8 +87,22 @@ public class NumberUtil {
             yue = idNumber.substring(8, 10);
             day = idNumber.substring(10, 12);
         }
+        return getAge(year, yue, day);
+    }
+
+    /**
+     * 计算年龄
+     *
+     * <p>根据给定的出生年月日计算当前年龄。</p>
+     *
+     * @param year 出生年份
+     * @param yue  出生月份
+     * @param day  出生日期
+     * @return 计算得出的年龄
+     */
+    private static int getAge(String year, String yue, String day) {
         Date date = new Date();
-        SimpleDateFormat format = new SimpleDateFormat(DateConstant.YYYY_MM_DD);
+        SimpleDateFormat format = new SimpleDateFormat(DatePattern.YYYY_MM_DD);
         String fear = format.format(date).substring(0, 4);
         String flue = format.format(date).substring(5, 7);
         String days = format.format(date).substring(8, 10);
@@ -91,16 +113,14 @@ public class NumberUtil {
                 age = number;
             }
         } else {
-
             if (Integer.parseInt(yue) < Integer.parseInt(flue)) {
                 // 如果当前月份大于出生月份
                 age = number;
             } else {
-                // 如果当前月份小于出生月份,说明生日还没过
+                // 如果当前月份小于出生月份，说明生日还没过
                 age = Integer.parseInt(fear) - Integer.parseInt(year) - 1;
             }
         }
-        System.out.println("age = " + age);
         return age;
     }
 

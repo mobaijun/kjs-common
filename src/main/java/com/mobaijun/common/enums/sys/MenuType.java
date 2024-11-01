@@ -27,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum MenuType {
+
     /**
      * 左侧菜单
      */

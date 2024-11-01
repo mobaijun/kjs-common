@@ -16,15 +16,14 @@
 package com.mobaijun.common.pinyin;
 
 import com.mobaijun.common.text.Charsets;
+import java.util.Random;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Random;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * class name: PingYinUtils<br>
- * class description: 拼音工具类
+ * class description: 提供中文字符串转换为拼音首字母的功能。
  *
  * @author MoBaiJun 2022/11/22 12:16
  */
@@ -33,43 +32,50 @@ import java.util.Random;
 public final class PingYinUtil {
 
     /**
-     * 返回首字母
+     * 返回给定中文字符串的拼音首字母。
+     *
+     * @param strChinese 中文字符串
+     * @param bUpCase    是否返回大写字母
+     * @return 拼音首字母字符串，如果输入为空或发生异常则返回null
      */
     public static String getPyIndexStr(String strChinese, boolean bUpCase) {
         try {
             StringBuilder buffer = new StringBuilder();
-            // 把中文转化成byte数组
+            // 将中文字符串转换为GBK编码的字节数组
             byte[] chineseBytes = strChinese.getBytes(Charsets.GBK_NAME);
             for (int i = 0; i < chineseBytes.length; i++) {
                 if ((chineseBytes[i] & 255) > 128) {
                     int char1 = chineseBytes[i++] & 255;
-                    // 左移运算符用“<<”表示，是将运算符左边的对象，向左移动运算符右边指定的位数，并且在低位补零。其实，向左移n位，就相当于乘上2的n次方
                     char1 <<= 8;
                     int chart = char1 + (chineseBytes[i] & 255);
                     buffer.append(getPyIndexChar((char) chart, bUpCase));
                     continue;
                 }
                 char c = (char) chineseBytes[i];
-                // 确定指定字符是否可以是 Java
+                // 如果字符不是合法的Java标识符的一部分，则用'A'替代
                 if (!Character.isJavaIdentifierPart(c)) {
-                    // 标识符中首字符以外的部分。
                     c = 'A';
                 }
                 buffer.append(c);
             }
             return buffer.toString();
         } catch (Exception e) {
-            log.warn("There is a mistake in taking Chinese pinyin {}", e.getMessage());
+            log.warn("获取中文拼音首字母时出现错误: {}", e.getMessage());
         }
         return null;
     }
 
     /**
-     * 得到首字母
+     * 根据GBK编码的字符获取对应的拼音首字母。
+     *
+     * @param charGbk GBK编码的字符
+     * @param bUpCase 是否返回大写字母
+     * @return 对应的拼音首字母
      */
     @SuppressWarnings("AlibabaUndefineMagicConstant")
     private static char getPyIndexChar(char charGbk, boolean bUpCase) {
         char result;
+        // 根据字符的GBK值范围确定拼音首字母
         if (charGbk >= 45217 && charGbk <= 45252) {
             result = 'A';
         } else if (charGbk >= 45253 && charGbk <= 45760) {
@@ -117,12 +123,11 @@ public final class PingYinUtil {
         } else if (charGbk >= 54481 && charGbk <= 55289) {
             result = 'Z';
         } else {
+            // 随机字母
             result = (char) (65 + (new Random()).nextInt(25));
         }
 
-        if (!bUpCase) {
-            result = Character.toLowerCase(result);
-        }
-        return result;
+        // 根据参数决定返回大写或小写
+        return bUpCase ? result : Character.toLowerCase(result);
     }
 }

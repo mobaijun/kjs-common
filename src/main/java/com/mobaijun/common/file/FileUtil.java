@@ -59,11 +59,6 @@ public class FileUtil {
     private static final File SYSTEM_TEMP_DIR = new File(System.getProperty("java.io.tmpdir"));
 
     /**
-     * 存储文件列表
-     */
-    private static final ArrayList<String> FILE_LIST = new ArrayList<>();
-
-    /**
      * 正则
      */
     private static final String FILENAME_PATTERN = "[a-zA-Z0-9_\\-\\|\\.\\u4e00-\\u9fa5]+";

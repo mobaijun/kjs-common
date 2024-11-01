@@ -18,8 +18,7 @@ package com.mobaijun.common.number;
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
  * enum name: SizeUnit<br>
- * enum description: <br>
- * Representation of basic size units，just like TimeUnit.<br>
+ * enum description: <br>表示基本的大小单位，类似于 TimeUnit。
  * Usage example:<br>
  * assertTrue(SizeUnit.BYTES.toMegaBytes(1024 * 1024) == 1.0);<br/>
  * assertTrue(SizeUnit.GIGABYTES.toBytes(1) == 1024.0 * 1024.0 * 1024.0);<br>
@@ -29,45 +28,45 @@ package com.mobaijun.common.number;
 public enum SizeUnit {
 
     /**
-     * Smallest memory unit.
+     * 最小的内存单位。
      */
     BYTES,
 
     /**
-     * "One thousand" (1024) bytes.
+     * 一千（1024）字节。
      */
     KILOBYTES,
 
     /**
-     * "One million" (1024x1024) bytes.
+     * 一百万（1024x1024）字节。
      */
     MEGABYTES,
 
     /**
-     * "One billion" (1024x1024x1024) bytes.
+     * 十亿（1024x1024x1024）字节。
      */
     GIGABYTES;
 
     /**
-     * Number of bytes in a kilobyte.
+     * 每千字节的字节数。
      */
     private final double BYTES_PER_KILOBYTE = 1024.0;
 
     /**
-     * Number of kilobytes in a megabyte.
+     * 每兆字节的千字节数。
      */
     private final double KILOBYTES_PER_MEGABYTE = 1024.0;
 
     /**
-     * Number of megabytes per gigabyte.
+     * 每千兆字节的兆字节数。
      */
     private final double MEGABYTES_PER_GIGABYTE = 1024.0;
 
     /**
-     * Returns the number of bytes corresponding to the provided input for a particular unit of memory.
+     * 返回对应于给定输入的字节数，基于特定的内存单位。
      *
-     * @param input Number of units of memory.
-     * @return Number of bytes corresponding to the provided number of particular memory units.
+     * @param input 内存单位的数量。
+     * @return 对应于提供的内存单位数量的字节数。
      */
     public double toBytes(final long input) {
         return switch (this) {
@@ -79,10 +78,10 @@ public enum SizeUnit {
     }
 
     /**
-     * Returns the number of kilobytes corresponding to the provided input for a particular unit of memory.
+     * 返回对应于给定输入的千字节数，基于特定的内存单位。
      *
-     * @param input Number of units of memory.
-     * @return Number of kilobytes corresponding to the provided number of particular memory units.
+     * @param input 内存单位的数量。
+     * @return 对应于提供的内存单位数量的千字节数。
      */
     public double toKiloBytes(final long input) {
         return switch (this) {
@@ -94,10 +93,10 @@ public enum SizeUnit {
     }
 
     /**
-     * Returns the number of megabytes corresponding to the provided input for a particular unit of memory.
+     * 返回对应于给定输入的兆字节数，基于特定的内存单位。
      *
-     * @param input Number of units of memory.
-     * @return Number of megabytes corresponding to the provided number of particular memory units.
+     * @param input 内存单位的数量。
+     * @return 对应于提供的内存单位数量的兆字节数。
      */
     public double toMegaBytes(final long input) {
         return switch (this) {
@@ -109,10 +108,10 @@ public enum SizeUnit {
     }
 
     /**
-     * Returns the number of gigabytes corresponding to the provided input for a particular unit of memory.
+     * 返回对应于给定输入的千兆字节数，基于特定的内存单位。
      *
-     * @param input Number of units of memory.
-     * @return Number of gigabytes corresponding to the provided number of particular memory units.
+     * @param input 内存单位的数量。
+     * @return 对应于提供的内存单位数量的千兆字节数。
      */
     public double toGigaBytes(final long input) {
         return switch (this) {

@@ -16,9 +16,9 @@
 package com.mobaijun.common.tool;
 
 import com.mobaijun.common.collection.CollectionUtil;
-import com.mobaijun.common.constant.DateConstant;
 import com.mobaijun.common.constant.RegexpConstant;
 import com.mobaijun.common.constant.StringConstant;
+import com.mobaijun.common.date.DatePattern;
 import com.mobaijun.common.date.LocalDateUtil;
 import com.mobaijun.common.text.StringUtil;
 import java.io.IOException;
@@ -61,7 +61,7 @@ public class ToolUtil {
      */
     public static String dateType(Object o) {
         if (o instanceof Date) {
-            return LocalDateUtil.toString((Date) o, DateConstant.YYYY_MM_DD_HH_MM_SS);
+            return LocalDateUtil.formatToString((Date) o, DatePattern.YYYY_MM_DD_HH_MM_SS);
         } else {
             return o.toString();
         }

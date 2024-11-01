@@ -34,7 +34,6 @@ public enum ResponseHeader {
      */
     ALLOW("ALLOW", "服务器支持哪些请求方法（如GET、POST等）"),
 
-
     /**
      * 文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。
      * Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。
@@ -42,7 +41,6 @@ public enum ResponseHeader {
      * 为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面。
      */
     CONTENT_ENCODING("CONTENT_ENCODING", "文档的编码（Encode）方法。"),
-
 
     /**
      * 表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入 ByteArrayOutputStream，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容。

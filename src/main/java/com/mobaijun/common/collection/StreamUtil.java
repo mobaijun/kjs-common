@@ -160,7 +160,9 @@ public class StreamUtil {
         if (collection.isEmpty()) {
             return MapUtil.newHashMap();
         }
-        return collection.stream().filter(Objects::nonNull).collect(Collectors.toMap(key, value, (l, r) -> l));
+        return collection.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toMap(key, value, (l, r) -> l));
     }
 
     /**

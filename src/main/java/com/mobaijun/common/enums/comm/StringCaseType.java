@@ -66,57 +66,56 @@ public enum StringCaseType {
     }
 
     /**
-     * Compares two strings using the case-sensitivity rule.
+     * 比较两个字符串，考虑大小写敏感性规则。
      *
-     * <p>This method mimics {@link String#compareTo} but takes case-sensitivity into account.
+     * <p>此方法模仿 {@link String#compareTo}，但考虑了大小写敏感性。
      *
-     * @param str1 the first string to compare, not null
-     * @param str2 the second string to compare, not null
-     * @return true if equal using the case rules
-     * @throws NullPointerException if either string is null
+     * @param str1 第一个要比较的字符串，不能为null
+     * @param str2 第二个要比较的字符串，不能为null
+     * @return 如果使用大小写规则相等则返回true
+     * @throws NullPointerException 如果任一字符串为null
      */
     public int checkCompareTo(String str1, String str2) {
         return isCaseSensitive() ? str1.compareTo(str2) : str1.compareToIgnoreCase(str2);
     }
 
     /**
-     * Compares two strings using the case-sensitivity rule.
+     * 比较两个字符串，考虑大小写敏感性规则。
      *
-     * <p>This method mimics {@link String#equals} but takes case-sensitivity into account.
+     * <p>此方法模仿 {@link String#equals}，但考虑了大小写敏感性。
      *
-     * @param str1 the first string to compare, not null
-     * @param str2 the second string to compare, not null
-     * @return true if equal using the case rules
-     * @throws NullPointerException if either string is null
+     * @param str1 第一个要比较的字符串，不能为null
+     * @param str2 第二个要比较的字符串，不能为null
+     * @return 如果使用大小写规则相等则返回true
+     * @throws NullPointerException 如果任一字符串为null
      */
     public final boolean checkEquals(String str1, String str2) {
         return isCaseSensitive() ? str1.equals(str2) : str1.equalsIgnoreCase(str2);
     }
 
     /**
-     * Checks if one string starts with another using the case-sensitivity rule.
+     * 检查一个字符串是否以另一个字符串开头，考虑大小写敏感性规则。
      *
-     * <p>This method mimics {@link String#startsWith(String)} but takes case-sensitivity into
-     * account.
+     * <p>此方法模仿 {@link String#startsWith(String)}，但考虑了大小写敏感性。
      *
-     * @param str   the string to check, not null
-     * @param start the start to compare against, not null
-     * @return true if equal using the case rules
-     * @throws NullPointerException if either string is null
+     * @param str   要检查的字符串，不能为null
+     * @param start 要比较的起始字符串，不能为null
+     * @return 如果根据大小写规则相等则返回true
+     * @throws NullPointerException 如果任一字符串为null
      */
     public final boolean checkStartsWith(String str, String start) {
         return str.regionMatches(isIgnoredCase(), 0, start, 0, start.length());
     }
 
     /**
-     * Checks if one string ends with another using the case-sensitivity rule.
+     * 检查一个字符串是否以另一个字符串结尾，考虑大小写敏感性规则。
      *
-     * <p>This method mimics {@link String#endsWith} but takes case-sensitivity into account.
+     * <p>此方法模仿 {@link String#endsWith}，但考虑了大小写敏感性。
      *
-     * @param str the string to check, not null
-     * @param end the end to compare against, not null
-     * @return true if equal using the case rules
-     * @throws NullPointerException if either string is null
+     * @param str 要检查的字符串，不能为null
+     * @param end 要比较的结束字符串，不能为null
+     * @return 如果根据大小写规则相等则返回true
+     * @throws NullPointerException 如果任一字符串为null
      */
     public final boolean checkEndsWith(String str, String end) {
         final int endLen = end.length();
@@ -124,17 +123,15 @@ public enum StringCaseType {
     }
 
     /**
-     * Checks if one string contains another starting at a specific index using the case-sensitivity
-     * rule.
+     * 检查一个字符串是否包含另一个字符串，从指定索引开始，考虑大小写敏感性规则。
      *
-     * <p>This method mimics parts of {@link String#indexOf(String, int)} but takes case-sensitivity
-     * into account.
+     * <p>此方法模仿部分 {@link String#indexOf(String, int)}，但考虑了大小写敏感性。
      *
-     * @param str           the string to check, not null
-     * @param strStartIndex the index to start at in str
-     * @param search        the start to search for, not null
-     * @return the first index of the search String, -1 if no match or {@code null} string input
-     * @throws NullPointerException if either string is null
+     * @param str           要检查的字符串，不能为null
+     * @param strStartIndex 开始的索引
+     * @param search        要搜索的字符串，不能为null
+     * @return 搜索字符串的第一个索引，如果没有匹配则返回-1或{@code null}字符串输入
+     * @throws NullPointerException 如果任一字符串为null
      */
     public final int checkIndexOf(String str, int strStartIndex, String search) {
         final int endIndex = str.length() - search.length();
@@ -149,16 +146,15 @@ public enum StringCaseType {
     }
 
     /**
-     * Checks if one string contains another at a specific index using the case-sensitivity rule.
+     * 检查一个字符串是否在另一个字符串的特定索引处包含，考虑大小写敏感性规则。
      *
-     * <p>This method mimics parts of {@link String#regionMatches(boolean, int, String, int, int)} but
-     * takes case-sensitivity into account.
+     * <p>此方法模仿部分 {@link String#regionMatches(boolean, int, String, int, int)}，但考虑了大小写敏感性。
      *
-     * @param str           the string to check, not null
-     * @param strStartIndex the index to start at in str
-     * @param search        the start to search for, not null
-     * @return true if equal using the case rules
-     * @throws NullPointerException if either string is null
+     * @param str           要检查的字符串，不能为null
+     * @param strStartIndex 开始的索引
+     * @param search        要搜索的字符串，不能为null
+     * @return 如果根据大小写规则相等则返回true
+     * @throws NullPointerException 如果任一字符串为null
      */
     public final boolean checkRegionMatches(String str, int strStartIndex, String search) {
         return str.regionMatches(isIgnoredCase(), strStartIndex, search, 0, search.length());

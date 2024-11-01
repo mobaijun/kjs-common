@@ -65,7 +65,6 @@ public class HostUtil {
      */
     private static final String END = String.format("%n");
 
-
     /**
      * 获取操作系统类型返回 host 文件地址
      *
@@ -78,7 +77,6 @@ public class HostUtil {
         }
         return LINUX_HOSTS_PATH.toString();
     }
-
 
     /**
      * 读取 host 文件内容
@@ -93,7 +91,6 @@ public class HostUtil {
                         .replaceAll("\\s+", "\t"))
                 .collect(Collectors.toList());
     }
-
 
     /**
      * 追加写入 host
