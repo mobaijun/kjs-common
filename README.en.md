@@ -37,7 +37,7 @@ This project integrates excellent open source tools commonly used in projects:
 -   lombok (simplified entity class)
 -   mapstruct (simplifies parameter passing)
 
-目标：`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
+Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
@@ -45,7 +45,7 @@ This project integrates excellent open source tools commonly used in projects:
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
--   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
+-   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
 
 ## develop
 
@@ -54,7 +54,7 @@ This project integrates excellent open source tools commonly used in projects:
 
 ## Example
 
-测试用例地址：[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common)
+Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common)
 
 > All dependent modules will be updated to the latest version simultaneously
 
@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-In Gradle you can add the following to your`build.gradle`In the file:
+在 Gradle 中，您可以将以下内容添加到您的 `build.gradle`In the file:
 
 ```json
 dependencies {
@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+我们提供单元测试 [Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
@@ -126,4 +126,4 @@ We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/t
 
 ## Acknowledgments
 
-Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
+Thank you for using`kjs-common`，我们将继续努力为开发者提供更好的工具库。
