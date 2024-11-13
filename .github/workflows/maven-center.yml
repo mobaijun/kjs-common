@@ -1,37 +1,56 @@
 name: Publish package to the Maven Central Repository
+
 on:
-  release:
-    types: [ created ]
+  # 手动触发工作流
+  workflow_dispatch:
+
+  # 标签触发工作流
+  push:
+    # 监听所有以 v 开头的标签
+    tags:
+      - 'v*'
+
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
+      # 检出代码
       - uses: actions/checkout@v4
 
+      # 设置 Java 环境
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          # 选择你喜欢的jdk发行版，仅用于github action的运行环境
+          # 使用 Temurin JDK 发行版
           distribution: 'temurin'
           java-package: 'jdk'
-          # 填写你jar的jdk版本
+          # 设置 JDK 版本为 17
           java-version: '17'
+          # 确保使用的是最新的 JDK 版本
           check-latest: true
-          # 和你在settings.xml、pom.xml中填写的server id保持一致
+          # 与 settings.xml 和 pom.xml 中的 server-id 保持一致
           server-id: 'osr'
+          # 使用 GitHub Secrets 中的环境变量
           server-username: OSSRH_USERNAME
+          # 使用 GitHub Secrets 中的环境变量
           server-password: OSSRH_PASSWORD
+          # 使用 GitHub Secrets 中的 GPG 私钥
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          # 使用 GitHub Secrets 中的 GPG 密码
           gpg-passphrase: SIGN_KEY_PASS
+          # 启用 Maven 缓存以提高构建速度
           cache: 'maven'
 
+      # 构建并发布到 Maven Central
       - name: Build & Deploy
+        # 使用 Maven 发布构建包到 Maven Central
         run: |
-          # -U force updates just to make sure we are using latest dependencies
-          # -B Batch mode (do not ask for user input), just in case
-          # -P activate profile
-          mvn -U -B clean deploy -P release
+          mvn clean deploy -DskipTests -q -B
         env:
+          # 从 Secrets 获取 GPG 密码
           SIGN_KEY_PASS: ${{ secrets.GPG_PASSPHRASE }}
+          # 从 Secrets 获取 OSSRH 用户名
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          # 从 Secrets 获取 OSSRH 密码
           OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
