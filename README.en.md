@@ -45,7 +45,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
+-   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
 
 ## develop
 
@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-在 Gradle 中，您可以将以下内容添加到您的 `build.gradle`In the file:
+In Gradle you can add the following to your`build.gradle`In the file:
 
 ```json
 dependencies {
@@ -114,7 +114,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Documentation and examples
 
-我们提供单元测试 [Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
+We provide unit testing[Sample project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), to help you better understand and use the library.
 
 ## trend
 
@@ -126,4 +126,4 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## Acknowledgments
 
-Thank you for using`kjs-common`，我们将继续努力为开发者提供更好的工具库。
+Thank you for using`kjs-common`, we will continue to work hard to provide developers with a better tool library.
