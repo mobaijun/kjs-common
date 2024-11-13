@@ -45,7 +45,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 -   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
 -   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
--   所有的工具函数和工具类都经过严格测试和文档化，可以放心使用。
+-   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
 
 ## develop
 
@@ -110,7 +110,7 @@ Developed under license, please check for details[LICENSE](https://github.com/mo
 
 ## author
 
--   [@ Mobaijun](https://github.com/mobaijun)
+-   [@mobaijun](https://github.com/mobaijun)
 
 ## Documentation and examples
 
