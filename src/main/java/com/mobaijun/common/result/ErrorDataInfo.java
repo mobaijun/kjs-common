@@ -86,4 +86,13 @@ public class ErrorDataInfo implements Serializable {
      */
     @Builder.Default
     private String timestamp = LocalDateUtil.formatNow(DatePattern.YYYY_MM_DD_HH_MM_SS_CHINESE);
+
+    /**
+     * 错误信息
+     * <p>
+     * 记录错误的具体信息，例如 {@code 服务器内部错误}。
+     * 默认值为 {@code 服务器内部错误}。
+     * </p>
+     */
+    private String errorInfo;
 }
