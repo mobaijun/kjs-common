@@ -137,6 +137,52 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 返回自定义错误信息和数据
+     * <p>
+     * 用于构建包含 HTTP 状态码、自定义数据和错误消息的响应对象。
+     * 该方法适用于使用 Spring 提供的 {@link HttpStatus} 枚举来定义错误状态码的场景。
+     * </p>
+     *
+     * @param failCode 错误状态码，使用 {@link HttpStatus} 枚举
+     * @param data     错误附带的数据，可为具体异常信息或其他上下文数据
+     * @param message  错误消息，用于描述错误原因
+     * @param <T>      响应数据的类型
+     * @return 返回构建好的 {@code R<T>} 对象，其中包含错误状态码、数据和错误消息
+     */
+    public static <T> R<T> failed(HttpStatus failCode, T data, String message) {
+        return new R<T>()
+                // 使用 HttpStatus 的状态码
+                .setCode(failCode.getCode())
+                // 设置响应数据
+                .setData(data)
+                // 设置错误消息
+                .setMessage(message);
+    }
+
+    /**
+     * 返回自定义错误信息和数据
+     * <p>
+     * 用于构建包含自定义状态码、自定义数据和错误消息的响应对象。
+     * 该方法适用于需要手动指定错误状态码的场景。
+     * </p>
+     *
+     * @param code    自定义错误状态码，例如 400、500 等
+     * @param data    错误附带的数据，可为具体异常信息或其他上下文数据
+     * @param message 错误消息，用于描述错误原因
+     * @param <T>     响应数据的类型
+     * @return 返回构建好的 {@code R<T>} 对象，其中包含错误状态码、数据和错误消息
+     */
+    public static <T> R<T> failed(int code, T data, String message) {
+        return new R<T>()
+                // 设置自定义状态码
+                .setCode(code)
+                // 设置响应数据
+                .setData(data)
+                // 设置错误消息
+                .setMessage(message);
+    }
+
+    /**
      * 自定义错误状态码
      *
      * @param failStatus 状态码
