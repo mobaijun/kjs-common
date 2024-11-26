@@ -33,7 +33,7 @@ public class LicenseTest {
     public void testAppend() {
         // Perform the method call
         LicenseTitleAppenderUtil.append(
-                "D:\\ideaProject\\team\\kjs-common\\src\\main\\java\\com\\mobaijun\\common",
+                "src/main/java/com/mobaijun/common",
                 String.format(LicenseType.APACHE_2.getValue(), "www.mobaijun.com"));
     }
 

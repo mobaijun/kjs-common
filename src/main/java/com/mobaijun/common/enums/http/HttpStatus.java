@@ -46,6 +46,15 @@ public enum HttpStatus {
     PROCESSING(102, "Processing"),
 
     /**
+     * {@code 103 Early Hints}.
+     * 表示提示信息的 HTTP 状态码。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc8297">用于指示提示的 HTTP 状态码</a>
+     * @since 6.0.5
+     */
+    EARLY_HINTS(103, "Early Hints"),
+
+    /**
      * 请求成功。一般用于GET与POST请求
      */
     OK(200, "OK"),
@@ -138,22 +147,52 @@ public enum HttpStatus {
     /**
      * 客户端请求的语法错误，服务器无法理解
      */
+    @Deprecated
     INVALID_ARGUMENT(400, "客户端指定了无效参数，检查错误信息和错误详细信息以获取更多信息"),
+
+    /**
+     * {@code 400 Bad Request}.
+     * 表示客户端发送的请求无效。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">HTTP/1.1: 语义与内容，第6.5.1节</a>
+     */
+    BAD_REQUEST(400, "Bad Request"),
 
     /**
      * 由于缺失、无效或过期的OAuth token，请求未通过身份验证
      */
-    UNAUTHENTICATED(401, "由于缺失、无效或过期的OAuth token，请求未通过身份验证"),
+    @Deprecated
+    UNAUTHENTICATED(401, "Unauthorized"),
+
+    /**
+     * {@code 401 Unauthorized}.
+     * 表示请求未通过身份验证。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7235#section-3.1">HTTP/1.1: 身份验证，第3.1节</a>
+     */
+    UNAUTHORIZED(401, "Unauthorized"),
 
     /**
      * 客户端没有足够的权限。这可能是因为OAuth token没有正确的范围，客户端没有权限，还没有为客户端项目启用API
      */
+    @Deprecated
     PERMISSION_DENIED(403, "客户端没有足够的权限。这可能是因为OAuth token没有正确的范围，客户端没有权限，还没有为客户端项目启用API"),
 
     /**
-     * 指定资源没有被发现，或者该请求被未公开的原因拒绝，例如白名单
+     * {@code 403 Forbidden}.
+     * 表示服务器拒绝执行请求，即使请求已通过身份验证。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7231#section-6.5.3">HTTP/1.1: 语义与内容，第6.5.3节</a>
      */
-    NOT_FOUND(404, "指定资源没有被发现，或者该请求被未公开的原因拒绝，例如白名单"),
+    FORBIDDEN(403, "Forbidden"),
+
+    /**
+     * {@code 404 Not Found}.
+     * 表示服务器无法找到所请求的资源。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7231#section-6.5.4">HTTP/1.1: 语义与内容，第6.5.4节</a>
+     */
+    NOT_FOUND(404, "Not Found"),
 
     /**
      * 客户端请求中的方法被禁止
@@ -178,7 +217,16 @@ public enum HttpStatus {
     /**
      * 客户端尝试创建的资源已经存在
      */
+    @Deprecated
     ALREADY_EXISTS(409, "客户端尝试创建的资源已经存在"),
+
+    /**
+     * {@code 409 Conflict}.
+     * 表示请求与当前服务器的状态存在冲突。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">HTTP/1.1: 语义与内容，第6.5.8节</a>
+     */
+    CONFLICT(409, "Conflict"),
 
     /**
      * 客户端请求的资源已经不存在。410不同于404，如果资源以前有现在被永久删除了可使用410代码，网站设计人员可通过301代码指定资源的新位置
@@ -213,7 +261,16 @@ public enum HttpStatus {
     /**
      * 客户端请求的范围无效
      */
+    @Deprecated
     RANGE_NOT_SATISFIABLE(416, "Range Not Satisfiable"),
+
+    /**
+     * {@code 416 Requested Range Not Satisfiable}.
+     * 表示服务器无法满足请求中指定的 Range 头字段的范围。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc7233#section-4.4">HTTP/1.1: 范围请求，第4.4节</a>
+     */
+    REQUESTED_RANGE_NOT_SATISFIABLE(416, "Requested range not satisfiable"),
 
     /**
      * 服务器无法满足请求头中 Expect 字段指定的预期行为。
@@ -230,7 +287,7 @@ public enum HttpStatus {
     /**
      * 被误导的请求 – 请求发送到的服务器无法响应。
      */
-    MISDIRECTED_REQUEST(421, "Misdirected Request"),
+    MISDIRECTED_REQUEST(421, "Destination Locked"),
 
     /**
      * 实体无法处理 – 请求中存在语义错误。
@@ -265,7 +322,16 @@ public enum HttpStatus {
     /**
      * 资源配额或者达到限制速率
      */
+    @Deprecated
     RESOURCE_EXHAUSTED(429, "资源配额或者达到限制速率"),
+
+    /**
+     * {@code 429 Too Many Requests}.
+     * 表示客户端在给定的时间内发送了太多请求，已超出服务器的限流限制。
+     *
+     * @see <a href="https://tools.ietf.org/html/rfc6585#section-4">附加 HTTP 状态码</a>
+     */
+    TOO_MANY_REQUESTS(429, "Too Many Requests"),
 
     /**
      * 请求标头字段太大 – 服务器不会处理请求，因为标头字段太大。
@@ -281,7 +347,7 @@ public enum HttpStatus {
     /**
      * 请求被客户取消
      */
-    CANCELLED(499, "请求被客户取消"),
+    CANCELLED(499, "The request was canceled by the customer"),
 
     /**
      * 服务器内部错误，无法完成请求
@@ -327,6 +393,12 @@ public enum HttpStatus {
      * 检测到环路 – 服务器在尝试处理请求时发现无限循环。
      */
     LOOP_DETECTED(508, "Loop Detected"),
+
+    /**
+     * {@code 509 Bandwidth Limit Exceeded}.
+     * 表示服务器的带宽限制已超出，无法处理请求。
+     */
+    BANDWIDTH_LIMIT_EXCEEDED(509, "Bandwidth Limit Exceeded"),
 
     /**
      * 未扩展 – 在服务器完成请求之前，需要对请求进行更多扩展。
