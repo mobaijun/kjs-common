@@ -146,7 +146,7 @@
                 <configuration>
                     <publishingServerId>osr</publishingServerId>
                     <!-- 自动发布 -->
-                    <!-- <autoPublish>true</autoPublish>-->
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
 

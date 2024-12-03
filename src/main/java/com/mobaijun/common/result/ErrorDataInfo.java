@@ -17,6 +17,7 @@ package com.mobaijun.common.result;
 
 import com.mobaijun.common.date.DatePattern;
 import com.mobaijun.common.date.LocalDateUtil;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.Builder;
@@ -38,6 +39,7 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
+@Schema(title = "错误详情", description = "错误详情")
 public class ErrorDataInfo implements Serializable {
 
     @Serial
@@ -49,6 +51,7 @@ public class ErrorDataInfo implements Serializable {
      * 记录发生错误时的请求 URL，便于快速定位问题。
      * </p>
      */
+    @Schema(title = "请求路径", example = "/xxx/xxx")
     private String path;
 
     /**
@@ -57,6 +60,7 @@ public class ErrorDataInfo implements Serializable {
      * 捕获到的异常类的名称，例如 {@code NullPointerException}。
      * </p>
      */
+    @Schema(title = "异常类型", example = "NullPointerException")
     private String exceptionType;
 
     /**
@@ -65,6 +69,7 @@ public class ErrorDataInfo implements Serializable {
      * 记录导致错误的 HTTP 请求方法，例如 {@code GET}, {@code POST}。
      * </p>
      */
+    @Schema(title = "请求方法", example = "GET")
     private String method;
 
     /**
@@ -74,6 +79,7 @@ public class ErrorDataInfo implements Serializable {
      * 例如 {@code GET, POST}。如果没有限制，则为空字符串。
      * </p>
      */
+    @Schema(title = "支持的方法列表", example = "GET, POST")
     private String methods;
 
     /**
@@ -85,6 +91,7 @@ public class ErrorDataInfo implements Serializable {
      * </p>
      */
     @Builder.Default
+    @Schema(title = "错误发生时间戳", example = "2024年11月25日 15:30:45")
     private String timestamp = LocalDateUtil.formatNow(DatePattern.YYYY_MM_DD_HH_MM_SS_CHINESE);
 
     /**
@@ -94,5 +101,6 @@ public class ErrorDataInfo implements Serializable {
      * 默认值为 {@code 服务器内部错误}。
      * </p>
      */
+    @Schema(title = "错误信息", example = "服务器内部错误")
     private String errorInfo;
 }
