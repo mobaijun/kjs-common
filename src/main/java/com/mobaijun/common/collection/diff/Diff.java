@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -152,7 +153,7 @@ public class Diff<T> {
      * @return 更新元素的键列表
      */
     public List<T> getUpdateMapKeys() {
-        return updateMap.keySet().stream().toList();
+        return updateMap.keySet().stream().collect(Collectors.toList());
     }
 
     /**
@@ -161,6 +162,6 @@ public class Diff<T> {
      * @return 更新元素的值列表
      */
     public List<T> getUpdateMapValues() {
-        return updateMap.values().stream().toList();
+        return updateMap.values().stream().collect(Collectors.toList());
     }
 }

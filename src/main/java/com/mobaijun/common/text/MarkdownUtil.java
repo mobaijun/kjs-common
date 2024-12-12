@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import lombok.extern.slf4j.Slf4j;
@@ -59,7 +60,7 @@ public class MarkdownUtil {
         return Stream.of(Objects.requireNonNull(folder.listFiles()))
                 .filter(file -> file.isFile() && file.getName().endsWith(MARKDOWN_FILE_EXTENSION))
                 .map(File::getPath)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**

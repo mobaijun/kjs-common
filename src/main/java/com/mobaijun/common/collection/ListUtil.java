@@ -27,6 +27,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * software：IntelliJ IDEA 2022.2.3<br>
@@ -49,7 +50,7 @@ public class ListUtil {
     public static <K, V> void addAllMapsToList(List<Map<K, V>> list, Map<K, V>... maps) {
         list.addAll(Arrays.stream(maps)
                 .filter(Objects::nonNull)
-                .toList());
+                .collect(Collectors.toList()));
     }
 
 

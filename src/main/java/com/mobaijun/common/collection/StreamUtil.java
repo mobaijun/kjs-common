@@ -118,7 +118,7 @@ public class StreamUtil {
      * @return 过滤后的 List，如果 List 为空则返回一个空 List
      */
     public static <T> List<T> filter(List<T> data, Predicate<T> pre) {
-        return data.isEmpty() ? Collections.emptyList() : data.stream().filter(pre).toList();
+        return data.isEmpty() ? Collections.emptyList() : data.stream().filter(pre).collect(Collectors.toList());
     }
 
     /**
@@ -222,7 +222,7 @@ public class StreamUtil {
             return CollectionUtil.newArrayList();
         }
         // 使用流进行排序并返回排序后的 List
-        return data.stream().sorted(comparator).toList();
+        return data.stream().sorted(comparator).collect(Collectors.toList());
     }
 
     /**
@@ -244,7 +244,7 @@ public class StreamUtil {
                 // 根据提供的排序方法进行排序
                 .sorted(comparing)
                 // 收集成 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -402,7 +402,7 @@ public class StreamUtil {
                 // 过滤掉为 null 的元素
                 .filter(Objects::nonNull)
                 // 收集成一个 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -471,7 +471,7 @@ public class StreamUtil {
      * @return 转换后的 List，如果 List 为空则返回一个空 List
      */
     public static <T, R> List<R> map(List<T> data, Function<T, R> fun) {
-        return data.isEmpty() ? Collections.emptyList() : data.stream().map(fun).toList();
+        return data.isEmpty() ? Collections.emptyList() : data.stream().map(fun).collect(Collectors.toList());
     }
 
     /**
@@ -487,7 +487,7 @@ public class StreamUtil {
             return CollectionUtil.newArrayList();
         }
         // 使用流进行去重并返回去重后的 List
-        return data.stream().distinct().toList();
+        return data.stream().distinct().collect(Collectors.toList());
     }
 
     /**
@@ -592,7 +592,7 @@ public class StreamUtil {
                 // 将原始类型的 long 转换为 Long 对象
                 .boxed()
                 // 收集为 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -607,7 +607,7 @@ public class StreamUtil {
                 // 将每个元素转换为字符串
                 .map(String::valueOf)
                 // 收集为 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -625,7 +625,7 @@ public class StreamUtil {
                 // 将原始类型的 double 转换为 Double 对象
                 .boxed()
                 // 收集为 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
@@ -643,7 +643,7 @@ public class StreamUtil {
                 // 将原始类型的 int 转换为 Integer 对象
                 .boxed()
                 // 收集为 List
-                .toList();
+                .collect(Collectors.toList());
     }
 
     /**
