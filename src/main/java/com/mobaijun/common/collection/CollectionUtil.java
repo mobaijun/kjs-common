@@ -16,7 +16,6 @@
 package com.mobaijun.common.collection;
 
 import com.mobaijun.common.text.StringUtil;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -161,7 +160,7 @@ public class CollectionUtil {
     public static <T> List<T> subList(List<T> list, int offset, int limit) {
         // 将列表转换为流
         Stream<T> stream = list.stream();
-        Optional<Stream<T>> optionalStream = Optional.ofNullable(stream);
+        Optional<Stream<T>> optionalStream = Optional.of(stream);
 
         // 跳过offset个元素
         optionalStream = optionalStream.map(s -> s.skip(offset));

@@ -50,9 +50,8 @@ public class ListUtil {
     public static <K, V> void addAllMapsToList(List<Map<K, V>> list, Map<K, V>... maps) {
         list.addAll(Arrays.stream(maps)
                 .filter(Objects::nonNull)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toCollection(ArrayList::new)));
     }
-
 
     /**
      * 执行全外连接操作，将两个排序列表的结果合并，包括两个列表中未匹配的元素。
