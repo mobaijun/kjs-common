@@ -98,7 +98,7 @@ If you would like to contribute code or make suggestions, please follow these st
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to branch (`git push origin feature/AmazingFeature`)
+4.  push to branch (`git push origin feature/AmazingFeature`)
 5.  Open a Pull Request
 
 Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
