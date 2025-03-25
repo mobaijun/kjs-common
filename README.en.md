@@ -24,47 +24,47 @@
     </a>
 </p>
 
-## other languages
+## Other languages
 
 -   [English](README.en.md)
 
 ## Overview
 
-KJS-COMMON is a tool-based tool library developed by Java. The commonly used tools in project development aim to improve the development efficiency and code quality of Java developers.
+kjs-common is a tool library based on Java development. It encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
 
-This project integrates excellent open source tools commonly used in projects:
+This project integrates excellent open source tools commonly used in the project:
 
--   lombok (simplified physical class)
--   MapStruct (simplified parameter transmission)
+-   lombok (simplified entity class)
+-   mapstruct (simplifies parameter passing)
 
 Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不断完善`
 
 > Note: kjs-common is developed based on JDK1.8. If your JDK version is too low, please find the corresponding tool class, copy the relevant code, and use it.
 
-## Function and characteristics
+## Functions and features
 
--   Provides many commonly used utility functions and extension functions, such as string operations, set operations, date and time operations, etc.
--   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of the code.
--   All tool functions and tool classes have been strictly tested and documented, and can be used with confidence.
+-   Many commonly used tool functions and extension functions are provided, such as string operations, collection operations, date and time operations, etc.
+-   提供了 Stream 处理工具类和文件工具类，以提高代码的健壮性和可读性。
+-   All tool functions and tool classes have been strictly tested and documented and can be used with confidence.
 
-## 发展
+## develop
 
-> This project is planned to support JDK 17 and above version in version 2.0, and the version within 2.0 is based on JDK 8 as the cornerstone, which means that the next 2.x version will not be compatible
-> It is recommended to use the version within 2.0 within JDK 17
+> This project is planned to support JDK 17 and above in version 2.0, and JDK 8 is the cornerstone of the version within 2.0, which means that the future 2.X version will not be compatible with projects below JDK 17, if it is
+> Recommended to use versions below 2.0 for projects under JDK 17
 
-## Exemplary example
+## Example
 
 Test case address:[Test case address](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common)
 
-> All dependent modules will be updated to the latest version simultaneously
+> All dependency modules will be updated synchronously
 
-## quick start
+## Start quickly
 
-You can`kjs-common`Add to your project as dependency.
+You can`kjs-common`Add to your project as a dependency.
 
 ### maven
 
-If you are using Maven, add the following to your`pom.xml`In the file:
+If you are using Maven, please add the following to yours`pom.xml`In the file:
 
 ```xml
 
@@ -77,7 +77,7 @@ If you are using Maven, add the following to your`pom.xml`In the file:
 
 ### Gradle
 
-In Gradle, you can add the following content to your`build.gradle`In the file:
+In Gradle, you can add the following to your`build.gradle`In the file:
 
 ```json
 dependencies {
@@ -85,36 +85,36 @@ dependencies {
 }
 ```
 
-### central warehouse
+### Central warehouse
 
-This warehouse has been released simultaneously[Maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
+This warehouse has been released simultaneously[maven central warehouse](https://mvnrepository.com/artifact/com.mobaijun/kjs-common), welcome to use, welcome to start
 
 <iframe height=850 width=90% src="https://search.maven.org/search?q=com.mobaijun" frameborder=0 allowfullscreen></iframe>
 
 ## contribute
 
-If you want to contribute code or make suggestions, follow the following steps:
+If you want to contribute your code or make suggestions, follow these steps:
 
 1.  Fork this warehouse
 2.  Create your branch (`git checkout -b feature/AmazingFeature`)
 3.  Submit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the branch (`git push origin feature/AmazingFeature`)
-5.  Open a pull request
+4.  Push to branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-Please note that we are an open source community and we welcome contributions from anyone. Please read our[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
+Please note that we are an open source community and we welcome any contribution from anyone. Please read ours carefully before submitting your contribution[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
 ## license
 
-`kjs-common`It is based on Apache
-For the development of the license, please check the details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
+`kjs-common`Based on Apache
+License developed, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
 
 ## author
 
 -   [@Mo Baijun](https://github.com/mobaijun)
 
-## Documentation and examples
+## Documentation and Examples
 
-We provide unit test[Example items](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test), To help you better understand and use the library.
+We provide unit tests[Sample Project](https://github.com/mobaijun/kjs-common/tree/main/src/test/java/com/mobaijun/common/test)to help you better understand and use the library.
 
 ## trend
 
@@ -124,6 +124,6 @@ We provide unit test[Example items](https://github.com/mobaijun/kjs-common/tree/
 
 ![Repobeats analytics](https://repobeats.axiom.co/api/embed/c6b9508b383c2d1c0f1d01b6d3568d5240482f7c.svg "Repobeats analytics image")
 
-## Acknowledgments
+## Acknowledgements
 
-Thank you for using`kjs-common`We will continue to work hard to provide developers with better tool libraries.
+Thank you for using it`kjs-common`, we will continue to work hard to provide developers with a better library of tools.
