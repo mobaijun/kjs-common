@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.mobaijun.common.enums.sys;
+package com.mobaijun.common.enums.sys.dict;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public enum DictType {
+public enum SysDictType {
 
     /**
      * 字典类型-系统内置（不可修改）

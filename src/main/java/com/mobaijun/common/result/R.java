@@ -79,6 +79,17 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 不响应数据，自定义成功提示消息
+     *
+     * @param message 自定义消息内容
+     * @param <T>     消息对象
+     * @return R<T>
+     */
+    public static <T> R<T> ok(String message) {
+        return ok(null, message);
+    }
+
+    /**
      * 返回数据，自定义成功消息
      *
      * @param status 自定义状态码
@@ -130,7 +141,7 @@ public class R<T> implements Serializable {
      *
      * @return R<T>
      */
-    public static <T> R<T> failed(HttpStatus failCode, T data) {
+    public static <T> R<T> failed(T data, HttpStatus failCode) {
         return new R<T>().setCode(failCode.getCode())
                 .setData(data)
                 .setMessage(failCode.getMessage());
@@ -149,7 +160,7 @@ public class R<T> implements Serializable {
      * @param <T>      响应数据的类型
      * @return 返回构建好的 {@code R<T>} 对象，其中包含错误状态码、数据和错误消息
      */
-    public static <T> R<T> failed(HttpStatus failCode, T data, String message) {
+    public static <T> R<T> failed(T data, HttpStatus failCode, String message) {
         return new R<T>()
                 // 使用 HttpStatus 的状态码
                 .setCode(failCode.getCode())
@@ -172,7 +183,7 @@ public class R<T> implements Serializable {
      * @param <T>     响应数据的类型
      * @return 返回构建好的 {@code R<T>} 对象，其中包含错误状态码、数据和错误消息
      */
-    public static <T> R<T> failed(int code, T data, String message) {
+    public static <T> R<T> failed(T data, int code, String message) {
         return new R<T>()
                 // 设置自定义状态码
                 .setCode(code)
