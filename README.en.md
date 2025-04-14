@@ -44,7 +44,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 ## Functions and features
 
 -   Many commonly used tool functions and extension functions are provided, such as string operations, collection operations, date and time operations, etc.
--   提供了 Stream 处理工具类和文件工具类，以提高代码的健壮性和可读性。
+-   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of your code.
 -   All tool functions and tool classes have been strictly tested and documented and can be used with confidence.
 
 ## develop
