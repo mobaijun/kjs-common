@@ -33,7 +33,7 @@ public class LicenseTest {
     public void testAppend() {
         // Perform the method call
         LicenseTitleAppenderUtil.append(
-                "D:\\ideaProject\\team\\kjs-common\\src",
+                "C:\\Users\\mobai\\IdeaProjects\\april-project\\mobaijun-spring-boot-starter",
                 String.format(LicenseType.APACHE_2.getValue(), "www.mobaijun.com"));
     }
 
