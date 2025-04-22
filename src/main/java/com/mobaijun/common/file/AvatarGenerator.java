@@ -125,6 +125,9 @@ public class AvatarGenerator {
             if ("webp".equalsIgnoreCase(format)) {
                 // WebP特殊处理（需要压缩）
                 ImageWriter writer = ImageIO.getImageWritersByMIMEType("image/webp").next();
+                if (!ImageIO.getImageWritersByMIMEType("image/webp").hasNext()) {
+                    throw new UnsupportedOperationException("当前环境不支持WebP格式，请引入TwelveMonkeys库");
+                }
                 ImageWriteParam writeParam = writer.getDefaultWriteParam();
                 writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                 writeParam.setCompressionQuality(quality);
