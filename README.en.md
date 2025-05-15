@@ -30,7 +30,7 @@
 
 ## Overview
 
-kjs-common is a tool library based on Java development. It encapsulates commonly used tools in project development, aiming to improve the development efficiency and code quality of Java developers.
+kjs-common ，是一个基于 Java 开发的工具类库，对项目开发中常用的工具进行封装，旨在提高 Java 开发者的开发效率和代码质量。
 
 This project integrates excellent open source tools commonly used in the project:
 
@@ -43,7 +43,7 @@ Target:`无侵入性`，`轻量级`，`常用功能`，`无数次测试`，`不�
 
 ## Functions and features
 
--   Many commonly used tool functions and extension functions are provided, such as string operations, collection operations, date and time operations, etc.
+-   提供了许多常用的工具函数和扩展函数，例如字符串操作、集合操作、日期和时间操作等。
 -   Stream processing tool classes and file tool classes are provided to improve the robustness and readability of your code.
 -   All tool functions and tool classes have been strictly tested and documented and can be used with confidence.
 
@@ -103,7 +103,7 @@ If you want to contribute your code or make suggestions, follow these steps:
 
 Please note that we are an open source community and we welcome any contribution from anyone. Please read ours carefully before submitting your contribution[Contribution Guide](https://github.com/april-projects/april-norm/blob/main/README.md)。
 
-## license
+## 许可证
 
 `kjs-common`Based on Apache
 License developed, please check for details[LICENSE](https://github.com/mobaijun/kjs-common/blob/main/LICENSE.txt)document.
